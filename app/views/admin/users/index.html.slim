@@ -1,0 +1,32 @@
+= render layout: 'layout_index' do 
+
+  table.table.table-striped.table-hover.table-sm
+    thead.thead-inverse
+      tr
+        th Email
+        th 
+    tbody
+      - @users.each do |user| 
+        tr
+          td= user.email
+          td.action-btns
+            => link_to edit_admin_user_path(user), 
+                        class: "btn btn-sm btn-info", 
+                        title: "Editer" do
+
+              i.fa.fa-pencil
+            = link_to admin_user_path(user),
+                      method: :delete, 
+                      data: {confirm: "Confirmer la suppression ?"}, 
+                      title: "Supprimer", 
+                      class: "btn btn-sm btn-danger" do 
+
+                i.fa.fa-trash
+      
+      - if @users.empty?
+        tr
+          td colspan="7"
+            p.text-center: em.text-muted Aucun résultat
+
+
+  = paginate @users

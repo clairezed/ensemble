@@ -1,3 +1,11 @@
 - content_for :current_navigation_section, :home
 
-h2 Bienvenue dans la partie client
+.card
+  .card-body
+    h2 Inscription
+
+
+
+    = form_for(@user, as: :user, url: registration_path(:user), html: {class: "form-horizontal"}) do |f| 
+
+      = render partial: "user/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 

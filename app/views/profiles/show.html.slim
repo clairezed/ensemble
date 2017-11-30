@@ -1,0 +1,21 @@
+- content_for :current_navigation_section, :profiles 
+
+- if is_current_user?(@user)
+  ul.nav.nav-tabs
+    li.nav-item
+      = link_to "Informations", profile_path(@user), class: "nav-link #{active_if(:profiles)}"
+    li.nav-item
+      = link_to "Paramètres", edit_user_registration_path, class: "nav-link #{active_if(:parameters)}"
+
+
+.card
+  .card-body
+    h1 = user_nickname(@user)
+
+    p = user_gender(@user.gender)
+    p = user_age(@user.birthdate)
+
+    p = @user.description
+
+    - if is_current_user?(@user)
+      = link_to "Modifier mon profil",  edit_profile_path, class: "btn btn-primary"

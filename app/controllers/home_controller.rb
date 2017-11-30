@@ -3,6 +3,7 @@
 class HomeController < ApplicationController
   def index
     get_seo_for_static_page('home')
+    @user = User.new_with_session({}, session)
   end
 
   def accept_cookies

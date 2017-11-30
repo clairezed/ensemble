@@ -29,7 +29,7 @@ html lang="#{I18n.locale}"
         .container
           = link_to root_path, class: "navbar-brand" do
             = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
-            ' Projet
+            ' Ensemble
             
           button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
             span.navbar-toggler-icon
@@ -40,6 +40,11 @@ html lang="#{I18n.locale}"
                 = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
               li.nav-item
                 = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
+              - if current_user.present?
+                li.nav-item
+                  = link_to "Mon profil", profile_path(current_user), class: "nav-link"
+                li.nav-item
+                  = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"
                 
 
 

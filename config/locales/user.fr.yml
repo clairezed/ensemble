@@ -1,0 +1,40 @@
+fr:
+  activerecord:
+    attributes:
+      user:
+        email:                      L'email
+        firstname:                  Le prénom
+        lastname:                   Le nom
+        password:                   Le mot de passe
+        password_confirmation:      Le mot de passe
+        current_password:           ''
+        new_password:               Le nouveau mot de passe
+        new_password_confirmation:  Le nouveau mot de passe
+      asset/user_avatar:
+        asset:              Le fichier
+        asset_file_size:    Le poids du fichier
+        asset_content_type: Le format
+
+  helpers:
+    label:
+      user:
+        email:                      Email
+        firstname:                  Prénom
+        lastname:                   Nom
+        birthdate:                  Date de naissance
+        password:                   Mot de passe
+        password_confirmation:      Mot de passe (confirmation)
+        current_password:           Mot de passe actuel
+        new_password:               Nouveau mot de passe
+        new_password_confirmation:  Nouveau mot de passe (confirmation)
+        address:                    Adresse
+        zipcode:                    Code postal
+        city:                       Ville
+        phone:                      N° de téléphone mobile
+        sms_notification:           Notification sms
+        email_notification:         Notification email
+  
+  user:
+    genders:
+      male: Homme
+      female: Femme

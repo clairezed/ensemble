@@ -3,6 +3,12 @@
 Rails.application.routes.draw do
   devise_for :admin
 
+  devise_for :users, path: "mon-compte", controllers: {
+        sessions: 'user/sessions',
+        registrations: 'user/registrations'
+      }
+
+
   # Concerns ======================================
 
   concern :positionable do
@@ -15,9 +21,22 @@ Rails.application.routes.draw do
     resources :admins
     resources :basic_pages, concerns: :positionable
     resources :seos, only: %i[index edit update]
+    resources :users
     root to: 'dashboard#index'
   end
 
+  # User ======================================
+  scope controller: 'user/registrations' do
+      get  :new_second_step, path: 'finaliser-inscription'
+      patch :create_second_step
+      get :edit_profile
+      patch :update_profile
+    end
+
+  namespace :user do
+  end
+
+  resources :profiles, only: [:show]
   # Front ======================================
 
   resources :basic_pages, only: [:show]

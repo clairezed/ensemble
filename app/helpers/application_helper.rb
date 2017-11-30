@@ -76,6 +76,14 @@ module ApplicationHelper
     content_for(:current_navigation_sub_section) == sub_section.to_s
   end
 
+  def active_if(section)
+    if (currently_in_section?(section) || currently_in_sub_section?(section))
+      return 'active'
+    else
+      return ''
+    end
+  end
+
   # cree un lien enveloppe dans un li
   # dont la class est 'active' si la section ou la sous-section
   # de navigation courante est celle donnee en argument

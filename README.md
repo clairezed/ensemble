@@ -278,3 +278,19 @@ Clear down the old Containers and Images
   docker rm $(docker ps -a -q)
   # Delete all images
   docker rmi $(docker images -q)
+
+## Gotchas
+
+### Port 5432 allocated
+
+  Bind for 0.0.0.0:5432 failed: port is already allocated
+
+Solution : 
+  
+  sudo service docker restart
+
+
+## Infos 
+
+- http://www.data.gouv.fr/fr/datasets/base-officielle-des-codes-postaux/
+https://data.opendatasoft.com/explore/dataset/geoflar-communes-2016%40api-agro/table/?location=11,48.17822,6.51764&basemap=jawg.light

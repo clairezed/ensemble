@@ -10,44 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215170753) do
+ActiveRecord::Schema.define(version: 20171127155733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",              default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
-    t.integer  "sign_in_count",      default: 0
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.integer "sign_in_count", default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["email"], name: "index_admins_on_email", unique: true
   end
 
   create_table "basic_pages", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "position"
-    t.boolean  "enabled",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string "title"
+    t.text "content"
+    t.integer "position"
+    t.boolean "enabled", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seos", force: :cascade do |t|
-    t.string   "slug"
-    t.string   "title"
-    t.string   "keywords"
-    t.text     "description"
-    t.string   "seoable_type"
-    t.integer  "seoable_id"
-    t.string   "param"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["seoable_type", "seoable_id"], name: "index_seos_on_seoable_type_and_seoable_id", using: :btree
+    t.string "slug"
+    t.string "title"
+    t.string "keywords"
+    t.text "description"
+    t.string "seoable_type"
+    t.integer "seoable_id"
+    t.string "param"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seoable_type", "seoable_id"], name: "index_seos_on_seoable_type_and_seoable_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "firstname"
+    t.string "lastname"
+    t.integer "gender"
+    t.date "birthdate"
+    t.string "phone"
+    t.text "description"
+    t.boolean "sms_notification", default: false
+    t.boolean "email_notification", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

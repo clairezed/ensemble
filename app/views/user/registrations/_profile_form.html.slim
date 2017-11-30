@@ -1,0 +1,26 @@
+= f.hm_form_errors
+
+.form-group
+  label Genre
+  br
+  - User.genders.each do |key, value|
+    .form-check.form-check-inline
+      label.form-check-label
+        => f.radio_button :gender, key, class: "form-check-input"
+        => user_gender(key)
+  
+  .form-group
+    = f.label :birthdate, class: ''
+    = f.text_field :birthdate, class: 'form-control'
+
+  .form-group
+    = f.label :description, class: ''
+    = f.text_field :description, class: 'form-control'
+
+  / City
+  / Langues
+  / Pays
+
+
+
+

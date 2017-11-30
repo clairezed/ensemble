@@ -1,0 +1,29 @@
+= f.hm_form_errors
+
+.form-group.required
+  = f.label :firstname, class: ''
+  = f.text_field :firstname, class: 'form-control'
+.form-group.required
+  = f.label :lastname, class: ''
+  = f.text_field :lastname, class: 'form-control'
+.form-group.required
+  = f.label :email, class: ''
+  = f.email_field :email, class: 'form-control'
+.form-group.required
+  = f.label :password, class: ''
+  = f.password_field :password, class: 'form-control'
+/ = f.shb_text_field :lastname, {class: "required"}
+/ = f.shb_text_field :firstname, {class: "required"}
+/ = f.shb_email_field :email, {class: "required"}
+/ = f.shb_text_field :phone
+/ = f.shb_text_field :address
+/ = f.shb_text_field :zipcode
+/ = f.shb_text_field :city
+/ = f.shb_password_field :password
+/ = f.shb_password_field :password_confirmation
+/ - if !f.object.new_record?
+/   = f.shb_password_field :current_password
+.form-group
+  .form-actions
+    hr
+    => f.submit button_name, class: "btn btn-primary"

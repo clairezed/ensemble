@@ -1,0 +1,15 @@
+- content_for :current_navigation_section, :users
+
+.title-block
+  h1 
+    | Gestion des Utilisateurs
+
+    = link_to new_admin_user_path, class: "btn btn-info float-right" do
+      i.fa.fa-plus>
+      | Ajouter un utilisateur
+
+.card
+  .card-body
+    small.float-right = I18n.t("results", count: @users.count)
+    = yield
+
