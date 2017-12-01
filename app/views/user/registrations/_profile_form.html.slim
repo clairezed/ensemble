@@ -9,13 +9,18 @@
         => f.radio_button :gender, key, class: "form-check-input"
         => user_gender(key)
   
-  .form-group
-    = f.label :birthdate, class: ''
-    = f.text_field :birthdate, class: 'form-control'
+.form-group
+  = f.label :birthdate, class: ''
+  = f.text_field :birthdate, class: 'form-control'
 
-  .form-group
-    = f.label :description, class: ''
-    = f.text_field :description, class: 'form-control'
+.form-group
+  = f.label :description, class: ''
+  = f.text_field :description, class: 'form-control'
+
+
+.form-group
+  = f.label :city_id, class: ''
+  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
   / City
   / Langues
@@ -23,4 +28,5 @@
 
 
 
-
+  coffee:
+    new ProfileEdit()

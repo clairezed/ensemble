@@ -12,6 +12,9 @@ class User < ApplicationRecord
     male: 1
   }
 
+  # Associations ===============================================================
+
+  belongs_to :city, optional: true
 
   # Validations ==================================================================
   validates :lastname,

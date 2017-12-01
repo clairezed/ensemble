@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127155733) do
+ActiveRecord::Schema.define(version: 20171130221440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,21 @@ ActiveRecord::Schema.define(version: 20171127155733) do
     t.boolean "enabled", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "department_name"
+    t.string "department_code", limit: 3
+    t.string "name"
+    t.string "normalized_name"
+    t.string "zipcode", limit: 5
+    t.string "insee", limit: 5
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_code"], name: "index_cities_on_department_code"
+    t.index ["zipcode"], name: "index_cities_on_zipcode"
   end
 
   create_table "seos", force: :cascade do |t|
@@ -71,6 +86,8 @@ ActiveRecord::Schema.define(version: 20171127155733) do
     t.boolean "email_notification", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
         registrations: 'user/registrations'
       }
 
-
   # Concerns ======================================
 
   concern :positionable do
@@ -33,15 +32,22 @@ Rails.application.routes.draw do
       patch :update_profile
     end
 
-  namespace :user do
-  end
-
   resources :profiles, only: [:show]
   # Front ======================================
 
   resources :basic_pages, only: [:show]
+  resources :cities, only: [:index]
+
+
+
   put '/accept_cookies', to: 'home#accept_cookies'
   get '/:filename', to: 'statics#show'
+
+  devise_scope :user do
+    authenticated :user do
+      root 'user/registrations#edit_profile', as: :authenticated_root
+    end
+  end
 
   root to: 'home#index'
 

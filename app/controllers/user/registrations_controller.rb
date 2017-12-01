@@ -94,13 +94,12 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def second_step_params
-    params.require(:user).permit(:gender, :phone, :birthdate, :description, 
-      :sms_notification, :email_notification)
+    params.require(:user).permit(:phone, :sms_notification, :email_notification,
+    *profile_params_array )
   end
 
   def profile_params
-    params.require(:user).permit(:gender, :phone, :birthdate, :description, 
-      :sms_notification, :email_notification)
+    params.require(:user).permit(*profile_params_array)
   end
 
   def parameters_params
@@ -110,11 +109,15 @@ class User::RegistrationsController < Devise::RegistrationsController
       )
   end
   
-  #If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [
-      :email, :phone, :sms_notification, :email_notification, 
-      :password, :current_password, :password_confirmation])
+  # #If you have extra params to permit, append them to the sanitizer.
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [
+  #     :email, :phone, :sms_notification, :email_notification, 
+  #     :password, :current_password, :password_confirmation])
+  # end
+
+  def profile_params_array
+    [:gender, :phone, :birthdate, :description, :city_id]
   end
 
   # The path used after sign up.

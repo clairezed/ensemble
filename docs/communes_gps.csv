@@ -1,4 +1,4 @@
-EU_circo;code_région;nom_région;chef-lieu_région;numéro_département;nom_département;préfecture;numéro_circonscription;nom_commune;codes_postaux;code_insee;latitude;longitude;éloignement
+0_EU_circo;01_code_région;02_nom_région;03_chef-lieu_région;04_numéro_département;05_nom_département;06_préfecture;07_numéro_circonscription;08_nom_commune;09_codes_postaux;10_code_insee;11_latitude;12_longitude;13_éloignement
 Sud-Est;82;Rhône-Alpes;Lyon;01;Ain;Bourg-en-Bresse;1;Attignat;01340;01024;46.283333;5.166667;1.21
 Sud-Est;82;Rhône-Alpes;Lyon;01;Ain;Bourg-en-Bresse;1;Beaupont;01270;01029;46.4;5.266667;1.91
 Sud-Est;82;Rhône-Alpes;Lyon;01;Ain;Bourg-en-Bresse;1;Bény;01370;01038;46.333333;5.283333;1.51
@@ -4769,14 +4769,23 @@ Sud-Ouest;73;Midi-Pyrénées;Toulouse;12;Aveyron;Rodez;3;Vézins-de-Lévézou;12
 Sud-Ouest;73;Midi-Pyrénées;Toulouse;12;Aveyron;Rodez;3;Viala-du-Pas-de-Jaux;12250;12295;43.95;3.05;1.59
 Sud-Ouest;73;Midi-Pyrénées;Toulouse;12;Aveyron;Rodez;3;Viala-du-Tarn;12490;12296;44.066667;2.883333;1.05
 Sud-Ouest;73;Midi-Pyrénées;Toulouse;12;Aveyron;Rodez;3;Villefranche-de-Panat;12430;12299;44.083333;2.716667;0.98
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;1;Marseille;13001 13004 13012 ;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;2;Marseille;13008 13006;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;3;Marseille;13001 13002 13007;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13003 13015 13016;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;5;Marseille;13005 13006 13010;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;6;Marseille;13009 13010 13011;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;7;Marseille;13013 13014 13015;13055;;;
-Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;8;Marseille;13011 13012 13013;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;1;Marseille;13001;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;2;Marseille;13002;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13003;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;1;Marseille;13004;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;5;Marseille;13005;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;2;Marseille;13006;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;3;Marseille;13007;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;2;Marseille;13008;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;2;Marseille;13009;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;1;Marseille;13012 ;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;1;Marseille;13010 ;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13011;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13012;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13013;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13014;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13015;13055;;;
+Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;4;Marseille;13016;13055;;;
 Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;9;Aubagne;13400;13005;43.283333;5.566667;1.55
 Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;9;Carnoux-en-Provence;13470;13119;;;
 Sud-Est;93;Provence-Alpes-Côte d'Azur;Marseille;13;Bouches-du-Rhône;Marseille;9;Cassis;13260;13022;43.216667;5.533333;1.99
@@ -28497,10 +28506,15 @@ Est;42;Alsace;Strasbourg;68;Haut-Rhin;Colmar;7;Ungersheim;68190;68343;47.883333;
 Est;42;Alsace;Strasbourg;68;Haut-Rhin;Colmar;7;Wattwiller;68700;68359;47.85;7.166667;1.62
 Est;42;Alsace;Strasbourg;68;Haut-Rhin;Colmar;7;Wittelsheim;68310;68375;47.816667;7.25;0.2
 Est;42;Alsace;Strasbourg;68;Haut-Rhin;Colmar;7;Wuenheim;68500;68381;47.883333;7.2;0.59
-Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;1;Lyon;69002 69008 69007 69005 69009;69123;;;
-Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;2;Lyon;69001 69002 69004 69009;69123;;;
-Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;3;Lyon;69003 69007 69008;69123;;;
-Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69003 69006 69008;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;1;Lyon;69001;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;2;Lyon;69002;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;3;Lyon;69003;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69004;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69005;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69006;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69007;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69008;69123;;;
+Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;4;Lyon;69009;69123;;;
 Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;5;Albigny-sur-Saône;69250;69003;45.816667;4.45;2.5
 Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;5;Cailloux-sur-Fontaines;69270;69033;45.85;4.866667;1.62
 Sud-Est;82;Rhône-Alpes;Lyon;69;Rhône;Lyon;5;Caluire-et-Cuire;69300;69034;45.8;4.85;1.5
@@ -30892,25 +30906,24 @@ Sud-Est;82;Rhône-Alpes;Lyon;74;Haute-Savoie;Annecy;5;Ville-en-Sallaz;74250;7430
 Sud-Est;82;Rhône-Alpes;Lyon;74;Haute-Savoie;Annecy;5;Vinzier;74500;74308;46.35;6.633333;1.99
 Sud-Est;82;Rhône-Alpes;Lyon;74;Haute-Savoie;Annecy;5;Viuz-en-Sallaz;74250;74311;46.15;6.416667;0.61
 Sud-Est;82;Rhône-Alpes;Lyon;74;Haute-Savoie;Annecy;5;Yvoire;74140;74315;46.366667;6.333333;2.1
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;1;Paris;75001 75002 75003 75004;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;2;Paris;75005 75006;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;3;Paris;75006 75007;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;4;Paris;75008 75009;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;1;Paris;75001;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;1;Paris;75002;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;1;Paris;75003;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;1;Paris;75004;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;2;Paris;75005;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;3;Paris;75006;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;3;Paris;75007;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;4;Paris;75008;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;4;Paris;75009;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;5;Paris;75010;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;6;Paris;75011 75020;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;7;Paris;75011 75012;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;6;Paris;75011;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;8;Paris;75012;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;9;Paris;75013;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;10;Paris;75013 75014;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;11;Paris;75014;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;12;Paris;75015;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;13;Paris;75015;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;14;Paris;75016;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;15;Paris;75016;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;16;Paris;75017;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;17;Paris;75017 75018;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;18;Paris;75018;75056;;;
-Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;19;Paris;75018 75019;75056;;;
+Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;19;Paris;75018;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;20;Paris;75019;75056;;;
 Île-de-France;11;Île-de-France;Paris;75;Paris;Paris;21;Paris;75020;75056;;;
 Nord-Ouest;23;Haute-Normandie;Rouen;76;Seine-Maritime;Rouen;1;Rouen;76000;76540;49.433333;1.083333;1.82
