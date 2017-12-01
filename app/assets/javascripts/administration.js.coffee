@@ -6,9 +6,9 @@
 #= require vendor/redactor.min 
 
 #= require_tree ./admin
-#= require_tree ./locales
+#= require_tree ./vendor/locales
 
-#= require ./shared/flash-messages
+#= require ./components/flash-messages
 
 
 $ ->

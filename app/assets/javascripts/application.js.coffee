@@ -3,12 +3,17 @@
 #= require popper
 #= require bootstrap
 
-#= require ./shared/flash-messages
+#= require select2/dist/js/select2.full.min
+
+#= require ./components/flash-messages
+#= require ./components/select2-simple
+#= require ./components/select2-ajax
+
+#= require_tree ./front
 
 
 $ ->
   $('.tooltip_bottom').tooltip(placement: 'bottom')
-
 
 @ajax_accept_cookies = (path) ->
   $.ajax
