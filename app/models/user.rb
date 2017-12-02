@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   belongs_to :city, optional: true
 
+  has_one :avatar,
+          class_name: '::Asset::UserAvatar',
+          as: :assetable,
+          dependent: :destroy
+  accepts_nested_attributes_for :avatar, allow_destroy: true
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,
@@ -63,6 +69,17 @@ class User < ApplicationRecord
     return self unless self.is_a?(ActiveRecord::Relation)
 
     klass.apply_sorts(params)
+  end
+
+  # Instance methods ====================================================
+
+  # Picture --------------------------------------------------------------
+
+  # Url pointant soit vers le avatar, soit vers l'image par défaut du format
+  # demandé
+  #
+  def avatar_url(format)
+    self.avatar ? self.avatar.asset(format) : self.build_avatar.asset(format)
   end
 
 

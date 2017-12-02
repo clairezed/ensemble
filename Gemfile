@@ -31,6 +31,8 @@ gem 'slim', '~> 3.0.7'
 gem 'font-awesome-rails'
 gem 'kaminari'
 
+# Uploads ================================================
+gem 'paperclip', '~> 5.1'
 
 group :development do
   gem 'listen', '~> 3.1.5'

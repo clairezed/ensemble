@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130221440) do
+ActiveRecord::Schema.define(version: 20171202152259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,22 @@ ActiveRecord::Schema.define(version: 20171130221440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "assets", force: :cascade do |t|
+    t.string "assetable_type"
+    t.bigint "assetable_id"
+    t.string "asset_file_name"
+    t.string "asset_content_type"
+    t.integer "asset_file_size"
+    t.string "title"
+    t.string "alt"
+    t.integer "position"
+    t.string "type"
+    t.string "custom_file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id"
   end
 
   create_table "basic_pages", force: :cascade do |t|

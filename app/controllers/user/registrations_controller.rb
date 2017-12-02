@@ -37,6 +37,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # Second formulaire d'inscription ------------------
   def new_second_step
+    @user.build_avatar unless @user.avatar
   end
 
   def create_second_step
@@ -46,6 +47,7 @@ class User::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "Votre inscription a bien été finalisée"
       redirect_to action: :edit_profile
     else
+      @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
       render :new_second_step
     end
@@ -122,7 +124,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   def profile_params_array
-    [:gender, :phone, :birthdate, :description, :city_id]
+    [:gender, :phone, :birthdate, :description, :city_id, avatar_attributes: [ :id, :asset, :_destroy]]
   end
 
   # The path used after sign up.

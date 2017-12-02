@@ -10,6 +10,7 @@
 
 .card
   .card-body
+    = image_tag @user.avatar_url(:detail)
     h1 = user_nickname(@user)
 
     p = user_gender(@user.gender)

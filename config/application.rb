@@ -14,5 +14,7 @@ module RailsStarter
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = "Paris"
+
+    config.max_upload_size = 4.megabytes
   end
 end
