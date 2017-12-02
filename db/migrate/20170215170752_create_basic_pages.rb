@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateBasicPages < ActiveRecord::Migration
+class CreateBasicPages < ActiveRecord::Migration[5.1]
   def change
     create_table :basic_pages do |t|
       t.string :title

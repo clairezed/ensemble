@@ -45,6 +45,8 @@ group :test, :development do
   gem 'capybara'
   gem 'email_spec'
   gem 'rspec-rails', '~> 3.0'
+  gem 'pry-rails'
+  gem 'better_errors'
   gem 'rubocop', require: false
 end
 

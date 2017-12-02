@@ -5,11 +5,16 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   enum gender: { 
     female: 0, 
     male: 1
+  }
+
+  enum affiliation: { 
+    normal: 0, 
+    mirador: 1
   }
 
   # Associations ===============================================================
@@ -20,6 +25,14 @@ class User < ApplicationRecord
   validates :lastname,
             :firstname,
             presence: true
+
+  with_options if: :persisted? do |user|
+    user.validates :gender,
+      :phone,
+      :birthdate,
+      :city,
+      presence: true
+  end
 
   # Class Methods ==============================================================
 

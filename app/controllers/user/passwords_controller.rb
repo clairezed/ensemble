@@ -1,6 +1,7 @@
 class User::PasswordsController < Devise::PasswordsController
+  layout 'unregistered', only: [:new, :create]
+
   skip_before_action :authenticate_user!
-  layout :set_layout
 
   # GET /resource/password/new
   # def new
@@ -33,7 +34,5 @@ class User::PasswordsController < Devise::PasswordsController
   #   super(resource_name)
   # end
   private 
-  def set_layout
-    current_user.present? ? 'application' : 'unconnected'
-  end
+
 end

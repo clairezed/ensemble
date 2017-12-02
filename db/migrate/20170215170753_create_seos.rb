@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateSeos < ActiveRecord::Migration
+class CreateSeos < ActiveRecord::Migration[5.1]
   def change
     create_table :seos do |t|
       t.string :slug

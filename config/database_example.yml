@@ -10,9 +10,9 @@ local_credentials: &local_credentials
 development:
   <<: *default
   <<: *local_credentials
-  database: rails_starter_development
+  database: ensemble_development
 
 test:
   <<: *default
   <<: *local_credentials
-  database: rails_starter_test
+  database: ensemble_test

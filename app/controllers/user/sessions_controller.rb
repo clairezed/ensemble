@@ -1,6 +1,10 @@
 class User::SessionsController < Devise::SessionsController
+
+  layout 'unregistered', except: [:destroy]
+
+  skip_before_action :authenticate_user!, only: [:new, :create]  
   # before_action :configure_sign_in_params, only: [:create]
-  # skip_before_action :authenticate_user!
+
   # layout :set_layout
   
   # GET /resource/sign_in
@@ -25,7 +29,5 @@ class User::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   private 
-  def set_layout
-    current_user.present? ? 'application' : 'unconnected'
-  end
+
 end

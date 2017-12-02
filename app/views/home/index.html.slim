@@ -9,3 +9,6 @@
     = form_for(@user, as: :user, url: registration_path(:user), html: {class: "form-horizontal"}) do |f| 
 
       = render partial: "user/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
+
+
+    = link_to "Déjà inscrit ?", new_session_path(:user)

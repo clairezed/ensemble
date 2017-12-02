@@ -184,4 +184,20 @@ module ApplicationHelper
 
     result
   end
+
+  # Boolean ---------------------------------------------
+
+  def boolean_icon(bool)
+    bool_icon = I18n.t(bool, scope: [:boolean, :icon])
+    content_tag :i, "", class: "fa fa-#{bool_icon}"
+  end
+
+  def boolean_badge(bool)
+    bool_color = I18n.t(bool, scope: [:boolean, :color])
+    content_tag :span, boolean_text(bool), class: "badge badge-#{bool_color}"
+  end
+
+  def boolean_text(bool)
+    I18n.t(bool, scope: [:boolean, :text])
+  end
 end

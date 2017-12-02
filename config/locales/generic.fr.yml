@@ -166,6 +166,23 @@ fr:
   
   form_errors: Des erreurs ont été rencontrées
 
+
+  # Boolean
+  boolean:
+    text:
+      :true:  Oui
+      :false: Non
+    checkmark:
+      :true:  ✓
+      :false: ×
+    color:
+      :true:  success
+      :false: danger
+    icon:
+      :true:  check
+      :false: times
+
+
   # Kaminari pagination --------------------
   helpers:
     page_entries_info:

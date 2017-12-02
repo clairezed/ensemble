@@ -3,12 +3,18 @@
   table.table.table-striped.table-hover.table-sm
     thead.thead-inverse
       tr
+        th Nom
+        th Prénom
         th Email
+        th Inscription finalisée ?
         th 
     tbody
       - @users.each do |user| 
         tr
+          td= user.lastname
+          td= user.firstname
           td= user.email
+          td= td= boolean_badge(user.registration_complete)
           td.action-btns
             => link_to edit_admin_user_path(user), 
                         class: "btn btn-sm btn-info", 

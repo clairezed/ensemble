@@ -1,6 +1,6 @@
 = f.hm_form_errors
 
-.form-group
+.form-group.required
   label Genre
   br
   - User.genders.each do |key, value|
@@ -9,11 +9,11 @@
         => f.radio_button :gender, key, class: "form-check-input"
         => user_gender(key)
   
-  .form-group
+  .form-group.required
     = f.label :phone, class: ''
     = f.text_field :phone, class: 'form-control'
   
-  .form-group
+  .form-group.required
     = f.label :birthdate, class: ''
     = f.text_field :birthdate, class: 'form-control'
 
@@ -32,11 +32,14 @@
     => f.check_box :email_notification, {class: "form-check-input"}, 'true', 'false'
     = f.label :email_notification
 
-  / City
+.form-group.required
+  = f.label :city_id, class: ''
+  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
+
+
+
   / Langues
   / Pays
 
-.form-group
-  .form-actions
-    hr
-    => f.submit "Finaliser mon compte", class: "btn btn-primary", style: "margin-right: 2px", id: "submit_and_leave"
+coffee:
+  new RegistrationSecondStep()

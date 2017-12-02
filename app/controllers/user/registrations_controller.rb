@@ -1,7 +1,11 @@
 class User::RegistrationsController < Devise::RegistrationsController
 
+  layout 'unregistered', only: [:new, :create, :new_second_step, :create_second_step]
+
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
+
   before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
   before_action :find_user, only: [:new_second_step, :create_second_step, :edit_profile, :update_profile]
 
 
@@ -38,8 +42,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create_second_step
     @user.attributes = second_step_params
     if @user.save
-      flash[:notice] = "L'utilisateur a été mis à jour avec succès"
-      redirect_to action: :new_second_step
+      @user.update(registration_complete: true)
+      flash[:notice] = "Votre inscription a bien été finalisée"
+      redirect_to action: :edit_profile
     else
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
       render :new_second_step
@@ -143,10 +148,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   
   def find_user
     @user = current_user
-  end
-
-  def set_layout
-    (current_user.present? && current_user.persisted?) ? 'application' : 'unconnected'
   end
 
 end

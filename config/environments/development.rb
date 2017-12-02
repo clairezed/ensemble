@@ -73,7 +73,7 @@ Rails.application.configure do
 
   # Mail config =========================
   # Config for mailcatcher
-  MAILCATCHER_HOST = ENV['MAILCATCHER_HOST'] || 'localhost'
+  MAILCATCHER_HOST = ENV['MAILCATCHER_HOST'] || 'mailcatcher'
   config.action_mailer.default_url_options = { host: HOST }
   config.action_mailer.asset_host = URL
   config.action_mailer.delivery_method = :smtp

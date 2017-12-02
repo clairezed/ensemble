@@ -11,8 +11,8 @@ default: &default
 
 development:
   <<: *default
-  database: rails_starter_development
+  database: ensemble_development
 
 test:
   <<: *default
-  database: rails_starter_test
+  database: ensemble_test

@@ -30,21 +30,23 @@ html lang="#{I18n.locale}"
           = link_to root_path, class: "navbar-brand" do
             / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
             ' Ensemble
-            
-          button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-            span.navbar-toggler-icon
 
-          #navbarSupportedContent.collapse.navbar-collapse
-            ul.nav.navbar-nav.mr-auto
-              li.nav-item
-                = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
-              li.nav-item
-                = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
-              - if current_user.present?
-                li.nav-item
-                  = link_to "Mon profil", profile_path(current_user), class: "nav-link"
-                li.nav-item
-                  = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"
+          = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
+            
+          / button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          /   span.navbar-toggler-icon
+
+          / #navbarSupportedContent.collapse.navbar-collapse
+          /   ul.nav.navbar-nav.mr-auto
+          /     li.nav-item
+          /       = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
+          /     li.nav-item
+          /       = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
+          /     - if current_user.present?
+          /       li.nav-item
+          /         = link_to "Mon profil", profile_path(current_user), class: "nav-link"
+          /       li.nav-item
+          /         = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"
                 
 
 

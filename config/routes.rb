@@ -3,9 +3,11 @@
 Rails.application.routes.draw do
   devise_for :admin
 
-  devise_for :users, path: "mon-compte", controllers: {
+  devise_for :user, path: "mon-compte", controllers: {
         sessions: 'user/sessions',
-        registrations: 'user/registrations'
+        registrations: 'user/registrations',
+        passwords: 'user/passwords',
+        confirmations: 'user/confirmations'
       }
 
   # Concerns ======================================

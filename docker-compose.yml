@@ -33,6 +33,7 @@ services:
       - app-gems:/usr/local/bundle
     links:
       - db
+      - mailcatcher
     depends_on:
       - 'db'
     tty: true

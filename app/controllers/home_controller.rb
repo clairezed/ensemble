@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
+  layout 'unregistered', only: [:index]
+
+  skip_before_action :authenticate_user!, only: [:index]
+
+
   def index
     get_seo_for_static_page('home')
     @user = User.new_with_session({}, session)
