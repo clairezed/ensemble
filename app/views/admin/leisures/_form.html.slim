@@ -1,0 +1,12 @@
+= f.hm_form_errors
+
+.form-group.required
+  = f.label :leisure_category_id
+  = f.select :leisure_category_id, leisure_category_options, {include_blank: false}, class: "form-control",  data: {is_select2: 'leisure_category'}
+
+.form-group.required
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+
+.form-group
+  => f.submit "Valider", class: "btn btn-primary"

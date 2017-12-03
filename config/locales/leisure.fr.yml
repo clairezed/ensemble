@@ -1,0 +1,17 @@
+fr:
+  activerecord:
+    attributes:
+      leisure:
+        title: Le titre
+        leisure_category: La famille de loisir 
+      leisure_category:
+        title: Le titre
+
+  helpers:
+    label:
+      leisure:
+        title: Titre 
+        leisure_category: Famille de loisir 
+        leisure_category_id: Famille de loisir 
+      leisure_category:
+        title: Titre 

@@ -27,6 +27,9 @@ class User < ApplicationRecord
           dependent: :destroy
   accepts_nested_attributes_for :avatar, allow_destroy: true
 
+  has_many :leisure_interests, dependent: :destroy
+  has_many :leisures, through: :leisure_interests
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171202152259) do
+ActiveRecord::Schema.define(version: 20171202164218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,29 @@ ActiveRecord::Schema.define(version: 20171202152259) do
     t.index ["zipcode"], name: "index_cities_on_zipcode"
   end
 
+  create_table "leisure_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leisure_interests", force: :cascade do |t|
+    t.bigint "leisure_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leisure_id"], name: "index_leisure_interests_on_leisure_id"
+    t.index ["user_id"], name: "index_leisure_interests_on_user_id"
+  end
+
+  create_table "leisures", force: :cascade do |t|
+    t.bigint "leisure_category_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leisure_category_id"], name: "index_leisures_on_leisure_category_id"
+  end
+
   create_table "seos", force: :cascade do |t|
     t.string "slug"
     t.string "title"
@@ -115,4 +138,7 @@ ActiveRecord::Schema.define(version: 20171202152259) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "leisure_interests", "leisures"
+  add_foreign_key "leisure_interests", "users"
+  add_foreign_key "leisures", "leisure_categories"
 end

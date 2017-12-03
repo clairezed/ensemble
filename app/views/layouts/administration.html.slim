@@ -41,9 +41,9 @@ html lang="#{I18n.locale}"
                 = menu_link admin_users_path, section: :section1, title: "Retour à l'accueil" do 
                   i.fa.fa-users
                   | Utilisateurs
-                = menu_link '#', section: :section2, title: "Retour à l'accueil" do 
+                = menu_link admin_leisure_categories_path, section: :leisure_menu, title: "Loisirs" do 
                   i.fa.fa-bar-chart
-                  | Section 2
+                  | Loisirs
                 = menu_link '#', section: :section3, title: "Retour à l'accueil" do 
                   i.fa.fa-table
                   | Section 3

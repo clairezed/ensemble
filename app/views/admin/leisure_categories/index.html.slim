@@ -1,0 +1,35 @@
+- content_for :current_navigation_sub_section, :leisure_categories
+
+= render layout: 'admin/leisure_categories/layout' do
+
+  = link_to "Nouvelle famille de loisirs", new_admin_leisure_category_path, class:'btn btn-primary float-right'
+  
+  h2 Familles de loisirs
+
+
+  table.table.table-striped.table-hover.table-sm
+    thead.thead-inverse
+      tr
+        th Date de création
+        th Titre
+        th Loisirs
+        th 
+    tbody
+      - @leisure_categories.each do |leisure_category| 
+        tr
+          td= l leisure_category.created_at
+          td= leisure_category.title
+          td= link_to admin_leisures_path(by_leisure_category: leisure_category.id), class: "btn btn-light btn-sm" do
+            i.fa.fa-list>
+            = leisure_category.leisures.count
+          td=> link_to edit_admin_leisure_category_path(leisure_category), class: "btn btn-sm btn-info mr-2", title: "Editer" do
+            i.fa.fa-pencil
+            = link_to admin_leisure_category_path(leisure_category), method: :delete, data: {confirm: "Confirmer la suppression ?"}, title: "Supprimer", class: "btn btn-sm btn-danger" do
+              i.fa.fa-trash
+      
+      - if @leisure_categories.empty?
+        tr
+          td colspan="7"
+            p.text-center: em.text-muted Aucune famille de loisirs
+
+  = paginate @leisure_categories

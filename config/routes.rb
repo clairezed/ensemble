@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :basic_pages, concerns: :positionable
     resources :seos, only: %i[index edit update]
     resources :users
+    resources :leisure_categories
+    resources :leisures
     root to: 'dashboard#index'
   end
 
