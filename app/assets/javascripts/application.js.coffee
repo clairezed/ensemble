@@ -9,6 +9,7 @@
 #= require ./components/select2-simple
 #= require ./components/select2-ajax
 #= require ./components/event-form
+#= require ./components/sms-confirmation
 
 #= require_tree ./front
 

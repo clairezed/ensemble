@@ -88,4 +88,15 @@ class User < ApplicationRecord
   end
 
 
+  # Vérification --------------------------------------------------------
+
+  def sms_confirmed?
+    !sms_confirmed_at.blank?
+  end
+
+  def fully_confirmed?
+    confirmed? & sms_confirmed?
+  end
+
+
 end

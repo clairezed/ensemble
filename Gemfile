@@ -36,6 +36,10 @@ gem 'kaminari'
 # Uploads ================================================
 gem 'paperclip', '~> 5.1'
 
+# SMS ====================================================
+gem 'rotp', '~> 3.3'
+gem 'twilio-ruby', '~> 5.5'
+
 group :development do
   gem 'listen', '~> 3.1.5'
   gem 'spring'

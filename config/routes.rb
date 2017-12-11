@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
+    resources :sms_confirmations, only: [:new, :create, :show]
     resources :events
     resources :past_events, only: :index
   end

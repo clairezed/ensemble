@@ -1,5 +1,6 @@
-
 class UpdateUserParameters
+
+  # TODO : move to /user ?
 
   attr_accessor :params, :user
 

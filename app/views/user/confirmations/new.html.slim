@@ -2,11 +2,13 @@ h2 Renvoyer les instructions de confirmation
 
 = form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-horizontal" } do |f| 
   = f.hm_form_errors
-  = f.shb_email_field :email, {autofocus: true}
+  .form-group.required
+    = f.label :email, class: ''
+    = f.email_field :email, class: 'form-control', autofocus: true
 
   .form-group
     .form-actions
       hr
-      = f.submit "Me renvoyer la confirmation", class: "btn btn-primary" 
+      = f.submit "Me renvoyer la confirmation", class: "btn btn-primary"
 
-= render "users/shared/links" 
+= render "user/shared/links" 

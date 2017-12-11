@@ -2,7 +2,6 @@
 
 module UserHelper
 
-
   def is_current_user?(user)
     user == current_user
   end
@@ -36,6 +35,24 @@ module UserHelper
       @age = now.year - birthdate.year - ((now.month > birthdate.month || (now.month == birthdate.month && now.day >= birthdate.day)) ? 0 : 1)
     end
     [@age, 'ans'].join(' ')
+  end
+
+  # Profil verification --------------------------------
+
+  def phone_verified_status(user)
+    if user.sms_confirmed?
+      "Numéro de téléphone vérifié"
+    else
+      "Numéro de téléphone non vérifié"
+    end
+  end
+
+  def email_verified_status(user)
+    if user.confirmed?
+      "Adresse email vérifiée"
+    else
+      "Adresse email non vérifiée"
+    end
   end
 
   # Sorting -----------------------------------------

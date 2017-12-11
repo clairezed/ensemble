@@ -1,0 +1,16 @@
+= link_to "Envoyer le code", new_user_sms_confirmation_path, remote: true, data: {send_sms_confirmation: true}, class: "btn btn-primary"
+br
+br
+
+= form_tag user_sms_confirmations_path, method: :post, remote: true, data: {sms_confirmation_form: true}, class: 'collapse' do
+  .form-group
+    = label_tag :sms_code, "Ecrivez le code à 6 chiffres reçu par SMS"
+    small.form-text.text-muted La réception du SMS peut prendre quelques minutes
+    = text_field_tag :sms_code, params[:sms_code], class: 'form-control'
+
+  .form-group
+    = submit_tag "Valider", class: "btn btn-primary"
+
+
+coffee:
+  new SmsConfirmation()

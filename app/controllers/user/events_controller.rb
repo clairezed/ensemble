@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class User::EventsController < ApplicationController
+class User::EventsController < User::BaseController
  
   before_action :find_event, only: %i[edit update destroy]
 
