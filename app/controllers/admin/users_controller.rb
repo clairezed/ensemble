@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(profile_params)
     if @user.save
 
       flash[:notice] = "L'utilisateur a été créé avec succès"
@@ -24,17 +24,29 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
+  def edit_profile
+  end
+
+  def update_profile
+    @user.attributes = profile_params
+    if @user.save
+      flash[:notice] = "L'utilisateur a été mis à jour avec succès"
+      redirect_to params[:continue].present? ? edit_profile_admin_user_path(@user) : admin_users_path
+    else
+      flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
+      render :edit_profile
+    end
+  end
+
   def edit
   end
 
   def update
-    @user.attributes = user_params
-    if @user.save
-
-      flash[:notice] = "L'utilisateur a été mis à jour avec succès"
-      redirect_to params[:continue].present? ? edit_admin_user_path(@user) : admin_users_path(by_user_type: @user.user_type)
+    if @user.update(parameters_params)
+      flash[:notice] = "Paramètres mis à jour avec succès"
+      redirect_to params[:continue].present? ? edit_admin_user_path(@user) : admin_users_path
     else
-      flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
+      flash[:error] = "Une erreur s'est produite lors de la mise à jour des paramètres"
       render :edit
     end
   end
@@ -83,11 +95,19 @@ class Admin::UsersController < Admin::BaseController
   end
 
   # strong parameters
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :title, :city, :display_name,
-    :gender, :lastname, :firstname, :country, :google_place_id, :nickname, :company, :profession, :avatar, :language,
-    :about, :website, :youtube_channel, :vimeo_channel, :dailymotion_channel, :user_type, :facebook_account, :twitter_account,
-    company_address: [:street_number, :road, :region, :zipcode])
+  def profile_params
+    params.require(:user).permit(:gender, :phone, :birthdate, :description, :city_id, 
+      avatar_attributes: [ :id, :asset, :_destroy])
+  end
+
+
+  def parameters_params
+    p = params.require(:user).permit(:email, :phone, 
+      :sms_notification, :email_notification, 
+      :affiliation
+      )
+    p.merge!(params.require(:user).permit(:password, :password_confirmation)) if params[:user][:password].present?
+    p
   end
 
 end

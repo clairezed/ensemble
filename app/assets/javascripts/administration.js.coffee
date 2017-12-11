@@ -2,14 +2,19 @@
 #= require jquery
 #= require popper
 #= require bootstrap
-#= require vendor/bootstrap-datepicker 
-#= require vendor/redactor.min 
 
-#= require_tree ./admin
+#= require vendor/bootstrap-datepicker 
+#= require vendor/redactor.min
+
+#= require select2/dist/js/select2.full.min
 #= require_tree ./vendor/locales
 
 #= require ./components/flash-messages
+#= require ./components/select2-simple
+#= require ./components/select2-ajax
+#= require ./components/event-form
 
+#= require_tree ./admin
 
 $ ->
   $(".datepicker").datepicker(format: 'dd/mm/yyyy', language: 'fr', autoclose: true)

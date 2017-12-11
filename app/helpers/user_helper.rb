@@ -22,6 +22,10 @@ module UserHelper
     I18n.t(gender, scope: [:user, :genders])
   end
 
+  def user_affiliation(affiliation)
+    I18n.t(affiliation, scope: [:user, :affiliations])
+  end
+
   # def user_gender_options(genders = User.genders.keys)
   #   user_gender_full_options(genders)
   # end

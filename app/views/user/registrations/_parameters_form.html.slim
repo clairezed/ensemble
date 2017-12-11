@@ -3,12 +3,12 @@
 .form-group.required
   = f.label :email, class: ''
   = f.email_field :email, class: 'form-control'
-  small.form-text.text-muted = email_verified_status(current_user)
+  small.form-text.text-muted = email_verified_status(f.object)
 
 .form-group
   = f.label :phone, class: ''
   = f.text_field :phone, class: 'form-control'
-  small.form-text.text-muted = phone_verified_status(current_user)
+  small.form-text.text-muted = phone_verified_status(f.object)
 
 .form-check
   label.form-check-label

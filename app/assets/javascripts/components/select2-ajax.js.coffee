@@ -14,5 +14,4 @@ class @Select2Ajax
         processResults: (data) ->
           { results: data }
     }
-
     return new Select2Simple($autocompleteInput, specificOptions)

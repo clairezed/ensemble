@@ -26,6 +26,7 @@ module Twilio
           from: SENDER_PHONE_NUMBER)
       rescue Twilio::REST::TwilioError => e
         puts e.message
+        return false
       end
     end
 

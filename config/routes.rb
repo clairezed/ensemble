@@ -22,7 +22,12 @@ Rails.application.routes.draw do
     resources :admins
     resources :basic_pages, concerns: :positionable
     resources :seos, only: %i[index edit update]
-    resources :users
+    resources :users do 
+      member do
+        get :edit_profile
+        patch :update_profile
+      end
+    end
     resources :leisure_categories
     resources :leisures
     root to: 'dashboard#index'
