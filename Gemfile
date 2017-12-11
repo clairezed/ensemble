@@ -48,6 +48,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'dotenv-rails'
   gem 'bullet'
   gem 'byebug', platform: :mri
   gem 'capybara'
