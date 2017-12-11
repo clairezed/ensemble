@@ -1,0 +1,63 @@
+= f.hm_form_errors
+
+  
+.form-group.required
+  = f.label :title, class: ''
+  = f.text_field :title, class: 'form-control'
+
+/ centre d interet
+
+  
+.form-group.required
+  = f.label :start_at, class: ''
+  = f.text_field :start_at, class: 'form-control'
+
+.form-group
+  = f.label :address, class: ''
+  = f.text_field :address, class: 'form-control'
+
+.form-group.required
+  = f.label :city_id, class: ''
+  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
+
+.form-group
+  = f.label :description, class: ''
+  = f.text_area :description, class: 'form-control', rows: 8
+
+/ Nb de personnes
+
+.form-group
+  = f.label :participants_min, class: ''
+  = f.text_field :participants_min, class: 'form-control'
+
+.form-group
+  = f.label :participants_max, class: ''
+  = f.text_field :participants_max, class: 'form-control'
+
+
+/ Photos
+/ = f.fields_for :avatar do |pic_f|
+/   .form-group
+/     = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
+/       = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
+/       span data-is-label-title='' Charger une image
+/       span.file-close.ion-close
+/     - unless pic_f.object.new_record?
+/       p.mt-3 Image actuelle :
+/       => image_tag f.object.avatar.asset(:thumb)
+/       = pic_f.label :_destroy, class: '' do
+/         => pic_f.check_box :_destroy
+/         | Supprimer l'image actuelle
+
+
+.form-group.required
+  br
+  - Event.visibilities.each do |key, value|
+    .form-check.form-check-inline
+      label.form-check-label
+        => f.radio_button :visibility, key, class: "form-check-input"
+        => event_visibility(key)
+        / => user_gender(key)
+
+coffee:
+  new EventForm()

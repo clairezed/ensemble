@@ -1,0 +1,17 @@
+- content_for :current_navigation_section, :my_events
+
+.title-block
+  h1 
+    | Mes événements
+
+
+
+.card
+  .card-header
+    ul.nav.nav-tabs.card-header-tabs
+      li.nav-item
+        = link_to "Futurs", user_events_path, class: "nav-link #{active_if('future_events')}"
+      li.nav-item
+        = link_to "Passés", user_past_events_path, class: "nav-link #{active_if('past_events')}"
+  .card-body.p-3
+    = yield

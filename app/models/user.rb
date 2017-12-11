@@ -30,6 +30,8 @@ class User < ApplicationRecord
   has_many :leisure_interests, dependent: :destroy
   has_many :leisures, through: :leisure_interests
 
+  has_many :events, dependent: :destroy
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,

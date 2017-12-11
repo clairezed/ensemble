@@ -15,6 +15,8 @@ gem 'rails', '~> 5.1.2'
 # DB / Model ==============================================
 gem 'acts_as_list', '~> 0.7.6'
 gem 'devise', '~> 4.3.0'
+gem 'aasm'
+gem 'pundit'
 
 # Asset pipeline ==========================================
 gem 'coffee-rails', '~> 4.2'

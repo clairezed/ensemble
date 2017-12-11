@@ -30,26 +30,31 @@ Rails.application.routes.draw do
 
   # User ======================================
   scope controller: 'user/registrations' do
-      get  :new_second_step, path: 'finaliser-inscription'
-      patch :create_second_step
-      get :edit_profile
-      patch :update_profile
-    end
+    get  :new_second_step, path: 'finaliser-inscription'
+    patch :create_second_step
+    get :edit_profile
+    patch :update_profile
+  end
 
-  resources :profiles, only: [:show]
+  namespace :user do
+    resources :events
+    resources :past_events, only: :index
+  end
+
   # Front ======================================
 
-  resources :basic_pages, only: [:show]
+  resources :profiles, only: [:show]
   resources :cities, only: [:index]
+  resources :events, only: [:index, :show]
 
-
+  resources :basic_pages, only: [:show]
 
   put '/accept_cookies', to: 'home#accept_cookies'
   get '/:filename', to: 'statics#show'
 
   devise_scope :user do
     authenticated :user do
-      root 'user/registrations#edit_profile', as: :authenticated_root
+      root 'events#index', as: :authenticated_root
     end
   end
 

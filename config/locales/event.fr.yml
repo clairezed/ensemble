@@ -1,0 +1,44 @@
+fr:
+  activerecord:
+    attributes:
+      event:
+        title:            Le titre
+        leisure_category: La famille de loisir
+        leisure:          Le loisir
+        city:             La ville
+        city_id:             La ville
+        address:          L'adresse
+        participants_min: Le nombre minimum de participants
+        participants_max: Le nombre maximum de participants
+        description:      La description
+        start_at:         La date de début
+        end_at:           La date de fin
+    errors:
+      models:
+        event:
+          attributes:
+            leisure_category:
+              required: est obligatoire
+            city:
+              required: est obligatoire
+
+  helpers:
+    label:
+      event:
+        title: Titre
+        leisure_category: Famille de loisir
+        leisure_category_id: Famille de loisir
+        leisure:          Loisir
+        city:             Ville
+        city_id:             Ville
+        address:          Adresse
+        participants_min: Nombre minimum de participants
+        participants_max: Nombre maximum de participants
+        description:      Description
+        start_at:         Date de début
+        end_at:           Date de fin
+
+  event:
+    visibilities:
+      open: Public
+      closed: Privé

@@ -189,6 +189,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - back office inspired by https://github.com/modularcode/modular-admin-html
 
+CSS style rules : 
+- [8 simple rules for a robust, scalable CSS architecture](https://github.com/jareware/css-architecture?utm_content=buffer477b7&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+> a parent can effect styles on its (direct) children only outside the border of the component. That means properties related to positioning and dimensions (e.g. position, margin, display, width, float, z-index etc) are OK, while properties that reach inside the border (e.g. border itself, padding, color, font etc) are a no-no.
 
 ## Gotcha
 

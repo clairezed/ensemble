@@ -8,6 +8,7 @@
 #= require ./components/flash-messages
 #= require ./components/select2-simple
 #= require ./components/select2-ajax
+#= require ./components/event-form
 
 #= require_tree ./front
 
