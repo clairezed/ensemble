@@ -32,6 +32,10 @@ class User < ApplicationRecord
 
   has_many :events, dependent: :destroy
 
+  has_many :user_languages, dependent: :destroy
+  has_many :languages, through: :user_languages
+
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,

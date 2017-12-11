@@ -3,6 +3,7 @@ class @ProfileEdit
   constructor: () ->
     console.log "ProfileEdit"
     citySelect = new Select2Ajax()
+    languageSelect = new Select2Simple($('[data-is-select2="languages"]'))
 
     # Image ----------------------------------------
     # Affichage du nom du fichier choisi 

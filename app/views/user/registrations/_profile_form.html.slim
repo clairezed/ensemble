@@ -30,12 +30,14 @@
   = f.label :description, class: ''
   = f.text_field :description, class: 'form-control'
 
-
 .form-group
   = f.label :city_id, class: ''
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
-  / Langues
+.form-group
+  = f.label :language_ids, class: ''
+  = f.select :language_ids, options_for_select(language_options, f.object.language_ids), {prompt: "Sélectionnez vos langues"}, multiple: true, class: "form-control",  data: {is_select2: 'languages'}
+
   / Pays
 
 

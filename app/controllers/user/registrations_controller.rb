@@ -124,7 +124,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # end
 
   def profile_params_array
-    [:gender, :phone, :birthdate, :description, :city_id, avatar_attributes: [ :id, :asset, :_destroy]]
+    [:gender, :phone, :birthdate, :description, :city_id, 
+      language_ids: [],
+      avatar_attributes: [ :id, :asset, :_destroy]]
   end
 
   # The path used after sign up.

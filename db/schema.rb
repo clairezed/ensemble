@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211112356) do
+ActiveRecord::Schema.define(version: 20171211211927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(version: 20171211112356) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.string "title"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "leisure_categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -125,6 +132,15 @@ ActiveRecord::Schema.define(version: 20171211112356) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seoable_type", "seoable_id"], name: "index_seos_on_seoable_type_and_seoable_id"
+  end
+
+  create_table "user_languages", force: :cascade do |t|
+    t.bigint "language_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["language_id"], name: "index_user_languages_on_language_id"
+    t.index ["user_id"], name: "index_user_languages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -171,4 +187,6 @@ ActiveRecord::Schema.define(version: 20171211112356) do
   add_foreign_key "leisure_interests", "leisures"
   add_foreign_key "leisure_interests", "users"
   add_foreign_key "leisures", "leisure_categories"
+  add_foreign_key "user_languages", "languages"
+  add_foreign_key "user_languages", "users"
 end
