@@ -30,10 +30,22 @@ class User < ApplicationRecord
   has_many :leisure_interests, dependent: :destroy
   has_many :leisures, through: :leisure_interests
 
-  has_many :events, dependent: :destroy
-
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
+
+  has_many :organized_events, class_name: 'Event', dependent: :destroy
+
+  has_many :event_participations, dependent: :destroy
+  has_many :participated_events, class_name: 'Event', source: :event, through: :event_participations
+
+  # has_many :events, ->(user){ unscope(where: :user_id)
+  #         .where(user_id: user.id).or(events: {event_participations: {user_id: user.id}}) }
+  # has_many :events, -> (user) { or(events: {event_participations: {user_id: user.id}}) }
+  # has_many :events, ->(user) { organized_by(user.id).or(with_participant(user.id))}
+  
+  # has_many :games, ->(team){ unscope(where: :team_id)
+  #         .where('away_team_id = :team_id OR home_team_id = :team_id', team_id: team.id) }
+  # has_many :comments, -> (task) { or(comments: {task_id: task.parent_id}) }
 
 
   # Validations ==================================================================
@@ -48,6 +60,13 @@ class User < ApplicationRecord
       :city,
       presence: true
   end
+
+  # Callbacks ==================================================================
+
+  private def notify_admin_for_validation
+    # TODO
+  end
+  after_update :notify_admin_for_validation, if: :fully_confirmed?
 
   # Class Methods ==============================================================
 
@@ -100,6 +119,13 @@ class User < ApplicationRecord
 
   def fully_confirmed?
     confirmed? & sms_confirmed?
+  end
+
+
+  # Event participation -------------------------------------------------
+
+  def participation_at(event)
+    self.event_participations.find_by_event_id(event.id)
   end
 
 

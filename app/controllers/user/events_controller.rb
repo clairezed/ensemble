@@ -27,10 +27,10 @@ class User::EventsController < User::BaseController
     end
   end
 
-    private
+  private
 
   def find_event
-    @event = BasicPage.from_param params[:id]
+    @event = Event.find params[:id]
   end
 
   # strong parameters

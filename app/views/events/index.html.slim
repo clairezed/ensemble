@@ -3,8 +3,6 @@
 h1 Derniers événements
 
 - @events.each do |event|
-  .card
-    .card-body
-      h3= event.title
+  = render partial: 'events/card', locals: {event: event}
 
 = link_to "Proposer un événement", new_user_event_path, class: "btn btn-primary"

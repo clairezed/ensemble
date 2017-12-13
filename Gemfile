@@ -8,9 +8,9 @@ git_source(:github) do |repo_name|
 end
 
 # Core ====================================================
+gem 'rails', '~> 5.1.2'
 gem 'pg'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.1.2'
 
 # DB / Model ==============================================
 gem 'acts_as_list', '~> 0.7.6'
@@ -42,8 +42,8 @@ gem 'twilio-ruby', '~> 5.5'
 
 group :development do
   gem 'listen', '~> 3.1.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+#  gem 'spring'
+#  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 

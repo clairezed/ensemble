@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211211927) do
+ActiveRecord::Schema.define(version: 20171212163141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20171211211927) do
     t.datetime "updated_at", null: false
     t.index ["department_code"], name: "index_cities_on_department_code"
     t.index ["zipcode"], name: "index_cities_on_zipcode"
+  end
+
+  create_table "event_participations", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_participations_on_event_id"
+    t.index ["user_id"], name: "index_event_participations_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -180,6 +189,8 @@ ActiveRecord::Schema.define(version: 20171211211927) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "event_participations", "events"
+  add_foreign_key "event_participations", "users"
   add_foreign_key "events", "cities"
   add_foreign_key "events", "leisure_categories"
   add_foreign_key "events", "leisures"

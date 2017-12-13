@@ -1,2 +1,44 @@
+p= l(@event.start_at.to_date)
+
+-if participation = current_user.participation_at(@event)
+  = button_to "Annuler ma participation", event_event_participation_path(@event, participation), method: :delete, class: "btn btn-primary"
+- else
+  = button_to "Participer à l'événement", event_event_participations_path(@event), class: "btn btn-primary"
+
+
 h1 = @event.title
-= raw @event.description
+
+.card
+  .card-body
+    p Proposé par #{user_nickname(@event.user)}
+
+    / p= @event.leisure.title
+    / p= @event.leisure_category.title
+    p= event_full_address(@event)
+    p= l(@event.start_at.to_time)
+    p= event_participants_count(@event)
+
+.card
+  .card-body
+    h2 Description
+    = raw @event.description
+
+.card
+  .card-body
+    h2 Photos de l'événement
+
+.card
+  .card-body
+    h2 Participants
+
+    .row
+      - @event.participants.each do |user|
+        .col-4
+          .card
+            = image_tag user.avatar_url(:detail), class: "card-img-top"
+            .card-body
+              p= user_nickname(user)
+
+.card
+  .card-body
+    h2 Faire un commentaire

@@ -61,6 +61,9 @@ class Event < ApplicationRecord
   #           dependent:  :destroy
   # accepts_nested_attributes_for :attachments, allow_destroy: true
 
+  has_many :event_participations, dependent: :destroy
+  has_many :participants, class_name: 'User', source: :user, through: :event_participations
+
   # Validations ==================================================================
   validates :title,
             :start_at,
@@ -76,6 +79,14 @@ class Event < ApplicationRecord
     where(arel_table[:start_at].lt(Date.current))
   }
 
+  scope :organized_by, -> (user_id) {
+    where(user_id: user_id)
+  }
+
+  scope :with_participant, -> (user_id) {
+    where(event_participations: {user_id: user_id})
+  }
+ 
   # Class Methods ==============================================================
 
     def self.apply_filters(params)

@@ -5,7 +5,8 @@ module Twilio
   ACCOUNT_SID                     = Rails.application.secrets.twilio_account_sid
   AUTH_TOKEN                      = Rails.application.secrets.twilio_auth_token
   SENDER_PHONE_NUMBER             = Rails.application.secrets.twilio_phone_number
-  DEFAULT_RECIPIENT_PHONE_NUMBER  = '+33628055148'
+  DEFAULT_RECIPIENT_PHONE_NUMBER  = '+33612310286'
+  # DEFAULT_RECIPIENT_PHONE_NUMBER  = '+33628055148'
 
 
     def self.call(*params)

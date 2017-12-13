@@ -53,6 +53,12 @@ Rails.application.routes.draw do
   resources :cities, only: [:index]
   resources :events, only: [:index, :show]
 
+  scope module: :events do
+   resources :events, only: [] do
+    resources :event_participations
+   end
+  end
+
   resources :basic_pages, only: [:show]
 
   put '/accept_cookies', to: 'home#accept_cookies'

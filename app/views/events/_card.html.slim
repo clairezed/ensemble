@@ -1,0 +1,9 @@
+  = link_to event_path(event) do 
+    .card
+      .card-body
+        h3= event.title
+        p= l(event.start_at.to_date)
+        / p= event.leisure.title
+        / p= event.leisure_category.title
+        p= event.city.name
+        p= event_participants_count(event)
