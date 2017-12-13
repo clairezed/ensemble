@@ -9,11 +9,12 @@ class User::EventsController < User::BaseController
   end
 
   def new
-    @event = current_user.events.new
+    @event = current_user.organized_events.new
   end
 
   def create  
-    @event = current_user.events.new(event_params)
+    @event = current_user.organized_events.new(event_params)
+    # raise @event.inspect
     if @event.save
       flash[:notice] = "L'événement a été créée avec succès"
       if @event.closed?
@@ -37,7 +38,7 @@ class User::EventsController < User::BaseController
   def event_params
     params.require(:event).permit(:title, :start_at, 
       :address, :city_id, :description, :participants_min, :participants_max, 
-      :visibility)
+      :visibility, :leisure_category_id, :leisure_id)
   end
 
 end

@@ -7,6 +7,12 @@
 
 / centre d interet
 
+- LeisureCategory.all.each do |lc|
+  .form-check.form-check-inline
+    label.form-check-label
+      => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
+      => lc.title
+
   
 .form-group.required
   = f.label :start_at, class: ''

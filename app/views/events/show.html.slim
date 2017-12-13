@@ -13,7 +13,7 @@ h1 = @event.title
     p Proposé par #{user_nickname(@event.user)}
 
     / p= @event.leisure.title
-    / p= @event.leisure_category.title
+    p= @event.leisure_category.try(:title)
     p= event_full_address(@event)
     p= l(@event.start_at.to_time)
     p= event_participants_count(@event)

@@ -52,7 +52,7 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :city
   # TODO : remove optional
-  belongs_to :leisure_category, optional: true
+  belongs_to :leisure_category
   belongs_to :leisure, optional: true
 
   # has_many :attachments,
@@ -88,7 +88,7 @@ class Event < ApplicationRecord
   }
 
   scope :with_user, -> (user_id) {
-    joins(:event_participations)
+    eager_load(:event_participations)
     .where(arel_organized_by(user_id)
       .or(arel_with_participant(user_id))
     )

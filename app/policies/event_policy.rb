@@ -6,6 +6,10 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    is_organizer?
+  end
+
   def participate?
     !is_participant? && !is_organizer?
   end
