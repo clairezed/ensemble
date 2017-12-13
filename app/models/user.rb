@@ -37,6 +37,8 @@ class User < ApplicationRecord
 
   has_many :event_participations, dependent: :destroy
   has_many :participated_events, class_name: 'Event', source: :event, through: :event_participations
+  has_many :events, ->(user) { unscope(where: :user_id).with_user(user.id) }
+
 
   # has_many :events, ->(user){ unscope(where: :user_id)
   #         .where(user_id: user.id).or(events: {event_participations: {user_id: user.id}}) }

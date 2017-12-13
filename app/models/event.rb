@@ -86,6 +86,21 @@ class Event < ApplicationRecord
   scope :with_participant, -> (user_id) {
     where(event_participations: {user_id: user_id})
   }
+
+  scope :with_user, -> (user_id) {
+    joins(:event_participations)
+    .where(arel_organized_by(user_id)
+      .or(arel_with_participant(user_id))
+    )
+  }
+
+  def self.arel_organized_by(val)
+    Event.arel_table[:user_id].eq(val)
+  end
+
+  def self.arel_with_participant(val)
+    EventParticipation.arel_table[:user_id].eq(val)
+  end
  
   # Class Methods ==============================================================
 
