@@ -9,7 +9,7 @@ module UserHelper
   # Name --------------------------------------
 
   def user_nickname(user)
-    @user_nickname ||= [user.firstname, initials(user.lastname)].join(" ")
+    [user.firstname, initials(user.lastname)].join(" ")
   end
 
   def initials(val)
