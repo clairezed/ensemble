@@ -2,6 +2,12 @@ class Event < ApplicationRecord
   
   # Configurations =============================================================
   include Sortable
+  include PgSearch
+
+  pg_search_scope :by_text, 
+    :against => { :title => 'A', :description => 'B' }, 
+    :using => { :tsearch => {:prefix => true} },
+    :ignoring => :accents
 
   enum visibility: { 
     open: 0, 
@@ -101,13 +107,40 @@ class Event < ApplicationRecord
   def self.arel_with_participant(val)
     EventParticipation.arel_table[:user_id].eq(val)
   end
+
+  # Search -------------------------------------------
+
+  scope :by_leisure_category, -> (val) {
+    where(leisure_category_id: val)
+  }
+
+  scope :by_leisure, -> (val) {
+    where(leisure_id: val)
+  }
+
+  scope :by_start_at, -> (val) {
+
+    where arel_table[:start_at].gteq(val.to_time)
+  }
+
+  scope :by_end_at, -> (val) {
+    where arel_table[:start_at].lteq(val.to_time)
+  }
+
+  scope :by_city, -> (val) {
+    where city_id: val
+  }
+
  
   # Class Methods ==============================================================
 
     def self.apply_filters(params)
     [
-      # :by_text,
-      # :by_competences,
+      :by_text,
+      :by_leisure_category,
+      :by_start_at,
+      :by_end_at,
+      :by_city,
     ].inject(all) do |relation, filter|
       next relation unless params[filter].present?
       relation.send(filter, params[filter])

@@ -4,12 +4,15 @@
 #= require bootstrap
 
 #= require select2/dist/js/select2.full.min
+#= require flatpickr/dist/flatpickr.min
+#= require flatpickr/dist/l10n/fr
 
 #= require ./components/flash-messages
 #= require ./components/select2-simple
 #= require ./components/select2-ajax
 #= require ./components/event-form
 #= require ./components/sms-confirmation
+#= require ./components/range-picker
 
 #= require_tree ./front
 

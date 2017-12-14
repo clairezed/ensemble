@@ -1,5 +1,7 @@
 - content_for :current_navigation_section, :events
 
+= link_to "Chercher un événement", new_search_path, class: "btn btn-primary"
+
 h1 Derniers événements
 
 - @events.each do |event|

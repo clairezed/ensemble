@@ -17,6 +17,8 @@ gem 'acts_as_list', '~> 0.7.6'
 gem 'devise', '~> 4.3.0'
 gem 'aasm'
 gem 'pundit'
+gem 'geocoder', '~> 1.4.0'
+gem "pg_search"
 
 # Asset pipeline ==========================================
 gem 'coffee-rails', '~> 4.2'

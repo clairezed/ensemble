@@ -7,8 +7,7 @@ module Search
     private # ==================
 
     def root_relation
-      # AdPolicy::Scope.new(user, initial_scope).resolve
-      initial_scope
+      EventPolicy::Scope.new(user, initial_scope).resolve
         .includes(:user)
     end
 

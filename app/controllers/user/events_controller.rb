@@ -28,10 +28,23 @@ class User::EventsController < User::BaseController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @event.update_attributes(event_params)
+      flash[:notice] = "L'événement a été mis à jour avec succès"
+      redirect_to action: :index
+    else
+      flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'événement"
+      render :edit
+    end
+  end
+
   private
 
   def find_event
-    @event = Event.find params[:id]
+    @event = current_user.organized_events.find params[:id]
   end
 
   # strong parameters

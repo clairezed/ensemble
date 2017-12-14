@@ -59,6 +59,8 @@ Rails.application.routes.draw do
    end
   end
 
+  resource :search, only: [:new, :show]
+
   resources :basic_pages, only: [:show]
 
   put '/accept_cookies', to: 'home#accept_cookies'
