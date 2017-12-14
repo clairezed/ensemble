@@ -1,7 +1,7 @@
 class City < ActiveRecord::Base
 
   # Configurations =============================================================
-
+  reverse_geocoded_by :latitude, :longitude
   # Associations ===============================================================
 
   has_many :users, dependent: :nullify
@@ -18,10 +18,16 @@ class City < ActiveRecord::Base
     ).order(:zipcode)
   }
 
+  scope :nearest_first, -> (coordinates) { near(coordinates, 250, units: :km) }
+
   # Instance methods ===============================================================
 
   def long_name
     [zipcode, name].join(' ')
+  end
+
+  def coordinates
+    [latitude, longitude]
   end
 
   

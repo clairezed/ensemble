@@ -27,6 +27,20 @@
   = f.text_field :birthdate, class: 'form-control'
 
 .form-group
+  = f.label :leisures, class: ''
+- LeisureCategory.all.each do |leisure_category|
+  .form-check.form-check-inline
+    label.form-check-label
+      => f.check_box :leisure_category_ids, {multiple: true, class: "form-check-input"}, leisure_category.id, nil
+      => leisure_category.title
+      - leisure_category.leisures.each do |leisure|
+        .form-check.form-check-inline
+          label.form-check-label
+            => f.check_box :leisure_ids, {multiple: true, class: "form-check-input"}, leisure.id, nil
+            => leisure.title
+
+
+.form-group
   = f.label :description, class: ''
   = f.text_field :description, class: 'form-control'
 
@@ -38,7 +52,7 @@
   = f.label :language_ids, class: ''
   = f.select :language_ids, options_for_select(language_options, f.object.language_ids), {prompt: "Sélectionnez vos langues"}, multiple: true, class: "form-control",  data: {is_select2: 'languages'}
 
-  / Pays
+  / Pays visités
 
 
 

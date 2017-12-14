@@ -81,6 +81,10 @@ class Event < ApplicationRecord
     where(arel_table[:start_at].gteq(Date.current))
   }
 
+  scope :visible, -> {
+    future #not_canceled TODO
+  }
+
   scope :past, -> {
     where(arel_table[:start_at].lt(Date.current))
   }
@@ -131,6 +135,13 @@ class Event < ApplicationRecord
     where city_id: val
   }
 
+  # Ordering ----------------------------------------
+
+  scope :next_in_time, -> { order(start_at: :asc) }
+  scope :nearest_first, -> (coordinates) { 
+    eager_load(:city).merge(City.nearest_first(coordinates))
+  }
+
  
   # Class Methods ==============================================================
 
@@ -150,8 +161,10 @@ class Event < ApplicationRecord
   def self.apply_sorts(params)
     # default sorting
     # params[:sort_by] ||= DEFAULT_SORTING_OPTION
-
-    # SORTING_OPTIONS.inject(all) do |relation, filter|
+    # [
+    #   # :nearest_first
+    #   :next_in_time,
+    # ].inject(all) do |relation, filter|
     #   next relation unless params[:sort_by].to_sym == filter
     #   relation.send(filter)
     # end

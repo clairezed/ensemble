@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   has_many :leisure_interests, dependent: :destroy
   has_many :leisures, through: :leisure_interests
+  has_many :leisure_categories, through: :leisures
 
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages

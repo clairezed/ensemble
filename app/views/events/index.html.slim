@@ -2,9 +2,18 @@
 
 = link_to "Chercher un événement", new_search_path, class: "btn btn-primary"
 
-h1 Derniers événements
 
-- @events.each do |event|
+h2 Evénements recommandés
+
+- @recommended_events.each do |event|
   = render partial: 'events/card', locals: {event: event}
+
+br
+h2 Derniers événements
+
+- @last_events.each do |event|
+  = render partial: 'events/card', locals: {event: event}
+
+= link_to "Voir tous les événements", search_path, class:'btn btn-link'
 
 = link_to "Proposer un événement", new_user_event_path, class: "btn btn-primary"

@@ -3,9 +3,12 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Search::Events.call(current_user, Event, params)
-
-     # Event.apply_filters(params).apply_sorts(params)
+    @recommended_events = Search::RecommendedEvents.call(current_user, Event.visible, params)
+      .nearest_first(current_user.city.coordinates)
+      .next_in_time
+    @last_events = Search::Events.call(current_user, Event.visible, params)
+      .nearest_first(current_user.city.coordinates)
+      .next_in_time
   end
 
   def show
