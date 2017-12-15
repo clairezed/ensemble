@@ -7,6 +7,7 @@ class @EventForm
     start_timepicker = new TimePicker($('[data-time-picker="start"]'))
     end_datepicker = new DatePicker($('[data-date-picker="end"]'))
     end_timepicker = new TimePicker($('[data-time-picker="end"]'))
+    wysiwyg = new QuillWysiwyg()
     # # Image ----------------------------------------
     # # Affichage du nom du fichier choisi 
     # # dans le bouton de téléchargement d'une image

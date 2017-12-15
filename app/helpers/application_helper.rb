@@ -200,4 +200,13 @@ module ApplicationHelper
   def boolean_text(bool)
     I18n.t(bool, scope: [:boolean, :text])
   end
+
+
+  # wysiwyg ---------------------------------
+
+  # On n'autorise que les tag intégrés dans la barre du wysiwyg
+  def wysiwyg_text(text)
+    raw sanitize text, tags: %w(strong em a p u ul ol li), attributes: %w(href)
+  end
+  
 end

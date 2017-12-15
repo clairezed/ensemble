@@ -40,7 +40,9 @@
 
 .form-group
   = f.label :description, class: ''
-  = f.text_area :description, class: 'form-control', rows: 8
+  = f.hidden_field :description, class: 'form-control', data: {is_hidden_field: 'description'}
+  div data-is-wysiwyg="quill"
+    p= wysiwyg_text(f.object.description)
 
 / Nb de personnes
 
