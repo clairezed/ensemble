@@ -4,6 +4,8 @@ p= l(@event.start_at.to_date)
   = button_to "Participer à l'événement", event_event_participations_path(@event), class: "btn btn-primary"
 - elsif policy(@event).cancel_participation?
   = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "btn btn-primary"
+- if policy(@event).update?
+  = link_to "Modifier", edit_user_event_path(@event), class: "btn btn-primary"
 
 
 h1 = @event.title

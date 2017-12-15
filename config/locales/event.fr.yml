@@ -13,6 +13,7 @@ fr:
         description:      La description
         start_at:         La date de début
         end_at:           La date de fin
+        end_date:           La date de fin
     errors:
       models:
         event:

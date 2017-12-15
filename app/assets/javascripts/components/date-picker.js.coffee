@@ -1,13 +1,13 @@
-class @RangePicker
+class @DatePicker
 
   DEFAULT_OPTIONS:
     locale: 'fr'
-    mode:   'range'
     altInput: true
     altFormat: 'j/m/Y'
+    minDate: 'today'
     # dateFormat: 
 
-  constructor: ($input = $("[data-is-rangepicker]"), options = {}) ->
+  constructor: ($input = $("[data-is-datepicker]"), options = {}) ->
     @$input = $input
     @options = $.extend(true, {}, @DEFAULT_OPTIONS, options)
 

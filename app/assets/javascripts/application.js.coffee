@@ -13,6 +13,8 @@
 #= require ./components/event-form
 #= require ./components/sms-confirmation
 #= require ./components/range-picker
+#= require ./components/date-picker
+#= require ./components/time-picker
 
 #= require_tree ./front
 

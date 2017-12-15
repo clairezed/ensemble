@@ -162,6 +162,8 @@ fr:
         equal_to: "doit être égal à %{count} "
         less_than: "doit être inférieur à %{count} "
         less_than_or_equal_to: "doit être inférieur ou égal à %{count} "
+        invalid_bounds: "ne peut pas être après la date de début"
+
 
   
   form_errors: Des erreurs ont été rencontrées

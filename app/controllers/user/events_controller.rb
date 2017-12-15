@@ -5,7 +5,7 @@ class User::EventsController < User::BaseController
   before_action :find_event, only: %i[edit update destroy]
 
   def index
-    @events = Search::Events.call(current_user, current_user.events.future, params)
+    @events = Search::Events.call(current_user, current_user.events.future, params).next_in_time
   end
 
   def new
@@ -49,9 +49,10 @@ class User::EventsController < User::BaseController
 
   # strong parameters
   def event_params
-    params.require(:event).permit(:title, :start_at, 
+    EventService::PrepareParams.call(params.require(:event).permit(:title,
       :address, :city_id, :description, :participants_min, :participants_max, 
-      :visibility, :leisure_category_id, :leisure_id)
+      :visibility, :leisure_category_id, :leisure_id, :start_date, :start_time, 
+      :end_date, :end_time))
   end
 
 end

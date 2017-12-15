@@ -16,7 +16,19 @@
   
 .form-group.required
   = f.label :start_at, class: ''
-  = f.text_field :start_at, class: 'form-control'
+  .form-row
+    .col-auto
+      = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}, placeholder: "jj/mm/yyyy"
+    .col-auto
+      = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}, placeholder: "hh:mm"
+  
+.form-group
+  = f.label :end_at, class: ''
+  .form-row
+    .col-auto
+      = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}, placeholder: "jj/mm/yyyy"
+    .col-auto
+      = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}, placeholder: "hh:mm"
 
 .form-group
   = f.label :address, class: ''

@@ -75,6 +75,14 @@ class Event < ApplicationRecord
             :start_at,
             presence: true
 
+  def valid_bounds?
+    return true if bounded? && start_at < end_at
+    errors.add(:end_date, :invalid_bounds)
+    false
+  end
+  validate :valid_bounds?, if: :bounded?
+
+
   # Scopes ======================================================================
 
   scope :future, -> {
@@ -123,7 +131,6 @@ class Event < ApplicationRecord
   }
 
   scope :by_start_at, -> (val) {
-
     where arel_table[:start_at].gteq(val.to_time)
   }
 
@@ -181,5 +188,27 @@ class Event < ApplicationRecord
   # end
 
   # Instance methods ====================================================
+
+  # DateTime ----------------------------------------
+  
+  def bounded?
+    start_at && end_at
+  end
+
+  def start_date
+    start_at.try(:to_date)
+  end
+
+  def start_time
+    start_at.strftime("%H:%M") rescue nil
+  end
+
+  def end_date
+    end_at.try(:to_date)
+  end
+
+  def end_time
+    end_at.strftime("%H:%M") rescue nil
+  end
 
 end
