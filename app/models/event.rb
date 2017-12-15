@@ -24,33 +24,28 @@ class Event < ApplicationRecord
   # états de publication et validation par l'admin
   #
   enum state: {
-    pending:   0, # brouillon
-    accepted: 1, # en attente de validation
-    rejected:  2  # accepté
+    active:   0, # brouillon
+    canceled: 1, # en attente de validation
   }
 
   aasm column: :state, enum: true do
 
-    state :pending, initial: true
-    state :accepted
+    state :active, initial: true
+    state :canceled
     state :active
 
-    event :accept, after: [:notify_acceptance] do
-      transitions from: :pending, to: :accepted
+    event :cancel, after: [:notify_cancelation_to_participants] do
+      transitions from: :active, to: :canceled
     end
 
-    event :reject,  after: [:notify_rejection] do
-      transitions from: :pending, to: :rejected
-      transitions from: :accepted, to: :rejected
+    event :activate do
+      transitions from: :canceled, to: :active
     end
 
   end
 
-  private def notify_acceptance
-    p "TODO notify_acceptance"
-  end
-  private def notify_rejection
-    p "TODO notify_rejection"
+  private def notify_cancelation_to_participants
+    SendNotification.event_canceled(self)
   end
 
   # Associations ===============================================================
@@ -90,7 +85,7 @@ class Event < ApplicationRecord
   }
 
   scope :visible, -> {
-    future #not_canceled TODO
+    future.active
   }
 
   scope :past, -> {
@@ -209,6 +204,18 @@ class Event < ApplicationRecord
 
   def end_time
     end_at.strftime("%H:%M") rescue nil
+  end
+
+  def past?
+    start_at < Time.current
+  end
+
+  def future?
+    start_at >= Time.current
+  end
+
+  def visible?
+    future? && active?
   end
 
 end

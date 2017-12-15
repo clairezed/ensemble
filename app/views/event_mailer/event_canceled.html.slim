@@ -1,0 +1,8 @@
+p Bonjour #{@user.firstname},
+
+p L'événement <b>#{@event.title}</b> auquel tu devais participé le #{@event.start_at.strftime("%d/%m/%Y")} vient d'être annulé par son organisateur.
+
+p 
+  ' Rendez-vous sur
+  => link_to "ENSEMBLE", root_url
+  ' pour participer à d'autres événements.

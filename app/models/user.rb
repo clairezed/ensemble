@@ -40,17 +40,6 @@ class User < ApplicationRecord
   has_many :participated_events, class_name: 'Event', source: :event, through: :event_participations
   has_many :events, ->(user) { unscope(where: :user_id).with_user(user.id) }
 
-
-  # has_many :events, ->(user){ unscope(where: :user_id)
-  #         .where(user_id: user.id).or(events: {event_participations: {user_id: user.id}}) }
-  # has_many :events, -> (user) { or(events: {event_participations: {user_id: user.id}}) }
-  # has_many :events, ->(user) { organized_by(user.id).or(with_participant(user.id))}
-  
-  # has_many :games, ->(team){ unscope(where: :team_id)
-  #         .where('away_team_id = :team_id OR home_team_id = :team_id', team_id: team.id) }
-  # has_many :comments, -> (task) { or(comments: {task_id: task.parent_id}) }
-
-
   # Validations ==================================================================
   validates :lastname,
             :firstname,
@@ -63,6 +52,12 @@ class User < ApplicationRecord
       :city,
       presence: true
   end
+
+
+  # Scopes ======================================================================
+
+  scope :email_notified, -> { where email_notification: true}
+  scope :sms_notified, -> { where sms_notification: true}
 
   # Callbacks ==================================================================
 

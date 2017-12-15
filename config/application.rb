@@ -16,5 +16,10 @@ module RailsStarter
     config.time_zone = "Paris"
 
     config.max_upload_size = 4.megabytes
+
+    config.action_mailer.default_options = {
+        from: 'noreply@ensemble.fr',
+        to:   'clairezuliani@gmail.com'
+      }
   end
 end

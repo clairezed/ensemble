@@ -41,6 +41,12 @@ class User::EventsController < User::BaseController
     end
   end
 
+  def destroy
+    @event.cancel!
+    flash[:notice] = "L'événement a bien été annulé"
+    redirect_back fallback_location: event_path(@event)
+  end
+
   private
 
   def find_event

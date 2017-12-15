@@ -7,15 +7,19 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    is_organizer?
+    is_organizer? && record.active?
+  end
+
+  def cancel?
+    is_organizer? && visible_event? && record.active?
   end
 
   def participate?
-    !is_participant? && !is_organizer?
+    visible_event? && !is_participant? && !is_organizer?
   end
 
   def cancel_participation?
-    is_participant? && !is_organizer?
+    visible_event? && is_participant? && !is_organizer?
   end
 
 
@@ -27,6 +31,10 @@ class EventPolicy < ApplicationPolicy
 
   def is_participant?
     user.participation_at(record).present?
+  end
+
+  def visible_event?
+    record.visible?
   end
 
 end

@@ -1,9 +1,10 @@
-  = link_to event_path(event) do 
-    .card
-      .card-body
-        h3= event.title
-        p= l(event.start_at.to_date)
-        / p= event.leisure.title
-        p= event.leisure_category.try(:title)
-        p= event.city.name
-        p= event_participants_count(event)
+
+= link_to event_path(event) do
+  .card.mt-3 class="#{'bg-secondary' if event.canceled?}"
+    .card-body
+      h3= event.title
+      p= l(event.start_at.to_date)
+      / p= event.leisure.title
+      p= event.leisure_category.try(:title)
+      p= event.city.name
+      p= event_participants_count(event)
