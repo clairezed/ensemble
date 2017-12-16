@@ -95,6 +95,11 @@ class User < ApplicationRecord
     # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
   end
 
+  before_validation :format_phone_number, if: :phone_changed?
+  private def format_phone_number
+    self.phone = User::FormatPhoneNumber.call(self.phone)
+  end
+
 
   # Scopes ======================================================================
 

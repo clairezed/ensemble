@@ -112,6 +112,7 @@ GEM
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     geocoder (1.4.5)
+    global_phone (1.0.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     htmlentities (4.3.4)
@@ -319,6 +320,7 @@ DEPENDENCIES
   factory_bot_rails
   font-awesome-rails
   geocoder (~> 1.4.0)
+  global_phone (~> 1.0)
   htmlentities (~> 4.3.4)
   jbuilder (~> 2.5)
   kaminari

@@ -1,6 +1,6 @@
 class User::ConfirmPhoneNumber
 
-  attr_accessor :code, :user
+  attr_accessor :user
 
   def self.call(user, params)
     self.new(user, params).call

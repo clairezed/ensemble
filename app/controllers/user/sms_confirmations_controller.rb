@@ -13,7 +13,8 @@ class User::SmsConfirmationsController < User::BaseController
       @user.errors.add(:phone, :blank)
       render_new_view
     else
-      @user = User.where(phone: send_sms_params[:phone]).first_or_initialize
+      phone = User::FormatPhoneNumber.call(send_sms_params[:phone])
+      @user = User.where(phone: phone).first_or_initialize
       if @user.new_record?
         flash[:error] = 'Il y a un problème avec votre numéro de téléphone'
         @user.errors.add(:phone, :not_corresponding_to_any_user)
