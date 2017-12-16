@@ -7,6 +7,7 @@
         th Prénom
         th Email
         th Inscription finalisée ?
+        th Vérification
         th 
     tbody
       - @users.each do |user| 
@@ -14,7 +15,10 @@
           td= user.lastname
           td= user.firstname
           td= user.email
-          td= td= boolean_badge(user.registration_complete)
+          td= boolean_badge(user.registration_complete)
+          td 
+            span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
+
           td.action-btns
             => link_to edit_profile_admin_user_path(user), 
                         class: "btn btn-sm btn-info", 

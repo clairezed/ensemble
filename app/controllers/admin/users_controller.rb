@@ -64,17 +64,17 @@ class Admin::UsersController < Admin::BaseController
     redirect_to users_redirect_path
   end
 
-  # def reactivate
-  #   @user.reactivate!
-  #   flash[:notice] = "L'utilisateur a été réactivé avec succès"
-  #   redirect_to users_redirect_path
-  # end
+  def accept
+    @user.admin_accept!
+    flash.notice = "L'utilisateur a été accepté avec succès"
+    redirect_to action: :index
+  end
 
-  # def block
-  #   @user.block!
-  #   flash.notice = "Le compte a été bloqué avec succès"
-  #   redirect_to action: :index
-  # end
+  def reject
+    @user.admin_reject!
+    flash.notice = "L'utilisateur a été rejeté et bloqué avec succès"
+    redirect_to action: :index
+  end
 
   # def sign_as
   #   signed_as_user = User.find(params[:id])

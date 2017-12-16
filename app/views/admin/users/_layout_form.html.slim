@@ -30,6 +30,13 @@
             dd= l @user.created_at.to_date
             dt Dernière mise à jour :
             dd= l @user.updated_at
+
+          hr
+          - if @user.may_admin_accept?
+            = link_to "Accepter", accept_admin_user_path(@user), method: :patch, class: "btn btn-success btn-block mb-3"
+          - if @user.may_admin_reject?
+            = link_to "Rejeter et bloquer", reject_admin_user_path(@user), method: :patch, class: "btn btn-danger btn-block"
+
         .col-md-10
           = yield
 

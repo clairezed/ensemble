@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::BaseController < ApplicationController
+  skip_before_action :reject_blocked_ip!
   skip_before_action :authenticate_user!
   before_action :authenticate_admin!
   layout 'administration'
