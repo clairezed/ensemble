@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   include Pundit
   protect_from_forgery with: :exception
+  before_action :reject_blocked_ip!
   before_action :authenticate_user!
 
   before_action :set_default_seos!, :get_basic_pages
@@ -47,4 +48,14 @@ class ApplicationController < ActionController::Base
   def get_basic_pages
     @basic_pages = BasicPage.where(enabled: true).order(position: :asc)
   end
+
+  def reject_blocked_ip!
+    current_ip = request.remote_ip
+
+    if User.blocked_ips.include?(current_ip)
+      flash[:error] = "Cette adresse IP n'est pas autorisée à accéder à Ensemble"
+      redirect_to root_path
+    end
+  end
+
 end

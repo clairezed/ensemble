@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       member do
         get :edit_profile
         patch :update_profile
+        patch :accept
+        patch :reject
       end
     end
     resources :leisure_categories
@@ -42,7 +44,10 @@ Rails.application.routes.draw do
   end
 
   namespace :user do
-    resources :sms_confirmations, only: [:new, :create, :show]
+    resources :sms_confirmations, only: [:new, :create, :update] do 
+      get :new_verify, on: :collection
+      patch :verify, on: :collection
+    end
     resources :events
     resources :past_events, only: :index
   end

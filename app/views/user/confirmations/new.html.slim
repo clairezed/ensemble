@@ -1,14 +1,21 @@
-h2 Renvoyer les instructions de confirmation
+- content_for :current_navigation_sub_section, :confirm_email
 
-= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-horizontal" } do |f| 
-  = f.hm_form_errors
-  .form-group.required
-    = f.label :email, class: ''
-    = f.email_field :email, class: 'form-control', autofocus: true
+= render layout: 'user/confirmations/layout' do
 
-  .form-group
-    .form-actions
-      hr
-      = f.submit "Me renvoyer la confirmation", class: "btn btn-primary"
+  h3 Confirmer mon adresse mail
 
-= render "user/shared/links" 
+  p 
+    b> Si je n'ai pas encore confirmé mon adresse mail :
+  ul
+    li Je renseigne mon adresse mail ci-dessous. 
+    li Je reçois par mail les instructions pour confirmer mon adresse mail.
+
+  = form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-horizontal" } do |f| 
+    = f.hm_form_errors
+    .form-group.required
+      = f.label :email, class: ''
+      = f.email_field :email, class: 'form-control', autofocus: true
+
+    .form-group
+      .form-actions
+        = f.submit "Me renvoyer les instructions email", class: "btn btn-primary"

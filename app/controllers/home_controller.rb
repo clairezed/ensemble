@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   layout 'unregistered', only: [:index]
 
   skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :reject_blocked_ip!, only: [:index]
 
 
   def index

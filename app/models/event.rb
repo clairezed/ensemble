@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   # Configurations =============================================================
   include Sortable
   include PgSearch
+  include AASM
 
   pg_search_scope :by_text, 
     :against => { :title => 'A', :description => 'B' }, 
@@ -19,7 +20,6 @@ class Event < ApplicationRecord
     mirador: 1
   }
 
-  include AASM
 
   # états de publication et validation par l'admin
   #

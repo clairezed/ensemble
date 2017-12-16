@@ -2,10 +2,14 @@ class User < ApplicationRecord
   
   # Configurations =============================================================
   include Sortable
+  include AASM
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  attr_accessor :sms_token 
+
 
   enum gender: { 
     female: 0, 
@@ -16,6 +20,42 @@ class User < ApplicationRecord
     normal: 0, 
     mirador: 1
   }
+
+  enum verification_state: {
+    pending: 0,
+    identity_verified: 1, # mail et sms vérifié
+    admin_accepted: 2,
+    admin_rejected: 3
+  }
+
+  aasm column: :verification_state, enum: true do
+
+    state :pending, initial: true
+    state :identity_verified
+    state :admin_accepted
+    state :admin_rejected
+
+    event :verify_identity, after: [:notify_admin_for_validation] do
+      transitions from: :pending, to: :identity_verified
+    end
+
+    event :admin_accept do
+      transitions from: :identity_verified, to: :admin_accepted
+      transitions from: :admin_rejected, to: :admin_accepted
+    end
+
+    # TODO : notify_user, cancel_events, block ip & email
+    event :admin_reject do
+      transitions from: :identity_verified, to: :admin_rejected
+      transitions from: :admin_accepted, to: :admin_rejected
+    end
+
+  end
+
+
+  private def notify_admin_for_validation
+    AdminMailer.user_to_verify(self).deliver_later
+  end
 
   # Associations ===============================================================
 
@@ -51,6 +91,8 @@ class User < ApplicationRecord
       :birthdate,
       :city,
       presence: true
+
+    # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
   end
 
 
@@ -61,10 +103,6 @@ class User < ApplicationRecord
 
   # Callbacks ==================================================================
 
-  private def notify_admin_for_validation
-    # TODO
-  end
-  after_update :notify_admin_for_validation, if: :fully_confirmed?
 
   # Class Methods ==============================================================
 
@@ -97,6 +135,13 @@ class User < ApplicationRecord
     klass.apply_sorts(params)
   end
 
+  def self.blocked_ips
+    self.admin_rejected
+      .map{|u| [u.current_sign_in_ip, u.last_sign_in_ip]}
+      .flatten
+      .compact
+  end
+
   # Instance methods ====================================================
 
   # Picture --------------------------------------------------------------
@@ -109,16 +154,39 @@ class User < ApplicationRecord
   end
 
 
-  # Vérification --------------------------------------------------------
+  # Vérification ==================================================================
 
+  # Sms confirmation --------------------------------------------------------------
+
+  # Fortement inspirée du code de Devise 
+  # https://github.com/plataformatec/devise/blob/ee01bac8b0b828b3da0d79c46115ba65c433d6c8/lib/devise/models/confirmable.rb
   def sms_confirmed?
     !sms_confirmed_at.blank?
   end
 
-  def fully_confirmed?
-    confirmed? & sms_confirmed?
+  def sms_confirmation_period_valid?
+    User.allow_unconfirmed_access_for.nil? || (sms_confirmation_sent_at && sms_confirmation_sent_at.utc >= User.allow_unconfirmed_access_for.ago)
   end
 
+  def sms_confirmation_required?
+    !sms_confirmed? && !sms_confirmation_period_valid?
+  end
+
+  # active_for_authentication --------------------------------------------------------------
+
+  def active_for_authentication? 
+    super && !sms_confirmation_required? && !admin_rejected? 
+  end
+
+  def inactive_message 
+    if admin_rejected? 
+      :admin_rejected 
+    elsif sms_confirmation_required?
+      :unconfirmed
+    else
+      super # Use whatever other message 
+    end 
+  end
 
   # Event participation -------------------------------------------------
 

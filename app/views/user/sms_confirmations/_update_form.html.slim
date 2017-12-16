@@ -1,0 +1,14 @@
+p Une fois le code reçu par sms, je l'enregistre ci-dessous pour confirmer mon numéro de téléphone
+
+= form_for @user, as: :user, url: user_sms_confirmation_path(@user),method: :patch, data: {sms_confirmation_form: true}, class: '' do |f|
+
+  - if f.object.errors.include?(:sms_token)
+    = f.hm_form_errors
+
+  .form-group.required
+    = f.label :sms_token, "Code à 6 chiffres reçu par SMS"
+    = f.text_field :sms_token, class: 'form-control'
+    small.form-text.text-muted La réception du SMS peut prendre quelques minutes
+
+  .form-group
+    = submit_tag "Valider", class: "btn btn-primary"

@@ -5,14 +5,15 @@
     h1 Paramètres
 
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: ""}) do |f| 
-      = render partial: "parameters_form", locals: {f: f, button_name: "Modifier mon compte"}
+      = render partial: "user/registrations/parameters_form", locals: {f: f, button_name: "Modifier mon compte"}
 
       .form-group
         .form-actions
           hr
           => f.submit "Valider", class: "btn btn-primary"
 
-- unless current_user.fully_confirmed?
+- unless current_user.identity_verified?
+
   .card
     .card-body
       h3 Vérifier mon identité
@@ -24,13 +25,25 @@
 
           .form-group
             .form-actions
-              hr
               = f.submit "Me renvoyer la confirmation", class: "btn btn-primary"
+
 
       - unless current_user.sms_confirmed?
         h4 Vérifier mon numéro de téléphone
 
-        = render 'user/sms_confirmations/new'
+        = form_for current_user, as: :user, url: user_sms_confirmations_path, html: { method: :post, class: "" } do |f| 
+          = f.hidden_field :phone
+
+          .form-group
+            .form-actions
+              = f.submit "Me renvoyer le code sms", class: "btn btn-primary"
+
+          - if @code_sent == true
+            .alert.alert-info role="alert" Un code a été envoyé à votre numéro de téléphone. Si vous vous souhaitez le renvoyer, cliquez de nouveau sur le bouton "Me renvoyer le code sms".
+
+        = render partial: "user/sms_confirmations/update_form"
+
+        / = render 'user/sms_confirmations/new'
 
 
 

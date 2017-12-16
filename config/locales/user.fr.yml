@@ -18,6 +18,7 @@ fr:
         gender:                     Le genre
         affiliation:                L'affiliation
         language_ids:               Les langues parlées
+        sms_token:                  Le code sms
 
       asset/user_avatar:
         asset:              Le fichier
@@ -54,3 +55,14 @@ fr:
     affiliations:
       normal: Utilisateur normal
       mirador: Utilisateur Mirador
+    verification_states:
+      title:
+        pending: en attente
+        identity_verified: "à vérifier"
+        admin_accepted: "accepté"
+        admin_rejected: "rejeté"
+      style:
+        pending: light
+        identity_verified: "warning"
+        admin_accepted: "success"
+        admin_rejected: "danger"

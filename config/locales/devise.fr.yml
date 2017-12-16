@@ -6,6 +6,8 @@ fr:
       not_locked: "n'est pas bloqué"
       confirmation_period_expired: "doit être confirmé pendant %{period}, veuillez faire une nouvelle demande"
       expired: "a expiré, veullez faire une nouvelle demande"
+      not_corresponding_to_any_user: "ne correspond a aucun utilisateur enregistré."
+      wrong: "n'est pas bon"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
@@ -22,6 +24,7 @@ fr:
       not_found_in_database: "Email ou mot de passe invalides."
       already_authenticated: "Vous êtes déjà connecté."
       not_approved: "Votre compte n'a pas encore été validé par un administrateur. Vous recevrez un e-mail à ce moment-là."
+      admin_rejected: "Votre compte a été bloqué par un administrateur d'Ensemble. Contactez-le pour plus d'informations."
     sessions:
       admin:
         signed_in: 'Connecté avec succès.'
@@ -38,15 +41,17 @@ fr:
     confirmations:
       send_instructions: 'Vous allez recevoir un email contenant les instructions nécessaires pour confirmer votre compte.'
       confirmed: 'Votre compte a été confirmé avec succès.'
-      send_paranoid_instructions: "Si votre Email est dans notre base de données vous recervrez dans quelques minutes un email avec les instructions pour confirmer votre compte"
+      send_paranoid_instructions: "Si votre email est dans notre base de données vous recevrez dans quelques minutes un email avec les instructions pour confirmer votre compte"
     registrations:
       signed_up: 'Vous vous êtes enregistré avec succès.'
       updated: 'Vous avez mis à jour votre compte avec succès.'
       destroyed: "Votre compte a été supprimé avec succès."
+      admin_rejected: "Votre compte a été bloqué par un administrateur d'Ensemble. Contactez-le pour plus d'informations."
       signed_up_but_inactive: "Vous ne pouvez pas encore vous connecter tant que vous n'avez pas activé votre compte. Un email de confirmation vous a été envoyé."
       signed_up_but_locked: "Votre compte a été temporairement verrouillé."
       signed_up_but_unconfirmed: "Un email de confirmation vous a été envoyé. Suivez le lien qu'il contient pour activer votre compte."
       signed_up_but_not_approved: "Votre compte n'a pas encore été validé par un administrateur. Vous recevrez un e-mail à ce moment-là."
+      signed_up_but_admin_rejected: "Votre compte a été bloqué par un administrateur d'Ensemble. Contactez-le pour plus d'informations."
       update_needs_confirmation: "Vous avez mis à jour votre compte, mais votre nouvel e-mail n'a pas encore été vérifié. Un email de confirmation vous a été envoyé."
     unlocks:
       send_instructions: 'Vous allez recevoir un email contenant les instructions nécessaires pour débloquer votre compte.'

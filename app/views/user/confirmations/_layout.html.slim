@@ -1,0 +1,18 @@
+- content_for :current_navigation_section, :confirmation
+
+.title-block
+  h1 
+    | Vérifier mon compte
+
+.card
+  .card-header
+    ul.nav.nav-tabs.card-header-tabs
+      li.nav-item
+        = link_to "Adresse mail", new_confirmation_path(:user), class: "nav-link #{active_if('confirm_email')}"
+      li.nav-item
+        = link_to "Numéro de téléphone", new_user_sms_confirmation_path, class: "nav-link #{active_if('confirm_phone')}"
+  .card-body.p-3
+    = yield
+
+    /hr
+    /= render "user/shared/links" 
