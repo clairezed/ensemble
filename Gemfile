@@ -54,18 +54,19 @@ group :test, :development do
   gem 'dotenv-rails'
   gem 'bullet'
   gem 'byebug', platform: :mri
-  gem 'capybara'
-  gem 'email_spec'
-  gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'rubocop', require: false
 end
 
 group :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'email_spec'
   gem 'factory_bot_rails'
   gem 'temping'
+  gem 'poltergeist'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

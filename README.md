@@ -136,11 +136,11 @@ Then, in `app/assets/javascripts/application.js.coffee`, add `#= require jquery`
 
 ## Running the tests
 
-```bash
-RAILS_ENV=test rake db:setup
-RAILS_ENV=test bin/rake db:seed
-bundle exec rspec
-```
+  rake db:test:prepare
+  # ou
+  RAILS_ENV=test rake db:setup
+  RAILS_ENV=test bin/rake db:seed
+  bundle exec rspec
 
 The project could clearly have more tests. Don't hesitate to contribute, I'll be happy to help !
 
