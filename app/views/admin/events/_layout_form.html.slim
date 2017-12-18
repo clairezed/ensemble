@@ -26,8 +26,10 @@
             dd= l @event.updated_at
 
           hr
+          - if @event.may_activate?
+            = link_to "Réactiver", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
           - if @event.may_cancel?
-            = link_to "Annuler", cancel_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
+            = link_to "Annuler", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
 
         .col-md-10
           = yield

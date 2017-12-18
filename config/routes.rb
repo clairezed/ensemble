@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     resources :events do
       member do
         patch :cancel
+        patch :activate
       end
     end
     resources :leisure_categories

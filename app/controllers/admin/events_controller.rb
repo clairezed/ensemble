@@ -1,6 +1,6 @@
 class Admin::EventsController < Admin::BaseController
 
-  before_action :find_event, only: [:edit, :update, :destroy]
+  before_action :find_event, only: [:edit, :update, :destroy, :cancel, :activate]
 
   def index
     @events = Event
@@ -39,7 +39,14 @@ class Admin::EventsController < Admin::BaseController
 
   def cancel
     @event.cancel!
+    # TODO Notif oragnisateur ?
     flash[:notice] = "L'événement a bien été annulé"
+    redirect_back fallback_location: event_path(@event)
+  end
+
+  def activate
+    @event.activate!
+    flash[:notice] = "L'événement a bien été réactivé"
     redirect_back fallback_location: event_path(@event)
   end
 
