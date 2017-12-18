@@ -144,6 +144,12 @@ class Event < ApplicationRecord
     eager_load(:city).merge(City.nearest_first(coordinates))
   }
 
+  # Admin 
+
+  scope :by_state, ->(state) {
+    where(state: states.fetch(state.to_sym))
+  }
+
  
   # Class Methods ==============================================================
 
@@ -160,18 +166,18 @@ class Event < ApplicationRecord
     end
   end
 
-  def self.apply_sorts(params)
-    # default sorting
-    # params[:sort_by] ||= DEFAULT_SORTING_OPTION
-    # [
-    #   # :nearest_first
-    #   :next_in_time,
-    # ].inject(all) do |relation, filter|
-    #   next relation unless params[:sort_by].to_sym == filter
-    #   relation.send(filter)
-    # end
-    all
-  end
+  # def self.apply_sorts(params)
+  #   # default sorting
+  #   # params[:sort_by] ||= DEFAULT_SORTING_OPTION
+  #   # [
+  #   #   # :nearest_first
+  #   #   :next_in_time,
+  #   # ].inject(all) do |relation, filter|
+  #   #   next relation unless params[:sort_by].to_sym == filter
+  #   #   relation.send(filter)
+  #   # end
+  #   all
+  # end
 
   # def self.apply_filters(params)
   #   klass = self

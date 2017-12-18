@@ -34,7 +34,7 @@ module Sortable
       #==========================================================================
       def self.apply_sorts(params, default = { id: :asc })
         # pb avec kaminari si on retourne une relation vide
-        return self unless self.is_a?(ActiveRecord::Relation)
+        # return self unless self.is_a?(ActiveRecord::Relation)
 
         if params[:sort].present?
           field, dir = params[:sort].split(/\s*,\s*/).first.split /\s+/

@@ -38,15 +38,15 @@ html lang="#{I18n.locale}"
                   i.fa.fa-home
                   | Accueil
 
-                = menu_link admin_users_path, section: :section1, title: "Retour à l'accueil" do 
+                = menu_link admin_users_path, section: :users, title: "Retour à l'accueil" do 
                   i.fa.fa-users
                   | Utilisateurs
                 = menu_link admin_leisure_categories_path, section: :leisure_menu, title: "Loisirs" do 
-                  i.fa.fa-bar-chart
+                  i.fa.fa-gamepad
                   | Loisirs
-                = menu_link '#', section: :section3, title: "Retour à l'accueil" do 
-                  i.fa.fa-table
-                  | Section 3
+                = menu_link admin_events_path, section: :events, title: "Evénements" do 
+                  i.fa.fa-calendar
+                  | Evénements
                 = menu_link '#', section: :section4, title: "Retour à l'accueil" do 
                   i.fa.fa-pencil-square-o
                   | Section 4

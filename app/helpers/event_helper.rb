@@ -9,6 +9,27 @@ module EventHelper
     I18n.t(visibility, scope: [:event, :visibilities])
   end
 
+
+  def event_affiliation(affiliation)
+    I18n.t(affiliation, scope: [:event, :affiliations])
+  end
+
+  # Etat -----------------------------------------------
+
+  def event_state_title(state)
+    I18n.t(state, scope: %i(event states title))
+  end
+
+  def event_state_style(state)
+    I18n.t(state, scope: %i(event states style))
+  end
+
+  def event_state_options(states = Event.states.keys)
+    states.map do |state|
+      [event_state_title(state), state.to_s]
+    end
+  end
+
   # Participants ------------------------------------
 
   def event_participants_count(event)

@@ -1,0 +1,23 @@
+- content_for :current_navigation_sub_section, :parameters
+
+= render layout: 'layout_form' do
+
+  = form_for @event, as: :event, url: admin_event_path(@event), html: {class: "form-horizontal"} do |f| 
+
+    = render partial: "events/form", locals: {f: f}
+
+    .form-group
+      label Mirador ?
+      br
+      - Event.affiliations.each do |key, value|
+        .form-check.form-check-inline
+          label.form-check-label
+            => f.radio_button :affiliation, key, class: "form-check-input"
+            => event_affiliation(key)
+
+    .form-group
+      hr
+      => f.submit "Enregistrer les modifications", class: "btn btn-primary mr-2", id: "submit_and_leave"
+      => f.submit name: "continue", value: "Enregistrer et continuer l'édition", class: "btn btn-default mr-2", id: "submit_and_stay"
+      = link_to "Annuler", admin_events_path, class: "btn"
+

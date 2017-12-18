@@ -30,6 +30,11 @@ Rails.application.routes.draw do
         patch :reject
       end
     end
+    resources :events do
+      member do
+        patch :cancel
+      end
+    end
     resources :leisure_categories
     resources :leisures
     root to: 'dashboard#index'

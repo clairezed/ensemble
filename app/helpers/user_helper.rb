@@ -36,9 +36,9 @@ module UserHelper
     I18n.t(state, scope: %i(user verification_states style))
   end
 
-  def user_verification_state_options(states = user.verification_states.keys)
+  def user_verification_state_options(states = User.verification_states.keys)
     states.map do |state|
-      [user_state_title(state), state.to_s]
+      [user_verification_state_title(state), state.to_s]
     end
   end
 

@@ -43,3 +43,13 @@ fr:
     visibilities:
       open: Public
       closed: Privé
+    affiliations:
+      normal: Evénement normal
+      mirador: Evénement Mirador
+    states:
+      title:
+        active: actif
+        canceled: annulé
+      style:
+        active: success
+        canceled: danger

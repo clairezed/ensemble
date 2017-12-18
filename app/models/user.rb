@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   attr_accessor :sms_token 
 
-
   enum gender: { 
     female: 0, 
     male: 1
@@ -106,20 +105,39 @@ class User < ApplicationRecord
   scope :email_notified, -> { where email_notification: true}
   scope :sms_notified, -> { where sms_notification: true}
 
+  scope :by_name_or_email, -> (val) {
+    val.downcase!
+    where(arel_table[:firstname].matches("%#{val}%").or(
+          arel_table[:lastname].matches("%#{val}%").or(
+          arel_table[:email].matches("%#{val}%"))))
+  }
+
+  scope :by_verification_state, ->(state) {
+    where(verification_state: verification_states.fetch(state.to_sym))
+  }
+
   # Callbacks ==================================================================
 
 
   # Class Methods ==============================================================
 
-  #   def self.apply_filters(params)
-  #   [
-  #     :by_text,
-  #     :by_competences,
-  #   ].inject(all) do |relation, filter|
-  #     next relation unless params[filter].present?
-  #     relation.send(filter, params[filter])
-  #   end
-  # end
+  def self.blocked_ips
+    self.admin_rejected
+      .map{|u| [u.current_sign_in_ip, u.last_sign_in_ip]}
+      .flatten
+      .compact
+  end
+
+    def self.apply_filters(params)
+    [
+      :by_name_or_email,
+      :by_verification_state,
+    ].inject(all) do |relation, filter|
+      next relation unless params[filter].present?
+      relation.send(filter, params[filter])
+    end
+    relation.apply_sorts(params)
+  end
 
   # def self.apply_sorts(params)
   #   # default sorting
@@ -131,21 +149,14 @@ class User < ApplicationRecord
   #   end
   # end
 
-  def self.apply_filters(params)
-    klass = self
+  # def self.apply_filters(params)
+  #   klass = self
 
-    # klass = klass.by_title(params[:by_title]) if params[:by_title].present?
-    return self unless self.is_a?(ActiveRecord::Relation)
+  #   # klass = klass.by_title(params[:by_title]) if params[:by_title].present?
+  #   return self unless self.is_a?(ActiveRecord::Relation)
 
-    klass.apply_sorts(params)
-  end
-
-  def self.blocked_ips
-    self.admin_rejected
-      .map{|u| [u.current_sign_in_ip, u.last_sign_in_ip]}
-      .flatten
-      .compact
-  end
+  #   klass.apply_sorts(params)
+  # end
 
   # Instance methods ====================================================
 

@@ -4,30 +4,28 @@
     thead.thead-inverse
       tr
         th = hm_sort 'sort_by_created_at', label: 'Date création'
-        th = hm_sort 'sort_by_lastname', label: 'Nom'
-        th = hm_sort 'sort_by_firstname', label: 'Prénom'
-        th Email
-        th Inscription finalisée ?
-        th Vérification
+        th = hm_sort 'sort_by_start_at', label: 'Date début'
+        th = hm_sort 'sort_by_title', label: 'Titre'
+        th = hm_sort 'sort_by_city_id', label: 'Ville'
+        th = hm_sort 'sort_by_state', label: 'Etat'
         th 
     tbody
-      - @users.each do |user| 
+      - @events.each do |event| 
         tr
-          td= l user.created_at.to_date
-          td= user.lastname
-          td= user.firstname
-          td= user.email
-          td= boolean_badge(user.registration_complete)
-          td 
-            span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
+          td= l event.created_at.to_date
+          td= l event.start_at.to_date
+          td= event.title
+          td= event.city.long_name
+          td
+            span class="badge badge-#{event_state_style(event.state)}"= event_state_title(event.state)
 
           td.action-btns
-            => link_to edit_profile_admin_user_path(user), 
+            => link_to edit_admin_event_path(event), 
                         class: "btn btn-sm btn-info", 
                         title: "Editer" do
 
               i.fa.fa-pencil
-            = link_to admin_user_path(user),
+            = link_to admin_event_path(event),
                       method: :delete, 
                       data: {confirm: "Confirmer la suppression ?"}, 
                       title: "Supprimer", 
@@ -35,10 +33,10 @@
 
                 i.fa.fa-trash
       
-      - if @users.empty?
+      - if @events.empty?
         tr
           td colspan="7"
             p.text-center: em.text-muted Aucun résultat
 
 
-  = paginate @users
+  = paginate @events
