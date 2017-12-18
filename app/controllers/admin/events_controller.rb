@@ -53,7 +53,10 @@ class Admin::EventsController < Admin::BaseController
   private # =====================================================
 
   def event_params
-    params.require(:event).permit(:title, :event_category_id)
+    EventService::PrepareParams.call(params.require(:event).permit(:title,
+      :address, :city_id, :description, :participants_min, :participants_max, 
+      :visibility, :leisure_category_id, :leisure_id, :start_date, :start_time, 
+      :end_date, :end_time, :affiliation))
   end
 
   def find_event

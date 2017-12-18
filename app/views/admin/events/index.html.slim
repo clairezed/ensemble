@@ -8,6 +8,7 @@
         th = hm_sort 'sort_by_title', label: 'Titre'
         th = hm_sort 'sort_by_city_id', label: 'Ville'
         th = hm_sort 'sort_by_state', label: 'Etat'
+        th = hm_sort 'sort_by_affiliation', label: 'Mirador'
         th 
     tbody
       - @events.each do |event| 
@@ -18,6 +19,7 @@
           td= event.city.long_name
           td
             span class="badge badge-#{event_state_style(event.state)}"= event_state_title(event.state)
+          td= boolean_badge(event.mirador?)
 
           td.action-btns
             => link_to edit_admin_event_path(event), 
