@@ -50,11 +50,9 @@ module UserHelper
 
   def user_age(birthdate)
     return if birthdate.blank?
-    if @age.blank?
-      now = Date.today
-      @age = now.year - birthdate.year - ((now.month > birthdate.month || (now.month == birthdate.month && now.day >= birthdate.day)) ? 0 : 1)
-    end
-    [@age, 'ans'].join(' ')
+    now = Date.today
+    age = now.year - birthdate.year - ((now.month > birthdate.month || (now.month == birthdate.month && now.day >= birthdate.day)) ? 0 : 1)
+    [age, 'ans'].join(' ')
   end
 
   # Profil verification --------------------------------

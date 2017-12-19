@@ -65,6 +65,10 @@ class Event < ApplicationRecord
   has_many :event_participations, dependent: :destroy
   has_many :participants, class_name: 'User', source: :user, through: :event_participations
 
+  has_many :event_invitations, dependent: :destroy
+  has_many :invited_users, class_name: 'User', source: :user, through: :event_invitations
+
+
   # Validations ==================================================================
   validates :title,
             :start_at,

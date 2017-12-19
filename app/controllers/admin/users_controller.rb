@@ -97,6 +97,7 @@ class Admin::UsersController < Admin::BaseController
   # strong parameters
   def profile_params
     params.require(:user).permit(:gender, :phone, :birthdate, :description, :city_id, 
+      language_ids: [], leisure_ids: [],
       avatar_attributes: [ :id, :asset, :_destroy])
   end
 

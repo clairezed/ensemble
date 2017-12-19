@@ -9,6 +9,7 @@ module EventHelper
     I18n.t(visibility, scope: [:event, :visibilities])
   end
 
+  # Affiliation
 
   def event_affiliation(affiliation)
     I18n.t(affiliation, scope: [:event, :affiliations])
@@ -38,8 +39,15 @@ module EventHelper
     [current_participants_count, max_participants_count].join("/")
   end
 
+  # Adresse
+
   def event_full_address(event)
     [event.address, event.city.long_name].compact.join(", ")
+  end
+
+  # Leisure
+  def event_leisure_title(event)
+    event.leisure.present? ? event.leisure.title : event.leisure_category.title
   end
 
 

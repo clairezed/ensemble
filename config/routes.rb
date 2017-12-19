@@ -54,7 +54,9 @@ Rails.application.routes.draw do
       get :new_verify, on: :collection
       patch :verify, on: :collection
     end
-    resources :events
+    resources :events do
+      resources :event_invitations, as: :invitations, controller: "events/event_invitations"
+    end
     resources :past_events, only: :index
   end
 

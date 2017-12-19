@@ -67,8 +67,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :avatar, allow_destroy: true
 
   has_many :leisure_interests, dependent: :destroy
-  has_many :leisures, through: :leisure_interests
-  has_many :leisure_categories, through: :leisures
+  has_many :leisures, -> { uniq }, through: :leisure_interests
+  has_many :leisure_categories, -> { uniq }, through: :leisures
 
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
@@ -114,6 +114,14 @@ class User < ApplicationRecord
 
   scope :by_verification_state, ->(state) {
     where(verification_state: verification_states.fetch(state.to_sym))
+  }
+
+  scope :by_leisure_category, -> (val) {
+    joins(:leisure_interests).merge(LeisureInterest.by_leisure_category(val))
+  }
+
+  scope :by_leisure, -> (val) {
+    joins(:leisure_interests).merge(LeisureInterest.by_leisure(val))
   }
 
   # Callbacks ==================================================================

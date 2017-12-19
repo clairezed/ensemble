@@ -1,0 +1,37 @@
+- content_for :current_navigation_sub_section, :future_events
+
+h1 Invitations
+
+h2 Invités
+
+- @invited_users.each do |invitation|
+  .invitation-card.mb-3
+    = render partial: 'profiles/card', locals: {user: invitation.user}
+    .row.no-gutters
+      .col-3
+        = link_to "Voir", profile_path(invitation.user), class: "btn btn-primary btn-block"
+      .col-9
+        = link_to "Annuler", user_event_invitation_path(@event, invitation), 
+        method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block"
+
+
+h2 Personnes aimant "#{event_leisure_title(@event)}"
+
+- @leisure_users.each do |user|
+  .invitation-card.mb-3
+    = render partial: 'profiles/card', locals: {user: user}
+    .row.no-gutters
+      .col-3
+        = link_to "Voir", profile_path(user), class: "btn btn-primary btn-block"
+      .col-9
+        = form_for @event.event_invitations.new, as: :event_invitation, url: user_event_invitations_path(@event) do |f|
+          = f.hidden_field :user_id, value: user.id
+          = f.submit "Inviter", class: "btn btn-secondary btn-block"
+= paginate @leisure_users
+
+- if @leisure_users.empty?
+  p Vous avez invité toutes les personnes autour de vous aimant "#{event_leisure_title(@event)}". Vous pouvez valider les invitations ou rechercher une autre personne par son nom.
+
+
+
+h2 Chercher une personne

@@ -14,11 +14,10 @@ class User::EventsController < User::BaseController
 
   def create  
     @event = current_user.organized_events.new(event_params)
-    # raise @event.inspect
     if @event.save
       flash[:notice] = "L'événement a été créée avec succès"
       if @event.closed?
-        redirect_to event_path(@event)
+        redirect_to user_event_invitations_path(@event)
       else
         redirect_to action: :index
       end

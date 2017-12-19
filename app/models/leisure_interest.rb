@@ -14,6 +14,14 @@ class LeisureInterest < ApplicationRecord
   # Scopes =====================================================================
   scope :persisted, -> { where.not(id: nil)}
 
+  scope :by_leisure, -> (val) {
+    where(leisure_id: val)
+  }
+
+  scope :by_leisure_category, -> (val) {
+    joins(:leisure).merge(Leisure.by_leisure_category(val)).distinct
+  }
+
   # Instance methods =========================================
 
 
