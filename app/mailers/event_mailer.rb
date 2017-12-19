@@ -9,4 +9,12 @@ class EventMailer < ApplicationMailer
     mail to: @user.email, subject: subject
   end
 
+  def new_invitation(invitation)
+    @invitation = invitation
+    @user = invitation.user
+    @event = invitation.event
+    subject = "Nouvelle invitation"
+    mail to: @user.email, subject: subject
+  end
+
 end

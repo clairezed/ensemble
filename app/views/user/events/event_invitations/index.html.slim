@@ -35,3 +35,6 @@ h2 Personnes aimant "#{event_leisure_title(@event)}"
 
 
 h2 Chercher une personne
+
+
+= link_to "Valider", batch_valildate_user_event_invitations_path(@event), method: :patch, class: "btn btn-primary btn-block"

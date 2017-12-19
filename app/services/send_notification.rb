@@ -9,4 +9,9 @@ class SendNotification
     end
   end
 
+  def self.new_invitation(invitation)
+    EventMailer.new_invitation(invitation).deliver_later if invitation.user.email_notification?
+    Twilio::EventSmsSender.new.new_invitation(invitation) if invitation.user.sms_notification?
+  end
+
 end

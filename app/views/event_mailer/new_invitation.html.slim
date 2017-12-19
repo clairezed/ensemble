@@ -1,0 +1,9 @@
+p Bonjour #{@user.firstname},
+
+p #{user_nickname(@event.user)} vous invite à son événement <b>#{@event.title}</b> prévu le #{@event.start_at.strftime("%d/%m/%Y")}.
+=> link_to "Voir l'événement", event_url(@event)
+
+p 
+  ' Rendez-vous sur
+  => link_to "ENSEMBLE", root_url
+  ' pour participer à d'autres événements.

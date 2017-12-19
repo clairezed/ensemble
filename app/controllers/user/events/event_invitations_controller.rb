@@ -28,6 +28,15 @@ class User::Events::EventInvitationsController < User::Events::BaseController
     redirect_back fallback_location: user_event_invitations_path(@event)
   end
 
+  # Valide les 
+  def batch_valildate
+    @event.event_invitations.each do |invitation|
+      invitation.validate!
+    end
+    lash[:notice] = "Les invitations ont bien été validées et envoyées"
+    redirect_to user_events_path
+  end
+
   private
 
   def find_event_invitation

@@ -55,7 +55,9 @@ Rails.application.routes.draw do
       patch :verify, on: :collection
     end
     resources :events do
-      resources :event_invitations, as: :invitations, controller: "events/event_invitations"
+      resources :event_invitations, as: :invitations, controller: "events/event_invitations" do 
+        patch :batch_valildate, on: :collection
+      end
     end
     resources :past_events, only: :index
   end
