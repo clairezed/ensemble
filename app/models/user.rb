@@ -67,8 +67,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :avatar, allow_destroy: true
 
   has_many :leisure_interests, dependent: :destroy
-  has_many :leisures, -> { uniq }, through: :leisure_interests
-  has_many :leisure_categories, -> { uniq }, through: :leisures
+  has_many :leisures, -> { distinct }, through: :leisure_interests
+  has_many :leisure_categories, -> { distinct }, through: :leisures
 
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages
