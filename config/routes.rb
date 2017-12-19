@@ -60,6 +60,12 @@ Rails.application.routes.draw do
       end
     end
     resources :past_events, only: :index
+    resources :event_invitations, as: :invitations, only: :index do
+      member do
+        patch :accept
+        patch :reject
+      end
+    end
   end
 
   # Front ======================================

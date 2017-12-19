@@ -45,6 +45,8 @@ html lang="#{I18n.locale}"
                   = link_to "Mon profil", profile_path(current_user), class: "nav-link"
                 li.nav-item
                   = link_to "Mes événements", user_events_path, class: "nav-link"
+                li.nav-item
+                  = link_to "Mes invitations", user_invitations_path, class: "nav-link"
 
                 li.nav-item
                   = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"

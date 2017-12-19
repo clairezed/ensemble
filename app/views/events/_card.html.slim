@@ -2,6 +2,8 @@
 = link_to event_path(event) do
   .card.mt-3 class="#{'bg-secondary' if event.canceled?}"
     .card-body
+      - if event.closed?
+        span.float-right Evénement privé
       h3= event.title
       p= l(event.start_at.to_date)
       / p= event.leisure.title

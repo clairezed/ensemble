@@ -79,6 +79,8 @@ class User < ApplicationRecord
   has_many :participated_events, class_name: 'Event', source: :event, through: :event_participations
   has_many :events, ->(user) { unscope(where: :user_id).with_user(user.id) }
 
+  has_many :event_invitations, dependent: :destroy
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,

@@ -1,6 +1,8 @@
 class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
+    # TODO : pas événements privés ou je suis pas invité
+    # TODO : pas événements organisés/ par qqn qui m'a bloqué
     def resolve
       scope
     end
