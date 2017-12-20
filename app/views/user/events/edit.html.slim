@@ -11,3 +11,5 @@ h2 Modifier l'événement #{@event.title}
 
 
   => f.submit "Valider", class: "btn btn-primary"
+
+  = link_to "Gérer les invitations", user_event_invitations_path(@event), class: "btn btn-secondary"

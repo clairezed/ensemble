@@ -7,6 +7,7 @@
 #= require flatpickr/dist/flatpickr.min
 #= require flatpickr/dist/l10n/fr
 #= require quill/dist/quill.min
+#= require handlebars/dist/handlebars.min
 
 #= require ./components/flash-messages
 #= require ./components/select2-simple

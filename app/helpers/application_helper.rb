@@ -208,5 +208,16 @@ module ApplicationHelper
   def wysiwyg_text(text)
     raw sanitize text, tags: %w(strong em a p u ul ol li), attributes: %w(href)
   end
+
+  # handlebars =================================================================
+
+
+  # créée un bloc script de type handlebars template avec pour attribut data-template
+  # l'argument name. Cela permet de faire des templates handlebars en slim.
+  #
+  def handlebars_template(name, content = nil, &block)
+    content = block ? capture(&block) : content
+    content_tag :script, content, type: "text/x-handlebars-template", data: {template: name}
+  end
   
 end

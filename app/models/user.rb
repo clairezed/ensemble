@@ -114,6 +114,12 @@ class User < ApplicationRecord
           arel_table[:email].matches("%#{val}%"))))
   }
 
+  scope :by_nickname, -> (val='', options) {
+    return none if (val.blank? && options[:strict] == true)
+    val.downcase!
+    where(arel_table[:firstname].matches("%#{val}%"))
+  }
+
   scope :by_verification_state, ->(state) {
     where(verification_state: verification_states.fetch(state.to_sym))
   }
@@ -126,6 +132,10 @@ class User < ApplicationRecord
     joins(:leisure_interests).merge(LeisureInterest.by_leisure(val))
   }
 
+  scope :minus, -> (id) {
+    where.not(id: id)
+  }
+ 
   # Callbacks ==================================================================
 
 

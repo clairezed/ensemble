@@ -11,22 +11,18 @@ h2 Invités
       .col-3
         = link_to "Voir", profile_path(invitation.user), class: "btn btn-primary btn-block"
       .col-9
-        = link_to "Annuler", user_event_invitation_path(@event, invitation), 
-        method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block"
+        - if invitation.draft?
+          = link_to "Annuler", user_event_invitation_path(@event, invitation), 
+          method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block"
+        - else
+          p.text-center Invitation #{event_invitation_state_title(invitation.state)} 
 
 
 h2 Personnes aimant "#{event_leisure_title(@event)}"
 
 - @leisure_users.each do |user|
   .invitation-card.mb-3
-    = render partial: 'profiles/card', locals: {user: user}
-    .row.no-gutters
-      .col-3
-        = link_to "Voir", profile_path(user), class: "btn btn-primary btn-block"
-      .col-9
-        = form_for @event.event_invitations.new, as: :event_invitation, url: user_event_invitations_path(@event) do |f|
-          = f.hidden_field :user_id, value: user.id
-          = f.submit "Inviter", class: "btn btn-secondary btn-block"
+   = render partial: 'user/events/searched_invited_users/invitation_card', locals: {user: user}
 = paginate @leisure_users
 
 - if @leisure_users.empty?
@@ -36,5 +32,15 @@ h2 Personnes aimant "#{event_leisure_title(@event)}"
 
 h2 Chercher une personne
 
+= form_tag user_event_searched_invited_users_path(@event), method: :get, class:"", data: {is_filter_form: true} do
+  = text_field_tag :by_nickname, "", prompt: "Chercher une personne", class: "form-control", data: {is_ajax_select2: 'user', path: user_event_searched_invited_users_path(@event), event_id: @event.id }
+
+div data-is-list='users'
 
 = link_to "Valider", batch_valildate_user_event_invitations_path(@event), method: :patch, class: "btn btn-primary btn-block"
+
+
+= render "profiles/hb_card"
+
+coffee:
+  new InvitationsNew()

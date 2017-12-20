@@ -1,8 +1,9 @@
 class @Select2Ajax
 
-  constructor: () ->
-    $autocompleteInput = $('[data-is-ajax-select2]')
-    path = $autocompleteInput.data('path')
+
+  constructor: (inputSelector = '[data-is-ajax-select2]', options = {}) ->
+    @$autocompleteInput = $(inputSelector)
+    path = @$autocompleteInput.data('path')
 
     specificOptions = {
       ajax:
@@ -14,4 +15,8 @@ class @Select2Ajax
         processResults: (data) ->
           { results: data }
     }
-    return new Select2Simple($autocompleteInput, specificOptions)
+    
+    @options = $.extend(true, {}, specificOptions, options)
+
+
+    return new Select2Simple(@$autocompleteInput, @options)

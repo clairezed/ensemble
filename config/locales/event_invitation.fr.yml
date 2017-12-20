@@ -1,0 +1,14 @@
+fr:
+
+  event_invitation:
+    states:
+      title:
+        draft: brouillon
+        pending: en attente
+        accepted: acceptée
+        rejected: refusée
+      style:
+        draft: light
+        pending: warning
+        accepted: success
+        rejected: danger
