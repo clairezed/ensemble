@@ -43,9 +43,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create_second_step
     @user.attributes = second_step_params
     if @user.save
-      @user.update(registration_complete: true)
+      finalize_registration
       flash[:notice] = "Votre inscription a bien été finalisée"
-      redirect_to action: :edit_profile
+      redirect_to action: :edit, anchor: 'verify-identity'
     else
       @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
@@ -146,6 +146,11 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  def finalize_registration
+    @user.update(registration_complete: true)
+    Twilio::SendConfirmationMessage.call(@user)
   end
 
   private 

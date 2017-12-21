@@ -7,7 +7,7 @@
 
 .form-group
   = f.label :phone, class: ''
-  = f.text_field :phone, class: 'form-control'
+  = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
   small.form-text.text-muted = phone_verified_status(f.object)
 
 .form-check

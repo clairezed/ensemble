@@ -52,10 +52,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    user_type = @user.user_type
     @user.destroy
     flash[:notice] = "L'utilisateur a été supprimé définitivement avec succès"
-    redirect_to admin_users_path(by_user_type: user_type)
+    redirect_to admin_users_path
   end
 
   def confirm

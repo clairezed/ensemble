@@ -201,7 +201,7 @@ class User < ApplicationRecord
   end
 
   def sms_confirmation_period_valid?
-    User.allow_unconfirmed_access_for.nil? || (sms_confirmation_sent_at && sms_confirmation_sent_at.utc >= User.allow_unconfirmed_access_for.ago)
+    User.allow_unconfirmed_access_for.nil? || !registration_complete? || (sms_confirmation_sent_at.present? && sms_confirmation_sent_at.utc >= User.allow_unconfirmed_access_for.ago)
   end
 
   def sms_confirmation_required?
