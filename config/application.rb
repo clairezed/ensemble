@@ -16,6 +16,8 @@ module RailsStarter
     config.time_zone = "Paris"
     config.autoload_paths << Rails.root.join('lib')
 
+    config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
+
     config.max_upload_size = 4.megabytes
 
     config.action_mailer.default_options = {

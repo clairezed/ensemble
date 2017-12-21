@@ -18,11 +18,11 @@ class EventInvitation < ApplicationRecord
     state :rejected
 
     # TODO notifiy invited_user
-    event :validate, after: [:notify_invitation]  do
+    event :validate, after: [:notify_invitation] do
       transitions from: :draft, to: :pending
     end
 
-    event :accept do
+    event :accept, after: [:create_participation] do
       transitions from: :pending, to: :accepted
     end
 
@@ -35,6 +35,10 @@ class EventInvitation < ApplicationRecord
 
   private def notify_invitation
     SendNotification.new_invitation(self)
+  end
+
+  private def create_participation
+    EventParticipation.create(user_id: self.user_id, event_id: self.event_id)
   end
 
   # Associations ===============================================================

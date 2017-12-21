@@ -18,7 +18,7 @@ module Twilio
       @user = invitation.user
       message = "Invitation à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}"
       p message 
-      # send_sms("event_canceled")
+      # send_sms("new invit', rep OUI")
       # send_sms(message, user.phone )
     end
 

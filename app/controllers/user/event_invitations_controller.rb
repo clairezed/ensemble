@@ -2,7 +2,7 @@
 
 class User::EventInvitationsController < User::BaseController
  
-  before_action :find_event_invitation, only: %i[accept, reject]
+  before_action :find_event_invitation, except: %i[index]
 
   def index
     @event_invitations = current_user.event_invitations.pending
@@ -10,7 +10,30 @@ class User::EventInvitationsController < User::BaseController
 
   def accept
     @event_invitation.accept!
+    flash[:notice] = "L'invitation a bien été acceptée"
     redirect_to action: :index
+  end
+
+  def reject
+    @event_invitation.reject!
+    flash[:notice] = "L'invitation a bien été rejetée"
+    redirect_to action: :index
+  end
+
+  # reponse email
+  def edit
+    if params[:query].present? and params[:query] == 'accept'
+      @event_invitation.accept!
+      flash[:notice] = "L'invitation a bien été acceptée"
+      redirect_to action: :index
+    elsif params[:query].present? and params[:query] == 'reject'
+      @event_invitation.reject!
+      flash[:notice] = "L'invitation a bien été rejetée"
+      redirect_to action: :index
+    else
+      flash[:notice] = "Nous n'avons pas retrouvé cette invitation"
+      redirect_to action: :index
+    end
   end
 
 

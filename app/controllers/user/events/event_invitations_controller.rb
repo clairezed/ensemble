@@ -33,7 +33,7 @@ class User::Events::EventInvitationsController < User::Events::BaseController
     @event.event_invitations.each do |invitation|
       invitation.validate!
     end
-    lash[:notice] = "Les invitations ont bien été validées et envoyées"
+    flash[:notice] = "Les invitations ont bien été validées et envoyées"
     redirect_to user_events_path
   end
 

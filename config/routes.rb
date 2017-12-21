@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+  # frozen_string_literal: true
 
 Rails.application.routes.draw do
   devise_for :admin
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
       resources :searched_invited_users, controller: "events/searched_invited_users", only: [:index]
     end
     resources :past_events, only: :index
-    resources :event_invitations, as: :invitations, only: :index do
+    resources :event_invitations, as: :invitations, only: [:index, :edit] do
       member do
         patch :accept
         patch :reject
