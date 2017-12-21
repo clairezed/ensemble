@@ -273,6 +273,13 @@ If problems in prod : https://blog.ronaldchacon.com/rails-5-1-yarn-webfonts-and-
 -> Vérifier la présence de "TODO" dans le code
 - [ ] régler le slideToggle 'open' du submenu
 
+## Twilio 
+
+Receive sms in dev thanks to ngrok
+
+  ./ngrok http 3000
+
+Then configure twilio phone number [https://www.twilio.com/console/phone-numbers/incoming](https://www.twilio.com/console/phone-numbers/incoming) with `http://XXXXXXXX.ngrok.io/sms_notifications`
 
 ## Docker
 

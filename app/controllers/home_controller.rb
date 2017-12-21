@@ -3,8 +3,11 @@
 class HomeController < ApplicationController
   layout 'unregistered', only: [:index]
 
-  skip_before_action :authenticate_user!, only: [:index]
-  skip_before_action :reject_blocked_ip!, only: [:index]
+  # TODO check why it suddenly doesnt work anymore?
+  protect_from_forgery with: :null_session, only: [:accept_cookies]
+
+  skip_before_action :authenticate_user!
+  skip_before_action :reject_blocked_ip!
 
 
   def index

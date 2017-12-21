@@ -30,9 +30,16 @@ module Twilio
           to: recipient_number,    
           from: SENDER_PHONE_NUMBER)
       rescue Twilio::REST::TwilioError => e
+        raise e
         puts e.message
         return false
       end
+    end
+
+    def xml_message(message_param)
+      message = Twilio::TwiML::MessagingResponse.new
+      message.message(body: message_param)
+      return message
     end
 
 

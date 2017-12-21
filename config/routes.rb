@@ -84,6 +84,7 @@ Rails.application.routes.draw do
   resource :search, only: [:new, :show]
 
   resources :basic_pages, only: [:show]
+  resources :sms_notifications, only: [:index]
 
   put '/accept_cookies', to: 'home#accept_cookies'
   get '/:filename', to: 'statics#show'

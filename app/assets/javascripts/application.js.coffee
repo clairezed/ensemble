@@ -26,11 +26,15 @@ $ ->
   $('.tooltip_bottom').tooltip(placement: 'bottom')
 
 @ajax_accept_cookies = (path) ->
+  console.log "ajax_accept_cookies"
+  console.log path
   $.ajax
     url: path,
     dataType: "json",
     type: "PUT",
-    success: (json) ->  
+    success: (json) ->
+      console.log "success"
+      console.log json
       if json.cookies_accepted
         $('#cookies_alert').remove()
 
