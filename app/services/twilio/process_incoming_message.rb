@@ -2,6 +2,14 @@ module Twilio
 
   class ProcessIncomingMessage < Base
 
+    RESPONSES = {
+      unknown_phone_number: "Votre numéro de téléphone ne correspond pas à un membre d'Ensemble.",
+      invitation_not_found: "Invitation non trouvée ou réponse incomplète. Pour accepter l'invitation: \"ok [n° fourni]\"",
+      incomprehensible_message: "Réponse mal formattée. Pour accepter l'invitation: \"ok [n° fourni dans message précedent]\"",
+      invitation_accepted: "L'invitation a bien été acceptée",
+      unknown_problem: "Il y a eu un soucis, contactez un administrateur d'Ensemble",
+    }
+
     attr_accessor :params
 
     def initialize(params)
@@ -10,32 +18,11 @@ module Twilio
 
     def call
       begin
-        @user = identify_user
-        if @user.nil?
-          @response = "Num tel inconnu."
-        else
-          answer, event_id = body.split(' ')
-          p "answer : #{answer}"
-          p "event_id : #{event_id}"
-          @event_invitation = @user.event_invitations.where(event_id: event_id).first
-          if @event_invitation.nil?
-            @response = "No invit found"
-          else
-            if answer == 'ok'
-              @event_invitation.accept!
-              @response = "Accepted"
-            else
-              @response = "answer unknown"
-            end
-          end
-        end
-        p @response
-        xml_message(@response)
-        # true
-      rescue
-        xml_message("Pb, contact admin")
-      #   raise exception
-      #   false
+        response = process_message
+        xml_message(response)
+      rescue => exception
+        raise exception if Rails.env.development?
+        xml_message(RESPONSES[:unknown_problem])
       end
     end
 
@@ -43,26 +30,27 @@ module Twilio
     private # ============================
 
     def identify_user
-      p params[:From]
       phone_number = User::FormatPhoneNumber.call(params[:From])
-      p phone_number
       User.where(phone: phone_number).first
     end
 
-    # def process_message 
-    #   answer, event_id = body.split(' ')
-    #   @event = Event.where(id: event_id).first
-    #   if @event.nil?
-    #     @response = "No event"
-    #   else
-    #   end
-    # end
+    def process_message
+      # Identification expediteur -----------------------------
+      @user = identify_user
+      return RESPONSES[:unknown_phone_number] if @user.nil?
+      # Identification invitation -----------------------------
+      answer, event_id = body.split(' ')
+      @event_invitation = @user.event_invitations.where(event_id: event_id).first
+      return RESPONSES[:invitation_not_found] if @event_invitation.nil?
+      # Envoyer un retour à la réponse -----------------------------
+      if answer == 'ok'
+        @event_invitation.accept!
+        return RESPONSES[:invitation_accepted]
+      else
+        return RESPONSES[:incomprehensible_message]
+      end
+    end
 
-    # def accept_event_invitation
-    #   @event_invitation = @user.event_invitations.where(event_id: @event.id)
-    #   @event_invitation.accept!
-    #   @response = "Accepted"
-    # end
 
     def body
       @body ||= params.fetch(:Body, '').downcase

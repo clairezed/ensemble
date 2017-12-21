@@ -9,7 +9,8 @@ class User::FormatPhoneNumber
   end
 
   def call
-    return GlobalPhone.parse(@phone_number, :fr).international_string
+    return if @phone_number.blank?
+    GlobalPhone.parse(@phone_number, :fr).international_string
   end
 
   private
