@@ -86,7 +86,6 @@ Rails.application.routes.draw do
   resources :basic_pages, only: [:show]
   resources :sms_notifications, only: [:index]
 
-  put '/accept_cookies', to: 'home#accept_cookies'
   get '/:filename', to: 'statics#show'
 
   devise_scope :user do
