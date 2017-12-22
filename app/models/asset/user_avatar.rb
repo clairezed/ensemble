@@ -12,11 +12,11 @@ class Asset::UserAvatar < Asset
       thumb: "60x60#",
       detail: "150x150#"
     },
-    default_url: ->(attach) { "defaults/:style/user_avatar.png"}
+    default_url: ->(attach) { "defaults/:style/user_avatar.png"},
 
     # Si stockage serveur dédié -----------------------
     url: "/uploads/users/:assetable_id/avatars/:id/:style/:custom_file_name.:extension",
-    path: ":rails_root/public/uploads/users/:assetable_id/avatars/:id/:style/:custom_file_name.:extension",
+    path: ":rails_root/public/uploads/users/:assetable_id/avatars/:id/:style/:custom_file_name.:extension"
 
     # Si stockage S3 ----------------------------------------
     # --- créer un config/s3.yml et ajouter la gem 'aws/sdk'

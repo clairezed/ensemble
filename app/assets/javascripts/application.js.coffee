@@ -11,6 +11,8 @@
 #= require flatpickr/dist/l10n/fr
 #= require quill/dist/quill.min
 #= require handlebars/dist/handlebars.min
+#= require photoswipe/dist/photoswipe.min
+#= require photoswipe/dist/photoswipe-ui-default.min
 
 #= require ./components/flash-messages
 #= require ./components/cookies-acceptance
@@ -23,6 +25,7 @@
 #= require ./components/time-picker
 #= require ./components/quill-wysiwyg
 #= require ./components/file-uploader
+#= require ./components/photoswipe-gallery
 
 #= require_tree ./front
 

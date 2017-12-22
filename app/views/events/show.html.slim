@@ -38,6 +38,13 @@ h1 = @event.title
   .card-body
     h2 Photos de l'événement
 
+
+    div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
+      - @event.pictures.each do |picture|
+        figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
+          = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "600x400"} do
+            = image_tag picture.asset(:detail) 
+
 .card
   .card-body
     h2 Participants
@@ -53,3 +60,9 @@ h1 = @event.title
 .card
   .card-body
     h2 Faire un commentaire
+
+
+= render 'shared/photoswipe'
+
+coffee:
+  new PhotoswipeGallery()
