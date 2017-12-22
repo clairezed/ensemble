@@ -56,18 +56,22 @@
 
 
 / Photos
-/ = f.fields_for :avatar do |pic_f|
-/   .form-group
-/     = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
-/       = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
-/       span data-is-label-title='' Charger une image
-/       span.file-close.ion-close
-/     - unless pic_f.object.new_record?
-/       p.mt-3 Image actuelle :
-/       => image_tag f.object.avatar.asset(:thumb)
-/       = pic_f.label :_destroy, class: '' do
-/         => pic_f.check_box :_destroy
-/         | Supprimer l'image actuelle
+div class=""
+  .label-title  Photos de l'événement
+  p.form-text.text-muted.small: em 
+    ' Formats autorisés : .pdf, .jpeg, .png
+    br
+    ' Taille maximum : 8 Mo
+
+div.item-list.row data-is-media-list=true data-list-url="#{user_event_pictures_path(f.object)}"
+
+  .col-4
+    = label_tag :"asset_event_picture[asset]"
+      span.btn.btn-primary
+        | Ajouter
+      = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: user_event_pictures_path(f.object)}, class:'d-none'
+      / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
+      / = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: event_pictures_path(f.object), method: 'POST', type: 'script'}, style: "display:none"
 
 
 .form-group.required
@@ -78,6 +82,8 @@
         => f.radio_button :visibility, key, class: "form-check-input"
         => event_visibility(key)
         / => user_gender(key)
+
+= render "events/event_pictures/hb_thumbs"
 
 coffee:
   new EventForm()

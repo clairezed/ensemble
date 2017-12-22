@@ -56,6 +56,11 @@ class Event < ApplicationRecord
   belongs_to :leisure_category
   belongs_to :leisure, optional: true
 
+  has_many :pictures,
+            class_name: :'::Asset::EventPicture',
+            as:         :assetable,
+            dependent:  :destroy
+
   # has_many :attachments,
   #           class_name: :'::Asset::EventAttachment',
   #           as:         :assetable,

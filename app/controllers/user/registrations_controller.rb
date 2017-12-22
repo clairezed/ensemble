@@ -55,6 +55,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # Edition informations principales --------------------------
   def edit_profile
+    @user.build_avatar unless @user.avatar
   end
 
   def update_profile
@@ -63,6 +64,7 @@ class User::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = "Votre profil a été mis à jour avec succès"
       redirect_to profile_path(@user)
     else
+      @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de votre profil"
       render :edit_profile
     end

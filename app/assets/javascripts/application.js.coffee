@@ -3,6 +3,8 @@
 #= require popper
 #= require bootstrap
 
+#= require jquery-fileupload/basic
+#= require jquery-fileupload/vendor/tmpl
 #= require js-cookie/src/js.cookie
 #= require select2/dist/js/select2.full.min
 #= require flatpickr/dist/flatpickr.min
@@ -20,6 +22,7 @@
 #= require ./components/date-picker
 #= require ./components/time-picker
 #= require ./components/quill-wysiwyg
+#= require ./components/file-uploader
 
 #= require_tree ./front
 

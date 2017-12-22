@@ -122,6 +122,10 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-fileupload-rails (0.4.7)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jwt (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
@@ -328,6 +332,7 @@ DEPENDENCIES
   global_phone (~> 1.0)
   htmlentities (~> 4.3.4)
   jbuilder (~> 2.5)
+  jquery-fileupload-rails (~> 0.4.7)
   kaminari
   listen (~> 3.1.5)
   paperclip (~> 5.1)
