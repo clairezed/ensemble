@@ -24,7 +24,7 @@
   
 .form-group
   = f.label :birthdate, class: ''
-  = f.text_field :birthdate, class: 'form-control'
+  = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
 
 .form-group
   = f.label :leisures, class: ''

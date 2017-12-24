@@ -3,8 +3,8 @@ class @DatePicker
   DEFAULT_OPTIONS:
     locale: 'fr'
     altInput: true
-    altFormat: 'j/m/Y'
-    minDate: 'today'
+    altFormat: 'd/m/Y'
+    # minDate: 'today'
     # dateFormat: 
 
   constructor: ($input = $("[data-is-datepicker]"), options = {}) ->

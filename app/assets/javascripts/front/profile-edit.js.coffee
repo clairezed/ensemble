@@ -4,6 +4,12 @@ class @ProfileEdit
     console.log "ProfileEdit"
     citySelect = new Select2Ajax()
     languageSelect = new Select2Simple($('[data-is-select2="languages"]'))
+    
+    datepickerOptions = {
+      maxDate: 'today'
+      allowInput: true
+    }
+    birthdateDatepicker  = new DatePicker($('[data-date-picker="birthdate"]'), datepickerOptions)
 
     # Image ----------------------------------------
     # Affichage du nom du fichier choisi 
