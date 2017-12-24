@@ -13,6 +13,7 @@
 #= require handlebars/dist/handlebars.min
 #= require photoswipe/dist/photoswipe.min
 #= require photoswipe/dist/photoswipe-ui-default.min
+#= require ion-rangeslider/js/ion.rangeSlider.min
 
 #= require ./components/flash-messages
 #= require ./components/cookies-acceptance
@@ -26,6 +27,7 @@
 #= require ./components/quill-wysiwyg
 #= require ./components/file-uploader
 #= require ./components/photoswipe-gallery
+#= require ./components/participants-count-slider
 
 #= require_tree ./front
 

@@ -9,6 +9,7 @@ class @EventForm
     end_timepicker    = new TimePicker($('[data-time-picker="end"]'))
     wysiwyg           = new QuillWysiwyg()
     fileUploader      = new FileUploader()
+    participantSlider = new ParticipantsCountSlider()
     # # Image ----------------------------------------
     # # Affichage du nom du fichier choisi 
     # # dans le bouton de téléchargement d'une image

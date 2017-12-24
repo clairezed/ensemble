@@ -47,12 +47,10 @@
 / Nb de personnes
 
 .form-group
-  = f.label :participants_min, class: ''
-  = f.text_field :participants_min, class: 'form-control'
-
-.form-group
-  = f.label :participants_max, class: ''
-  = f.text_field :participants_max, class: 'form-control'
+  = label_tag :participants, "Nombre de participants"
+  = text_field_tag :participants, [f.object.participants_min, f.object.participants_max].join(' - '), data: {is_slider: 'participants'}
+  = f.hidden_field :participants_min, data: {is_participants: 'min'}
+  = f.hidden_field :participants_max, data: {is_participants: 'max'}
 
 
 / Photos

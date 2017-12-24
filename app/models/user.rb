@@ -211,7 +211,7 @@ class User < ApplicationRecord
   # active_for_authentication --------------------------------------------------------------
 
   def active_for_authentication? 
-    super && !sms_confirmation_required? && !admin_rejected? 
+    super && !sms_confirmation_required? && !admin_rejected?
   end
 
   def inactive_message 
