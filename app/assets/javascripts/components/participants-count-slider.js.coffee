@@ -25,5 +25,7 @@ class @ParticipantsCountSlider
     $("[data-is-participants='max']").val(data.to)
 
   initValues: =>
-    @options['from'] = @$min.val()
-    @options['to'] = @$max.val()
+    from  = if @$min.val() == '' then 1   else @$min.val()
+    to    = if @$max.val() == '' then 10  else @$max.val()
+    @options['from'] = from
+    @options['to'] = to

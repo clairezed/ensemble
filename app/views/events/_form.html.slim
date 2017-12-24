@@ -61,15 +61,19 @@ div class=""
     br
     ' Taille maximum : 8 Mo
 
-div.item-list.row data-is-media-list=true data-list-url="#{user_event_pictures_path(f.object)}"
+- if f.object.new_record? 
+  p Vous pourrez ajouter des photos une fois que votre événement sera créé
+- else
 
-  .col-4
-    = label_tag :"asset_event_picture[asset]"
-      span.btn.btn-primary
-        | Ajouter
-      = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: user_event_pictures_path(f.object)}, class:'d-none'
-      / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
-      / = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: event_pictures_path(f.object), method: 'POST', type: 'script'}, style: "display:none"
+  div.item-list.row data-is-media-list=true data-list-url="#{user_event_pictures_path(f.object)}"
+
+    .col-4
+      = label_tag :"asset_event_picture[asset]"
+        span.btn.btn-primary
+          | Ajouter
+        = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: user_event_pictures_path(f.object)}, class:'d-none'
+        / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
+        / = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: event_pictures_path(f.object), method: 'POST', type: 'script'}, style: "display:none"
 
 
 .form-group.required
@@ -79,7 +83,6 @@ div.item-list.row data-is-media-list=true data-list-url="#{user_event_pictures_p
       label.form-check-label
         => f.radio_button :visibility, key, class: "form-check-input"
         => event_visibility(key)
-        / => user_gender(key)
 
 = render "events/event_pictures/hb_thumbs"
 
