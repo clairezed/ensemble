@@ -4,31 +4,28 @@ class @RegistrationSecondStep
     console.log "RegistrationSecondStep"
     citySelect = new Select2Ajax()
 
+    # birthdate picker -----------------------------------------------------
     datepickerOptions =
-      locale: 'fr'
       maxDate: 'today'
       allowInput: true
       altInput: true
       altFormat: 'd/m/Y'
       dateFormat: "Y-m-d"
-      # wrap: true
-      # clickOpens: false
+      clickOpens: false
 
-    #TODO open on click on icon + clean
+    #TODO clean
     birthdateDatepicker = new DatePicker($('[data-date-picker="birthdate"]'), datepickerOptions)
-    console.log "yoyoy"
+
+    $('[data-toggle-picker]').on 'click', ->
+      console.log "click icon"
+      birthdateDatepicker.toggle()
     $('.flatpickr-input').on 'blur', ->
       console.log 'f blur'
       date = this.value
-      console.log $(this).val()
-      console.log date
       birthdateDatepicker.setDate(date, false, "d.m.Y")
-    # $('.flatpickr-input').on 'focusout', ->
-    #   console.log 'f focusout'
 
 
-
-    # Image ----------------------------------------
+    # Image -------------------------------------------------------------
     # Affichage du nom du fichier choisi 
     # dans le bouton de téléchargement d'une image
     $('[data-file-field="picture"]').on 'change', ->

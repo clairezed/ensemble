@@ -19,7 +19,10 @@
   
   .form-group.required
     = f.label :birthdate, class: ''
-    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+    .input-group
+      = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+      a.input-group-addon data-toggle-picker=''
+       ' cal
 
   .form-group
     = f.label :description, class: ''
