@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   include Pundit
+
   protect_from_forgery with: :exception
+  before_action :http_authentication
+
   before_action :reject_blocked_ip!
   before_action :authenticate_user!
 
@@ -47,6 +50,14 @@ class ApplicationController < ActionController::Base
 
   def get_basic_pages
     @basic_pages = BasicPage.where(enabled: true).order(position: :asc)
+  end
+
+  def http_authentication
+    if Rails.env.staging? || Rails.env.production?
+      authenticate_or_request_with_http_basic do |username, password|
+        username == 'mirador' && password == 'ensemble2018'
+      end
+    end
   end
 
   def reject_blocked_ip!
