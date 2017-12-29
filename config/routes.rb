@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   devise_for :admin
 
   devise_for :user, path: "mon-compte", controllers: {
-        sessions: 'user/sessions',
-        registrations: 'user/registrations',
-        passwords: 'user/passwords',
-        confirmations: 'user/confirmations'
+        sessions: 'users/sessions',
+        registrations: 'users/registrations',
+        passwords: 'users/passwords',
+        confirmations: 'users/confirmations'
       }
 
   # Concerns ======================================
@@ -42,14 +42,14 @@ Rails.application.routes.draw do
   end
 
   # User ======================================
-  scope controller: 'user/registrations' do
+  scope controller: 'users/registrations' do
     get  :new_second_step, path: 'finaliser-inscription'
     patch :create_second_step
     get :edit_profile
     patch :update_profile
   end
 
-  namespace :user do
+  namespace :users do
     resources :sms_confirmations, only: [:new, :create, :update] do 
       get :new_verify, on: :collection
       patch :verify, on: :collection

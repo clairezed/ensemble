@@ -9,7 +9,7 @@ p= l(@event.start_at.to_date)
   = link_to "Modifier", edit_user_event_path(@event), class: "btn btn-primary"
 
 - if policy(@event).cancel?
-  = link_to "Annuler", user_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "btn btn-primary"
+  = link_to "Annuler", users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "btn btn-primary"
 
 - if @event.past?
   .alert.alert-light role="alert" Cet événement est passé

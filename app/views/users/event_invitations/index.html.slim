@@ -1,0 +1,16 @@
+- content_for :current_navigation_section, :my_invitations
+
+.title-block
+  h1 
+    | Mes invitations
+
+  - @event_invitations.each do |invitation|
+    = render partial: 'events/card', locals: {event: invitation.event}
+    - if invitation.may_accept?
+      = link_to "Accepter", accept_users_invitation_path(invitation), method: :patch, class: "btn btn-success btn-block"
+    - if invitation.may_reject?
+      = link_to "Refuser", reject_users_invitation_path(invitation), method: :patch, class: "btn btn-danger btn-block"
+
+  - if @event_invitations.empty?
+    p: em Vous n'avez pas d'invitations en cours
+

@@ -1,0 +1,8 @@
+- content_for :current_navigation_sub_section, :past_events
+
+= render layout: 'users/events/layout' do
+
+  - @events.each do |event|
+    = render partial: 'events/card', locals: {event: event}
+
+  = link_to "Proposer un événement", new_users_event_path, class: "btn btn-primary"

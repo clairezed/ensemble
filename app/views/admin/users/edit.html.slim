@@ -4,7 +4,7 @@
 
   = form_for @user, as: :user, url: admin_user_path(@user), html: {class: "form-horizontal"} do |f| 
 
-    = render partial: "user/registrations/parameters_form", locals: {f: f}
+    = render partial: "users/registrations/parameters_form", locals: {f: f}
 
     .form-group
       label Mirador ?

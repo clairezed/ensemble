@@ -1,0 +1,33 @@
+- content_for :current_navigation_sub_section, :confirm_phone
+
+= render layout: 'users/confirmations/layout' do
+
+  h3 Confirmer mon numéro de téléphone
+
+  p: b> Si je n'ai pas encore confirmé mon numéro de téléphone :
+  ul
+    li Je renseigne mon numéro de téléphone ci-dessous. 
+    li Je reçois un code, que j'entre dans le second champs. 
+
+  = form_for @user, as: :user, url: users_sms_confirmations_path, method: :post, data: {send_sms_form: true}, class: '' do |f|
+    - if f.object.errors.include?(:phone)
+      = f.hm_form_errors
+
+    .form-group.required
+      = f.label :phone, "Votre numéro de téléphone"
+      = f.text_field :phone, class: 'form-control'
+
+    .form-group
+      = submit_tag "Envoyer le code sms", class: "btn btn-primary"
+
+  hr
+
+  - if @user.persisted?
+    .alert.alert-info role="alert" Un code a été envoyé au numéro ci-dessus. Si vous vous souhaitez le renvoyer, cliquez de nouveau sur le bouton "Envoyer le code sms".
+
+    = render partial: "users/sms_confirmations/update_form"
+
+
+  coffee:
+    new SmsConfirmation()
+  
