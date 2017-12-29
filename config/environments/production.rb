@@ -86,7 +86,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  HOST = "ensemble.clairezuliani.fr"
+  HOST = "ensemble.clairezuliani.com"
   URL = "http://#{HOST}"
 
   SYSTEM_MAILER     = "contact <noreply@ensemble.fr>"
