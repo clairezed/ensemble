@@ -94,7 +94,7 @@ class Event < ApplicationRecord
   }
 
   scope :visible, -> {
-    future.active
+    open.future.active
   }
 
   scope :past, -> {

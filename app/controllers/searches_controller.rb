@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @events = Search::Events.call(current_user, Event, search_params)
+    @events = Search::Events.call(current_user, Event.visible, search_params)
   end
 
   private
