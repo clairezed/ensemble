@@ -16,7 +16,7 @@ dump.rdb
 log/services/*
 
 config/database.yml
-config/database.claire.yml
+config/deploy_secrets.yml
 
 /node_modules
 /yarn-error.log

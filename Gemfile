@@ -44,8 +44,14 @@ gem 'jquery-fileupload-rails', '~> 0.4.7'
 gem 'rotp', '~> 3.3'
 gem 'twilio-ruby', '~> 5.5'
 
+#= NOTIFS =================================
+gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
+
+
 group :development do
   gem 'listen', '~> 3.1.5'
+  gem 'capistrano'
+  gem 'rvm-capistrano', require: false  
 #  gem 'spring'
 #  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
