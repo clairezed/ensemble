@@ -1,10 +1,10 @@
 - content_for :current_navigation_section, :home
 
 / Formulaire
-.section.section-reverse
-  .section-inner
-    .section-form
-      .section-form_inner
+section.section--reverse
+  .section_inner
+    .section
+      .section_inner
         h2.section-title--centered Partez à la rencontre de l'autre
 
         = form_for(@user, as: :user, url: registration_path(:user), html: {class: "form-horizontal"}) do |f| 
@@ -16,12 +16,12 @@
 
 
 / Video
-.section.section-straddle
-  .section-straddle_top.section-reverse
-    .section-inner
+section.section.section-straddle
+  .section-straddle_top.section--reverse
+    .section_inner
       h2.section-title--centered Découvrir l'application
   .section-straddle_bottom
-    .section-inner
+    .section_inner
       div.embed-responsive.embed-responsive-16by9
         iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ljhBgWdB3Ts?rel=0&amp;showinfo=0" allowfullscreen=""
 
@@ -29,7 +29,7 @@
 / Derniers événements
 
 .section
-  .section-inner
+  .section_inner
     h2.section-title Derniers événements
 
     = render partial: 'events/card', collection: @last_events, as: :event

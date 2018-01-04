@@ -1,0 +1,34 @@
+// Section --------------------------------------------
+.section
+  background-color: $white
+  color: $text
+  &--reverse
+    background-color: $primary
+    color: $text-reverse
+  &_inner
+    @extend .container
+    padding: 1.25rem
+
+
+// Section a cheval (straddle) --------------------------
+@mixin section-straddle-margin($margin)
+  &_top
+    padding-bottom: $margin
+  &_bottom
+    margin-top: - ($margin * 1.1)
+
+
+.section-straddle
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  @include section-straddle-margin(6rem)
+
+
+@media (min-width: 767px)
+  .section-straddle
+    @include section-straddle-margin(10rem)
+
+@media (min-width: 992px)
+  .section-straddle
+    @include section-straddle-margin(16rem)
