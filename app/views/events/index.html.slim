@@ -1,26 +1,30 @@
 - content_for :current_navigation_section, :events
 
-.main-container
+section.section
+  .section_inner
+    = link_to new_search_path, class: "button--main" do 
+      i.fa.fa-search>
+      ' Chercher un événement
 
-  = link_to new_search_path, class: "button--main" do 
-    i.fa.fa-search>
-    ' Chercher un événement
-
-  .section
+section.section
+  .section_inner
     h2.section-title Evénements recommandés
     - @recommended_events.each do |event|
       = render partial: 'events/card', locals: {event: event}
 
-  .section
+section.section
+  .section_inner
     h2.section-title Derniers événements
 
     - @last_events.each do |event|
       = render partial: 'events/card', locals: {event: event}
 
-  = link_to new_users_event_path, class: "button--reverse" do 
-    i.fa.fa-plus-circle>
-    ' Proposer un événement
+section.section
+  .section_inner
+    = link_to new_users_event_path, class: "button--reverse" do 
+      i.fa.fa-plus-circle>
+      ' Proposer un événement
 
-  = link_to search_path, class:'quick-link' do 
-    ' Voir tous les événements
-    i.fa.fa-angle-right
+    = link_to search_path, class:'quick-link' do 
+      ' Voir tous les événements
+      i.fa.fa-angle-right

@@ -1,41 +1,41 @@
 - content_for :current_navigation_section, :search
 
-main.main-container
-  section.section
-    header.section-header
+section.section
+  .section_inner
+    header.section_header
       h1.section-title Recherche
-      .section-header_minor-cta
+      .section-header_aside
         = link_to new_search_path, class:'btn btn-link' do
-          i.fa.fa-refesh>
+          i.fa.fa-refresh>
           ' Réinitialiser
 
-  = form_tag search_path, method: :get, class:"", data: {is_filter_form: true} do
-    
-    .form-group
-      = label_tag :by_text, "Titre", class: ''
-      => text_field_tag :by_text, params[:by_text], class: "form-control"
+    = form_tag search_path, method: :get, class:"", data: {is_filter_form: true} do
+      
+      .form-group
+        = label_tag :by_text, "Titre", class: ''
+        => text_field_tag :by_text, params[:by_text], class: "form-control"
 
-    .form-group
-      - LeisureCategory.all.each do |lc|
-        .form-check.form-check-inline
-          label.form-check-label
-            => check_box_tag :by_leisure_category, lc.id, (params[:by_leisure_category].to_i == lc.id), class: "form-check-input"
-            => lc.title
+      .form-group
+        - LeisureCategory.all.each do |lc|
+          .form-check.form-check-inline
+            label.form-check-label
+              => check_box_tag :by_leisure_category, lc.id, (params[:by_leisure_category].to_i == lc.id), class: "form-check-input"
+              => lc.title
 
-    .form-group
-      = label_tag :by_dates, "Entre les dates...", class: ''
-      => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
+      .form-group
+        = label_tag :by_dates, "Entre les dates...", class: ''
+        => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
 
-    .form-group
-      = label_tag :by_city, "Ville"
-      = select_tag :by_city, \
-        options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
-        prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
+      .form-group
+        = label_tag :by_city, "Ville"
+        = select_tag :by_city, \
+          options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
+          prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
-      / .form-group
-      /   = select_tag "by_leisure_categories[]", "", prompt: "Chercher une compétence", class: "form-control",  data: {is_autocomplete_select: 'competence', path: competences_path, minus_uc: params[:by_competence]}
-      hr
-      = submit_tag "Chercher", class: "btn btn-primary"
-    
+        / .form-group
+        /   = select_tag "by_leisure_categories[]", "", prompt: "Chercher une compétence", class: "form-control",  data: {is_autocomplete_select: 'competence', path: competences_path, minus_uc: params[:by_competence]}
+
+        = submit_tag "Chercher", class: "button--main mt-4"
+      
   coffee: 
     new EventSearch()

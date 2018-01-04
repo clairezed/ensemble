@@ -4,14 +4,16 @@ h2
 h3
   font-size: 1.2rem
 
-.section-title:after
-  content: ''
-  display: block
-  background: $secondary
-  height: 3px
-  max-width: 60px
-  width: 100%
-  margin: 12px 0
+.section-title
+  font-size: 1.4rem
+  &:after
+    content: ''
+    display: block
+    background: $secondary
+    height: 3px
+    max-width: 60px
+    width: 100%
+    margin: 10px 0
 
 .section-title--centered
   @extend .section-title
