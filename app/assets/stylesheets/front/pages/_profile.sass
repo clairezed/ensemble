@@ -1,0 +1,26 @@
+.profile-status-bar
+  display: flex
+  justify-content: space-between
+  box-shadow: 0px 3px 18px 0px rgba(102,102,102,0.44)
+.profile-status_item
+  padding: 0.5rem 1rem
+  display: flex
+  align-items: center
+  .button
+    @extend .btn-sm
+
+
+.profile-info
+  margin-bottom: 1rem
+  box-shadow: 2px 3px 10px 0px rgba(102,102,102,0.44)
+  padding: 0.5rem 1rem
+  &--small
+    @extend .profile-info
+    display: flex
+    justify-content: space-between
+  &--big 
+    @extend .profile-info
+    .profile-info_label
+      margin-bottom: 0.75rem
+
+

@@ -20,7 +20,6 @@
   &_bottom
     margin-top: - ($margin * 1.1)
 
-
 .section-straddle
   display: flex
   flex-direction: column
@@ -35,3 +34,25 @@
 @media (min-width: 992px)
   .section-straddle
     @include section-straddle-margin(16rem)
+
+// Section tabs --------------------------
+.section_tabs
+  display: flex
+  flex-wrap: wrap 
+  padding-left: 0
+  margin-bottom: 0
+  list-style: none
+  box-shadow: 0px 3px 18px 0px rgba(102,102,102,0.44)
+  &_item
+    flex-basis: 0
+    flex-grow: 1
+    text-align: center
+    &-link
+      display: block
+      padding: 0.5rem 1rem
+      &.active
+        border-bottom: 3px solid $primary
+      &:hover
+        text-decoration: none
+
+

@@ -1,8 +1,12 @@
 //          - Component BTN 
 
+@mixin button-reverse-color($color)
+  color: $color
+  border-color: $color
+
+
 .button
   @extend .btn, .btn-block
-  border-radius: 0
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
   transition: all $transition-default
   &--main
@@ -11,6 +15,9 @@
   &--reverse 
     @extend .button
     border-color: $text
+  &--reverse-danger
+    @extend .button
+    @extend .btn-outline-danger
 
 .button-burger
   padding: 0.25rem 0.75rem
