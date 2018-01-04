@@ -21,52 +21,41 @@ html lang="#{I18n.locale}"
 
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
-  body
-    header
+  body.unregistered
 
-      nav.navbar.navbar-dark.bg-dark
+    nav.navbar.navbar-dark.bg-primary
+      .container
+        = link_to root_path, class: "navbar-brand" do
+          / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
+          ' Ensemble
 
-        .container
-          = link_to root_path, class: "navbar-brand" do
-            / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
-            ' Ensemble
-
-          = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
-            
-          / button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-          /   span.navbar-toggler-icon
-
-          / #navbarSupportedContent.collapse.navbar-collapse
-          /   ul.nav.navbar-nav.mr-auto
-          /     li.nav-item
-          /       = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
-          /     li.nav-item
-          /       = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
-          /     - if current_user.present?
-          /       li.nav-item
-          /         = link_to "Mon profil", profile_path(current_user), class: "nav-link"
-          /       li.nav-item
-          /         = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"
-                
-
-
-
+        = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
+          
 
     = raw flash_messages 
-    .container
 
-      = render 'layouts/cookies_banner'
-      
+    = render 'layouts/cookies_banner'
+    
 
-      = yield
+    = yield
 
 
-    footer.main-footer
-      .container
-        hr 
-        - @basic_pages.each do |basic_page|
-          => link_to basic_page.title, basic_page_path(basic_page)
-          => "-" 
-        | © #{Date.today.year}
+    footer
+      .row
+        .col
+          .section.section-reverse
+            .section-inner
+              h3.section-title Découvrir
+        .col
+          .section.section-reverse
+            .section-inner
+              h3.section-title Suivez-nous
+
+      / .container
+      /   hr 
+      /   - @basic_pages.each do |basic_page|
+      /     => link_to basic_page.title, basic_page_path(basic_page)
+      /     => "-" 
+      /   | #{Date.today.year}
 
 

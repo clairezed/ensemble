@@ -10,20 +10,53 @@
 //   font-size: 62.5% // on passe la taille de base à 10px pour les unités en rem : 10px = 1rem (1,4rem = 14px etc)
 
 // body
-//   font-size: 1.5rem
+//   font-size: 1.6rem
 
 //   //// pb scintillement font-weight
 //   -webkit-font-smoothing: antialiased
 //   -moz-osx-font-smoothing: grayscale
 
+body
+  color: $text
+  &.main
+    padding-top: 56px
+    padding-bottom: 4.5rem
+
+
+.main-container
+  @extend .container 
+  padding: 15px
+
 
 
 // ///////////////////////
-// // TITLES 
+// // SECTIONS
 // ///////////////////////
 
+.section-reverse
+  background-color: $primary
+  color: $text-reverse
+
+.section-form
+  background-color: $white
+.section-form_inner
+  padding: 1.25rem
+  color: $text
+
+.section-inner
+  @extend .container
+  padding: 15px
 
 
+
+.section-straddle
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+.section-straddle_top
+  padding-bottom: 75px
+.section-straddle_bottom
+  margin-top: -90px
 
 // ///////////////////////
 // //  LINK

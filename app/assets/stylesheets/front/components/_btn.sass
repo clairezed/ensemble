@@ -1,2 +1,12 @@
 //          - Component BTN 
 
+.button
+  @extend .btn, .btn-block
+  border-radius: 0
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
+  &--main
+    @extend .button
+    @extend .btn-primary
+  &--reverse 
+    @extend .button
+    border-color: $text

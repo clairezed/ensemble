@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def index
     get_seo_for_static_page('home')
+    @last_events = Event.order(created_at: :desc).limit(3)
     @user = User.new_with_session({}, session)
   end
 
