@@ -4,9 +4,21 @@
   @extend .btn, .btn-block
   border-radius: 0
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
+  transition: all $transition-default
   &--main
     @extend .button
     @extend .btn-primary
   &--reverse 
     @extend .button
     border-color: $text
+
+.button-burger
+  padding: 0.25rem 0.75rem
+  font-size: 1.25rem
+  line-height: 1
+  background: transparent
+  color: $navbar-dark-color
+  border: none
+  cursor: pointer
+  &:hover
+    color: $navbar-dark-hover-color

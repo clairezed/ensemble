@@ -1,0 +1,49 @@
+.main-menu
+  position: fixed
+  height: 100vh
+  z-index: 100
+  right: 0
+  top: 0
+  overflow: auto
+  width: 100%
+  padding: $top-menu-height 1rem $bottom-menu-height
+  background-color: $white
+  color: $text
+  transition: transform $transition-default
+  transform: translateX(100%)
+  font-size: 1.2rem
+
+  &.open 
+    transform: translateX(0%)
+  &_header
+    display: flex
+    justify-content: space-between
+    padding: 1.5rem 0
+  &_title
+    font-weight: bold
+    &:after
+      content: ''
+      display: block
+      background: $secondary
+      height: 3px
+      max-width: 60px
+      width: 100%
+      margin: 5px 0
+  &_close
+    cursor: pointer
+    font-size: 1rem
+    i
+      font-size: 1.4rem
+
+  &_list
+    list-style: none
+    padding: 0
+    margin-bottom: $bottom-menu-height + 2rem
+  &_item
+    &-link
+      display: block
+      padding: 0.75rem 1rem
+      i 
+        margin-right: 1rem
+  &_item:not(:last-child)
+    border-bottom: 1px solid rgba(51, 51, 103, 0.15)

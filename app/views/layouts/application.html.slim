@@ -27,29 +27,50 @@ html lang="#{I18n.locale}"
         = link_to root_path, class: "navbar-brand" do
           / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
           ' Ensemble
-          
-        button.navbar-toggler data-target="#navbarSupportedContent" data-toggle="collapse" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-          span.navbar-toggler-icon
 
-        #navbarSupportedContent.collapse.navbar-collapse
-          ul.nav.navbar-nav.mr-auto
-            li.nav-item
-              = link_to 'Accueil', root_path, title: "Retour à l'accueil", class:"nav-link"
-            li.nav-item
-              = link_to 'Administration', admin_root_path, title: "Espace administration", class:"nav-link"
-            - if current_user.present?
-              li.nav-item
-                = link_to "Mon profil", profile_path(current_user), class: "nav-link"
-              li.nav-item
-                = link_to "Mes événements", users_events_path, class: "nav-link"
-              li.nav-item
-                = link_to "Mes invitations", users_invitations_path, class: "nav-link"
+        button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
+          i.fa.fa-bars            
 
-              li.nav-item
-                = link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link"
-              
-
-
+    nav.main-menu data-is-menu="main"
+      .main-menu_header
+        .main-menu_title Menu
+        .main-menu_close  data-display-menu='close'
+          ' Fermer
+          i.fa.fa-times-circle
+      ul.main-menu_list
+        li.main-menu_item
+          = link_to root_path, title: "Retour à l'accueil", class:"main-menu_item-link"
+            i.fa.fa-home>
+            ' Accueil
+        - if current_user.present?
+          li.main-menu_item
+            = link_to profile_path(current_user), title: "Mon profil", class: "main-menu_item-link" do
+              i.fa.fa-user>
+              ' Mon profil
+          li.main-menu_item
+            = link_to users_events_path, class: "main-menu_item-link" do 
+              i.fa.fa-calendar>
+              ' Mes événements
+          li.main-menu_item
+            = link_to users_invitations_path, class: "main-menu_item-link" do
+              i.fa.fa-bell>
+              ' Mes invitations
+          li.main-menu_item
+            = link_to "#", class: "main-menu_item-link" do
+              i.fa.fa-cog>
+              ' Paramètres
+          li.main-menu_item
+            = link_to "#", class: "main-menu_item-link" do
+              i.fa.fa-cog>
+              ' CGU
+          li.main-menu_item
+            = link_to "#", class: "main-menu_item-link" do
+              i.fa.fa-cog>
+              ' Mentions légales
+          li.main-menu_item
+            = link_to destroy_user_session_path, method: :delete, class: "main-menu_item-link" do
+              i.fa.fa-sign-out>
+              ' Déconnexion
 
 
     = raw flash_messages

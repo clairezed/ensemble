@@ -16,6 +16,7 @@
 #= require ion-rangeslider/js/ion.rangeSlider.min
 
 #= require ./components/flash-messages
+#= require ./components/application-menu
 #= require ./components/cookies-acceptance
 #= require ./components/select2-simple
 #= require ./components/select2-ajax
@@ -35,3 +36,5 @@
 $ ->
   new CookiesAcceptance()
   $('.tooltip_bottom').tooltip(placement: 'bottom')
+
+  new ApplicationMenu()
