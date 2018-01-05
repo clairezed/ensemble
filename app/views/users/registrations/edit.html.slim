@@ -1,56 +1,19 @@
-- content_for :current_navigation_section, :parameters 
+- content_for :current_navigation_section, :profiles 
 
-.card
-  .card-body
-    h1 Paramètres
+/ profile header ---------------------------------------
+= render layout: 'profiles/layout' do
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: ""}) do |f| 
-      = render partial: "users/registrations/parameters_form", locals: {f: f, button_name: "Modifier mon compte"}
-
-      .form-group
-        .form-actions
-          hr
-          => f.submit "Valider", class: "btn btn-primary"
-
-- unless current_user.identity_verified?
-
-  #verify-identity.card
-    .card-body
-      h3 Vérifier mon identité
-      - unless current_user.confirmed?
-        h4 Vérifier mon adresse mail
-
-        = form_for current_user, as: :user, url: confirmation_path(:user), html: { method: :post, class: "form-horizontal" } do |f| 
-          = f.hidden_field :email
-
-          .form-group
-            .form-actions
-              = f.submit "Me renvoyer la confirmation", class: "btn btn-primary"
+  section
+    .section_inner
+      h2.section-title Modifier mon profil
 
 
-      - unless current_user.sms_confirmed?
-        h4 Vérifier mon numéro de téléphone
+      = form_for(@user, as: :user, url: user_registration_path, html: {class: ""}) do |f| 
+        =  render partial: "profile_form", locals: {f: f, button_name: "Modifier mon compte"}
 
-        = form_for current_user, as: :user, url: users_sms_confirmations_path, html: { method: :post, class: "" } do |f| 
-          = f.hidden_field :phone
-
-          .form-group
-            .form-actions
-              = f.submit "Me renvoyer le code sms", class: "btn btn-primary"
-
-          - if @code_sent == true
-            .alert.alert-info role="alert" Un code a été envoyé à votre numéro de téléphone. Si vous vous souhaitez le renvoyer, cliquez de nouveau sur le bouton "Me renvoyer le code sms".
-
-        = render partial: "users/sms_confirmations/update_form"
-
-        / = render 'users/sms_confirmations/new'
-
-
-
-.card
-  .card-body
-    h3 Supprimer mon compte
-
-    = button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûre de vouloir supprimer votre compte ?" }, method: :delete, class: "btn btn-danger" 
+        .form-group
+          .form-actions
+            hr
+            => f.submit "Valider", class: "btn btn-primary"
 
 

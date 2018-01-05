@@ -82,26 +82,27 @@ html lang="#{I18n.locale}"
     nav.nav-bottom
       / ul.nav.navbar-nav.mr-auto
       ul.nav-bottom_list
-        li.nav-bottom_item
-          = link_to profile_path(current_user), class: "nav-link" do 
-            i.fa.fa-user
-            .nav-bottom_item-title Profil
-        li.nav-bottom_item
-          = link_to users_invitations_path, class: "nav-link" do 
-            i.fa.fa-bell
-            .nav-bottom_item-title Invitations
-        li.nav-bottom_item
-          = link_to new_users_event_path, class: "nav-link" do 
-            i.fa.fa-plus-circle
-            .nav-bottom_item-title Proposer
-        li.nav-bottom_item
-          = link_to users_events_path, class: "nav-link" do 
-            i.fa.fa-calendar
-            .nav-bottom_item-title Evénements
-        li.nav-bottom_item
-          = link_to new_search_path, class: "nav-link" do 
-            i.fa.fa-search
-            .nav-bottom_item-title Recherche
+        - if current_user.present?
+          li.nav-bottom_item
+            = link_to profile_path(current_user), class: "nav-link" do 
+              i.fa.fa-user
+              .nav-bottom_item-title Profil
+          li.nav-bottom_item
+            = link_to users_invitations_path, class: "nav-link" do 
+              i.fa.fa-bell
+              .nav-bottom_item-title Invitations
+          li.nav-bottom_item
+            = link_to new_users_event_path, class: "nav-link" do 
+              i.fa.fa-plus-circle
+              .nav-bottom_item-title Proposer
+          li.nav-bottom_item
+            = link_to users_events_path, class: "nav-link" do 
+              i.fa.fa-calendar
+              .nav-bottom_item-title Evénements
+          li.nav-bottom_item
+            = link_to new_search_path, class: "nav-link" do 
+              i.fa.fa-search
+              .nav-bottom_item-title Recherche
 
     / footer.main-footer
     /   .container

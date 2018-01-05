@@ -7,6 +7,7 @@ fr:
       confirmation_period_expired: "doit être confirmé pendant %{period}, veuillez faire une nouvelle demande"
       expired: "a expiré, veullez faire une nouvelle demande"
       not_corresponding_to_any_user: "ne correspond a aucun utilisateur enregistré."
+      email_required_for_security: "Pour des raisons de sécurité, vous devez renseigner votre mot de passe actuel pour toute modification de mot de passe ou d'email."
       wrong: "n'est pas bon"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"

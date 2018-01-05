@@ -1,85 +1,57 @@
 - content_for :current_navigation_section, :profiles 
 
 / profile header ---------------------------------------
-section.section--reverse
-  .section_inner
-    .text-center.mb-2
-      = image_tag @user.avatar_url(:detail)
-    h1.section-title--centered = user_nickname(@user)
+= render layout: 'profiles/layout' do
 
-/ profile actions ---------------------------------------
-section.section
-  - if is_current_user?(@user)
-    ul.section_tabs
-      li.section_tabs_item
-        = link_to profile_path(@user), class: "section_tabs_item-link #{active_if(:profiles)}" do 
+  section
+    .section_inner
+
+      .profile-info--small
+        .profile-info_label
           i.fa.fa-user>
-          ' Informations
-      li.section_tabs_item
-        = link_to edit_user_registration_path, class: "section_tabs_item-link #{active_if(:parameters)}" do 
-          i.fa.fa-cog>
-          ' Paramètres
-  - else
-    .profile-status-bar
-      .profile-status_item
-        i.fa.fa-check>
-        ' Profil vérifié
-      .profile-status_item
-        = link_to "#", class: 'button--reverse-danger' do
-          i.fa.fa-close>
-          ' Bloquer
+          ' Genre
+        .profile-info_value
+          = user_gender(@user.gender)
+
+      .profile-info--small
+        .profile-info_label
+          i.fa.fa-user>
+          ' Ville
+        .profile-info_value
+          = @user.city.name
+
+      .profile-info--small
+        .profile-info_label
+          i.fa.fa-user>
+          ' Age
+        .profile-info_value
+          = user_age(@user.birthdate)
+
+      .profile-info--big
+        .profile-info_label
+          i.fa.fa-user>
+          ' Présentation
+        .profile-info_value
+          = @user.description
+
+      .profile-info--big
+        .profile-info_label
+          i.fa.fa-user>
+          ' Centres d'intérêt
+
+      .profile-info--big
+        .profile-info_label
+          i.fa.fa-user>
+          ' Pays visités
+
+      .profile-info--big
+        .profile-info_label
+          i.fa.fa-user>
+          ' Langues parlées
+        .profile-info_value
+          - @user.languages.each do |language|
+            span.mr-2 = language.title 
 
 
-/ profile content ---------------------------------------------
-section
-  .section_inner
-
-    .profile-info--small
-      .profile-info_label
-        i.fa.fa-user>
-        ' Genre
-      .profile-info_value
-        = user_gender(@user.gender)
-
-    .profile-info--small
-      .profile-info_label
-        i.fa.fa-user>
-        ' Ville
-      .profile-info_value
-        = @user.city.name
-
-    .profile-info--small
-      .profile-info_label
-        i.fa.fa-user>
-        ' Age
-      .profile-info_value
-        = user_age(@user.birthdate)
-
-    .profile-info--big
-      .profile-info_label
-        i.fa.fa-user>
-        ' Présentation
-      .profile-info_value
-        = @user.description
-
-    .profile-info--big
-      .profile-info_label
-        i.fa.fa-user>
-        ' Centres d'intérêt
-
-    .profile-info--big
-      .profile-info_label
-        i.fa.fa-user>
-        ' Pays visités
-
-    .profile-info--big
-      .profile-info_label
-        i.fa.fa-user>
-        ' Langues parlées
-      .profile-info_value
-        - @user.languages.each do |language|
-          span.mr-2 = language.title 
-
-
-    - if is_current_user?(@user)
-      = link_to "Modifier mon profil",  edit_profile_path, class: "button--main"
+      - if is_current_user?(@user)
+        = link_to "Modifier mon profil",  edit_user_registration_path, class: "button--main"

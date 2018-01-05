@@ -21,21 +21,22 @@
     = f.label :email_notification
 
 
-h3 Changer de mot de passe :
-
+/ h3 Changer de mot de passe :
+hr
 .form-group
   => f.label :current_password, class: ""
   = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+  small.form-text.text-muted A renseigner si vous modifier votre email.
 
-.form-group
-  => f.label :password, "Nouveau mot de passe", class: ""
-  = f.password_field :password, autocomplete: "off", class: 'form-control'
-  - if @minimum_password_length
-    em
-      => @minimum_password_length
-      ' caractères minimum
-br
-.form-group
-  = f.label :password_confirmation, "Nouveau mot de passe (confirmation)", class: ""
-  = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+/ .form-group
+/   => f.label :password, "Nouveau mot de passe", class: ""
+/   = f.password_field :password, autocomplete: "off", class: 'form-control'
+/   - if @minimum_password_length
+/     em
+/       => @minimum_password_length
+/       ' caractères minimum
+/ br
+/ .form-group
+/   = f.label :password_confirmation, "Nouveau mot de passe (confirmation)", class: ""
+/   = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 

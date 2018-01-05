@@ -45,7 +45,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       finalize_registration
       flash[:notice] = "Votre inscription a bien été finalisée"
-      redirect_to action: :edit, anchor: 'verify-identity'
+      redirect_to users_parameters_path(anchor: 'verify-identity')
     else
       @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
@@ -54,11 +54,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # Edition informations principales --------------------------
-  def edit_profile
+  def edit
     @user.build_avatar unless @user.avatar
   end
 
-  def update_profile
+  def update
     @user.attributes = profile_params
     if @user.save
       flash[:notice] = "Votre profil a été mis à jour avec succès"
@@ -66,27 +66,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de votre profil"
-      render :edit_profile
-    end
-  end
-
-  # Edition paramètres --------------------------
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # # PUT /resource
-  def update
-    if ::UpdateUserParameters.call(@user, parameters_params)
-      flash[:notice] = "Paramètres mis à jour avec succès"
-      redirect_to profile_path(@user)
-    else
-      flash[:error] = "Une erreur s'est produite lors de la mise à jour des paramètres"
       render :edit
     end
   end
+
 
   # DELETE /resource
   # def destroy
@@ -111,12 +94,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(*profile_params_array)
   end
 
-  def parameters_params
-    params.require(:user).permit(:email, :phone, 
-      :sms_notification, :email_notification, 
-      :password, :current_password, :password_confirmation
-      )
-  end
   
   # #If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

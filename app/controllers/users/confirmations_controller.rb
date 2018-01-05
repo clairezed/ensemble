@@ -33,7 +33,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # The path used after resending confirmation instructions.
   def after_resending_confirmation_instructions_path_for(resource_name)
     if current_user.present?
-      edit_user_registration_path
+      users_parameters_path
     else
       super(resource_name)
     end
@@ -42,7 +42,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # The path used after confirmation.
   def after_confirmation_path_for(resource_name, resource)
     if resource.active_for_authentication?
-      edit_user_registration_path
+      users_parameters_path
     elsif !resource.sms_confirmed?
       new_users_sms_confirmation_path
     else

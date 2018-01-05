@@ -18,7 +18,7 @@ module Twilio
       @user = invitation.user
       message = "Invitation à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}. Répondez  \"ok #{@event.id}\" pour accepter."
       p message 
-      send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
+      # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
       # send_sms(message, user.phone )
     end
 

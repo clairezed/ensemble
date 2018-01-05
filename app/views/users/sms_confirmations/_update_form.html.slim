@@ -7,8 +7,8 @@ p Une fois le code reçu par sms, je l'enregistre ci-dessous pour confirmer mon 
 
   .form-group.required
     = f.label :sms_token, "Code à 6 chiffres reçu par SMS"
-    = f.text_field :sms_token, class: 'form-control'
     small.form-text.text-muted La réception du SMS peut prendre quelques minutes
+    = f.text_field :sms_token, class: 'form-control'
 
   .form-group
-    = submit_tag "Valider", class: "btn btn-primary"
+    = submit_tag "Valider le code sms", class: "btn btn-primary"

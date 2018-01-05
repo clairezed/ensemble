@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :admin
 
-  devise_for :user, path: "mon-compte", controllers: {
+  devise_for :users, path: "mon-compte", controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations',
         passwords: 'users/passwords',
@@ -45,14 +45,16 @@ Rails.application.routes.draw do
   scope controller: 'users/registrations' do
     get  :new_second_step, path: 'finaliser-inscription'
     patch :create_second_step
-    get :edit_profile
-    patch :update_profile
   end
 
   namespace :users do
     resources :sms_confirmations, only: [:new, :create, :update] do 
       get :new_verify, on: :collection
       patch :verify, on: :collection
+    end
+    resource :parameters, only: [:show, :edit, :update] do 
+      get :edit_password
+      patch :update_password
     end
     resources :events do
       resources :event_invitations, as: :invitations, controller: "events/event_invitations" do 

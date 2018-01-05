@@ -12,6 +12,7 @@ class @RegistrationSecondStep
       altFormat: 'd/m/Y'
       dateFormat: "Y-m-d"
       clickOpens: false
+      disableMobile: "true"
 
     #TODO clean
     birthdateDatepicker = new DatePicker($('[data-date-picker="birthdate"]'), datepickerOptions)

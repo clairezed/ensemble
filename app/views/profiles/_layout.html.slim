@@ -1,0 +1,32 @@
+/ profile header ---------------------------------------
+section.section--reverse
+  .section_inner
+    .text-center.mb-2
+      = image_tag @user.avatar_url(:detail)
+    h1.section-title--centered = user_nickname(@user)
+
+/ profile actions ---------------------------------------
+section.section
+  - if is_current_user?(@user)
+    ul.section_tabs
+      li.section_tabs_item
+        = link_to profile_path(@user), class: "section_tabs_item-link #{active_if(:profiles)}" do 
+          i.fa.fa-user>
+          ' Informations
+      li.section_tabs_item
+        = link_to users_parameters_path, class: "section_tabs_item-link #{active_if(:parameters)}" do 
+          i.fa.fa-cog>
+          ' Paramètres
+  - else
+    .profile-status-bar
+      .profile-status_item
+        i.fa.fa-check>
+        ' Profil vérifié
+      .profile-status_item
+        = link_to "#", class: 'button--reverse-danger' do
+          i.fa.fa-close>
+          ' Bloquer
+
+
+/ profile content ---------------------------------------------
+= yield

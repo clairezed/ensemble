@@ -53,7 +53,7 @@ class Users::SmsConfirmationsController < Users::BaseController
 
   def render_new_view
     if user_signed_in?
-      render "user/registrations/edit"
+      render "users/parameters/show"
     else
       render :new
     end
@@ -67,10 +67,10 @@ class Users::SmsConfirmationsController < Users::BaseController
       redirect_to authenticated_root_path
     elsif !@user.confirmed?
       flash[:notice] = 'Votre numéro de téléphone a bien été vérifié. Il vous reste à vérifier votre adresse email.'
-      redirect_to (user_signed_in? ? edit_user_registration_path : new_confirmation_path(:user))
+      redirect_to (user_signed_in? ? users_parameters_path : new_confirmation_path(:user))
     else
       flash[:notice] = 'Votre numéro de téléphone a bien été vérifié'
-      redirect_to (user_signed_in? ? edit_user_registration_path : user_new_session_path) 
+      redirect_to (user_signed_in? ? users_parameters_path : user_new_session_path) 
     end
   end
 
