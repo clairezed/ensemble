@@ -3,8 +3,12 @@
 module CityHelper
 
   def single_city_options(val)
-    return '' if val.blank?
-    city = val.is_a?(City) ? val : City.find(val)
+    if val.blank?
+      city = current_user.city
+    else
+      city = val.is_a?(City) ? val : City.find(val)
+      city = current_user.city if city.blank?
+    end
     return '' if city.blank?
     [[city.name, city.id]]
   end

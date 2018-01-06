@@ -28,8 +28,8 @@ html lang="#{I18n.locale}"
         = link_to root_path, class: "navbar-brand" do
           / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
           ' Ensemble
-
-        = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
+        - unless current_user
+          = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
           
 
     = raw flash_messages 

@@ -11,8 +11,9 @@ class City < ActiveRecord::Base
 
   # Scopes ===============================================================
   scope :by_name_or_zipcode, ->(name_or_zip) {
+    return none if name_or_zip.blank?
     zipcode = name_or_zip.to_s.strip[/\A\d+\z/]
-    name_or_zip   = name_or_zip.gsub(/^SAINT(E)? (.*)/i, "ST\\1 \\2")
+    name_or_zip  = name_or_zip.gsub(/^SAINT(E)? (.*)/i, "ST\\1 \\2")
     where(
       arel_table[ zipcode.blank? ? :normalized_name : :zipcode ].matches("#{ActiveSupport::Inflector.transliterate(name_or_zip)}%")
     ).order(:zipcode)

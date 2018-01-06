@@ -6,27 +6,27 @@
   - User.genders.each do |key, value|
     .form-check.form-check-inline
       label.form-check-label
-        => f.radio_button :gender, key, class: "form-check-input"
+        => f.radio_button :gender, key, class: "form-check-input hidden-error"
         => user_gender(key)
   
-  .form-group.required
-    = f.label :phone, class: ''
-    = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
+.form-group.required
+  = f.label :phone, class: ''
+  = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
 
 .form-group.required
   = f.label :city_id, class: ''
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
   
-  .form-group.required
-    = f.label :birthdate, class: ''
-    .input-group
-      = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
-      a.input-group-addon data-toggle-picker=''
-       ' cal
+.form-group.required
+  = f.label :birthdate, class: ''
+  .input-group
+    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+    a.input-group-addon data-toggle-picker=''
+     ' cal
 
-  .form-group
-    = f.label :description, class: ''
-    = f.text_field :description, class: 'form-control'
+.form-group
+  = f.label :description, class: ''
+  = f.text_field :description, class: 'form-control'
 
 
 .form-check

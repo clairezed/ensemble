@@ -3,6 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   layout 'unregistered', only: [:new, :create, :new_second_step, :create_second_step]
 
   skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :check_registration_uncomplete, only: [:new_second_step, :create_second_step]
 
 
   before_action :configure_sign_up_params, only: [:create]

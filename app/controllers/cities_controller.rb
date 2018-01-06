@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
   # aussi utile cote admin
   skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :check_registration_uncomplete, only: [:index]
 
   def index
     @cities = City.by_name_or_zipcode(params[:by_val])

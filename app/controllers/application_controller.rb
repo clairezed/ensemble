@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   before_action :reject_blocked_ip!
   before_action :authenticate_user!
+  before_action :check_registration_uncomplete
 
   before_action :set_default_seos!, :get_basic_pages
   after_action :flash_to_headers, if: -> { request.xhr? && flash.present? }
@@ -66,6 +67,12 @@ class ApplicationController < ActionController::Base
     if User.blocked_ips.include?(current_ip)
       flash[:error] = "Cette adresse IP n'est pas autorisée à accéder à Ensemble"
       redirect_to root_path
+    end
+  end
+
+  def check_registration_uncomplete
+    if current_user.present? && !current_user.registration_complete?
+      redirect_to new_second_step_path
     end
   end
 
