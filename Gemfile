@@ -38,6 +38,7 @@ gem 'kaminari'
 
 # Uploads ================================================
 gem 'paperclip', '~> 5.1'
+gem 'paperclip-meta'
 gem 'jquery-fileupload-rails', '~> 0.4.7'
 
 # SMS ====================================================

@@ -75,7 +75,7 @@ section
         .row 
           - @event.pictures.each do |picture|
             figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
-              = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "600x400"} do
+              = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
                 = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
 
 
