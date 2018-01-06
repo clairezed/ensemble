@@ -1,22 +1,21 @@
-.card
-  .card-body
-    h1 Mot de passe oublié ?
+section.section--reverse
+  .section_inner
+    .section
+      .section_inner
+        h1.section-title--centered Mot de passe oublié ?
 
-    .alert.alert-info
-      ' Merci de renseigner votre adresse email afin de recevoir la procédure à suivre.
+        .alert.alert-info
+          ' Renseignez votre adresse email afin de recevoir la procédure à suivre.
 
-    = form_for resource, as: resource_name, url: password_path(resource_name),\
-      html: { method: :post, role: "form", class: "form-horizontal" } do |f|
+        = form_for resource, as: resource_name, url: password_path(resource_name),\
+          html: { method: :post, role: "form", class: "form-horizontal" } do |f|
 
-      = f.hm_form_errors
+          = f.hm_form_errors
 
-      .form-group.required
-        = f.label :email, class: ''
-        = f.email_field :email, class: 'form-control', autofocus: true
+          .form-group.required
+            = f.label :email, class: ''
+            = f.email_field :email, class: 'form-control', autofocus: true
 
-      .form-group
-        .form-actions
-          hr
-          => link_to "Annuler", new_session_path(resource_name), class: "btn"
-          = f.submit "Valider", class: "btn btn-primary"
-      .clearfix
+          .form-group
+            = f.submit "Valider", class: "button--main"
+            => link_to "Annuler", new_session_path(resource_name), class: "btn btn-block"
