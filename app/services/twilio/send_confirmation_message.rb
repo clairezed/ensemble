@@ -30,7 +30,7 @@ module Twilio
       # TODO - Update message
       message = "[Ensemble] #{user.sms_confirmation_token}"
       p message
-      # send_sms(message)
+      send_sms(message)
     end
 
 
