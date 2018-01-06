@@ -1,15 +1,24 @@
 - content_for :current_navigation_section, :my_events
 
-.title-block
-  h1 
-    | Mes événements
+/ header ---------------------------------------
+section.section--reverse
+  .section_inner
+    h1.section-title--centered Mes événements
 
-.card
-  .card-header
-    ul.nav.nav-tabs.card-header-tabs
-      li.nav-item
-        = link_to "Futurs", users_events_path, class: "nav-link #{active_if('future_events')}"
-      li.nav-item
-        = link_to "Passés", users_past_events_path, class: "nav-link #{active_if('past_events')}"
-  .card-body.p-3
-    = yield
+    = link_to new_users_event_path, class: "btn btn-light btn-block" do 
+      i.fa.fa-plus-circle>
+      ' Proposer un événement
+
+/ tabs ----------------------------------------
+
+section.section
+  ul.section_tabs
+    li.section_tabs_item
+      = link_to users_events_path, class: "section_tabs_item-link #{active_if(:future_events)}" do 
+        ' Futurs
+    li.section_tabs_item
+      = link_to users_past_events_path, class: "section_tabs_item-link #{active_if(:past_events)}" do 
+        ' Passés
+
+
+= yield

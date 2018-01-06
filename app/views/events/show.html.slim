@@ -1,65 +1,100 @@
-p= l(@event.start_at.to_date)
-
-- if policy(@event).participate?
-  = button_to "Participer à l'événement", event_event_participations_path(@event), class: "btn btn-primary"
-- elsif policy(@event).cancel_participation?
-  = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "btn btn-primary"
-
-- if policy(@event).update?
-  = link_to "Modifier", edit_user_event_path(@event), class: "btn btn-primary"
-
-- if policy(@event).cancel?
-  = link_to "Annuler", users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "btn btn-primary"
-
-- if @event.past?
-  .alert.alert-light role="alert" Cet événement est passé
-
-- if @event.canceled?
-  .alert.alert-light role="alert" Cet événement est annulé
-
-h1 = @event.title
-
-.card
-  .card-body
-    p Proposé par #{user_nickname(@event.user)}
-
-    / p= @event.leisure.title
+section.section--reverse
+  .section_inner
+    p= l(@event.start_at.to_date)
     p= @event.leisure_category.try(:title)
-    p= event_full_address(@event)
-    p= l(@event.start_at.to_time)
-    p= event_participants_count(@event)
 
-.card
-  .card-body
-    h2 Description
-    = raw @event.description
-
-.card
-  .card-body
-    h2 Photos de l'événement
+section.section
+  .section_inner
+    - invitation = @event.event_invitations.where(user: current_user).first
+    - if invitation.present? && invitation.may_accept?
+      = link_to "Accepter l'invitation", accept_users_invitation_path(invitation), method: :patch, class: "button--main"
+    - elsif policy(@event).participate?
+      = button_to "Participer à l'événement", event_event_participations_path(@event), class: "button--main"
+    - elsif policy(@event).cancel_participation?
+      = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main"
 
 
-    div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
-      - @event.pictures.each do |picture|
-        figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
-          = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "600x400"} do
-            = image_tag picture.asset(:detail) 
+    - if policy(@event).update?
+      .row
+        .col-6
+          = link_to edit_users_event_path(@event), class: "button--main" do
+            i.fa.fa-pencil>
+            ' Modifier
 
-.card
-  .card-body
-    h2 Participants
+        - if policy(@event).cancel?
+          .col-6
+            = link_to users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "button--main" do 
+              i.fa.fa-close>
+              ' Annuler
+
+    - if @event.past?
+      .alert.alert-light role="alert" Cet événement est passé
+
+    - if @event.canceled?
+      .alert.alert-light role="alert" Cet événement est annulé
+
+section
+  .section_inner
+    h1.section-title--centered = @event.title
+
+    .profile-info--big
+      .row.no-gutters
+        .col-2.p-1
+          = link_to profile_path(@event.user)
+            = image_tag @event.user.avatar_url(:detail), class: "img-fluid"
+        .col-10.p-1
+          span 
+            ' Proposé par 
+            br
+            strong = link_to user_nickname(@event.user), profile_path(@event.user)
+      .row.mt-2.no-gutters
+        .col-2.p-1
+          i.fa.fa-map-marker
+        .col-10.p-1
+          span = event_full_address(@event)
+      .row.mt-2.no-gutters
+        .col-2.p-1
+          i.fa.fa-clock-o
+        .col-10.p-1
+          span = l(@event.start_at.to_time)
+      .row.mt-2.no-gutters
+        .col-2.p-1
+          i.fa.fa-users title="Nombre de participants actuels / Nombre maximum de participants"
+        .col-10.p-1
+          span = event_participants_count(@event)
+
+    .profile-info--big
+      h3.section-title Description
+      = raw @event.description
+
+    .profile-info--big
+      h3.section-title Photos de l'événement
+      = raw @event.description
+
+      div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
+        .row 
+          - @event.pictures.each do |picture|
+            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
+              = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "600x400"} do
+                = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
+
+
+section
+  .section_inner
+    h3.section-title Participants
 
     .row
       - @event.participants.each do |user|
         .col-4
-          .card
-            = image_tag user.avatar_url(:detail), class: "card-img-top"
-            .card-body
-              p= user_nickname(user)
+          = link_to profile_path(user)
+            .card
+              = image_tag user.avatar_url(:detail), class: "card-img-top"
+              .card-body.p-1
+                p= user_nickname(user)
 
-.card
-  .card-body
-    h2 Faire un commentaire
+section
+  .section_inner
+    h3.section-title Faire un commentaire
 
 
 = render 'shared/photoswipe'

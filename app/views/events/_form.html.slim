@@ -17,17 +17,17 @@
 .form-group.required
   = f.label :start_at, class: ''
   .form-row
-    .col-auto
+    .col-6
       = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}, placeholder: "jj/mm/aaaa"
-    .col-auto
+    .col-6
       = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}, placeholder: "hh:mm"
   
 .form-group
   = f.label :end_at, class: ''
   .form-row
-    .col-auto
+    .col-6
       = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}, placeholder: "jj/mm/aaaa"
-    .col-auto
+    .col-6
       = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}, placeholder: "hh:mm"
 
 .form-group
@@ -69,8 +69,9 @@ div class=""
 
     .col-4
       = label_tag :"asset_event_picture[asset]"
-        span.btn.btn-primary
-          | Ajouter
+        span.button-upload
+          i.fa.fa-plus-circle
+
         = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: users_event_pictures_path(f.object)}, class:'d-none'
         / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
         / = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: event_pictures_path(f.object), method: 'POST', type: 'script'}, style: "display:none"

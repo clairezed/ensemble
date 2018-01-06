@@ -11,10 +11,10 @@
 
 / Thumb final une fois l'upload effectué
 = handlebars_template(:PictureDownload) do
-  .col-4 data-is-download="{{id}}"
+  .col-4.mb-3 data-is-download="{{id}}"
     .div
       = link_to "{{url}}", target: "_blank", class: "card-img-top" do 
         img.img-fluid src="{{thumbnail_url}}"
     = link_to "{{delete_url}}", method: :delete, remote: true, class: "btn btn-sm btn-danger btn-block mt-2", data:{delete_picture: "{{id}}", confirm: "Confirmer la suppression ?"} do
-      i.fa.fa-trash
+      i.fa.fa-times-circle-o>
       ' supp

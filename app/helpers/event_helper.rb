@@ -42,7 +42,7 @@ module EventHelper
   # Adresse
 
   def event_full_address(event)
-    [event.address, event.city.long_name].compact.join(", ")
+    [event.address, event.city.long_name].compact.reject(&:blank?).join(", ")
   end
 
   # Leisure

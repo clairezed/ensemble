@@ -3,6 +3,21 @@
 = render layout: 'users/events/layout' do
 
   - @events.each do |event|
-    = render partial: 'events/card', locals: {event: event}
+    section
+      .section_inner
+        = render partial: 'events/card', locals: {event: event}
 
-  = link_to "Proposer un événement", new_users_event_path, class: "btn btn-primary"
+
+
+  - if @events.empty?
+    section
+      .section_inner
+        p.text-center Vous n'avez pas encore d'événements prévus !
+
+        = link_to new_users_event_path, class: "btn btn-outline-primary btn-block" do 
+          i.fa.fa-plus-circle>
+          ' Proposer un événement
+
+        = link_to new_search_path, class: "btn btn-outline-primary btn-block" do 
+          i.fa.fa-search>
+          ' Chercher un événement

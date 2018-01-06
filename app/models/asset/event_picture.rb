@@ -44,7 +44,7 @@ class Asset::EventPicture < Asset
       created_at: self.created_at,
       url: self.asset.url,
       thumbnail_url: self.asset.url(:detail),
-      delete_url: user_event_picture_path(self.assetable_id, self.id)
+      delete_url: users_event_picture_path(self.assetable_id, self.id)
     }
   end
 

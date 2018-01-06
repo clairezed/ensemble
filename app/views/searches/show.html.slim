@@ -1,15 +1,19 @@
 - content_for :current_navigation_section, :search
 
 
-h1 = search_params.present? ? "Ma recherche" : "Prochains événements"
+section
+  .section_inner
+    h2.section-title = search_params.present? ? "Ma recherche" : "Prochains événements"
 
-= link_to (search_params.present? ? "Modifier ma recherche" : "Rechercher"), new_search_path(search_params), class: "btn btn-primary"
-br
-- search_params.each do |key, val|
-  span.badge.badge-secondary.mr-2 = display_search_params(key,val)
+    = link_to new_search_path(search_params), class: "button--main" do
+      i.fa.fa-search>
+      = search_params.present? ? "Modifier ma recherche" : "Rechercher"
+    br
+    - search_params.each do |key, val|
+      span.badge.badge-secondary.mr-2 = display_search_params(key,val)
 
 
-small.float-right = I18n.t("results", count: @events.count)
+    small.float-right = I18n.t("results", count: @events.count)
 
-- @events.each do |event|
-  = render partial: 'events/card', locals: {event: event}
+    - @events.each do |event|
+      = render partial: 'events/card', locals: {event: event}

@@ -5,6 +5,8 @@ class Event < ApplicationRecord
   include PgSearch
   include AASM
 
+  attr_accessor :start_date, :start_time
+
   pg_search_scope :by_text, 
     :against => { :title => 'A', :description => 'B' }, 
     :using => { :tsearch => {:prefix => true} },

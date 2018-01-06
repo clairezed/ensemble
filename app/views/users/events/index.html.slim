@@ -3,12 +3,23 @@
 = render layout: 'users/events/layout' do
 
   - @events.each do |event|
-    = render partial: 'events/card', locals: {event: event}
-    - if policy(event).cancel_participation?
-      = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "btn btn-primary"
-    - if policy(event).update?
-      = link_to "Modifier", edit_users_event_path(event), class: "btn btn-primary"
+    section
+      .section_inner
+        = render partial: 'events/card', locals: {event: event}
+        - if policy(event).cancel_participation?
+          = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main"
+        - if policy(event).update?
+          = link_to "Modifier", edit_users_event_path(event), class: "button--main"
 
+  - if @events.empty?
+    section
+      .section_inner
+        p.text-center Vous n'avez pas encore d'événements prévus !
 
-  hr
-  = link_to "Proposer un événement", new_users_event_path, class: "btn btn-primary"
+        = link_to new_users_event_path, class: "btn btn-outline-primary btn-block" do 
+          i.fa.fa-plus-circle>
+          ' Proposer un événement
+
+        = link_to new_search_path, class: "btn btn-outline-primary btn-block" do 
+          i.fa.fa-search>
+          ' Chercher un événement

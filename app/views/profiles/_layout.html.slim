@@ -1,3 +1,6 @@
+- content_for :current_navigation_section, :my_profile
+/ - content_for :current_navigation_section, (is_current_user?(@user) ? :my_profile : :profile)
+
 / profile header ---------------------------------------
 section.section--reverse
   .section_inner
@@ -20,8 +23,12 @@ section.section
   - else
     .profile-status-bar
       .profile-status_item
-        i.fa.fa-check>
-        ' Profil vérifié
+        - if @user.admin_accepted?
+          i.fa.fa-check>
+          ' Profil vérifié
+        - else
+          i.fa.fa-exclamation-triangle>
+          ' Profil non vérifié
       .profile-status_item
         = link_to "#", class: 'button--reverse-danger' do
           i.fa.fa-close>

@@ -80,29 +80,31 @@ html lang="#{I18n.locale}"
 
     / nav.navbar.navbar-dark.bg-primary.fixed-bottom.navbar-expand
     nav.nav-bottom
-      / ul.nav.navbar-nav.mr-auto
-      ul.nav-bottom_list
-        - if current_user.present?
-          li.nav-bottom_item
-            = link_to profile_path(current_user), class: "nav-link" do 
-              i.fa.fa-user
-              .nav-bottom_item-title Profil
-          li.nav-bottom_item
-            = link_to users_invitations_path, class: "nav-link" do 
-              i.fa.fa-bell
-              .nav-bottom_item-title Invitations
-          li.nav-bottom_item
-            = link_to new_users_event_path, class: "nav-link" do 
-              i.fa.fa-plus-circle
-              .nav-bottom_item-title Proposer
-          li.nav-bottom_item
-            = link_to users_events_path, class: "nav-link" do 
-              i.fa.fa-calendar
-              .nav-bottom_item-title Evénements
-          li.nav-bottom_item
-            = link_to new_search_path, class: "nav-link" do 
-              i.fa.fa-search
-              .nav-bottom_item-title Recherche
+      .container
+        ul.nav-bottom_list
+          - if current_user.present?
+            li.nav-bottom_item
+              = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do 
+                i.fa.fa-user
+                .nav-bottom_item-title Profil
+            li.nav-bottom_item
+              = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do 
+                i.fa.fa-bell
+                - if current_user.event_invitations.pending.any?
+                  span.badge.badge-light = current_user.event_invitations.pending.count
+                .nav-bottom_item-title Invitations
+            li.nav-bottom_item
+              = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do 
+                i.fa.fa-plus-circle
+                .nav-bottom_item-title Proposer
+            li.nav-bottom_item
+              = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
+                i.fa.fa-calendar
+                .nav-bottom_item-title Evénements
+            li.nav-bottom_item
+              = link_to new_search_path, class: "nav-link #{active_if(:search)}" do 
+                i.fa.fa-search
+                .nav-bottom_item-title Recherche
 
     / footer.main-footer
     /   .container

@@ -29,3 +29,5 @@ class @ParticipantsCountSlider
     to    = if @$max.val() == '' then 10  else @$max.val()
     @options['from'] = from
     @options['to'] = to
+    $("[data-is-participants='min']").val(from)
+    $("[data-is-participants='max']").val(to)

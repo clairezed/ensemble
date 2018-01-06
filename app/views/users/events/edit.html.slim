@@ -1,15 +1,18 @@
 - content_for :current_page, :events
 
 
-h2 Modifier l'événement #{@event.title}
+section
+  .section_inner
+    h2.section-title Modifier l'événement #{@event.title}
 
-= form_for(@event, as: :event, \
-  url: users_event_path(@event), html: {class: ""}) do |f| 
-  
-  =  render partial: "events/form", locals: {f: f}
-  / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
+    = form_for(@event, as: :event, \
+      url: users_event_path(@event), html: {class: ""}) do |f| 
+      
+      =  render partial: "events/form", locals: {f: f}
+      / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
 
 
-  => f.submit "Valider", class: "btn btn-primary"
+      => f.submit "Valider", class: "button--main"
 
-  = link_to "Gérer les invitations", users_event_invitations_path(@event), class: "btn btn-secondary"
+      - if @event.closed?
+        = link_to "Gérer les invitations", users_event_invitations_path(@event), class: "btn btn-outline-primary btn-block"

@@ -1,13 +1,15 @@
-- content_for :current_section, :events
+- content_for :current_navigation_section, :new_event
 
 
-h2 Créer un événement
+section
+  .section_inner
+    h2.section-title Créer un événement
 
-= form_for(@event, as: :event, \
-  url: users_events_path, html: {class: ""}) do |f| 
-  
-  =  render partial: "events/form", locals: {f: f}
-  / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
+    = form_for(@event, as: :event, \
+      url: users_events_path, html: {class: ""}) do |f| 
+      
+      =  render partial: "events/form", locals: {f: f}
+      / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
 
 
-  => f.submit "Valider", class: "btn btn-primary"
+      => f.submit "Valider", class: "button--main"
