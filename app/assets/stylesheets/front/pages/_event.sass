@@ -1,0 +1,23 @@
+$event-meta-height: 80px
+
+.event-header
+  margin-bottom: - ($event-meta-height/2)
+  &_meta
+    display: flex
+    justify-content: center
+    margin-top: - ($event-meta-height/2)
+    z-index: 50
+    &-date, &-icon
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      height: $event-meta-height
+      width: $event-meta-height
+      background-color: $white
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,.075)
+      color: $text
+    &-date
+      margin-right: 16px
+  > section
+    padding-top: 30px

@@ -13,9 +13,7 @@
 .required
   label:after
     content: " *" 
-    color: #000
-  label
-    font-weight: bold
+    color: $text
 
 .error_explanation
   @extend .alert
@@ -28,7 +26,12 @@
     @extend .is-invalid
   display: flex
 
+.form-actions
+  margin: 2rem 0 1rem
 
-// .form-control
-//   border: 2px solid #ddd
-//   box-shadow: none!important
+.form-links
+  font-size: 0.8rem
+  text-align: center
+  a 
+    display: block
+    margin-bottom: .3rem

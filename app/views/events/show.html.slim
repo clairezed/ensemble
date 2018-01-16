@@ -1,9 +1,15 @@
-section.section--reverse
-  .section_inner
-    p= l(@event.start_at.to_date)
-    p= @event.leisure_category.try(:title)
+section.event-header
+  = image_tag "#{@event.leisure_category.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure_category.title}"
+  .event-header_meta
+    .event-header_meta-date
+      .day-number= l(@event.start_at, format: '%d')
+      .month= l(@event.start_at, format: '%b')
+      .year= l(@event.start_at, format: '%Y')
+    .event-header_meta-icon
+      i.fa.fa-snowflake-o
+      / p= @event.leisure_category.try(:key)
 
-section.section
+section.section.pt-5
   .section_inner
     - invitation = @event.event_invitations.where(user: current_user).first
     - if invitation.present? && invitation.may_accept?
@@ -28,10 +34,10 @@ section.section
               ' Annuler
 
     - if @event.past?
-      .alert.alert-light role="alert" Cet événement est passé
+      .alert.alert-light role="alert" Evénement terminé
 
     - if @event.canceled?
-      .alert.alert-light role="alert" Cet événement est annulé
+      .alert.alert-light role="alert" Evénement annulé
 
 section
   .section_inner

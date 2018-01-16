@@ -19,21 +19,24 @@ $event-card-meta-margin: 22px
     display: flex
     flex-direction: column
     justify-content: space-around
-    // align-items: center
     margin-left: - $event-card-meta-margin
     z-index: 50
+    font-weight: 600
     &-date, &-icon
       display: flex
       flex-direction: column
       justify-content: center
       align-items: center
-      box-shadow: 2px 3px 6px 0px rgba(102, 102, 102, 0.44)
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,.075)
+      // box-shadow: 2px 3px 6px 0px rgba(102, 102, 102, 0.44)
       height: 44px
       width: 44px
       // margin-right: -25px
       background-color: #fff
     &-date
       line-height: 1.2
+      .month, .year
+        font-size: .7rem
     &-icon
       font-size: 1.6rem
   &_body
@@ -51,6 +54,7 @@ $event-card-meta-margin: 22px
       justify-content: center
     &-title
       font-size: 120%
+      font-weight: 600
       margin-bottom: 0
       &:after
         content: ''
