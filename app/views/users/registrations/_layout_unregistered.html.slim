@@ -1,0 +1,44 @@
+/ Layout des formulaire sign in / sign up
+
+/ Formulaire
+section.section--reverse
+  .section_inner
+    .section
+      .section_inner
+        = yield
+        / h2.section-title--centered Partez à la rencontre de l'autre
+
+        / = form_for(@user, as: :user, url: registration_path(:user), html: {class: "form-horizontal"}) do |f| 
+
+        /   = render partial: "users/registrations/new_form", locals: {f: f, button_name: "Je m'inscris"} 
+
+
+        / = link_to "Déjà inscrit ? Cliquez ici pour vous connecter.", new_session_path(:user)
+
+
+/ Video
+section.section.section-straddle
+  .section-straddle_top.section--reverse
+    .section_inner
+      h2.section-title--centered Découvrir l'application
+  .section-straddle_bottom
+    .section_inner
+      div.embed-responsive.embed-responsive-16by9
+        iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ljhBgWdB3Ts?rel=0&amp;showinfo=0" allowfullscreen=""
+
+
+/ Derniers événements
+- if @last_events.any?
+  section.section
+    .section_inner
+      h2.section-title Derniers événements
+
+      = render partial: 'events/card', collection: @last_events, as: :event
+
+/ Mirador événements
+- if @mirador_events.any?
+  section.section
+    .section_inner
+      h2.section-title Evénements MIRADOR
+
+      = render partial: 'events/card', collection: @mirador_events, as: :event

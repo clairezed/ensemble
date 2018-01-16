@@ -4,10 +4,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   skip_before_action :authenticate_user!, only: [:new, :create]
   skip_before_action :check_registration_uncomplete, only: [:new_second_step, :create_second_step]
+  skip_before_action :reject_blocked_ip!, except: [:edit, :update]
 
 
   before_action :configure_sign_up_params, only: [:create]
   before_action :find_user, only: [:new_second_step, :create_second_step, :edit_profile, :update_profile]
+
+  def new
+    get_seo_for_static_page('home')
+    @last_events = Event.active.order(created_at: :desc).limit(3)
+    @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+    @user = User.new_with_session({}, session)
+  end
 
 
   # Premier formulaire d'inscription -------------------------------
@@ -32,7 +40,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       # custom 
       @user = resource
-      render 'home/index'
+      @last_events = Event.active.order(created_at: :desc).limit(3)
+      @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+      render action: :new
     end
   end
 

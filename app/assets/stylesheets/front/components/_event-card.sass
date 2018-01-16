@@ -1,0 +1,73 @@
+$event-card-height: 100px
+$event-card-meta-margin: 22px
+
+.event-card
+  display: flex
+  // height: 120px
+  box-shadow: 2px 3px 6px 0px rgba(102, 102, 102, 0.44)
+  font-size: 0.8rem
+  margin-bottom: 8px
+  &:hover
+    text-decoration: none
+  &.canceled
+    opacity: 0.5
+  &_picture
+    flex-shrink: 0
+    img
+      height: $event-card-height
+  &_meta
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    // align-items: center
+    margin-left: - $event-card-meta-margin
+    z-index: 50
+    &-date, &-icon
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      box-shadow: 2px 3px 6px 0px rgba(102, 102, 102, 0.44)
+      height: 44px
+      width: 44px
+      // margin-right: -25px
+      background-color: #fff
+    &-date
+      line-height: 1.2
+    &-icon
+      font-size: 1.6rem
+  &_body
+    text-align: center
+    display: flex
+    flex-direction: column
+    flex: 1 1 auto
+    margin-left: - $event-card-meta-margin
+    &-header, &-footer
+      display: flex
+      flex: 1 1 auto
+      padding-left: $event-card-meta-margin +2px
+    &-header
+      flex-direction: column
+      justify-content: center
+    &-title
+      font-size: 120%
+      margin-bottom: 0
+      &:after
+        content: ''
+        display: block
+        background: $secondary
+        height: 2px
+        max-width: 40px
+        width: 100%
+        margin: 3px auto
+    &-mirador
+      background-color: $primary
+      color: $text-reverse
+      padding-left: $event-card-meta-margin +2px
+    &-footer
+      justify-content: space-around
+      align-items: center
+      
+
+
+

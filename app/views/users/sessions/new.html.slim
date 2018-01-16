@@ -1,53 +1,33 @@
-- content_for :current_navigation_section, :sign_in 
+= render layout: 'users/registrations/layout_unregistered' do
 
-section.section--reverse
-  .section_inner
-    .section
-      .section_inner
-        h2.section-title--centered Se connecter
+  h2.section-title--centered Se connecter
 
-        = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"} do |f| 
-          - unless flash[:alert].blank? 
-            .error_explanation
-              p= flash[:alert]
+  = form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal"} do |f| 
+    - unless flash[:alert].blank? 
+      .error_explanation
+        p= flash[:alert]
 
-          .form-group.required
-            = f.label :email, class: ''
-            = f.email_field :email, class: 'form-control', autofocus: true
-          .form-group.required
-            = f.label :password, class: ''
-            = f.password_field :password, class: 'form-control'
+    .form-group.required
+      = f.label :email, class: ''
+      = f.email_field :email, class: 'form-control', autofocus: true
+    .form-group.required
+      = f.label :password, class: ''
+      = f.password_field :password, class: 'form-control'
+      small.form-text.text-right 
+        = link_to "Mot de passe oublié?", new_password_path(resource_name)
 
 
-          / - if devise_mapping.rememberable? 
-          /   .form-group
-          /     label.form-label-default
-          /     .controls-default
-          /       label.checkbox-inline
-          /         = f.check_box :remember_me  
-          /         = f.label :remember_me, "Se souvenir de moi" 
-          .form-group
-            = f.submit "Connexion", class: "button--main"
+    / - if devise_mapping.rememberable? 
+    /   .form-group
+    /     label.form-label-default
+    /     .controls-default
+    /       label.checkbox-inline
+    /         = f.check_box :remember_me  
+    /         = f.label :remember_me, "Se souvenir de moi" 
+    .form-actions
+      = f.submit "Connexion", class: "button--main"
 
 
-
-        = render "users/shared/links" 
-
-/ Video
-section.section.section-straddle
-  .section-straddle_top.section--reverse
-    .section_inner
-      h2.section-title--centered Découvrir l'application
-  .section-straddle_bottom
-    .section_inner
-      div.embed-responsive.embed-responsive-16by9
-        iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ljhBgWdB3Ts?rel=0&amp;showinfo=0" allowfullscreen=""
-
-
-/ Derniers événements
-
-section.section
-  .section_inner
-    h2.section-title Derniers événements
-
-    = render partial: 'events/card', collection: @last_events, as: :event
+  .form-links
+    = link_to "Vous n'avez pas de compte ? Inscrivez-vous", new_registration_path(resource_name)
+    = link_to "Vous n'avez pas reçu le mail de confirmation?", new_confirmation_path(resource_name)  

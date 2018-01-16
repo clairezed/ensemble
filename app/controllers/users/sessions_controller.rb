@@ -8,9 +8,11 @@ class Users::SessionsController < Devise::SessionsController
   # layout :set_layout
   
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    @last_events = Event.active.order(created_at: :desc).limit(3)
+    @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+    super
+  end
 
   # POST /resource/sign_in
   # def create
