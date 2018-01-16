@@ -26,6 +26,13 @@ section.section.section-straddle
       div.embed-responsive.embed-responsive-16by9
         iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ljhBgWdB3Ts?rel=0&amp;showinfo=0" allowfullscreen=""
 
+/ Témoignages
+/ - if @last_events.any?
+section.section
+  .section_inner
+    h2.section-title Rejoindre la communauté
+
+    / = render partial: 'events/card', collection: @last_events, as: :event
 
 / Derniers événements
 - if @last_events.any?

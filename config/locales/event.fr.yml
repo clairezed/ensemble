@@ -41,7 +41,7 @@ fr:
 
   event:
     visibilities:
-      open: Public
+      opened: Public
       closed: Privé
     affiliations:
       normal: Evénement normal

@@ -51,7 +51,7 @@ module EventHelper
   end
 
   def event_openess_icon(key)
-    key == 'open' ? 'fa-globe' : 'fa-envelope'
+    key == 'opened' ? 'fa-globe' : 'fa-envelope'
   end
 
 

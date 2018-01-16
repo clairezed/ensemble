@@ -68,7 +68,7 @@ section
           i.fa.fa-users title="Nombre de participants actuels / Nombre maximum de participants"
         .col-10.p-1
           span = event_participants_count(@event)
-
+    
     .profile-info--big
       h3.section-title Description
       = raw @event.description
@@ -79,7 +79,7 @@ section
       div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
         .row 
           - @event.pictures.each do |picture|
-            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
+            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject" class="col-4"
               = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
                 = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
 

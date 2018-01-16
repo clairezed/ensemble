@@ -12,11 +12,13 @@
   = f.label :leisure_category_id do
     i.fa.fa-users>
     ' Centre d'intérêt
-  - LeisureCategory.all.each do |lc|
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
-        => lc.title
+  .row
+    - LeisureCategory.all.each do |lc|
+      .col-4
+        .form-check.form-check-inline
+          label.form-check-label
+            => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
+            => lc.title
 
   
 .form-group.required

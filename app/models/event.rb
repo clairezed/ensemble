@@ -13,7 +13,7 @@ class Event < ApplicationRecord
     :ignoring => :accents
 
   enum visibility: { 
-    open: 0, 
+    opened: 0, 
     closed: 1
   }
 
@@ -96,7 +96,7 @@ class Event < ApplicationRecord
   }
 
   scope :visible, -> {
-    open.future.active
+    opened.future.active
   }
 
   scope :past, -> {
