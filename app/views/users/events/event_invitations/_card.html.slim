@@ -1,0 +1,58 @@
+- user = invitation.user
+.invitation-card
+  .invitation-card_body
+    .invitation-card_body-aside
+      = image_tag user.avatar_url(:detail), class: "card-img-top"
+    .invitation-card_body-main
+      .col
+        .invitation-card_user-name= user_nickname(user)
+        .invitation-card_user-age= user_age(user.birthdate)
+      .col
+        .invitation-card_city-name
+          i.fa.fa-map-marker>
+          = user.city.name
+  .invitation-card_footer
+    .invitation-card_footer-aside
+      = link_to profile_path(user), class: "button--main" do
+        i.fa.fa-eye>
+        ' Voir
+    .invitation-card_footer-main
+      / Bouton inviter 
+      - if invitation.new_record?
+        = form_for @event.event_invitations.new, as: :event_invitation, url: users_event_invitations_path(@event) do |f|
+          = f.hidden_field :user_id, value: user.id
+          = button_tag type: 'submit', class: "btn btn-secondary btn-block" do
+            i.fa.fa-plus-circle>
+            ' Inviter
+          / = f.submit raw("<i class='fa fa-plus-circle'></i> Inviter"), class: "btn btn-secondary btn-block" 
+      / Bouton annuler
+      - elsif invitation.draft?
+        = link_to users_event_invitation_path(@event, invitation), method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block" do 
+          i.fa.fa-times-circle-o>
+          ' Annuler
+      / Statut de l'invitation
+      - else
+        ' Invitation #{event_invitation_state_title(invitation.state)}
+
+/ .invitation-card
+/   .card
+/     .row.no-gutters
+/       .col-3
+/         = image_tag user.avatar_url(:detail), class: "card-img-top"
+/       .col-9.p-2
+/         p= user_nickname(user)
+/         p.float-right =user.city.name
+/         p= user_age(user.birthdate)
+/     .row.no-gutters
+/       .col-3
+/         = link_to "Voir", profile_path(user), class: "btn btn-primary btn-block"
+/       .col-9
+/         - if invitation.new_record?
+/           = form_for @event.event_invitations.new, as: :event_invitation, url: users_event_invitations_path(@event) do |f|
+/             = f.hidden_field :user_id, value: user.id
+/             = f.submit "Inviter", class: "btn btn-secondary btn-block"
+/         - elsif invitation.draft?
+/           = link_to "Annuler", users_event_invitation_path(@event, invitation), 
+/           method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block"
+/         - else
+/           p.text-center Invitation #{event_invitation_state_title(invitation.state)}

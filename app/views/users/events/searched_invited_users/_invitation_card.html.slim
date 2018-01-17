@@ -1,9 +1,0 @@
-.invitation-card.mb-3
-  = render partial: 'profiles/card', locals: {user: user}
-  .row.no-gutters
-    .col-3
-      = link_to "Voir", profile_path(user), class: "btn btn-primary btn-block"
-    .col-9
-      = form_for @event.event_invitations.new, as: :event_invitation, url: users_event_invitations_path(@event) do |f|
-        = f.hidden_field :user_id, value: user.id
-        = f.submit "Inviter", class: "btn btn-secondary btn-block"

@@ -24,7 +24,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
 
   def destroy
     @event_invitation.destroy
-    flash[:notice] = "L'invitation a bien été annulé"
+    flash[:notice] = "L'invitation a bien été annulée"
     redirect_back fallback_location: users_event_invitations_path(@event)
   end
 

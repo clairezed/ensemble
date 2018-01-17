@@ -1,5 +1,5 @@
 <% if @users.any? %>
-  $('[data-is-list="users"]').html("<%= escape_javascript(render partial: 'users/events/searched_invited_users/invitation_list', locals: { users: @users } ) %>");
+  $('[data-is-list="users"]').html("<%= escape_javascript(render partial: 'users/events/event_invitations/card', collection: @users.map{ |user| @event.event_invitations.new(user: user)}, as: :invitation ) %>");
 <% elsif !@no_search%>
   $('[data-is-list="users"]').html("<%= escape_javascript(render partial: 'users/events/searched_invited_users/no_result') %>");
 <% else %>
