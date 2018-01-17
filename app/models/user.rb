@@ -8,7 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  attr_accessor :sms_token 
+  attr_accessor :sms_token, :cgu_accepted
 
   enum gender: { 
     female: 0, 
@@ -95,6 +95,10 @@ class User < ApplicationRecord
 
     # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
   end
+
+  validates :cgu_accepted,
+          acceptance: {message: "doivent être acceptées"}
+
 
   before_validation :format_phone_number, if: :phone_changed?
   private def format_phone_number

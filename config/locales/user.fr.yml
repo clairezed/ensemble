@@ -19,6 +19,7 @@ fr:
         affiliation:                L'affiliation
         language_ids:               Les langues parlées
         sms_token:                  Le code sms
+        cgu_accepted:               Les conditions générales d'utilisation
 
       asset/user_avatar:
         asset:              Le fichier

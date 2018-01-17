@@ -1,59 +1,126 @@
 = f.hm_form_errors
 
 .form-group.required
-  label Genre
-  br
-  - User.genders.each do |key, value|
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :gender, key, class: "form-check-input hidden-error"
-        => user_gender(key)
+  = f.label :gender, class: '' do
+    ' Sexe
+  .gender-icon-radio
+    - User.genders.each do |key, value|
+      .form-check.form-check-inline
+        label.form-check-label
+          => f.radio_button :gender, key, class: "form-check-input hidden-error"
+          i> class="fa #{user_gender_icon(key)}"
+          / => user_gender(key)
   
 .form-group.required
-  = f.label :phone, class: ''
+  = f.label :phone, class: '' do
+    i.fa.fa-mobile>
+    ' Téléphone portable
   = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
 
 .form-group.required
-  = f.label :city_id, class: ''
+  = f.label :city_id, class: '' do
+    i.fa.fa-map-marker>
+    ' Ville
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
   
 .form-group.required
-  = f.label :birthdate, class: ''
+  = f.label :birthdate, class: '' do
+    i.fa.fa-birthday-cake>
+    ' Né.e le
   .input-group
     = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
     a.input-group-addon data-toggle-picker=''
-     ' cal
+     i.fa.fa-calendar
 
 .form-group
-  = f.label :description, class: ''
-  = f.text_field :description, class: 'form-control'
+  = f.label :leisures, class: '' do
+    i.fa.fa-users>
+    ' Centres d'intérêt
+  .row
+    - LeisureCategory.all.includes(:leisures).each do |leisure_category|
+      .col-4
+        .form-check.form-check-inline
+          label.form-check-label
+            => f.check_box :leisure_category_ids, {multiple: true, class: "form-check-input"}, leisure_category.id, nil
+            => leisure_category.title
+            - leisure_category.leisures.each do |leisure|
+              .form-check.form-check-inline
+                label.form-check-label
+                  => f.check_box :leisure_ids, {multiple: true, class: "form-check-input"}, leisure.id, nil
+                  => leisure.title
 
+.form-group
+  = label_tag :notification, nil, class: '' do
+    / i.fa.fa-pencil>
+    ' Notifications (Invitations)
+  .row.icon-input--vertical
+    .col-4
+      = label_tag :desktop_notification, class: "icon-input_col" do
+        => check_box_tag :desktop_notification, true, true, {class: "", disabled: true}
+        i.fa.fa-desktop>
+        ' Site web
+    .col-4
+      = f.label :sms_notification, class: "icon-input_col" do
+        => f.check_box :sms_notification, {class: ""}, 'true', 'false'
+        i.fa.fa-mobile>
+        ' SMS
+    .col-4
+      = f.label :email_notification, class: "icon-input_col" do
+        => f.check_box :email_notification, {class: ""}, 'true', 'false'
+        i.fa.fa-envelope>
+        ' E-mail
 
-.form-check
-  label.form-check-label
-    => f.check_box :sms_notification, {class: "form-check-input"}, 'true', 'false'
-    = f.label :sms_notification
+/ .form-check
+/   label.form-check-label
+/     => f.check_box :sms_notification, {class: "form-check-input"}, 'true', 'false'
+/     = f.label :sms_notification
 
-.form-check
-  label.form-check-label
-    => f.check_box :email_notification, {class: "form-check-input"}, 'true', 'false'
-    = f.label :email_notification
+/ .form-check
+/   label.form-check-label
+/     => f.check_box :email_notification, {class: "form-check-input"}, 'true', 'false'
+/     = f.label :email_notification
+.form-group
+  = label_tag :avatar, nil, class: '' do
+    i.fa.fa-camera>
+    ' Photo de profil
+  = f.fields_for :avatar do |pic_f|
+    .form-group
+      = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
+        = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
+        span data-is-label-title='' Charger une image
+        span.file-close.ion-close
+      - unless pic_f.object.new_record?
+        p.mt-3 Image actuelle :
+        => image_tag f.object.avatar.asset(:thumb)
+        = pic_f.label :_destroy, class: '' do
+          => pic_f.check_box :_destroy
+          | Supprimer l'image actuelle
 
-= f.fields_for :avatar do |pic_f|
-  .form-group
-    = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
-      = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
-      span data-is-label-title='' Charger une image
-      span.file-close.ion-close
-    - unless pic_f.object.new_record?
-      p.mt-3 Image actuelle :
-      => image_tag f.object.avatar.asset(:thumb)
-      = pic_f.label :_destroy, class: '' do
-        => pic_f.check_box :_destroy
-        | Supprimer l'image actuelle
-
-  / Langues
   / Pays
+.form-group
+  = f.label :language_ids, class: '' do
+    i.fa.fa-language>
+    ' Langues parlées
+  = f.select :language_ids, options_for_select(language_options, f.object.language_ids), {prompt: "Sélectionnez vos langues"}, multiple: true, class: "form-control",  data: {is_select2: 'languages'}
+
+.form-group
+  = f.label :description, class: '' do
+    i.fa.fa-pencil>
+    ' Présentation
+  = f.text_area :description, class: 'form-control'
+
+.form-group.required
+  = f.label :cgu_accepted, class: "form-check-label" do
+    => f.check_box :cgu_accepted, {class: "form-check-input required"}
+    span.ml-2> Veuillez cocher cette case afin de confirmer que vous avez lu et accepté les
+    => link_to " conditions générales d'utilisation de la plateforme", "#", target: "_blank"
+
+
+  / = f.label :cgu_accepted_at, class: "form-check-label" do
+  /   => f.check_box :cgu_accepted_at, {class: "form-check-input required"}, Time.current, nil
+  /   span.ml-2> Veuillez cocher cette case afin de confirmer que vous avez lu et accepté les
+  /   => link_to " conditions générales d'utilisation de la plateforme", "#", target: "_blank"
+
 
 coffee:
   new RegistrationSecondStep()

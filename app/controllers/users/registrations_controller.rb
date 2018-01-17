@@ -97,7 +97,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def second_step_params
-    params.require(:user).permit(:phone, :sms_notification, :email_notification,
+    params.require(:user).permit(:phone, :sms_notification, :email_notification, :cgu_accepted, 
     *profile_params_array )
   end
 
@@ -115,7 +115,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile_params_array
     [:gender, :phone, :birthdate, :description, :city_id, 
-      language_ids: [], leisure_ids: [],
+      language_ids: [], leisure_ids: [], 
       avatar_attributes: [ :id, :asset, :_destroy]]
   end
 
@@ -139,7 +139,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def finalize_registration
-    @user.update(registration_complete: true)
+    @user.update(registration_complete: true, cgu_accepted_at: Time.current)
     Twilio::SendConfirmationMessage.call(@user)
   end
 

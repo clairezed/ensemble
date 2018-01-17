@@ -11,9 +11,8 @@
       = form_for(@user, as: :user, url: user_registration_path, html: {class: ""}) do |f| 
         =  render partial: "profile_form", locals: {f: f, button_name: "Modifier mon compte"}
 
-        .form-group
-          .form-actions
-            hr
-            => f.submit "Valider", class: "btn btn-primary"
+        .form-actions
+          => f.submit "Valider", class: "button--main"
+
 
 

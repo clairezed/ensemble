@@ -3,6 +3,8 @@ class @RegistrationSecondStep
   constructor: () ->
     console.log "RegistrationSecondStep"
     citySelect = new Select2Ajax()
+    languageSelect = new Select2Simple($('[data-is-select2="languages"]'))
+
 
     # birthdate picker -----------------------------------------------------
     datepickerOptions =
