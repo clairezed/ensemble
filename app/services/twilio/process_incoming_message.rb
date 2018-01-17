@@ -35,11 +35,17 @@ module Twilio
     end
 
     def process_message
+      Rails.logger.warn "PROCESS INCOMING MESSAGE"
       # Identification expediteur -----------------------------
       @user = identify_user
       return RESPONSES[:unknown_phone_number] if @user.nil?
       # Identification invitation -----------------------------
+      Rails.logger.warn params[:Body]
+      Rails.logger.warn body
       answer, event_id = body.split(' ')
+      Rails.logger.warn "answer / event_id : "
+      Rails.logger.warn answer
+      Rails.logger.warn event_id
       @event_invitation = @user.event_invitations.where(event_id: event_id).first
       return RESPONSES[:invitation_not_found] if @event_invitation.nil?
       # Envoyer un retour à la réponse -----------------------------
