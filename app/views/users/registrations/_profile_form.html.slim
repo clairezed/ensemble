@@ -1,5 +1,13 @@
 = f.hm_form_errors
 
+.form-group.required
+  = f.label :firstname, class: ''
+  = f.text_field :firstname, class: 'form-control'
+  
+.form-group.required
+  = f.label :lastname, class: ''
+  = f.text_field :lastname, class: 'form-control'
+
 .form-group
   = label_tag :avatar, nil, class: '' do
     i.fa.fa-camera>
