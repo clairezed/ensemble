@@ -1,13 +1,12 @@
 class CitiesController < ApplicationController
   # aussi utile cote admin
+  skip_before_action :reject_blocked_ip!
   skip_before_action :authenticate_user!, only: [:index]
   skip_before_action :check_registration_uncomplete, only: [:index]
 
   def index
-    p "CITY INDEX ==============="
-    params[:by_val] ||= ""
+    params[:by_val] ||= current_user.city.department_code
     @cities = City.by_name_or_zipcode(params[:by_val])
-    p "CITY INDEX  after scope ==============="
     respond_to do |format|
       format.html do
         @cities
