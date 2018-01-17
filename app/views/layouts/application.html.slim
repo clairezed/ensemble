@@ -93,9 +93,10 @@ html lang="#{I18n.locale}"
                 - if current_user.event_invitations.pending.any?
                   span.badge.badge-light = current_user.event_invitations.pending.count
                 .nav-bottom_item-title Invitations
-            li.nav-bottom_item
-              = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do 
-                i.fa.fa-plus-circle
+            li.nav-bottom_item.nav-bottom_item--main
+              = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do
+                / .nav-bottom_item--main-icon
+                i.fa.fa-plus-circle.nav-bottom_item--main-icon
                 .nav-bottom_item-title Proposer
             li.nav-bottom_item
               = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
