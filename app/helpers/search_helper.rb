@@ -1,6 +1,16 @@
 module SearchHelper
 
-  def display_search_params(key, val)
+  def search_params_icon(key)
+    case key
+    when 'by_text'              then 'pencil'
+    when 'by_leisure_category'  then 'users'
+    when 'by_dates'             then 'calendar'
+    when 'by_city'              then 'map-marker'
+    else ''
+    end
+  end
+
+  def search_params_label(key, val)
     case key
     when 'by_text'              then text_search_params(val)
     when 'by_leisure_category'  then leisure_category_search_params(val)
@@ -21,7 +31,7 @@ module SearchHelper
 
   def date_range_search_params(val)
     start_at, end_at = val.split("au")
-    [l(start_at.to_date), l(end_at.to_date)].join('-') rescue ''
+    [l(start_at.to_date), l(end_at.to_date)].join(' -> ') rescue ''
   end
 
 

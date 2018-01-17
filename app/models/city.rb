@@ -11,7 +11,9 @@ class City < ActiveRecord::Base
 
   # Scopes ===============================================================
   scope :by_name_or_zipcode, ->(name_or_zip) {
-    break none if name_or_zip.blank?
+    p "scope by_name_or_zipcode"
+    p name_or_zip
+    return none if name_or_zip.blank?
     zipcode = name_or_zip.to_s.strip[/\A\d+\z/]
     name_or_zip  = name_or_zip.gsub(/^SAINT(E)? (.*)/i, "ST\\1 \\2")
     where(
