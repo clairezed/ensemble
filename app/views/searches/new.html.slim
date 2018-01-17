@@ -12,22 +12,33 @@ section.section
     = form_tag search_path, method: :get, class:"", data: {is_filter_form: true} do
       
       .form-group
-        = label_tag :by_text, "Titre", class: ''
+        = label_tag :by_text, "Titre", class: '' do
+          i.fa.fa-pencil>
+          ' Titre
         => text_field_tag :by_text, params[:by_text], class: "form-control"
 
       .form-group
-        - LeisureCategory.all.each do |lc|
-          .form-check.form-check-inline
-            label.form-check-label
-              => check_box_tag :by_leisure_category, lc.id, (params[:by_leisure_category].to_i == lc.id), class: "form-check-input"
-              => lc.title
+        = label_tag :leisure_category_id do
+          i.fa.fa-users>
+          ' Centre d'intérêt
+        .row
+          - LeisureCategory.all.each do |lc|
+            .col-4
+              .form-check.form-check-inline
+                label.form-check-label
+                  => check_box_tag :by_leisure_category, lc.id, (params[:by_leisure_category].to_i == lc.id), class: "form-check-input"
+                  => lc.title
 
       .form-group
-        = label_tag :by_dates, "Entre les dates...", class: ''
+        = label_tag :by_dates, class: ''  do
+          i.fa.fa-calendar>
+          ' Date ou période
         => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
 
       .form-group
-        = label_tag :by_city, "Ville"
+        = label_tag :by_city  do
+          i.fa.fa-map-marker>
+          ' Ville
         = select_tag :by_city, \
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
           prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
