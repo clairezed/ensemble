@@ -4,10 +4,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   skip_before_action :authenticate_user!, only: [:new, :create]
   skip_before_action :check_registration_uncomplete, only: [:new_second_step, :create_second_step]
+  skip_before_action :reject_blocked_ip!, except: [:edit, :update]
 
 
   before_action :configure_sign_up_params, only: [:create]
   before_action :find_user, only: [:new_second_step, :create_second_step, :edit_profile, :update_profile]
+
+  def new
+    get_seo_for_static_page('home')
+    @last_events = Event.active.order(created_at: :desc).limit(3)
+    @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+    @user = User.new_with_session({}, session)
+  end
 
 
   # Premier formulaire d'inscription -------------------------------
@@ -32,7 +40,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       # custom 
       @user = resource
-      render 'home/index'
+      @last_events = Event.active.order(created_at: :desc).limit(3)
+      @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+      render action: :new
     end
   end
 
@@ -87,7 +97,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def second_step_params
-    params.require(:user).permit(:phone, :sms_notification, :email_notification,
+    params.require(:user).permit(:phone, :sms_notification, :email_notification, :cgu_accepted, 
     *profile_params_array )
   end
 
@@ -105,7 +115,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile_params_array
     [:gender, :phone, :birthdate, :description, :city_id, 
-      language_ids: [], leisure_ids: [],
+      language_ids: [], leisure_ids: [], 
       avatar_attributes: [ :id, :asset, :_destroy]]
   end
 
@@ -129,7 +139,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def finalize_registration
-    @user.update(registration_complete: true)
+    @user.update(registration_complete: true, cgu_accepted_at: Time.current)
     Twilio::SendConfirmationMessage.call(@user)
   end
 

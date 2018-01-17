@@ -1,9 +1,15 @@
-section.section--reverse
-  .section_inner
-    p= l(@event.start_at.to_date)
-    p= @event.leisure_category.try(:title)
+section.event-header
+  = image_tag "#{@event.leisure_category.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure_category.title}"
+  .event-header_meta
+    .event-header_meta-date
+      .day-number= l(@event.start_at, format: '%d')
+      .month= l(@event.start_at, format: '%b')
+      .year= l(@event.start_at, format: '%Y')
+    .event-header_meta-icon
+      i.fa.fa-snowflake-o
+      / p= @event.leisure_category.try(:key)
 
-section.section
+section.section.pt-5
   .section_inner
     - invitation = @event.event_invitations.where(user: current_user).first
     - if invitation.present? && invitation.may_accept?
@@ -28,10 +34,10 @@ section.section
               ' Annuler
 
     - if @event.past?
-      .alert.alert-light role="alert" Cet événement est passé
+      .alert.alert-light role="alert" Evénement terminé
 
     - if @event.canceled?
-      .alert.alert-light role="alert" Cet événement est annulé
+      .alert.alert-light role="alert" Evénement annulé
 
 section
   .section_inner
@@ -62,7 +68,7 @@ section
           i.fa.fa-users title="Nombre de participants actuels / Nombre maximum de participants"
         .col-10.p-1
           span = event_participants_count(@event)
-
+    
     .profile-info--big
       h3.section-title Description
       = raw @event.description
@@ -73,7 +79,7 @@ section
       div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
         .row 
           - @event.pictures.each do |picture|
-            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject"
+            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject" class="col-4"
               = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
                 = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
 

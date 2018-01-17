@@ -2,20 +2,29 @@
 
   
 .form-group.required
-  = f.label :title, class: ''
+  = f.label :title, class: '' do
+    i.fa.fa-pencil>
+    ' Titre
   = f.text_field :title, class: 'form-control'
 
 / centre d interet
-
-- LeisureCategory.all.each do |lc|
-  .form-check.form-check-inline
-    label.form-check-label
-      => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
-      => lc.title
+.form-group.required
+  = f.label :leisure_category_id do
+    i.fa.fa-users>
+    ' Centre d'intérêt
+  .row
+    - LeisureCategory.all.each do |lc|
+      .col-4
+        .form-check.form-check-inline
+          label.form-check-label
+            => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
+            => lc.title
 
   
 .form-group.required
-  = f.label :start_at, class: ''
+  = f.label :start_at, class: '' do
+    i.fa.fa-calendar>
+    ' Date de début
   .form-row
     .col-6
       = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}, placeholder: "jj/mm/aaaa"
@@ -23,7 +32,9 @@
       = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}, placeholder: "hh:mm"
   
 .form-group
-  = f.label :end_at, class: ''
+  = f.label :end_at, class: '' do
+    i.fa.fa-calendar>
+    ' Date de fin
   .form-row
     .col-6
       = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}, placeholder: "jj/mm/aaaa"
@@ -31,15 +42,21 @@
       = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}, placeholder: "hh:mm"
 
 .form-group
-  = f.label :address, class: ''
+  = f.label :address, class: '' do
+    i.fa.fa-map-marker>
+    ' Adresse
   = f.text_field :address, class: 'form-control'
 
 .form-group.required
-  = f.label :city_id, class: ''
-  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
+  = f.label :city_id, class: '' do
+    i.fa.fa-map-marker>
+    ' Ville
+  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path, width: '100%'}
 
 .form-group
-  = f.label :description, class: ''
+  = f.label :description, class: '' do
+    i.fa.fa-pencil>
+    ' Description
   = f.hidden_field :description, class: 'form-control', data: {is_hidden_field: 'description'}
   div data-is-wysiwyg="quill"
     p= wysiwyg_text(f.object.description)
@@ -47,15 +64,20 @@
 / Nb de personnes
 
 .form-group
-  = label_tag :participants, "Nombre de participants"
+  = label_tag :participants do
+    i.fa.fa-users>
+    ' Nombre de participants
   = text_field_tag :participants, [f.object.participants_min, f.object.participants_max].join(' - '), data: {is_slider: 'participants'}
   = f.hidden_field :participants_min, data: {is_participants: 'min'}
   = f.hidden_field :participants_max, data: {is_participants: 'max'}
 
 
 / Photos
-div class=""
-  .label-title  Photos de l'événement
+.form-group
+  / .label-title  Photos de l'événement
+  = f.label :pictures do
+    i.fa.fa-camera>
+    ' Photos de l'événement
   p.form-text.text-muted.small: em 
     ' Formats autorisés : .pdf, .jpeg, .png
     br
@@ -78,12 +100,13 @@ div class=""
 
 
 .form-group.required
-  br
-  - Event.visibilities.each do |key, value|
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :visibility, key, class: "form-check-input"
-        => event_visibility(key)
+  .row
+    - Event.visibilities.each do |key, value|
+      .col
+        => f.radio_button :visibility, key, class: "d-none button-radio-input"
+        = f.label :visibility, value: key, class: "button-radio" do
+          i.fa> class="#{event_openess_icon(key)}"
+          span.label-title=> event_visibility(key)
 
 = render "events/event_pictures/hb_thumbs"
 

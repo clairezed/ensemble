@@ -23,7 +23,5 @@
 / = f.shb_password_field :password_confirmation
 / - if !f.object.new_record?
 /   = f.shb_password_field :current_password
-.form-group
-  .form-actions
-    hr
-    => f.submit button_name, class: "btn btn-primary"
+.form-actions
+  => f.submit "C'est parti !", class: "button--main"

@@ -50,5 +50,9 @@ module EventHelper
     event.leisure.present? ? event.leisure.title : event.leisure_category.title
   end
 
+  def event_openess_icon(key)
+    key == 'opened' ? 'fa-globe' : 'fa-envelope'
+  end
+
 
 end

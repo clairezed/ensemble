@@ -1,6 +1,13 @@
 // Navbar top ===================================
 
+.nav-top
+  @extend .navbar, .navbar-dark, .bg-primary
+  > .container
 
+@media (max-width: 576px)
+  .nav-top
+    > .container
+      padding: 0
 
 // Navbar bottom ===================================
 .nav-bottom

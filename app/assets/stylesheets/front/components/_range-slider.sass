@@ -1,19 +1,19 @@
-// CUSHMAN & WAKEFIELD - Component RANGE SLIDER - Studio HB 2016
+///////////// SURCHARGE ION RANGE SLIDER
 
 $slider-primary-color: $primary
+$slider-height: 5px
 
-////////////////////
-/// RANGE SLIDER
-////////////////////
 
 // .range-slider
 //   padding: 15px 25px 15px 25px
 
+.irs-line-mid, .irs-line-left, .irs-line-right, .irs-bar, .irs-bar-edge, .irs-slider
+  background: none
 
-///////////// SURCHARGE ION RANGE SLIDER
 
-// .irs-line 
-//   height: 3px
+
+.irs-line
+  height: $slider-height
 //   border-width: 0
 //   background-image: none
 //   padding: 7px 0
@@ -23,8 +23,8 @@ $slider-primary-color: $primary
 
 
 .irs-line-mid, .irs-line-left, .irs-line-right
-  background-color: #ccc
-//   height: 3px  
+  background-color: $secondary
+  height: $slider-height
 //   top: 5px
 
 // .irs-line-left 
@@ -35,7 +35,7 @@ $slider-primary-color: $primary
 
 .bar, .irs-bar-edge, .irs-bar 
   background-color: $slider-primary-color
-  // height: 3px
+  height: $slider-height
   // border-width: 0
   // background-image: none
   // z-index: 2
@@ -46,8 +46,10 @@ $slider-primary-color: $primary
 
 .irs-slider
   background-color: $slider-primary-color
-//   height: 18px
-//   width: 18px
+  height: 16px
+  width: 16px
+  border-radius: 50%
+  top: 18px
 //   background-image: none
 //   border-width: 0
 //   margin-top: -7px
@@ -88,14 +90,14 @@ $slider-primary-color: $primary
 
 
 
-// .irs-min, .irs-max  
+.irs-min, .irs-max  
+  background-color: transparent
 //   font-size: 1.3rem
 //   line-height: normal
 //   font-weight: 500
 //   font-size: 1.2rem
 //   bottom: 0
 //   top: auto
-//   background-color: transparent
 //   color: #a7a7a7
 //   padding: 0
 

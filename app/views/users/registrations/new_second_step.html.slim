@@ -1,11 +1,9 @@
-- content_for :current_navigation_section, :edit_my_account 
-
 section
   .section_inner
     h1.section-title Finaliser votre inscription
 
     = form_for(@user, as: :user, url: create_second_step_path, html: {class: ""}) do |f| 
-      =  render partial: "long_form", locals: {f: f}
+      =  render partial: "second_step_form", locals: {f: f}
 
       .form-group
-        => f.submit "Finaliser mon compte", class: "button--main"
+        => f.submit "Je m'inscris", class: "button--main"

@@ -31,7 +31,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
   # Valide les 
   def batch_valildate
     @event.event_invitations.each do |invitation|
-      invitation.validate!
+      invitation.validate! if invitation.may_validate?
     end
     flash[:notice] = "Les invitations ont bien été validées et envoyées"
     redirect_to users_events_path

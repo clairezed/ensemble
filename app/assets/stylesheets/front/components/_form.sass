@@ -11,11 +11,9 @@
 
 
 .required
-  label:after
+  > label:after
     content: " *" 
-    color: #000
-  label
-    font-weight: bold
+    color: $text
 
 .error_explanation
   @extend .alert
@@ -27,8 +25,36 @@
   input
     @extend .is-invalid
   display: flex
+  label 
+    color: $danger
 
+.form-actions
+  margin: 2rem 0 1rem
 
-// .form-control
-//   border: 2px solid #ddd
-//   box-shadow: none!important
+.form-links
+  font-size: 0.8rem
+  text-align: center
+  a 
+    display: block
+    margin-bottom: .3rem
+
+.gender-icon-radio
+  display: inline-flex
+  align-items : center
+  margin-left: 2rem
+  font-size: 2rem
+  .form-check:not(:last-child)
+    margin-right: 10px
+  .form-check-label
+    display: flex
+
+.icon-input--vertical
+  .icon-input_col
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    i 
+      font-size: 2.5rem
+      margin-top: 10px
+      margin-bottom: 6px

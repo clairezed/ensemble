@@ -14,7 +14,7 @@ module Twilio
     end
 
     def call(message = '', recipient_number = DEFAULT_RECIPIENT_PHONE_NUMBER)
-      send_sms(message)
+      send_sms(message, recipient_number)
     end
 
     private # =============================================================
@@ -24,6 +24,11 @@ module Twilio
     end
 
     def send_sms(message = "test", recipient_number = DEFAULT_RECIPIENT_PHONE_NUMBER )
+      p "SEND SMS ======================================"
+      p "message"
+      p message
+      p "recipient_number"
+      p recipient_number
       begin
         message = client.messages.create(
           body: message,

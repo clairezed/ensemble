@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180106171801) do
+ActiveRecord::Schema.define(version: 20180117074727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 20180106171801) do
     t.datetime "sms_confirmed_at"
     t.datetime "sms_confirmation_sent_at"
     t.integer "verification_state", default: 0
+    t.datetime "cgu_accepted_at"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

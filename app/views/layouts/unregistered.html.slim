@@ -23,7 +23,7 @@ html lang="#{I18n.locale}"
     = render_document_ready_scripts 
   body.unregistered
 
-    nav.navbar.navbar-dark.bg-primary
+    nav.nav-top
       .container
         = link_to root_path, class: "navbar-brand" do
           / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
@@ -41,22 +41,26 @@ html lang="#{I18n.locale}"
 
 
     footer
-      .container
-        .row
-          .col
-            .section--reverse
-              .section_inner
-                h3.section-title Découvrir
-          .col
-            .section--reverse
-              .section_inner
-                h3.section-title Suivez-nous
+      .section--reverse
+        .section_inner
+          .row
+            .col
+              h3.section-title Découvrir
+              ul.footer_links
+                li= link_to "Qui sommes-nous ?", "#"
+                li= link_to "Charte utilisateur", "#"
+                li= link_to "Conditions générales", "#"
+                li= link_to "Plan du site", "#"
+                li= link_to "Mentions légales", "#"
+            .col
+              h3.section-title Suivez-nous
+              .social-links
+                = link_to "#", class: "social-links_item", title: "lien vers le twitter de Ensemble" do
+                  i.fa.fa-twitter
+                = link_to "#", class: "social-links_item", title: "lien vers le facebook de Ensemble" do
+                  i.fa.fa-facebook
+                = link_to "#", class: "social-links_item", title: "lien vers l'instagram de Ensemble" do
+                  i.fa.fa-instagram
 
-      / .container
-      /   hr 
-      /   - @basic_pages.each do |basic_page|
-      /     => link_to basic_page.title, basic_page_path(basic_page)
-      /     => "-" 
-      /   | #{Date.today.year}
 
 

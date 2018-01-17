@@ -1,61 +1,86 @@
 = f.hm_form_errors
 
-= f.fields_for :avatar do |pic_f|
-  .form-group
-    = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
-      = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
-      span data-is-label-title='' Charger une image
-      span.file-close.ion-close
-    - unless pic_f.object.new_record?
-      p.mt-3 Image actuelle :
-      => image_tag f.object.avatar.asset(:thumb)
-      = pic_f.label :_destroy, class: '' do
-        => pic_f.check_box :_destroy
-        | Supprimer l'image actuelle
-
-.form-group
-  label Genre
-  br
-  - User.genders.each do |key, value|
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :gender, key, class: "form-check-input"
-        => user_gender(key)
+.form-group.required
+  = f.label :firstname, class: ''
+  = f.text_field :firstname, class: 'form-control'
   
-  .form-group.required
-    = f.label :birthdate, class: ''
-    .input-group
-      = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
-      a.input-group-addon data-toggle-picker=''
-       ' cal
+.form-group.required
+  = f.label :lastname, class: ''
+  = f.text_field :lastname, class: 'form-control'
 
 .form-group
-  = f.label :leisures, class: ''
-- LeisureCategory.all.each do |leisure_category|
-  .form-check.form-check-inline
-    label.form-check-label
-      => f.check_box :leisure_category_ids, {multiple: true, class: "form-check-input"}, leisure_category.id, nil
-      => leisure_category.title
-      - leisure_category.leisures.each do |leisure|
+  = label_tag :avatar, nil, class: '' do
+    i.fa.fa-camera>
+    ' Photo de profil
+  = f.fields_for :avatar do |pic_f|
+    .form-group
+      = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
+        = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
+        span data-is-label-title='' Charger une image
+        span.file-close.ion-close
+      - unless pic_f.object.new_record?
+        p.mt-3 Image actuelle :
+        => image_tag f.object.avatar.asset(:thumb)
+        = pic_f.label :_destroy, class: '' do
+          => pic_f.check_box :_destroy
+          | Supprimer l'image actuelle
+
+.form-group.required
+  = f.label :gender, class: '' do
+    ' Sexe
+  .gender-icon-radio
+    - User.genders.each do |key, value|
+      .form-check.form-check-inline
+        label.form-check-label
+          => f.radio_button :gender, key, class: "form-check-input hidden-error"
+          i> class="fa #{user_gender_icon(key)}"
+  
+.form-group.required
+  = f.label :birthdate, class: '' do
+    i.fa.fa-birthday-cake>
+    ' Né.e le
+  .input-group
+    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+    a.input-group-addon data-toggle-picker=''
+     i.fa.fa-calendar
+
+.form-group
+  = f.label :leisures, class: '' do
+    i.fa.fa-users>
+    ' Centres d'intérêt
+  .row
+    - LeisureCategory.all.includes(:leisures).each do |leisure_category|
+      .col-4
         .form-check.form-check-inline
           label.form-check-label
-            => f.check_box :leisure_ids, {multiple: true, class: "form-check-input"}, leisure.id, nil
-            => leisure.title
+            => f.check_box :leisure_category_ids, {multiple: true, class: "form-check-input"}, leisure_category.id, nil
+            => leisure_category.title
+            - leisure_category.leisures.each do |leisure|
+              .form-check.form-check-inline
+                label.form-check-label
+                  => f.check_box :leisure_ids, {multiple: true, class: "form-check-input"}, leisure.id, nil
+                  => leisure.title
 
 
-.form-group
-  = f.label :description, class: ''
-  = f.text_field :description, class: 'form-control'
-
-.form-group
-  = f.label :city_id, class: ''
+.form-group.required
+  = f.label :city_id, class: '' do
+    i.fa.fa-map-marker>
+    ' Ville
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
 .form-group
-  = f.label :language_ids, class: ''
+  = f.label :language_ids, class: '' do
+    i.fa.fa-language>
+    ' Langues parlées
   = f.select :language_ids, options_for_select(language_options, f.object.language_ids), {prompt: "Sélectionnez vos langues"}, multiple: true, class: "form-control",  data: {is_select2: 'languages'}
 
   / Pays visités
+
+.form-group
+  = f.label :description, class: '' do
+    i.fa.fa-pencil>
+    ' Présentation
+  = f.text_area :description, class: 'form-control'
 
 
 

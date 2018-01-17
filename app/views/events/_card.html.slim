@@ -1,12 +1,35 @@
 
-= link_to event_path(event) do
-  .card.mt-3 class="#{'bg-secondary' if event.canceled?}"
-    .card-body
-      - if event.closed?
-        span.float-right Evénement privé
-      h3= event.title
-      p= l(event.start_at.to_date)
-      / p= event.leisure.title
-      p= event.leisure_category.try(:title)
-      p= event.city.name
-      p= event_participants_count(event)
+= link_to event_path(event), class: "event-card #{'canceled' if event.canceled?}" do
+  / .event-card class="#{'bg-secondary' if event.canceled?}"
+  .event-card_picture
+     = image_tag "#{event.leisure_category.key}-square.jpg", class: 'img-fluid', alt: "Image d'illustration #{event.leisure_category.title}"
+  .event-card_meta
+    .event-card_meta-date
+      .day-number= l(event.start_at, format: '%d')
+      .month= l(event.start_at, format: '%b')
+      .year= l(event.start_at, format: '%Y')
+    .event-card_meta-icon
+      i.fa.fa-snowflake-o
+      / p= event.leisure_category.try(:title)
+  .event-card_body
+    .event-card_body-header
+      h3.event-card_body-title = event.title
+      / - if event.closed?
+      /   .event-card_body-subtitle Evénement privé
+    - if event.mirador?
+      .event-card_body-mirador 
+        i.fa.fa-exclamation-triangle>
+        ' Evénement Mirador
+
+    .event-card_body-footer
+      .event-card_location
+        i.fa.fa-map-marker>
+        = event.city.name
+      .event-card_participants
+        i.fa.fa-users>
+        = event_participants_count(event)
+
+        
+  / .card.mt-3 class="#{'bg-secondary' if event.canceled?}"
+  /   .card-body
+  /     / p= event.leisure.title
