@@ -21,10 +21,20 @@
     width: 100%
   &_item
     list-style: none
+    &--main
+      margin-top: -40px
+      &-icon
+        border-radius: 50%
+        background-color: $primary
+        padding: 8px 10px
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8)
+        font-size: 3rem
+      .nav-bottom_item-title
+        padding-top: 3px
     &-title
       font-size: .5rem
       text-transform: uppercase
-    i 
+    i:not(.nav-bottom_item--main-icon)
       font-size: 1.5rem  
 
 
