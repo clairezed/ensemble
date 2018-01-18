@@ -26,6 +26,9 @@ class @ProfileEdit
       birthdateDatepicker.setDate(date, false, "d.m.Y")
 
 
+
+    fileUploader = new FileUploader()
+
       
     # Image ----------------------------------------
     # Affichage du nom du fichier choisi 

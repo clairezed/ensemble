@@ -86,7 +86,7 @@ class User < ApplicationRecord
             :firstname,
             presence: true
 
-  # validates :phone, uniqueness: true
+  validates :phone, uniqueness: true
 
   with_options if: :persisted? do |user|
     user.validates :gender,

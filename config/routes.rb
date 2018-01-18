@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
+    resources :avatars
     resources :sms_confirmations, only: [:new, :create, :update] do 
       get :new_verify, on: :collection
       patch :verify, on: :collection

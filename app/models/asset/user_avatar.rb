@@ -1,4 +1,5 @@
 class Asset::UserAvatar < Asset
+  include Rails.application.routes.url_helpers
 
   # Configs ======================================================================
 
@@ -34,6 +35,19 @@ class Asset::UserAvatar < Asset
   private def check_file_size
     valid?
     errors[:user_avatar_file_size].blank?
+  end
+
+
+  def as_json(options={})
+    {
+      id: self.id,
+      title: self.asset_file_name,
+      created_at: self.created_at,
+      url: self.asset.url,
+      thumbnail_url: self.asset.url(:thumb),
+      delete_url: users_avatar_path(id)
+      # delete_url: users_avatar_path(self.id)
+    }
   end
 
   private

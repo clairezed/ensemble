@@ -25,10 +25,12 @@ module Twilio
 
     def send_sms(message = "test", recipient_number = DEFAULT_RECIPIENT_PHONE_NUMBER )
       p "SEND SMS ======================================"
+      Rails.logger.warn "SEND SMS ======================================"
       p "message"
       p message
       p "recipient_number"
       p recipient_number
+      Rails.logger.warn recipient_number
       begin
         message = client.messages.create(
           body: message,

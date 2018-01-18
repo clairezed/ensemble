@@ -1,12 +1,5 @@
-class @FileUploader
+class @AvatarFileUploader extends @FileUploader
 
-  DEFAULT_OPTIONS:
-    scope: $(document)
-    templateSelector:
-      upload:   '[data-template="PictureUpload"]'
-      download: '[data-template="PictureDownload"]'
-    selectors: 
-      uploadAnchor:   "[data-is-upload-anchor]"
 
   constructor:  (options = {}) ->
     @options = $.extend(true, {}, @DEFAULT_OPTIONS, options)
@@ -33,7 +26,7 @@ class @FileUploader
 
   loadMedias: =>
     console.log 'loadMedias'
-    url = $(@options.selectors.uploadAnchor).data('list-url')
+    url = $(@options.selectors.listAnchor).data('list-url')
     console.log "loadMedias url : #{url}"
     if !!url # Si new_record, pas d'ajout de médias
       $.get(url, {}, null, 'json'
@@ -94,7 +87,7 @@ class @FileUploader
 
   prependNode: (args = {}) ->
     compiledTemplate = @compileTemplate(args['data'], args['template'])
-    return $(compiledTemplate).prependTo(@options.selectors.uploadAnchor)
+    return $(compiledTemplate).prependTo(@options.selectors.listAnchor)
 
   getMediaNode: (id) ->
     $("[data-is-download='#{id}']")
