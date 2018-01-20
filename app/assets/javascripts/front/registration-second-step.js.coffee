@@ -27,7 +27,8 @@ class @RegistrationSecondStep
       date = this.value
       birthdateDatepicker.setDate(date, false, "d.m.Y")
 
-
+    fileUploader = new AvatarFileUploader()
+    
     # Image -------------------------------------------------------------
     # Affichage du nom du fichier choisi 
     # dans le bouton de téléchargement d'une image

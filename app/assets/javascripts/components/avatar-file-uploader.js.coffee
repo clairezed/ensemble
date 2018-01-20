@@ -1,47 +1,20 @@
 class @AvatarFileUploader extends @FileUploader
-
+  
+  DEFAULT_OPTIONS:
+    scope: $(document)
+    templateSelector:
+      upload:   '[data-template="PictureUpload"]'
+      download: '[data-template="PictureDownload"]'
+    selectors: 
+      uploadAnchor:   "[data-is-upload-anchor]"
 
   constructor:  (options = {}) ->
+    console.log "AvatarFileUploader"
     @options = $.extend(true, {}, @DEFAULT_OPTIONS, options)
     @fileInput = $("[data-file-upload]")
-    @loadMedias()
     @initFileUpload()
     @bindEvents()
 
-
-
-  bindEvents: =>
-    # Attachement deletion ---------------------------------------
-    @options.scope
-      .on "ajax:success", "[data-delete-picture]", (e, data, status, xhr) =>
-        console.log "delete success"
-        detail = e.detail
-        data = detail[0]
-        @getMediaNode(data['id']).remove()
-      .on "ajax:error", "[data-delete-picture]", (e, xhr, status, error)  =>
-        console.log "delete error"
-        errors = JSON.parse(xhr.responseText)['errors']
-        console.log errors
-        flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
-
-  loadMedias: =>
-    console.log 'loadMedias'
-    url = $(@options.selectors.listAnchor).data('list-url')
-    console.log "loadMedias url : #{url}"
-    if !!url # Si new_record, pas d'ajout de médias
-      $.get(url, {}, null, 'json'
-      ).done((items) =>
-        console.log(items)
-        for item in items
-          @prependNode(
-            template: 'download', 
-            data: item
-          )
-      ).fail((error) =>
-        console.log "error"
-        console.log error
-        # flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
-      )
 
   initFileUpload: =>
     console.log 'initFileUpload'
@@ -66,8 +39,7 @@ class @AvatarFileUploader extends @FileUploader
       done: (e, data) =>
         console.log "done"
         console.log data
-        $(data.context).remove() # on enleve la vignette de chargement
-        data.context = @prependNode(
+        data.context = @replaceNode(
           template: 'download', 
           data: data.result
         )
@@ -81,57 +53,20 @@ class @AvatarFileUploader extends @FileUploader
           @displayError(errorsArray[0])
       )
 
-  compileTemplate: (data, templateSelector) =>
-    template = $(@options.templateSelector[templateSelector]).html()
-    return Handlebars.compile(template)(data)
 
-  prependNode: (args = {}) ->
+  replaceNode: (args = {}) ->
     compiledTemplate = @compileTemplate(args['data'], args['template'])
-    return $(compiledTemplate).prependTo(@options.selectors.listAnchor)
-
-  getMediaNode: (id) ->
-    $("[data-is-download='#{id}']")
+    return $(@options.selectors.uploadAnchor).html(compiledTemplate)
 
 
   # Failure management --------------------------------------------
-  cancelUpload: (message) =>
-    @displayError(message)
-
-  displayError: (message) =>
-    $("[data-is-upload]").remove()
-    flash(message, 'danger')
-
-  # Form ---------------------------------------------------------
-  preValidate: (data) =>
-    file = data.files[0]
-    maxFileSize = 1024 * 1024 * 8 # 8MB
-    # validation format
-    unless !!@getFormat(file.type)
-      flash("Le format de votre fichier n'est pas autorisé", 'danger')
-      return false
-    # validation taille
-    if file.size > maxFileSize
-      flash("Votre fichier dépasse la taille maximum", 'danger')
-      return false
-    return true
-
 
   submitForm: (data) =>
     console.log "submitForm"
     console.log data.files[0]
-    data.context = @prependNode(
+    data.context = @replaceNode(
       template: 'upload', 
       data: data.files[0]
     )
     data.submit()
     return false
-  
-  getFormat: (type) =>
-    console.log type
-    switch type
-      when "image/jpeg", \
-        "image/png", \
-        "image/gif" \
-        then 'picture'
-      else null
-

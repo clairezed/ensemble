@@ -25,9 +25,7 @@ class @ProfileEdit
       date = this.value
       birthdateDatepicker.setDate(date, false, "d.m.Y")
 
-
-
-    fileUploader = new FileUploader()
+    fileUploader = new AvatarFileUploader()
 
       
     # Image ----------------------------------------

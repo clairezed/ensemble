@@ -21,8 +21,9 @@ class Asset < ActiveRecord::Base
   #   Si un custom_file_name est donné, on le parameterize
   #   Sinon on utilise le nom du fichier uploadé
   def set_custom_file_name
-    self.custom_file_name = self.custom_file_name.try(:parameterize)
-    self.custom_file_name = self.asset_file_name.split(".").first if self.custom_file_name.blank?
+    # self.custom_file_name = self.custom_file_name.try(:parameterize)
+    # self.custom_file_name = self.asset_file_name.split(".").first if self.custom_file_name.blank?
+    self.custom_file_name = self.asset_file_name.split(".").first.try(:parameterize) #if self.custom_file_name.blank?
   end
 
   # # Renommage des fichiers sur le serveur en cas de modification du custom_file_name

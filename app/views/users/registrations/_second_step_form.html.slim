@@ -70,31 +70,28 @@
         i.fa.fa-envelope>
         ' E-mail
 
-/ .form-check
-/   label.form-check-label
-/     => f.check_box :sms_notification, {class: "form-check-input"}, 'true', 'false'
-/     = f.label :sms_notification
-
-/ .form-check
-/   label.form-check-label
-/     => f.check_box :email_notification, {class: "form-check-input"}, 'true', 'false'
-/     = f.label :email_notification
 .form-group
   = label_tag :avatar, nil, class: '' do
     i.fa.fa-camera>
     ' Photo de profil
-  = f.fields_for :avatar do |pic_f|
-    .form-group
-      = f.label :avatar, class: "btn btn-light", for: "user_avatar" do
-        = pic_f.file_field :asset, class: "d-none", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_field: 'picture'}, id: 'user_avatar'
-        span data-is-label-title='' Charger une image
-        span.file-close.ion-close
-      - unless pic_f.object.new_record?
-        p.mt-3 Image actuelle :
-        => image_tag f.object.avatar.asset(:thumb)
-        = pic_f.label :_destroy, class: '' do
-          => pic_f.check_box :_destroy
-          | Supprimer l'image actuelle
+
+  .picture-card_container
+    div.picture-card_container--avatar data-is-upload-anchor="true"
+      - avatar = f.object.avatar
+      - if avatar.present? && !avatar.new_record?
+        .picture-card data-is-download="#{avatar.id}"
+          .picture-card_image
+            = link_to avatar.asset(:original), target: "_blank" do
+              => image_tag avatar.asset(:thumb), class: "img-fluid"
+          = link_to users_avatar_path(avatar.id), method: :delete, remote: true, class: "picture-card_delete-btn", data:{delete_picture: avatar.id, confirm: "Confirmer la suppression ?"} do
+            i.fa.fa-times-circle-o>
+            ' supp
+
+    .picture-card
+      = label_tag :"asset_user_avatar[asset]"
+        span.button-upload
+          i.fa.fa-pencil
+        = file_field_tag :"asset_user_avatar[asset]", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: users_avatars_path}, class:'d-none'
 
   / Pays
 .form-group
@@ -115,12 +112,7 @@
     span.ml-2> Veuillez cocher cette case afin de confirmer que vous avez lu et accepté les
     => link_to " conditions générales d'utilisation de la plateforme", "#", target: "_blank"
 
-
-  / = f.label :cgu_accepted_at, class: "form-check-label" do
-  /   => f.check_box :cgu_accepted_at, {class: "form-check-input required"}, Time.current, nil
-  /   span.ml-2> Veuillez cocher cette case afin de confirmer que vous avez lu et accepté les
-  /   => link_to " conditions générales d'utilisation de la plateforme", "#", target: "_blank"
-
+= render "events/event_pictures/hb_thumbs"
 
 coffee:
   new RegistrationSecondStep()

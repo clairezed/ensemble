@@ -1,0 +1,27 @@
+.picture-card_container
+  display: flex
+  margin-right: -8px
+  margin-left: -8px
+  flex-wrap: wrap
+  &--avatar .img-fluid
+    width: 100%
+
+
+.picture-card
+  flex: 0 0 33%
+  padding-right: 8px
+  padding-left: 8px
+  margin-bottom: 10px
+  overflow-wrap: break-word
+  overflow: hidden
+  &_delete-btn
+    @extend .btn, .btn-sm, .btn-danger, .btn-block
+    margin-top: 1px
+  &.picture-card--upload
+    font-size: .7rem
+    .picture-card_body
+      padding: 10px
+      background-color: #ededed
+    .picture-card_label
+      overflow: hidden
+      text-overflow: ellipsis

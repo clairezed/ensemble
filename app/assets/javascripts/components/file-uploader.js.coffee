@@ -24,6 +24,7 @@ class @FileUploader
         console.log "delete success"
         detail = e.detail
         data = detail[0]
+        console.log data 
         @getMediaNode(data['id']).remove()
       .on "ajax:error", "[data-delete-picture]", (e, xhr, status, error)  =>
         console.log "delete error"

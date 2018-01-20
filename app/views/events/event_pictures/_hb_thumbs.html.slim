@@ -1,20 +1,20 @@
 
 / Thumb affiché tant que l'upload est 'in progress'
 = handlebars_template(:PictureUpload) do
-  .col-4 data-is-upload=true
-    .card.media-card
-      .card-block
-        p.card-text
-        => "{{title}}"
-        .progress
-          .progress-bar.bar style="width: 0%"
+  .picture-card.picture-card--upload data-is-upload=true
+    .picture-card_body
+      .picture-card_label.text-truncate
+        p En cours - 
+        p.font-italic => "{{title}}"
+      .progress
+        .progress-bar.bar style="width: 0%"
 
 / Thumb final une fois l'upload effectué
 = handlebars_template(:PictureDownload) do
-  .col-4.mb-3 data-is-download="{{id}}"
-    .div
-      = link_to "{{url}}", target: "_blank", class: "card-img-top" do 
+  .picture-card data-is-download="{{id}}"
+    .picture-card_image
+      = link_to "{{url}}", target: "_blank" do 
         img.img-fluid src="{{thumbnail_url}}"
-    = link_to "{{delete_url}}", method: :delete, remote: true, class: "btn btn-sm btn-danger btn-block mt-2", data:{delete_picture: "{{id}}", confirm: "Confirmer la suppression ?"} do
+    = link_to "{{delete_url}}", method: :delete, remote: true, class: "picture-card_delete-btn", data:{delete_picture: "{{id}}", confirm: "Confirmer la suppression ?"} do
       i.fa.fa-times-circle-o>
       ' supp
