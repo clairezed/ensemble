@@ -10,7 +10,7 @@ module Twilio
       p message 
       # send_sms("event_canceled")
 
-      send_sms(message, @user.phone )
+      # send_sms(message, @user.phone )
     end
 
     def new_invitation(invitation)
@@ -21,7 +21,7 @@ module Twilio
       p message 
       # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
       
-      send_sms(message, @user.phone )
+      # send_sms(message, @user.phone )
     end
 
   end
