@@ -86,7 +86,7 @@ class User < ApplicationRecord
             :firstname,
             presence: true
 
-  validates :phone, uniqueness: true
+  # validates :phone, uniqueness: true
 
   with_options if: :persisted? do |user|
     user.validates :gender,
@@ -94,6 +94,7 @@ class User < ApplicationRecord
       :birthdate,
       :city,
       presence: true
+    user.validates :phone, uniqueness: true
 
     # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
   end
