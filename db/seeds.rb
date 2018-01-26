@@ -15,20 +15,22 @@ a1 = Admin.where(email: 'clairezuliani@gmail.com').first_or_create(password: 'pa
 Seo.where(param: 'home').first_or_create
 
 # Import villes
-p "Cities ------------------"
-CSV.foreach("docs/communes_gps.csv",{headers: :true, col_sep: ';'}) do |row|
-  city = City.where(insee: row['10_code_insee']).first_or_initialize
-  if city.new_record?
-    city.update_attributes(
-      department_name: row[5],
-      department_code: row[4],
-      name: row['08_nom_commune'],
-      normalized_name: ActiveSupport::Inflector.transliterate(row['08_nom_commune']).parameterize,
-      zipcode: row['09_codes_postaux'],
-      latitude: row['11_latitude'],
-      longitude: row['12_longitude'],
-      )
-    p city.errors unless city.valid?
+p "Cities ------------------" 
+unless City.any?
+  CSV.foreach("docs/communes_gps.csv",{headers: :true, col_sep: ';'}) do |row|
+    city = City.where(insee: row['10_code_insee']).first_or_initialize
+    if city.new_record?
+      city.update_attributes(
+        department_name: row[5],
+        department_code: row[4],
+        name: row['08_nom_commune'],
+        normalized_name: ActiveSupport::Inflector.transliterate(row['08_nom_commune']).parameterize,
+        zipcode: row['09_codes_postaux'],
+        latitude: row['11_latitude'],
+        longitude: row['12_longitude'],
+        )
+      p city.errors unless city.valid?
+    end
   end
 end
 p "End Cities ------------------"
@@ -65,73 +67,62 @@ p "End languages ------------------"
 # Leisures
 p "Leisures ------------------"
 [
-  { category: "Activités physiques", leisures: [
-    "Bowling", 
-    "Billard", 
-    "Football = Ballon", 
-    "Basket ball", 
-    "Rugby", 
-    "Volley", 
-    "Handball", 
-    "Canoé", 
-    "Patinoire", 
-    "Randonnée", 
-    "Course à pied", 
-    "Vélo", 
-    "Escalade", 
-    "Ping-pong", 
-    "Tennis", 
-    "Badminton", 
-    "Yoga", 
-    "Pétanque", 
-    "Arts martiaux", 
-    "Natation", 
-    "Ski", 
-    "Golf/mini-golf", 
-    "Roller", 
-    "Pêche", 
-    "Equitation", 
-    "Aller voir du sport", 
+  { category: "Activités sportives", leisures: [
+    "Sports de balles",
+    "Sports de boules",
+    "Sports de glisse",
+    "Sports d'eau ",
+    "Sports de raquettes",
+    "Sports de combat",
+    "Sports à pied",
+    "Sports à roue",
+    "Aller voir du sport",
+    "Autre",
   ]},
   { category: "Activités culinaires", leisures: [
     "Cuisine à la maison",
     "Restaurant",
     "Pique-nique",
+    "Autre",
   ] },
   { category: "Activités culturelles", leisures: [
     "Cinéma",
     "Concert",
     "Spectacle",
-    "Exposition",
     "Musée",
     "Tourisme",
+    "Autre",
   ] },
   { category: "Activités artistiques", leisures: [
-    "Musique",
+    "Jouer de la musique",
     "Chanter",
     "Peindre-dessiner",
     "Photographier",
     "Danser",
+    "Autre",
   ] },
   { category: "Activités manuelles", leisures: [
     "Couture-tricot",
     "Jardinage",
     "Bricolage",
+    "Autre",
   ] },
   { category: "Activités ludiques", leisures: [
     "Jeux de cartes",
-    "Jeux de rôles",
     "Jeux de plateaux",
     "Jeux vidéo,",
+    "Autre",
   ] },
-  { category: "Activités détente", leisures: [
+  { category: "Activités de détente", leisures: [
     "Soirée à la maison",
     "Discussion",
+    "Autre",
   ] },
   { category: "Activités en ville", leisures: [
     "Bar-café",
     "Discothèque",
     "Shopping",
+    "Autre",
   ] },
 ].each do |category_hash|
   key_category = category_hash[:category].parameterize
