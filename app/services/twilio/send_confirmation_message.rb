@@ -30,7 +30,9 @@ module Twilio
       # TODO - Update message
       message = "[Ensemble] #{user.sms_confirmation_token}"
       p message
-      send_sms(message, user.phone)
+      if Rails.env.staging? || Rails.env.production?
+        send_sms(message, user.phone)
+      end
     end
 
 

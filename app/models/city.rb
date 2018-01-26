@@ -21,6 +21,12 @@ class City < ActiveRecord::Base
 
   scope :nearest_first, -> (coordinates) { near(coordinates, 250, units: :km) }
 
+  # Class methods =================================================================
+
+  def self.default_city
+    self.find_by(normalized_name: "epinal")
+  end
+
   # Instance methods ===============================================================
 
   def long_name

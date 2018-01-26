@@ -94,7 +94,7 @@ class User < ApplicationRecord
       :birthdate,
       :city,
       presence: true
-    user.validates :phone, uniqueness: true
+    user.validates :phone, uniqueness: true, if: :phone?
 
     # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
   end

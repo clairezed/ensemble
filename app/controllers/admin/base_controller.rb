@@ -3,6 +3,8 @@
 class Admin::BaseController < ApplicationController
   skip_before_action :reject_blocked_ip!
   skip_before_action :authenticate_user!
+  skip_before_action :check_registration_uncomplete
+  
   before_action :authenticate_admin!
   layout 'administration'
 

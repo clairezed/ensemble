@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
   skip_before_action :check_registration_uncomplete, only: [:index]
 
   def index
-    params[:by_val] ||= current_user.city.department_code
+    params[:by_val] ||= (current_user.city.try(:department_code) || City.default_city.department_code)
     @cities = City.by_name_or_zipcode(params[:by_val])
     respond_to do |format|
       format.html do
