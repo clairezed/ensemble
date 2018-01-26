@@ -62,9 +62,9 @@ GEM
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
     bindex (0.5.0)
-    bootstrap (4.0.0.beta2.1)
+    bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
-      popper_js (>= 1.12.3, < 2)
+      popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
     builder (3.2.3)
     bullet (5.6.1)
@@ -206,7 +206,7 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
-    popper_js (1.12.5)
+    popper_js (1.12.9)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -343,7 +343,7 @@ DEPENDENCIES
   acts_as_list (~> 0.7.6)
   autoprefixer-rails (~> 7.1.1)
   better_errors
-  bootstrap (~> 4.0.0.beta2.1)
+  bootstrap (~> 4.0.0)
   bullet
   byebug
   capistrano
