@@ -29,25 +29,41 @@
     ' Né.e le
   .input-group
     = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
-    a.input-group-addon data-toggle-picker=''
-     i.fa.fa-calendar
+    div.input-group-append data-toggle-picker=''
+      span.input-group-text
+        i.fa.fa-calendar
 
 .form-group
   = f.label :leisures, class: '' do
     i.fa.fa-users>
     ' Centres d'intérêt
-  .row
-    - LeisureCategory.all.includes(:leisures).each do |leisure_category|
-      .col-4
-        .form-check.form-check-inline
-          label.form-check-label
-            => f.check_box :leisure_category_ids, {multiple: true, class: "form-check-input"}, leisure_category.id, nil
-            => leisure_category.title
+  - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
+
+    / Leisure categories ----------------------------
+    .row.sm-gutter.leisure-category-row
+      - leisure_category_row.each do |leisure_category|
+        .col-3.sm-gutter.leisure-category_card-wrapper
+          / = f.check_box :leisure_category_ids, {multiple: true, class: ""}, leisure_category.id, nil
+          = f.label "leisure_category_ids_#{leisure_category.id}", class: "leisure-category_card #{'active' if f.object.leisure_categories.include?(leisure_category)}", data: {toggle_leisures: leisure_category.id} do
+            i.fa.fa-mobile>
+            .leisure-category_card-label=> leisure_category.title
+
+    / Leisures ----------------------------
+    - leisure_category_row.each do |leisure_category|
+      .leisure-row data-leisure-row="#{leisure_category.id}"
+        .leisure-row_inner
+          .row.sm-gutter
             - leisure_category.leisures.each do |leisure|
-              .form-check.form-check-inline
-                label.form-check-label
-                  => f.check_box :leisure_ids, {multiple: true, class: "form-check-input"}, leisure.id, nil
-                  => leisure.title
+              .col-6.sm-gutter
+                .leisure_block
+                  = f.check_box :leisure_ids, {multiple: true, class: ""}, leisure.id, nil
+                  = f.label "leisure_ids_#{leisure.id}", class: "leisure_choice" do
+                    i.fa.fa-mobile>
+                    .leisure_choice-label=> leisure.title
+        .footer
+          a.button--main data-toggle-up="#{leisure_category.id}"
+            i.fa.fa-check>
+            ' Valider
 
 .form-group
   = label_tag :notification, nil, class: '' do
