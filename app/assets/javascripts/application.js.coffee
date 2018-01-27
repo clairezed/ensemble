@@ -30,6 +30,8 @@
 #= require ./components/avatar-file-uploader
 #= require ./components/photoswipe-gallery
 #= require ./components/participants-count-slider
+#= require ./components/leisure-checkboxes
+
 
 #= require_tree ./front
 

@@ -4,6 +4,8 @@ class @ProfileEdit
     console.log "ProfileEdit"
     citySelect = new Select2Ajax()
     languageSelect = new Select2Simple($('[data-is-select2="languages"]'))
+    fileUploader = new AvatarFileUploader()
+    leisureCheckboxes = new LeisureCheckboxes()
     
     # birthdate picker -----------------------------------------------------
     datepickerOptions =
@@ -25,12 +27,10 @@ class @ProfileEdit
       date = this.value
       birthdateDatepicker.setDate(date, false, "d.m.Y")
 
-    fileUploader = new AvatarFileUploader()
-
       
     # Image ----------------------------------------
     # Affichage du nom du fichier choisi 
     # dans le bouton de téléchargement d'une image
-    $('[data-file-field="picture"]').on 'change', ->
-      filename = $('[data-file-field="picture"]')[0].files[0].name
-      $(this).parents('form').find('[data-is-label-title]').text(filename)
+    # $('[data-file-field="picture"]').on 'change', ->
+    #   filename = $('[data-file-field="picture"]')[0].files[0].name
+    #   $(this).parents('form').find('[data-is-label-title]').text(filename)

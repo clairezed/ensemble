@@ -1,0 +1,77 @@
+
+.leisure-category
+  &-row
+    // input[type="radio"], input[type="checkbox"]
+    //   display: none
+    // input[type="radio"]:checked + label, input[type="checkbox"]:checked + label
+    //   border: 3px solid #777
+    margin-bottom: .5rem
+  &_card
+    height: 65px
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    position: relative
+    background-color: $white
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -1
+      box-shadow: 1px 8px 16px rgba(0, 0, 0, 0.3)
+      // box-shadow: -5px 5px 20px 5px #000
+    &.toggled
+      border: 2px solid #777
+    &.active
+      border-bottom: 2px solid #777
+    i 
+      font-size: 2rem
+    &-label
+      text-align: center
+      font-size: .7rem
+      line-height: 12px
+
+.leisure
+  &-row
+    position: relative
+    background-color: $white
+    margin-bottom: .5rem
+    display: none
+    &_inner
+      padding: 10px 10px 0
+
+    &.toggled
+      display: block
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: -1
+      box-shadow: 1px 8px 16px rgba(0, 0, 0, 0.3)
+    input[type="radio"], input[type="checkbox"]
+      display: none
+    input[type="radio"]:checked + label, input[type="checkbox"]:checked + label
+      border: 1px solid #777
+    .footer
+      a, a:hover, a:focus
+        color: $white
+  &_block
+    margin-bottom: 10px
+  &_choice
+    display: flex
+    width: 100%
+    padding: 10px
+    margin-bottom: 0
+    i 
+      margin-right: 8px
+    &-label
+      font-size: .7rem
+      line-height: 12px
