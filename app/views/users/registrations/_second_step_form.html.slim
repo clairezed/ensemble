@@ -67,7 +67,6 @@
 
 .form-group
   = label_tag :notification, nil, class: '' do
-    / i.fa.fa-pencil>
     ' Notifications (Invitations)
   .row.icon-input--vertical
     .col-4
@@ -109,7 +108,13 @@
           i.fa.fa-pencil
         = file_field_tag :"asset_user_avatar[asset]", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: users_avatars_path}, class:'d-none'
 
-  / Pays
+.form-group
+  = f.label :visited_countries, class: '' do
+    i.fa.fa-pencil>
+    ' Pays visités
+  = f.text_area :visited_countries, class: 'form-control'
+
+
 .form-group
   = f.label :language_ids, class: '' do
     i.fa.fa-language>

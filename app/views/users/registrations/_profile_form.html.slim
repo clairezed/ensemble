@@ -92,6 +92,12 @@
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
 .form-group
+  = f.label :visited_countries, class: '' do
+    i.fa.fa-pencil>
+    ' Pays visités
+  = f.text_area :visited_countries, class: 'form-control'
+  
+.form-group
   = f.label :language_ids, class: '' do
     i.fa.fa-language>
     ' Langues parlées

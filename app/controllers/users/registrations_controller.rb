@@ -114,7 +114,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def profile_params_array
-    [:gender, :phone, :birthdate, :description, :city_id, 
+    [:gender, :phone, :birthdate, :description, :city_id, :visited_countries,
       language_ids: [], leisure_ids: [], 
       avatar_attributes: [ :id, :asset, :_destroy]]
   end
