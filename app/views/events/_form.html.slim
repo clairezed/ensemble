@@ -8,18 +8,36 @@
   = f.text_field :title, class: 'form-control'
 
 / centre d interet
-.form-group.required
-  = f.label :leisure_category_id do
+.form-group
+  = f.label :leisures, class: '' do
     i.fa.fa-users>
-    ' Centre d'intérêt
-  .row
-    - LeisureCategory.all.each do |lc|
-      .col-4
-        .form-check.form-check-inline
-          label.form-check-label
-            => f.radio_button :leisure_category_id, lc.id, class: "form-check-input"
-            => lc.title
+    ' Centres d'intérêt
+  - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
+    / Leisure categories ----------------------------
+    .row.sm-gutter.leisure-category-row
+      - leisure_category_row.each do |leisure_category|
+        .col-3.sm-gutter.leisure-category_card-wrapper
+          = f.label "leisure_category_id_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
+            i.fa.fa-mobile>
+            .leisure-category_card-label=> leisure_category.title
+
+    / Leisures ----------------------------
+    - leisure_category_row.each do |leisure_category|
+      .leisure-row data-leisure-row="#{leisure_category.id}"
+        .leisure-row_inner
+          .row.sm-gutter
+            - leisure_category.leisures.each do |leisure|
+              .col-6.sm-gutter
+                .leisure_block
+                  = f.radio_button :leisure_id, leisure.id, data: {is_leisure_input: true}
+                  = f.label :leisure_id, value: leisure.id, class: "leisure_choice" do
+                    i.fa.fa-mobile>
+                    .leisure_choice-label=> leisure.title
+        .footer
+          a.button--main data-toggle-up="#{leisure_category.id}"
+            i.fa.fa-check>
+            ' Valider
   
 .form-group.required
   = f.label :start_at, class: '' do

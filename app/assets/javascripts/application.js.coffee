@@ -31,6 +31,7 @@
 #= require ./components/photoswipe-gallery
 #= require ./components/participants-count-slider
 #= require ./components/leisure-checkboxes
+#= require ./components/leisure-radio
 
 
 #= require_tree ./front

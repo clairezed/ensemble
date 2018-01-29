@@ -55,8 +55,9 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :city
   # TODO : remove optional
-  belongs_to :leisure_category
-  belongs_to :leisure, optional: true
+  # belongs_to :leisure_category, optional: true
+  belongs_to :leisure
+  has_one :leisure_category, through: :leisure
 
   has_many :pictures,
             class_name: :'::Asset::EventPicture',

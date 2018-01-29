@@ -10,6 +10,7 @@ class @EventForm
     wysiwyg           = new QuillWysiwyg()
     fileUploader      = new FileUploader()
     participantSlider = new ParticipantsCountSlider()
+    leisureRadio      = new LeisureRadio()
     # # Image ----------------------------------------
     # # Affichage du nom du fichier choisi 
     # # dans le bouton de téléchargement d'une image
