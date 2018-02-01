@@ -19,7 +19,10 @@
       - leisure_category_row.each do |leisure_category|
         .col-3.sm-gutter.leisure-category_card-wrapper
           = f.label "leisure_category_id_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
-            i.fa.fa-mobile>
+            / i.fa.fa-mobile>
+            span.ico class="ico-#{leisure_category.key}"
+              - (1..12).each do |i|
+                span class="path#{i}"
             .leisure-category_card-label=> leisure_category.title
 
     / Leisures ----------------------------
@@ -150,9 +153,10 @@
           i.fa> class="#{event_openess_icon(key)}"
           span.label-title=> event_visibility(key)
 
-= render "events/event_pictures/hb_thumbs"
-= render "users/events/event_attachments/new"
-= render "users/events/event_attachments/hb_thumbs"
+- unless f.object.new_record? 
+  = render "events/event_pictures/hb_thumbs"
+  = render "users/events/event_attachments/new"
+  = render "users/events/event_attachments/hb_thumbs"
 
 coffee:
   new EventForm()
