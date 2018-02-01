@@ -1,0 +1,12 @@
+fr:
+  activerecord:
+    attributes:
+      attachment:
+        title:            Le titre
+        custom_file_name: Le nom du fichier
+
+  helpers:
+    label:
+      attachment:
+        title:            Titre
+        custom_file_name: Nom du fichier

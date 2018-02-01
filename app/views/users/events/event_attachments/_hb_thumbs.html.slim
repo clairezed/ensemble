@@ -1,0 +1,24 @@
+
+/ Thumb affiché tant que l'upload est 'in progress'
+= handlebars_template(:AttachmentUpload) do
+  .event-attachement-block data-is-doc-upload=true
+    .event-attachement-block_content
+      p.card-text
+      => "{{title}}"
+    .event-attachement-block_action
+      .progress
+        .progress-bar.bar style="width: 0%"
+
+/ Thumb final une fois l'upload effectué
+= handlebars_template(:AttachmentDownload) do
+  .event-attachement-block data-is-doc-download="{{id}}"
+    .event-attachement-block_content
+      = link_to "{{url}}", target: "_blank", class: "" do 
+        i.fa.fa-file>
+        span = "{{title}}"
+    .event-attachement-block_action
+      / = link_to "{{edit_url}}", remote: true,  class: "btn btn-sm btn-info mr-2", data:{edit_attachment: "{{id}}"}  do 
+      /   i.fa.fa-edit
+      = link_to "{{delete_url}}", method: :delete, remote: true, class: "btn btn-sm btn-danger btn-block", data:{delete_attachment: "{{id}}", confirm: "Confirmer la suppression ?"} do
+        i.fa.fa-times-circle-o>
+        ' supp

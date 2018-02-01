@@ -8,6 +8,7 @@ class @EventForm
     end_datepicker    = new DatePicker($('[data-date-picker="end"]'))
     end_timepicker    = new TimePicker($('[data-time-picker="end"]'))
     wysiwyg           = new QuillWysiwyg()
+    pictureUploader   = new PictureUploader()
     fileUploader      = new FileUploader()
     participantSlider = new ParticipantsCountSlider()
     leisureRadio      = new LeisureRadio()

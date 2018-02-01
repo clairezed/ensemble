@@ -63,6 +63,8 @@ Rails.application.routes.draw do
       end
       resources :searched_invited_users, controller: "events/searched_invited_users", only: [:index]
       resources :event_pictures, as: :pictures, controller: "events/event_pictures"
+      resources :event_attachments, as: :attachments, controller: "events/event_attachments"
+
     end
     resources :past_events, only: :index
     resources :event_invitations, as: :invitations, only: [:index, :edit] do

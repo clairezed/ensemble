@@ -9,7 +9,7 @@ class @AvatarFileUploader extends @FileUploader
       uploadAnchor:   "[data-is-upload-anchor]"
 
   constructor:  (options = {}) ->
-    console.log "AvatarFileUploader"
+    # console.log "AvatarFileUploader"
     @options = $.extend(true, {}, @DEFAULT_OPTIONS, options)
     @fileInput = $("[data-file-upload]")
     @initFileUpload()
@@ -17,7 +17,7 @@ class @AvatarFileUploader extends @FileUploader
 
 
   initFileUpload: =>
-    console.log 'initFileUpload'
+    # console.log 'initFileUpload'
     # need to specify formData : https://stackoverflow.com/questions/26633538/jquery-file-upload-post-and-nested-route-getting-no-route-matches-patch
     @fileInput.fileupload(
       dataType: 'json'
@@ -29,23 +29,23 @@ class @AvatarFileUploader extends @FileUploader
         { name: 'authenticity_token', value: $('meta[name="csrf-token"]').attr('content')}
       ]
       add: (e, data) =>
-        console.log "add"
+        # console.log "add"
         @submitForm(data) if @preValidate(data)
       progress: (e, data) ->
-        console.log "progress"
+        # console.log "progress"
         if data.context
           progress = parseInt(data.loaded / data.total * 100, 10)
           data.context.find('.bar').css('width', progress + '%')
       done: (e, data) =>
-        console.log "done"
-        console.log data
+        # console.log "done"
+        # console.log data
         data.context = @replaceNode(
           template: 'download', 
           data: data.result
         )
       fail: (e, data) =>
-        console.log "fail"
-        console.log data.jqXHR
+        # console.log "fail"
+        # console.log data.jqXHR
         if data.jqXHR.status is 424 # pb de type de média
           @cancelUpload(data.jqXHR.responseText)
         else
@@ -62,8 +62,8 @@ class @AvatarFileUploader extends @FileUploader
   # Failure management --------------------------------------------
 
   submitForm: (data) =>
-    console.log "submitForm"
-    console.log data.files[0]
+    # console.log "submitForm"
+    # console.log data.files[0]
     data.context = @replaceNode(
       template: 'upload', 
       data: data.files[0]

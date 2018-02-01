@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :check_registration_uncomplete
 
-  before_action :set_default_seos!, :get_basic_pages
+  before_action :set_default_seos!#, :get_basic_pages
   after_action :flash_to_headers, if: -> { request.xhr? && flash.present? }
 
   protected

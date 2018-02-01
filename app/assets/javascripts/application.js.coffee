@@ -26,6 +26,7 @@
 #= require ./components/date-picker
 #= require ./components/time-picker
 #= require ./components/quill-wysiwyg
+#= require ./components/picture-uploader
 #= require ./components/file-uploader
 #= require ./components/avatar-file-uploader
 #= require ./components/photoswipe-gallery

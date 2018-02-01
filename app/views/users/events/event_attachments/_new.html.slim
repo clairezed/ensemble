@@ -1,0 +1,15 @@
+.modal.fade data-is-modal='attachment'
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h4.modal-title Nouveau document
+        button.close aria-label="Close" data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+      .modal-body
+
+        = form_for @event.attachments.build, as: :attachment, url: users_event_attachments_path(@event), method: :post, html: {multipart: true}, data: {is_form: 'attachment' } do |f|
+
+          = render partial: "users/events/event_attachments/form", locals: { f: f }
+
+      .modal-footer
+        = link_to "Ajouter le document", "javascript:void()", class: "button--main", data: {is_modal_submit: true}

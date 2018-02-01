@@ -64,11 +64,11 @@ class Event < ApplicationRecord
             as:         :assetable,
             dependent:  :destroy
 
-  # has_many :attachments,
-  #           class_name: :'::Asset::EventAttachment',
-  #           as:         :assetable,
-  #           dependent:  :destroy
-  # accepts_nested_attributes_for :attachments, allow_destroy: true
+  has_many :attachments,
+            class_name: :'::Asset::EventAttachment',
+            as:         :assetable,
+            dependent:  :destroy
+  accepts_nested_attributes_for :attachments, allow_destroy: true
 
   has_many :event_participations, dependent: :destroy
   has_many :participants, class_name: 'User', source: :user, through: :event_participations

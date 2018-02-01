@@ -97,7 +97,7 @@
     i.fa.fa-camera>
     ' Photos de l'événement
   p.form-text.text-muted.small: em 
-    ' Formats autorisés : .pdf, .jpeg, .png
+    ' Formats autorisés : .jpeg, .png
     br
     ' Taille maximum : 8 Mo
 
@@ -116,6 +116,30 @@
         / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
         / = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: event_pictures_path(f.object), method: 'POST', type: 'script'}, style: "display:none"
 
+/ Documents
+.form-group
+  = f.label :attachements do
+    i.fa.fa-camera>
+    ' Documents
+  p.form-text.text-muted.small: em 
+    ' Formats autorisés : .pdf
+    br
+    ' Taille maximum : 8 Mo
+
+- if f.object.new_record? 
+  p Vous pourrez ajouter des documents liés à l'événement une fois que votre événement sera créé
+- else
+  .event-document_container data-is-doc-upload-anchor=true data-list-url="#{users_event_attachments_path(f.object)}"
+
+    .event-document
+      = label_tag :"asset_event_attachment[asset]"
+        span.button-upload.button-upload--block
+          i.fa.fa-plus-circle
+
+        = file_field_tag :"asset_event_attachment[asset]", accept: Asset::EventAttachment::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {doc_upload: true, url: users_event_attachments_path(f.object), method: 'POST', type: 'script'}, class:'d-none'
+
+
+
 
 .form-group.required
   .row
@@ -127,6 +151,8 @@
           span.label-title=> event_visibility(key)
 
 = render "events/event_pictures/hb_thumbs"
+= render "users/events/event_attachments/new"
+= render "users/events/event_attachments/hb_thumbs"
 
 coffee:
   new EventForm()
