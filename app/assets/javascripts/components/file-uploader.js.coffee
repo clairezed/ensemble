@@ -74,18 +74,19 @@ class @FileUploader
     # console.log "loadMedias"
     url = $(@options.selectors.listAnchor).data('list-url')
     # console.log url
-    $.get(url, {}, null, 'json'
-    ).done((items) =>
-      # console.log(items)
-      for item in items
-        @prependNode(
-          template: 'download', 
-          data: item
-        )
-    ).fail((error) =>
-      # console.log error
-      flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
-    )
+    if !!url # Si new_record, pas d'ajout de médias
+      $.get(url, {}, null, 'json'
+      ).done((items) =>
+        # console.log(items)
+        for item in items
+          @prependNode(
+            template: 'download', 
+            data: item
+          )
+      ).fail((error) =>
+        # console.log error
+        flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
+      )
 
   initFileUpload: =>
     # need to specify formData : https://stackoverflow.com/questions/26633538/jquery-file-upload-post-and-nested-route-getting-no-route-matches-patch
