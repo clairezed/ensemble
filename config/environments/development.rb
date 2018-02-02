@@ -58,7 +58,7 @@ Rails.application.configure do
   config.after_initialize do
     Bullet.enable = true
     Bullet.console = true
-    # Bullet.add_footer = true
+    Bullet.add_footer = true
   end
 
   # Mailer config =====================================================

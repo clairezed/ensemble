@@ -12,16 +12,5 @@
 .form-group.required
   = f.label :password, class: ''
   = f.password_field :password, class: 'form-control'
-/ = f.shb_text_field :lastname, {class: "required"}
-/ = f.shb_text_field :firstname, {class: "required"}
-/ = f.shb_email_field :email, {class: "required"}
-/ = f.shb_text_field :phone
-/ = f.shb_text_field :address
-/ = f.shb_text_field :zipcode
-/ = f.shb_text_field :city
-/ = f.shb_password_field :password
-/ = f.shb_password_field :password_confirmation
-/ - if !f.object.new_record?
-/   = f.shb_password_field :current_password
 .form-actions
-  => f.submit "C'est parti !", class: "button--main"
+  => f.submit "OK", class: "button--main"

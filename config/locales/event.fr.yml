@@ -20,6 +20,8 @@ fr:
           attributes:
             leisure_category:
               required: est obligatoire
+            leisure:
+              required: est obligatoire
             city:
               required: est obligatoire
 

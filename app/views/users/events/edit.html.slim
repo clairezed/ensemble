@@ -9,10 +9,6 @@ section
       url: users_event_path(@event), html: {class: ""}) do |f| 
       
       =  render partial: "events/form", locals: {f: f}
-      / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
-
-
-      => f.submit "Valider", class: "button--main"
 
       - if @event.closed?
         = link_to "Gérer les invitations", users_event_invitations_path(@event), class: "btn btn-outline-primary btn-block"

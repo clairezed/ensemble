@@ -1,4 +1,4 @@
-class @AvatarFileUploader extends @FileUploader
+class @AvatarFileUploader extends @PictureUploader
   
   DEFAULT_OPTIONS:
     scope: $(document)

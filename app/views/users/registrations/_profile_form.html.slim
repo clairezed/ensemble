@@ -54,7 +54,7 @@
 .form-group
   = f.label :leisures, class: '' do
     i.fa.fa-users>
-    ' Centres d'intérêt
+    ' Activités que j’aime
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
     / Leisure categories ----------------------------
@@ -108,7 +108,7 @@
 .form-group
   = f.label :description, class: '' do
     i.fa.fa-pencil>
-    ' Présentation
+    ' Quelques mots sur moi
   = f.text_area :description, class: 'form-control'
 
 = render "events/event_pictures/hb_thumbs"

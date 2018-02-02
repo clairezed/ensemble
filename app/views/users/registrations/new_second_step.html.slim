@@ -1,6 +1,6 @@
 section
   .section_inner
-    h1.section-title Finaliser votre inscription
+    h1.section-title Terminer l'inscription
 
     = form_for(@user, as: :user, url: create_second_step_path, html: {class: ""}) do |f| 
       =  render partial: "second_step_form", locals: {f: f}

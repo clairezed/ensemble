@@ -9,6 +9,9 @@ module Search
     def root_relation
       EventPolicy::Scope.new(user, initial_scope).resolve
         .includes(:user)
+        .includes(:leisure)
+        .includes(:leisure_category)
+        .includes(:city)
     end
 
     def result_per_page

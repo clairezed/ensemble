@@ -9,7 +9,3 @@ section
       url: users_events_path, html: {class: ""}) do |f| 
       
       =  render partial: "events/form", locals: {f: f}
-      / = render partial: "users/registrations/short_form", locals: {f: f, button_name: "Je m'inscris"} 
-
-
-      => f.submit "Valider", class: "button--main"

@@ -36,7 +36,7 @@
 .form-group
   = f.label :leisures, class: '' do
     i.fa.fa-users>
-    ' Centres d'intérêt
+    ' Activités que j’aime
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
     / Leisure categories ----------------------------
@@ -67,7 +67,7 @@
 
 .form-group
   = label_tag :notification, nil, class: '' do
-    ' Notifications (Invitations)
+    ' Recevoir les invitations par :
   .row.icon-input--vertical
     .col-4
       = label_tag :desktop_notification, class: "icon-input_col" do
@@ -124,14 +124,14 @@
 .form-group
   = f.label :description, class: '' do
     i.fa.fa-pencil>
-    ' Présentation
+    ' Quelques mots sur moi
   = f.text_area :description, class: 'form-control'
 
-.form-group.required
+.form-check.form-group.required
   = f.label :cgu_accepted, class: "form-check-label" do
     => f.check_box :cgu_accepted, {class: "form-check-input required"}
-    span.ml-2> Veuillez cocher cette case afin de confirmer que vous avez lu et accepté les
-    => link_to " conditions générales d'utilisation de la plateforme", "#", target: "_blank"
+    span.ml-2> J’ai lu et j’accepte les
+    => link_to " conditions générales d’utilisateur du site internet", "#", target: "_blank"
 
 = render "events/event_pictures/hb_thumbs"
 
