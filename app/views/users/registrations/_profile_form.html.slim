@@ -63,7 +63,9 @@
         .col-3.sm-gutter.leisure-category_card-wrapper
           / = f.check_box :leisure_category_ids, {multiple: true, class: ""}, leisure_category.id, nil
           = f.label "leisure_category_ids_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
-            i.fa.fa-mobile>
+            span.ico> class="ico-#{leisure_category.key}"
+              - (1..15).each do |i|
+                span class="path#{i}"
             .leisure-category_card-label=> leisure_category.title
 
     / Leisures ----------------------------
@@ -76,7 +78,9 @@
                 .leisure_block
                   = f.check_box :leisure_ids, {multiple: true, class: "", data: {is_leisure_input: true}}, leisure.id, nil
                   = f.label "leisure_ids_#{leisure.id}", class: "leisure_choice" do
-                    i.fa.fa-mobile>
+                    span.ico> class="ico-#{leisure.key}"
+                      - (1..30).each do |i|
+                        span class="path#{i}"
                     .leisure_choice-label=> leisure.title
         .footer
           a.button--main data-toggle-up="#{leisure_category.id}"

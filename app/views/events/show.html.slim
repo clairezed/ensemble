@@ -5,9 +5,10 @@ section.event-header
       .day-number= l(@event.start_at, format: '%d')
       .month= l(@event.start_at, format: '%b')
       .year= l(@event.start_at, format: '%Y')
-    .event-header_meta-icon
-      i.fa.fa-snowflake-o
-      / p= @event.leisure_category.try(:key)
+    .event-header_meta-icon data-toggle="tooltip" title="#{@event.leisure.title}"
+      span.ico> class="ico-#{@event.leisure.key}"
+        - (1..30).each do |i|
+          span class="path#{i}"
 
 section.section.pt-5
   .section_inner
@@ -69,37 +70,41 @@ section
         .col-10.p-1
           span = event_participants_count(@event)
     
-    .profile-info--big
-      h3.section-title Description
-      = raw @event.description
+    - if wysiwyg_present?(@event.description)
+      .profile-info--big
+        h3.section-title Description
+        = raw @event.description
 
-    .profile-info--big
-      h3.section-title Photos de l'événement
+    - if @event.pictures.any?
+      .profile-info--big
+        h3.section-title Photos de l'événement
 
-      div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
-        .row 
-          - @event.pictures.each do |picture|
-            figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject" class="col-4"
-              = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
-                = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
-
+        div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
+          .row 
+            - @event.pictures.each do |picture|
+              figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject" class="col-4"
+                = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
+                  = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
 
 section
   .section_inner
     h3.section-title Participants
 
-    .row
-      - @event.participants.each do |user|
-        .col-4
-          = link_to profile_path(user)
-            .card
-              = image_tag user.avatar_url(:detail), class: "card-img-top"
-              .card-body.p-1
-                p= user_nickname(user)
+    - if @event.participants.any?
+      .row
+        - @event.participants.each do |user|
+          .col-4
+            = link_to profile_path(user)
+              .card
+                = image_tag user.avatar_url(:detail), class: "card-img-top"
+                .card-body.p-1
+                  p= user_nickname(user)
+    - else
+      p: small Il n'y a pas encore de participant à cet événement. Soyez le premier !
 
-section
-  .section_inner
-    h3.section-title Faire un commentaire
+/ section
+/   .section_inner
+/     h3.section-title Faire un commentaire
 
 
 = render 'shared/photoswipe'

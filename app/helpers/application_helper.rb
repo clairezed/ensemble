@@ -219,5 +219,10 @@ module ApplicationHelper
     content = block ? capture(&block) : content
     content_tag :script, content, type: "text/x-handlebars-template", data: {template: name}
   end
+
+  def wysiwyg_present?(text)
+    return false if text.blank?
+    text != "<p><br></p>"
+  end
   
 end

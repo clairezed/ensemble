@@ -40,13 +40,16 @@
           ' Centres d'intérêt
         .profile-info_value
           - @user.leisure_categories.each do |leisure_category|
-            p = leisure_category.title
-            .profile-info_value--leisures
+            h5.profile-info_leisure-category = leisure_category.title
+            .profile-info_value--leisures.row.sm-gutter
               - @user.leisures.where(leisure_category: leisure_category).each do |leisure|
-                .leisure-thumb
-                  i.leisure-thumb_icon.fa.fa-snowflake-o>
-                  .leisure-thumb_title
-                    =leisure.title
+                .col-4.sm-gutter.mb-2
+                  .leisure-thumb
+                    span.ico.leisure-thumb_icon> class="ico-#{leisure.key}"
+                      - (1..30).each do |i|
+                        span class="path#{i}"
+                    .leisure-thumb_title
+                      =leisure.title
 
       .profile-info--big
         .profile-info_label
