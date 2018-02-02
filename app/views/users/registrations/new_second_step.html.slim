@@ -7,3 +7,6 @@ section
 
       .form-group
         => f.submit "Je m'inscris", class: "button--main"
+    
+    .form-group
+      = button_to "Annuler l'inscription", registration_path(:user), data: { confirm: "Etes-vous sûre de vouloir annuler l'inscription ?" }, method: :delete, class: "button--reverse mt-2" 

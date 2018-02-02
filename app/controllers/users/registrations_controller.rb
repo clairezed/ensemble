@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   layout 'unregistered', only: [:new, :create, :new_second_step, :create_second_step]
 
   skip_before_action :authenticate_user!, only: [:new, :create]
-  skip_before_action :check_registration_uncomplete, only: [:new_second_step, :create_second_step]
+  skip_before_action :check_registration_uncomplete, only: [:new_second_step, :create_second_step, :destroy]
   skip_before_action :reject_blocked_ip!, except: [:edit, :update]
 
 
