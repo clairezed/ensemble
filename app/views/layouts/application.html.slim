@@ -78,41 +78,34 @@ html lang="#{I18n.locale}"
 
     = yield
 
-    / nav.navbar.navbar-dark.bg-primary.fixed-bottom.navbar-expand
     nav.nav-bottom
       .container
         ul.nav-bottom_list
           - if current_user.present?
             li.nav-bottom_item
-              = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do 
-                i.fa.fa-user
+              = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do
+                / i.fa.fa-search
+                = icon_profile_reverse
                 .nav-bottom_item-title Profil
             li.nav-bottom_item
               = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do 
-                i.fa.fa-bell
+                / i.fa.fa-search
                 - if current_user.event_invitations.pending.any?
-                  span.badge.badge-light = current_user.event_invitations.pending.count
+                  = icon_bell_notif
+                - else
+                  = icon_bell
                 .nav-bottom_item-title Invitations
             li.nav-bottom_item.nav-bottom_item--main
               = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do
-                / .nav-bottom_item--main-icon
-                i.fa.fa-plus-circle.nav-bottom_item--main-icon
+                = icon_add_reverse("nav-bottom_item--main-icon")
+                / i.fa.fa-plus-circle.nav-bottom_item--main-icon
                 .nav-bottom_item-title Proposer
             li.nav-bottom_item
               = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
-                i.fa.fa-calendar
+                / i.fa.fa-search
+                = icon_calendar_reverse
                 .nav-bottom_item-title Evénements
             li.nav-bottom_item
               = link_to new_search_path, class: "nav-link #{active_if(:search)}" do 
                 i.fa.fa-search
                 .nav-bottom_item-title Recherche
-
-    / footer.main-footer
-    /   .container
-    /     hr 
-    /     - @basic_pages.each do |basic_page|
-    /       => link_to basic_page.title, basic_page_path(basic_page)
-    /       => "-" 
-    /     | © #{Date.today.year}
-
-
