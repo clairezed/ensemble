@@ -45,19 +45,19 @@ html lang="#{I18n.locale}"
         - if current_user.present?
           li.main-menu_item
             = link_to profile_path(current_user), title: "Mon profil", class: "main-menu_item-link" do
-              i.fa.fa-user>
+              => icon_profile
               ' Mon profil
           li.main-menu_item
             = link_to users_events_path, class: "main-menu_item-link" do 
-              i.fa.fa-calendar>
+              => icon_calendar_futur
               ' Mes événements
-          li.main-menu_item
-            = link_to users_invitations_path, class: "main-menu_item-link" do
-              i.fa.fa-bell>
-              ' Mes invitations
+          / li.main-menu_item
+          /   = link_to users_invitations_path, class: "main-menu_item-link" do
+          /     i.fa.fa-bell>
+          /     ' Mes invitations
           li.main-menu_item
             = link_to "#", class: "main-menu_item-link" do
-              i.fa.fa-cog>
+              => icon_settings
               ' Paramètres
           li.main-menu_item
             = link_to "#", class: "main-menu_item-link" do
@@ -69,7 +69,7 @@ html lang="#{I18n.locale}"
               ' Mentions légales
           li.main-menu_item
             = link_to destroy_user_session_path, method: :delete, class: "main-menu_item-link" do
-              i.fa.fa-sign-out>
+              => icon_disconnect
               ' Déconnexion
 
 
