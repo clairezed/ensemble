@@ -1,13 +1,13 @@
 - content_for :current_navigation_section, :search
 
-section.section
+section
   .section_inner
     header.section_header
       h1.section-title Recherche
       .section-header_aside
         = link_to new_search_path, class:'btn btn-link' do
           i.fa.fa-refresh>
-          ' Réinitialiser
+          ' Recommencer
 
     = form_tag search_path, method: :get, class:"", data: {is_filter_form: true} do
       
@@ -20,14 +20,37 @@ section.section
       .form-group
         = label_tag :leisure_category_id do
           i.fa.fa-users>
-          ' Centre d'intérêt
-        .row
-          - LeisureCategory.all.each do |lc|
-            .col-4
-              .form-check.form-check-inline
-                label.form-check-label
-                  => check_box_tag :by_leisure_category, lc.id, (params[:by_leisure_category].to_i == lc.id), class: "form-check-input"
-                  => lc.title
+          ' Centres d'intérêt
+
+        - LeisureCategory.all.includes(:leisures).order(created_at: :asc).each_slice(4) do |leisure_category_row|
+          
+          / Leisure categories ----------------------------
+          .row.sm-gutter.leisure-category-row
+            - leisure_category_row.each do |leisure_category|
+              .col-3.sm-gutter.leisure-category_card-wrapper
+                = label_tag "leisure_category_ids_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
+                  span.ico> class="ico-#{leisure_category.key}"
+                    - (1..15).each do |i|
+                      span class="path#{i}"
+                  .leisure-category_card-label=> leisure_category.title
+          / Leisures ----------------------------
+          - leisure_category_row.each do |leisure_category|
+            .leisure-row data-leisure-row="#{leisure_category.id}"
+              .leisure-row_inner
+                .row.sm-gutter
+                  - leisure_category.leisures.each do |leisure|
+                    .col-6.sm-gutter
+                      .leisure_block
+                        = check_box_tag "by_leisures[]", leisure.id, (params[:by_leisures].present? && params[:by_leisures].include?(leisure.id.to_s)), {data: {is_leisure_input: true}, id: "by_leisures[#{leisure.id}]"}
+                        = label_tag "by_leisures[#{leisure.id}]", class: "leisure_choice", for: "by_leisures[#{leisure.id}]" do
+                          span.ico> class="ico-#{leisure.key}"
+                            - (1..30).each do |i|
+                              span class="path#{i}"
+                          .leisure_choice-label=> leisure.title
+              .footer
+                a.button--main data-toggle-up="#{leisure_category.id}"
+                  i.fa.fa-check>
+                  ' Valider
 
       .form-group
         = label_tag :by_dates, class: ''  do

@@ -137,6 +137,11 @@ class Event < ApplicationRecord
     where(leisure_id: val)
   }
 
+  scope :by_leisures, -> (vals) {
+    break all if vals.all?(&:blank?)
+    where(leisure_id: vals)
+  }
+
   scope :by_start_at, -> (val) {
     where arel_table[:start_at].gteq(val.to_time)
   }
@@ -169,6 +174,7 @@ class Event < ApplicationRecord
     [
       :by_text,
       :by_leisure_category,
+      :by_leisures,
       :by_start_at,
       :by_end_at,
       :by_city,

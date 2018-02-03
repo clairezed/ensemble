@@ -54,7 +54,7 @@
 .form-group
   = f.label :leisures, class: '' do
     i.fa.fa-users>
-    ' Activités que j’aime
+    ' Loisirs
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
     / Leisure categories ----------------------------

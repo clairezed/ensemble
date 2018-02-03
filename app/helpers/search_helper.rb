@@ -3,7 +3,7 @@ module SearchHelper
   def search_params_icon(key)
     case key
     when 'by_text'              then 'pencil'
-    when 'by_leisure_category'  then 'users'
+    when 'by_leisures'          then 'users'
     when 'by_dates'             then 'calendar'
     when 'by_city'              then 'map-marker'
     else ''
@@ -12,10 +12,10 @@ module SearchHelper
 
   def search_params_label(key, val)
     case key
-    when 'by_text'              then text_search_params(val)
-    when 'by_leisure_category'  then leisure_category_search_params(val)
-    when 'by_dates'             then date_range_search_params(val)
-    when 'by_city'              then city_search_params(val)
+    when 'by_text'      then text_search_params(val)
+    when 'by_leisures'  then leisures_search_params(val)
+    when 'by_dates'     then date_range_search_params(val)
+    when 'by_city'      then city_search_params(val)
     else val
     end
   end
@@ -25,8 +25,10 @@ module SearchHelper
     val
   end
 
-  def leisure_category_search_params(val)
-    LeisureCategory.find(val).try(:title) rescue ''
+  def leisures_search_params(vals)
+    vals.map do |id|
+      Leisure.find(id).try(:title) rescue ''
+    end.join(", ")
   end
 
   def date_range_search_params(val)
