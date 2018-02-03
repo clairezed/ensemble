@@ -6,7 +6,7 @@ class Events::EventParticipationsController < Events::BaseController
       flash[:notice] = 'Votre participation a bien été prise en compte'
       redirect_to event_path(@event)
     else
-      flash[:error] = 'Il y a eu un problème'
+      flash[:error] = @event_participation.errors.full_messages.first
       render "events/show"
     end
   end

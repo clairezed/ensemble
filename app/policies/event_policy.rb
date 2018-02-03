@@ -17,7 +17,7 @@ class EventPolicy < ApplicationPolicy
   end
 
   def participate?
-    visible_event? && !is_participant? && !is_organizer?
+    visible_event? && !is_participant? && !is_organizer? && event_not_full?
   end
 
   def cancel_participation?
@@ -37,6 +37,10 @@ class EventPolicy < ApplicationPolicy
 
   def visible_event?
     record.visible?
+  end
+
+  def event_not_full?
+    !record.full?
   end
 
 end

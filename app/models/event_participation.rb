@@ -15,7 +15,12 @@ class EventParticipation < ApplicationRecord
 
   # Instance methods =========================================
 
-
+    def event_not_full?
+      return true unless event.full?
+      errors.add(:base, "L'événement est complet, vous ne pouvez pas y participer.")
+      false
+    end
+    validate :event_not_full?, on: :create
 
   protected 
 

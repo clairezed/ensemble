@@ -36,9 +36,10 @@ section.section.pt-5
 
     - if @event.past?
       .alert.alert-light role="alert" Evénement terminé
-
     - if @event.canceled?
       .alert.alert-light role="alert" Evénement annulé
+    - if @event.full?
+      .alert.alert-light role="alert" Evénement complet
 
 section
   .section_inner

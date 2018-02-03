@@ -242,4 +242,10 @@ class Event < ApplicationRecord
     future? && active?
   end
 
+  # Management
+
+  def full?
+    participants.count >= participants_max
+  end
+
 end
