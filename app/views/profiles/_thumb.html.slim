@@ -1,0 +1,7 @@
+/ Thumb des participants sur une page événement
+
+= link_to profile_path(user)
+  .profile-thumb
+    = image_tag user.avatar_url(:detail), class: "profile-thumb_picture"
+    .profile-thumb_body
+      p= user_nickname(user)

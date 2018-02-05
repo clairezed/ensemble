@@ -92,14 +92,10 @@ section
     h3.section-title Participants
 
     - if @event.participants.any?
-      .row
+      .row.sm-gutter
         - @event.participants.each do |user|
-          .col-4
-            = link_to profile_path(user)
-              .card
-                = image_tag user.avatar_url(:detail), class: "card-img-top"
-                .card-body.p-1
-                  p= user_nickname(user)
+          .col-4.sm-gutter
+            = render partial: 'profiles/thumb', locals: {user: user}
     - else
       p: small Il n'y a pas encore de participant à cet événement. Soyez le premier !
 
