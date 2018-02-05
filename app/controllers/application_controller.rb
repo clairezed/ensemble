@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   protect_from_forgery with: :exception
-  # before_action :http_authentication
+  before_action :http_authentication
 
   before_action :reject_blocked_ip!
   before_action :authenticate_user!
