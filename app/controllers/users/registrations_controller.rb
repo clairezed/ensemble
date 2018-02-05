@@ -12,10 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     get_seo_for_static_page('home')
-    @last_events = Event.active
+    @last_events = Event.visible
       .includes(:leisure_category).includes(:city)
       .order(created_at: :desc).limit(3)
-    @mirador_events = Event.active.mirador
+    @mirador_events = Event.visible.mirador
       .includes(:leisure_category).includes(:city)
       .order(created_at: :desc).limit(3)
     @user = User.new_with_session({}, session)

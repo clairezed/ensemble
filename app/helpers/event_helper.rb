@@ -47,7 +47,8 @@ module EventHelper
 
   # Leisure
   def event_leisure_title(event)
-    event.leisure.present? ? event.leisure.title : event.leisure_category.title
+    # event.leisure.present? ? event.leisure.title : event.leisure_category.title
+    event.leisure_category.title
   end
 
   def event_openess_icon(key)
