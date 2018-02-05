@@ -4,8 +4,6 @@
 
   = form_for @event, as: :event, url: admin_event_path(@event), html: {class: "form-horizontal"} do |f| 
 
-    = render partial: "events/form", locals: {f: f}
-
     .form-group
       label Mirador ?
       br
@@ -14,10 +12,13 @@
           label.form-check-label
             => f.radio_button :affiliation, key, class: "form-check-input"
             => event_affiliation(key)
+            
+    = render partial: "events/form", locals: {f: f}
 
-    .form-group
-      hr
-      => f.submit "Enregistrer les modifications", class: "btn btn-primary mr-2", id: "submit_and_leave"
-      => f.submit name: "continue", value: "Enregistrer et continuer l'édition", class: "btn btn-default mr-2", id: "submit_and_stay"
-      = link_to "Annuler", admin_events_path, class: "btn"
+
+    / .form-group
+    /   hr
+    /   => f.submit "Enregistrer les modifications", class: "btn btn-primary mr-2", id: "submit_and_leave"
+    /   => f.submit name: "continue", value: "Enregistrer et continuer l'édition", class: "btn btn-default mr-2", id: "submit_and_stay"
+    /   = link_to "Annuler", admin_events_path, class: "btn"
 
