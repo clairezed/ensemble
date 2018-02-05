@@ -52,7 +52,7 @@ module EventHelper
   end
 
   def event_openess_icon(key)
-    key == 'opened' ? icon_country : icon_mail
+    key == 'opened' ? icon_country_reverse : icon_mail_reverse
   end
 
 
