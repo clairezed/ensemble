@@ -28,11 +28,11 @@ module EventService
     private
 
     def filter_by_leisure(users)
-      if @event.leisure.present?
-        users.by_leisure(@event.leisure.id)
-      else
+      # if @event.leisure.present?
+      #   users.by_leisure(@event.leisure.id)
+      # else
         users.by_leisure_category(@event.leisure_category.id)
-      end
+      # end
     end
 
     def substract_organizer(users)

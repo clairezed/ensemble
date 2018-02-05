@@ -17,7 +17,7 @@ section
   .section_inner
     h2.section-subtitle
       .event-card_meta-icon.mr-1
-        span.ico> class="ico-#{@event.leisure.key}"
+        span.ico> class="ico-#{@event.leisure_category.key}"
           - (1..30).each do |i|
             span class="path#{i}"
       ' Personnes aimant "#{event_leisure_title(@event)}"
