@@ -23,6 +23,25 @@
     .profile-info_label
       margin-bottom: 0.75rem
 
+
+.profile-info
+  &_row
+    @extend .row
+    align-items: center
+    margin-left: .25rem
+    margin-right: .25rem
+    &:not(:first-child)
+      margin-top: .5rem
+  &_col-icon
+    @extend .col-2
+    padding: .25rem
+    text-align: center
+    .ico
+      font-size: 1.5rem
+  &_col-content
+    @extend .col-10
+    padding: .25rem
+
 .profile-info_leisure-category
   font-size: 1rem
   margin-top: .6rem

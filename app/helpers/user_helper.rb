@@ -23,7 +23,11 @@ module UserHelper
   end
 
   def user_gender_icon(key)
-    key == 'female' ? 'fa-female' : 'fa-male'
+    key == 'female' ? icon_women : icon_men
+  end
+
+  def user_gender_head_icon(key)
+    key == 'female' ? icon_women_hair : icon_men_mustache
   end
 
   def user_affiliation(affiliation)

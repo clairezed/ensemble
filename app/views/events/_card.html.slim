@@ -12,13 +12,9 @@
       span.ico> class="ico-#{event.leisure.key}"
         - (1..30).each do |i|
           span class="path#{i}"
-      / i.fa.fa-snowflake-o
-      / p= event.leisure_category.try(:title)
   .event-card_body
     .event-card_body-header
       h3.event-card_body-title = event.title
-      / - if event.closed?
-      /   .event-card_body-subtitle Evénement privé
     - if event.mirador?
       .event-card_body-mirador 
         i.fa.fa-exclamation-triangle>
@@ -26,10 +22,10 @@
 
     .event-card_body-footer
       .event-card_location
-        i.fa.fa-map-marker>
+        = icon_location
         = event.city.name
       .event-card_participants
-        i.fa.fa-users>
+        = icon_people
         = event_participants_count(event)
 
         

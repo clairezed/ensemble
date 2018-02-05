@@ -44,7 +44,7 @@
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-user>
+          => icon_mail
           ' Email
           small.form-text.text-muted = email_verified_status(@user)
         .profile-info_value
@@ -52,7 +52,7 @@
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-phone>
+          => icon_mobile_phone
           ' Téléphone
           small.form-text.text-muted = phone_verified_status(@user)
         .profile-info_value
@@ -60,21 +60,21 @@
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-user>
+          => icon_mail
           ' Notifications mail
         .profile-info_value
-          = boolean_text @user.email_notification
+          => boolean_text @user.email_notification
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-phone>
+          => icon_mobile_phone
           ' Notifications sms
         .profile-info_value
           = boolean_text @user.sms_notification
 
 
       = link_to edit_users_parameters_path, class: "button--main" do 
-        i.fa.fa-pencil>
+        => icon_edit
         ' Modifier mes paramètres
 
 
@@ -84,7 +84,7 @@
       h2.section-title Mot de passe
 
       = link_to edit_password_users_parameters_path, class: "button--main" do 
-        i.fa.fa-pencil>
+        => icon_edit
         ' Modifier mon mot de passe
 
   section

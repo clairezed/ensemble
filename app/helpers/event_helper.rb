@@ -51,7 +51,7 @@ module EventHelper
   end
 
   def event_openess_icon(key)
-    key == 'opened' ? 'fa-globe' : 'fa-envelope'
+    key == 'opened' ? icon_country : icon_mail
   end
 
 

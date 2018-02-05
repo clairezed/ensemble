@@ -10,7 +10,7 @@
 
 .form-group
   = label_tag :avatar, nil, class: '' do
-    i.fa.fa-camera>
+    => icon_camera
     ' Photo de profil
 
   .picture-card_container
@@ -22,13 +22,13 @@
             = link_to avatar.asset(:original), target: "_blank" do
               => image_tag avatar.asset(:thumb), class: "img-fluid"
           = link_to users_avatar_path(avatar.id), method: :delete, remote: true, class: "picture-card_delete-btn", data:{delete_picture: avatar.id, confirm: "Confirmer la suppression ?"} do
-            i.fa.fa-times-circle-o>
+            => icon_delete
             ' supp
 
     .picture-card
       = label_tag :"asset_user_avatar[asset]"
         span.button-upload
-          i.fa.fa-pencil
+          = icon_edit
         = file_field_tag :"asset_user_avatar[asset]", accept: Asset::UserAvatar::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: users_avatars_path}, class:'d-none'
 
 .form-group.required
@@ -39,21 +39,21 @@
       .form-check.form-check-inline
         label.form-check-label
           => f.radio_button :gender, key, class: "form-check-input hidden-error"
-          i> class="fa #{user_gender_icon(key)}"
+          = user_gender_icon(key)
   
 .form-group.required
   = f.label :birthdate, class: '' do
-    i.fa.fa-birthday-cake>
+    => icon_calendar
     ' Né.e le
   .input-group
     = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
     div.input-group-append data-toggle-picker=''
       span.input-group-text
-        i.fa.fa-calendar
+        = icon_calendar
 
 .form-group
   = f.label :leisures, class: '' do
-    i.fa.fa-users>
+    => icon_interest
     ' Loisirs
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
@@ -91,19 +91,19 @@
 
 .form-group.required
   = f.label :city_id, class: '' do
-    i.fa.fa-map-marker>
+    => icon_location
     ' Ville
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
 .form-group
   = f.label :visited_countries, class: '' do
-    i.fa.fa-pencil>
+    => icon_country
     ' Pays visités
   = f.text_area :visited_countries, class: 'form-control'
   
 .form-group
   = f.label :language_ids, class: '' do
-    i.fa.fa-language>
+    => icon_language
     ' Langues parlées
   = f.select :language_ids, options_for_select(language_options, f.object.language_ids), {prompt: "Sélectionnez vos langues"}, multiple: true, class: "form-control",  data: {is_select2: 'languages'}
 
@@ -111,7 +111,7 @@
 
 .form-group
   = f.label :description, class: '' do
-    i.fa.fa-pencil>
+    => icon_edit
     ' Quelques mots sur moi
   = f.text_area :description, class: 'form-control'
 

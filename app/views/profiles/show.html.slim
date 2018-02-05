@@ -8,35 +8,35 @@
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-user>
+          => user_gender_head_icon(@user.gender)
           ' Genre
         .profile-info_value
           = user_gender(@user.gender)
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-user>
+          => icon_location
           ' Ville
         .profile-info_value
           = @user.city.name
 
       .profile-info--small
         .profile-info_label
-          i.fa.fa-user>
+          => icon_calendar
           ' Age
         .profile-info_value
           = user_age(@user.birthdate)
 
       .profile-info--big
         .profile-info_label
-          i.fa.fa-user>
+          => icon_edit
           ' Présentation
         .profile-info_value
           = @user.description
 
       .profile-info--big
         .profile-info_label
-          i.fa.fa-user>
+          => icon_interest
           ' Centres d'intérêt
         .profile-info_value
           - @user.leisure_categories.each do |leisure_category|
@@ -53,18 +53,19 @@
 
       .profile-info--big
         .profile-info_label
-          i.fa.fa-user>
+          => icon_country
           ' Pays visités
         .profile-info_value
           = @user.visited_countries
 
       .profile-info--big
         .profile-info_label
-          i.fa.fa-user>
+          => icon_language
           ' Langues parlées
         .profile-info_value
-          - @user.languages.each do |language|
-            span.mr-2 = language.title 
+          = @user.languages.map(&:title).compact.join(", ")
+          / - @user.languages.each do |language|
+          /   span.mr-2 = language.title 
 
 
       - if is_current_user?(@user)

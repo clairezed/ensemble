@@ -9,7 +9,7 @@
         .invitation-card_user-age= user_age(user.birthdate)
       .col
         .invitation-card_city-name
-          i.fa.fa-map-marker>
+          = icon_location>
           = user.city.name
   .invitation-card_footer
     .invitation-card_footer-aside
@@ -33,26 +33,3 @@
       / Statut de l'invitation
       - else
         ' Invitation #{event_invitation_state_title(invitation.state)}
-
-/ .invitation-card
-/   .card
-/     .row.no-gutters
-/       .col-3
-/         = image_tag user.avatar_url(:detail), class: "card-img-top"
-/       .col-9.p-2
-/         p= user_nickname(user)
-/         p.float-right =user.city.name
-/         p= user_age(user.birthdate)
-/     .row.no-gutters
-/       .col-3
-/         = link_to "Voir", profile_path(user), class: "btn btn-primary btn-block"
-/       .col-9
-/         - if invitation.new_record?
-/           = form_for @event.event_invitations.new, as: :event_invitation, url: users_event_invitations_path(@event) do |f|
-/             = f.hidden_field :user_id, value: user.id
-/             = f.submit "Inviter", class: "btn btn-secondary btn-block"
-/         - elsif invitation.draft?
-/           = link_to "Annuler", users_event_invitation_path(@event, invitation), 
-/           method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block"
-/         - else
-/           p.text-center Invitation #{event_invitation_state_title(invitation.state)}

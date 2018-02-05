@@ -13,13 +13,13 @@ section
       
       .form-group
         = label_tag :by_text, "Titre", class: '' do
-          i.fa.fa-pencil>
+          => icon_edit
           ' Titre
         => text_field_tag :by_text, params[:by_text], class: "form-control"
 
       .form-group
         = label_tag :leisure_category_id do
-          i.fa.fa-users>
+          => icon_interest
           ' Centres d'intérêt
 
         - LeisureCategory.all.includes(:leisures).order(created_at: :asc).each_slice(4) do |leisure_category_row|
@@ -54,13 +54,13 @@ section
 
       .form-group
         = label_tag :by_dates, class: ''  do
-          i.fa.fa-calendar>
+          => icon_calendar
           ' Date ou période
         => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
 
       .form-group
         = label_tag :by_city  do
-          i.fa.fa-map-marker>
+          => icon_location
           ' Ville
         = select_tag :by_city, \
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \

@@ -3,14 +3,15 @@
   
 .form-group.required
   = f.label :title, class: '' do
-    i.fa.fa-pencil>
+    => icon_edit
     ' Titre
   = f.text_field :title, class: 'form-control'
 
 / centre d interet
 .form-group
   = f.label :leisures, class: '' do
-    i.fa.fa-users>
+    / i.fa.fa-users>
+    => icon_interest
     ' Centres d'intérêt
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
@@ -45,7 +46,7 @@
   
 .form-group.required
   = f.label :start_at, class: '' do
-    i.fa.fa-calendar>
+    => icon_calendar
     ' Date de début
   .form-row
     .col-6
@@ -55,7 +56,7 @@
   
 .form-group
   = f.label :end_at, class: '' do
-    i.fa.fa-calendar>
+    => icon_calendar
     ' Date de fin
   .form-row
     .col-6
@@ -65,19 +66,19 @@
 
 .form-group
   = f.label :address, class: '' do
-    i.fa.fa-map-marker>
+    => icon_location
     ' Adresse
   = f.text_field :address, class: 'form-control'
 
 .form-group.required
   = f.label :city_id, class: '' do
-    i.fa.fa-map-marker>
+    => icon_location
     ' Ville
   = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path, width: '100%'}
 
 .form-group
   = f.label :description, class: '' do
-    i.fa.fa-pencil>
+    => icon_edit
     ' Description
   = f.hidden_field :description, class: 'form-control', data: {is_hidden_field: 'description'}
   div data-is-wysiwyg="quill"
@@ -87,7 +88,7 @@
 
 .form-group
   = label_tag :participants do
-    i.fa.fa-users>
+    = icon_people
     ' Nombre de participants max
   = f.text_field :participants_max, data: {is_slider: 'participants'}
 
@@ -95,7 +96,7 @@
 .form-group
   / .label-title  Photos de l'événement
   = f.label :pictures do
-    i.fa.fa-camera>
+    = icon_camera
     ' Photos de l'événement
   p.form-text.text-muted.small: em 
     ' Formats autorisés : .jpeg, .png
@@ -120,7 +121,7 @@
 / Documents
 .form-group
   = f.label :attachements do
-    i.fa.fa-camera>
+    i.fa.fa-file-text-o>
     ' Documents
   p.form-text.text-muted.small: em 
     ' Formats autorisés : .pdf
@@ -146,7 +147,8 @@
       .col
         => f.radio_button :visibility, key, class: "d-none button-radio-input"
         = f.label :visibility, value: key, class: "button-radio" do
-          i.fa> class="#{event_openess_icon(key)}"
+
+          => event_openess_icon(key)
           span.label-title=> event_visibility(key)
 
 => f.submit "Valider", class: "button--main"

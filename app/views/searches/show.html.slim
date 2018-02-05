@@ -12,7 +12,7 @@ section.search-show
 
       - search_params.reject{|k,v| v.blank?}.each do |key, val|
         .search-params_item
-          i.fa> class="fa-#{search_params_icon(key)}"
+          => search_params_icon(key)
           = search_params_label(key,val)
 
 

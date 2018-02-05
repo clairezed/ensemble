@@ -29,14 +29,14 @@ html lang="#{I18n.locale}"
           ' Ensemble
 
         button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
-          i.fa.fa-bars            
+          = icon_hamburger
 
     nav.main-menu data-is-menu="main"
       .main-menu_header
         .main-menu_title Menu
         .main-menu_close  data-display-menu='close'
           ' Fermer
-          i.fa.fa-times-circle
+          => icon_close
       ul.main-menu_list
         li.main-menu_item
           = link_to root_path, title: "Retour à l'accueil", class:"main-menu_item-link"
@@ -61,11 +61,11 @@ html lang="#{I18n.locale}"
               ' Paramètres
           li.main-menu_item
             = link_to "#", class: "main-menu_item-link" do
-              i.fa.fa-cog>
+              i.fa.fa-file-o>
               ' CGU
           li.main-menu_item
             = link_to "#", class: "main-menu_item-link" do
-              i.fa.fa-cog>
+              i.fa.fa-file-o>
               ' Mentions légales
           li.main-menu_item
             = link_to destroy_user_session_path, method: :delete, class: "main-menu_item-link" do

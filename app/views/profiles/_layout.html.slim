@@ -14,11 +14,11 @@ section.section
     ul.section_tabs
       li.section_tabs_item
         = link_to profile_path(@user), class: "section_tabs_item-link #{active_if(:profiles)}" do 
-          i.fa.fa-user>
+          => icon_profile
           ' Informations
       li.section_tabs_item
         = link_to users_parameters_path, class: "section_tabs_item-link #{active_if(:parameters)}" do 
-          i.fa.fa-cog>
+          => icon_settings
           ' Paramètres
   - else
     .profile-status-bar

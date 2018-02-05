@@ -35,40 +35,41 @@ section.section.pt-5
               ' Annuler
 
     - if @event.past?
-      .alert.alert-light role="alert" Evénement terminé
+      .alert.alert-light.mt-1 role="alert" Evénement terminé
     - if @event.canceled?
-      .alert.alert-light role="alert" Evénement annulé
+      .alert.alert-light.mt-1 role="alert" Evénement annulé
     - if @event.full?
-      .alert.alert-light role="alert" Evénement complet
+      .alert.alert-light.mt-1 role="alert" Evénement complet
 
 section
   .section_inner
     h1.section-title--centered = @event.title
 
-    .profile-info--big
-      .row.no-gutters
-        .col-2.p-1
+    .profile-info--big.profile-info--rows
+      .profile-info_row
+        .profile-info_col-icon
           = link_to profile_path(@event.user)
             = image_tag @event.user.avatar_url(:detail), class: "img-fluid"
-        .col-10.p-1
+        .profile-info_col-content
           span 
             ' Proposé par 
             br
             strong = link_to user_nickname(@event.user), profile_path(@event.user)
-      .row.mt-2.no-gutters
-        .col-2.p-1
-          i.fa.fa-map-marker
-        .col-10.p-1
+      .profile-info_row
+        .profile-info_col-icon
+          = icon_location
+        .profile-info_col-content
           span = event_full_address(@event)
-      .row.mt-2.no-gutters
-        .col-2.p-1
-          i.fa.fa-clock-o
-        .col-10.p-1
+      .profile-info_row
+        .profile-info_col-icon
+          = icon_clock
+        .profile-info_col-content
           span = l(@event.start_at.to_time)
-      .row.mt-2.no-gutters
-        .col-2.p-1
-          i.fa.fa-users title="Nombre de participants actuels / Nombre maximum de participants"
-        .col-10.p-1
+      .profile-info_row
+        .profile-info_col-icon
+          = icon_people
+          / title="Nombre de participants actuels / Nombre maximum de participants"
+        .profile-info_col-content
           span = event_participants_count(@event)
     
     - if wysiwyg_present?(@event.description)

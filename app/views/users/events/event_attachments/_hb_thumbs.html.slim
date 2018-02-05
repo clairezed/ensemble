@@ -20,5 +20,5 @@
       / = link_to "{{edit_url}}", remote: true,  class: "btn btn-sm btn-info mr-2", data:{edit_attachment: "{{id}}"}  do 
       /   i.fa.fa-edit
       = link_to "{{delete_url}}", method: :delete, remote: true, class: "btn btn-sm btn-danger btn-block", data:{delete_attachment: "{{id}}", confirm: "Confirmer la suppression ?"} do
-        i.fa.fa-times-circle-o>
+        => icon_delete
         ' supp

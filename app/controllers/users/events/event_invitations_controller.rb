@@ -12,7 +12,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
   def create
     @event_invitation = @event.event_invitations.new(event_invitation_params)
     if @event_invitation.save
-      flash[:notice] = "Personne bien invitée"
+      flash[:notice] = "L'invitation est prête à être envoyée"
       redirect_to action: :index
     else
       @invited_users = @event.event_invitations

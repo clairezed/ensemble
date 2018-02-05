@@ -2,10 +2,10 @@ module SearchHelper
 
   def search_params_icon(key)
     case key
-    when 'by_text'              then 'pencil'
-    when 'by_leisures'          then 'users'
-    when 'by_dates'             then 'calendar'
-    when 'by_city'              then 'map-marker'
+    when 'by_text'              then icon_edit
+    when 'by_leisures'          then icon_interest
+    when 'by_dates'             then icon_calendar
+    when 'by_city'              then icon_location
     else ''
     end
   end
