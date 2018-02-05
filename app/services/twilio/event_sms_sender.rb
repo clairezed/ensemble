@@ -6,7 +6,7 @@ module Twilio
     def event_canceled(user, event)
       @event = event
       @user = user
-      message = "Annulation evenement #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}"
+      message = "[Ensemble] L'événement #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")} a été annulé."
       p message 
       # send_sms("event_canceled")
 
@@ -17,7 +17,7 @@ module Twilio
       @invitation = invitation
       @event = invitation.event
       @user = invitation.user
-      message = "Invitation de #{@event.user.nickname} à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}. Répondez  'ok #{@event.id}' pour accepter."
+      message = "[Ensemble] #{@event.user.nickname} vous invite à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}. Répondez  'OK #{@event.id}' pour accepter l'invitation."
       p message 
       # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
       

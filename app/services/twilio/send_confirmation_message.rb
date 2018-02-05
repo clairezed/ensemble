@@ -28,11 +28,11 @@ module Twilio
 
     def send_confirmation_sms
       # TODO - Update message
-      message = "[Ensemble] #{user.sms_confirmation_token}"
+      # message = "[Ensemble] #{user.sms_confirmation_token}"
+      message = "Bienvenue sur ENSEMBLE ! Le code pour vérifier votre numéro de téléphone est le suivant : #{user.sms_confirmation_token}"
       p message
-      if Rails.env.staging? || Rails.env.production?
-        send_sms(message, user.phone)
-      end
+      Rails.logger.warn message
+      send_sms(message, user.phone)
     end
 
 

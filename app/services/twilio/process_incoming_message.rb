@@ -3,9 +3,9 @@ module Twilio
   class ProcessIncomingMessage < Base
 
     RESPONSES = {
-      unknown_phone_number: "Votre numéro de téléphone ne correspond pas à un membre d'Ensemble.",
-      invitation_not_found: "Invitation non trouvée ou réponse incomplète. Pour accepter l'invitation: \"ok [n° fourni]\"",
-      incomprehensible_message: "Réponse mal formattée. Pour accepter l'invitation: \"ok [n° fourni dans message précedent]\"",
+      unknown_phone_number: "Nous ne trouvons pas votre compte utilisateur Ensemble à partir de votre numéro de téléphone. Contactez un administrateur.",
+      invitation_not_found: "Invitation non trouvée ou réponse incomplète. Pour accepter l'invitation, répondez: \"OK [n° fourni dans message précedent]\"",
+      incomprehensible_message: "Réponse mal formattée. Pour accepter l'invitation, répondez: \"ok [n° fourni dans message précedent]\" à ce message.",
       invitation_accepted: "L'invitation a bien été acceptée",
       unknown_problem: "Il y a eu un soucis, contactez un administrateur d'Ensemble",
     }

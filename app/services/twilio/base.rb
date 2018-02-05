@@ -32,10 +32,12 @@ module Twilio
       p recipient_number
       Rails.logger.warn recipient_number
       begin
-        message = client.messages.create(
-          body: message,
-          to: recipient_number,    
-          from: SENDER_PHONE_NUMBER)
+        if Rails.env.staging? || Rails.env.production?
+          message = client.messages.create(
+            body: message,
+            to: recipient_number,    
+            from: SENDER_PHONE_NUMBER)
+        end
       rescue Twilio::REST::TwilioError => e
         raise e
         puts e.message
