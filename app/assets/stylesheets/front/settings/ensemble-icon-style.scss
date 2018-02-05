@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'ensemble';
-  src:  font-url('ensemble.eot?nssmin');
-  src:  font-url('ensemble.eot?nssmin#iefix') format('embedded-opentype'),
-    font-url('ensemble.ttf?nssmin') format('truetype'),
-    font-url('ensemble.woff?nssmin') format('woff'),
-    font-url('ensemble.svg?nssmin#ensemble') format('svg');
+  src:  font-url('ensemble.eot?xxfm9c');
+  src:  font-url('ensemble.eot?xxfm9c#iefix') format('embedded-opentype'),
+    font-url('ensemble.ttf?xxfm9c') format('truetype'),
+    font-url('ensemble.woff?xxfm9c') format('woff'),
+    font-url('ensemble.svg?xxfm9c#ensemble') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -20,12 +20,267 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  font-size: 125%;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ico-search-reverse .path1 {
+  &:before {
+    content: $ico-search-reverse-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-search-reverse .path2 {
+  &:before {
+    content: $ico-search-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-mentions .path1 {
+  &:before {
+    content: $ico-mentions-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path2 {
+  &:before {
+    content: $ico-mentions-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mentions .path3 {
+  &:before {
+    content: $ico-mentions-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path4 {
+  &:before {
+    content: $ico-mentions-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-home .path1 {
+  &:before {
+    content: $ico-home-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-home .path2 {
+  &:before {
+    content: $ico-home-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cgu .path1 {
+  &:before {
+    content: $ico-cgu-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path2 {
+  &:before {
+    content: $ico-cgu-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path3 {
+  &:before {
+    content: $ico-cgu-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path4 {
+  &:before {
+    content: $ico-cgu-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path5 {
+  &:before {
+    content: $ico-cgu-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cgu .path6 {
+  &:before {
+    content: $ico-cgu-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cgu .path7 {
+  &:before {
+    content: $ico-cgu-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path1 {
+  &:before {
+    content: $ico-mirador-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador .path2 {
+  &:before {
+    content: $ico-mirador-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path3 {
+  &:before {
+    content: $ico-mirador-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path4 {
+  &:before {
+    content: $ico-mirador-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path5 {
+  &:before {
+    content: $ico-mirador-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path6 {
+  &:before {
+    content: $ico-mirador-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path1 {
+  &:before {
+    content: $ico-mirador-participant-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path2 {
+  &:before {
+    content: $ico-mirador-participant-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador-participant .path3 {
+  &:before {
+    content: $ico-mirador-participant-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador-participant .path4 {
+  &:before {
+    content: $ico-mirador-participant-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path5 {
+  &:before {
+    content: $ico-mirador-participant-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path6 {
+  &:before {
+    content: $ico-mirador-participant-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path7 {
+  &:before {
+    content: $ico-mirador-participant-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-attachment .path1 {
+  &:before {
+    content: $ico-attachment-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-attachment .path2 {
+  &:before {
+    content: $ico-attachment-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path3 {
+  &:before {
+    content: $ico-attachment-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path4 {
+  &:before {
+    content: $ico-attachment-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path5 {
+  &:before {
+    content: $ico-attachment-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path6 {
+  &:before {
+    content: $ico-attachment-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mail-reverse {
+  &:before {
+    content: $ico-mail-reverse;
+  }
+}
+.ico-country-reverse {
+  &:before {
+    content: $ico-country-reverse;
+  }
+}
+.ico-search .path1 {
+  &:before {
+    content: $ico-search-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-search .path2 {
+  &:before {
+    content: $ico-search-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
 .ico-add .path1 {
   &:before {
     content: $ico-add-path1;  
@@ -1438,15 +1693,15 @@
     color: rgb(255, 199, 51);
   }
 }
-.ico-women_hair .path1 {
+.ico-women-hair .path1 {
   &:before {
-    content: $ico-women_hair-path1;  
+    content: $ico-women-hair-path1;  
     color: rgb(102, 102, 102);
   }
 }
-.ico-women_hair .path2 {
+.ico-women-hair .path2 {
   &:before {
-    content: $ico-women_hair-path2;  
+    content: $ico-women-hair-path2;  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }

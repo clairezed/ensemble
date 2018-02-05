@@ -5,7 +5,7 @@ section.search-show
     h2.section-title = search_params.present? ? "Ma recherche" : "Prochains événements"
 
     = link_to new_search_path(search_params), class: "button--main" do
-      i.fa.fa-search>
+      => icon_search
       = search_params.present? ? "Modifier ma recherche" : "Rechercher"
     
     .search-params

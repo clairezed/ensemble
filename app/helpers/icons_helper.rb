@@ -1,12 +1,18 @@
 module IconsHelper
 
   def render_icon(icon_title, path_count, classes=nil)
-    content_tag(:span, class: "ico ico-#{icon_title} #{classes}") do 
-      (1..path_count).each do |i|
-        concat content_tag(:span, '', class: "path#{i}")
+    # if path_count = 1
+    #   return content_tag(:span, class: "ico ico-#{icon_title} #{classes}")
+    # else
+      content_tag(:span, class: "ico ico-#{icon_title} #{classes}") do 
+        (1..path_count).each do |i|
+          concat content_tag(:span, '', class: "path#{i}")
+        end
       end
-    end
+    # end
   end
+
+
 
   # Liste des icon ====================================
 
@@ -16,6 +22,10 @@ module IconsHelper
 
   def icon_add_reverse(classes)
     render_icon('add-reverse', 4, classes)
+  end
+
+  def icon_attachment
+    render_icon('attachment', 6)
   end
 
   def icon_bell
@@ -46,6 +56,10 @@ module IconsHelper
     render_icon('camera', 5)
   end
 
+  def icon_cgu
+    render_icon('cgu', 7)
+  end
+
   def icon_clock
     render_icon('clock', 20)
   end
@@ -56,6 +70,10 @@ module IconsHelper
 
   def icon_country
     render_icon('country', 3)
+  end
+
+  def icon_country_reverse
+    render_icon('country-reverse', 1)
   end
 
   def icon_delete
@@ -78,6 +96,10 @@ module IconsHelper
     render_icon('hamburger', 6)
   end
 
+  def icon_home
+    render_icon('home', 2)
+  end
+
   def icon_interest
     render_icon('interest', 2)
   end
@@ -94,12 +116,28 @@ module IconsHelper
     render_icon('mail', 2)
   end
 
+  def icon_mail_reverse
+    render_icon('mail-reverse', 1)
+  end
+
   def icon_men
     render_icon('men', 3)
   end
 
   def icon_men_mustache
     render_icon('men-mustache', 2)
+  end
+
+  def icon_mentions
+    render_icon('mentions', 4)
+  end
+
+  def icon_mirador
+    render_icon('mirador', 6)
+  end
+
+  def icon_mirador_participant
+    render_icon('mirador-participant', 7)
   end
 
   def icon_mobile_phone
@@ -118,6 +156,14 @@ module IconsHelper
     render_icon('profile-reverse', 2)
   end
 
+  def icon_search
+    render_icon('search', 2)
+  end
+
+  def icon_search_reverse
+    render_icon('search-reverse', 2)
+  end
+
   def icon_settings
     render_icon('settings', 2)
   end
@@ -127,7 +173,7 @@ module IconsHelper
   end
 
   def icon_women_hair
-    render_icon('women_hair', 2)
+    render_icon('women-hair', 2)
   end
 
 end

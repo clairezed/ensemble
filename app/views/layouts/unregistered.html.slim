@@ -24,10 +24,9 @@ html lang="#{I18n.locale}"
   body.unregistered
 
     nav.nav-top
-      .container
-        = link_to root_path, class: "navbar-brand" do
-          / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
-          ' Ensemble
+      .container.pr-2
+        = link_to root_path do
+          = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
         - unless current_user
           = link_to 'Connexion', new_session_path(:user), class: "btn btn-light"
           
