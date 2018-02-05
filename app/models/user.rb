@@ -196,13 +196,16 @@ class User < ApplicationRecord
     self.avatar ? self.avatar.asset(format) : self.build_avatar.asset(format)
   end
 
-
   def nickname
     @nickname ||= [firstname, initials(lastname)].join(" ")
   end
 
   def initials(val)
     val.split.map{|v| v[0].capitalize }.join('')
+  end
+
+  def fullname
+    [firstname, lastname].join(" ")
   end
 
 

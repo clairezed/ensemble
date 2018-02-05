@@ -6,6 +6,7 @@
         th = hm_sort 'sort_by_created_at', label: 'Date création'
         th = hm_sort 'sort_by_start_at', label: 'Date début'
         th = hm_sort 'sort_by_title', label: 'Titre'
+        th = hm_sort 'sort_by_user_id', label: 'Créateur'
         th = hm_sort 'sort_by_city_id', label: 'Ville'
         th = hm_sort 'sort_by_state', label: 'Etat'
         th = hm_sort 'sort_by_affiliation', label: 'Mirador'
@@ -16,6 +17,7 @@
           td= l event.created_at.to_date
           td= l event.start_at.to_date
           td= event.title
+          td= link_to event.user.fullname, edit_profile_admin_user_path(event.user)
           td= event.city.long_name
           td
             span class="badge badge-#{event_state_style(event.state)}"= event_state_title(event.state)

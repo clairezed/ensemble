@@ -9,11 +9,11 @@ class Users::SessionsController < Devise::SessionsController
   
   # GET /resource/sign_in
   def new
-    @last_events = Event.visible
-      .includes(:leisure_category).includes(:city)
+    @last_events = Event.visible.normal
+      .includes(:leisure).includes(:city).includes(:leisure_category)
       .order(created_at: :desc).limit(3)
-    @mirador_events = Event.visible.mirador
-      .includes(:leisure_category).includes(:city)
+    @mirador_events = Event.visible.mirador.includes(:leisure_category)
+      .includes(:leisure).includes(:city)
       .order(created_at: :desc).limit(3)
     super
   end
