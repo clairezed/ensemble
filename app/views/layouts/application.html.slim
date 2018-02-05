@@ -22,14 +22,15 @@ html lang="#{I18n.locale}"
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
   body.main
-    nav.navbar.navbar-dark.bg-primary.fixed-top
+    nav.nav-top.fixed-top
       .container
-        = link_to root_path, class: "navbar-brand" do
-          / = image_tag 'logo.svg', class:"", alt: 'projet', width: 30, height: 30
-          ' Ensemble
+        = link_to root_path do
+          = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
+          / ' Ensemble
 
         button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
           = icon_hamburger
+          .button-burger_title= 'Menu'
 
     nav.main-menu data-is-menu="main"
       .main-menu_header

@@ -1,6 +1,6 @@
 p Bonjour #{@user.firstname},
 
-p #{user_nickname(@event.user)} vous invite à son événement b#{@event.title}/b prévu le #{@event.start_at.strftime("%d/%m/%Y")}.
+p #{user_nickname(@event.user)} vous invite à son événement #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")} à #{@event.city.name}.
 
 
 
