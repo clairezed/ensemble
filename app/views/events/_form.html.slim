@@ -74,7 +74,7 @@
   = f.label :city_id, class: '' do
     => icon_location
     ' Ville
-  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher votre ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path, width: '100%'}
+  = f.select :city_id, options_for_select(single_city_options(f.object.city), f.object.city_id), {prompt: "Rechercher une ville"}, class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path, width: '100%'}
 
 .form-group
   = f.label :description, class: '' do
