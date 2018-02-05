@@ -6,7 +6,10 @@ class EventsController < ApplicationController
     @recommended_events = Search::RecommendedEvents.call(current_user, Event.visible, params)
       .nearest_first(current_user.city.coordinates)
       .next_in_time
-    @last_events = Search::Events.call(current_user, Event.visible, params)
+    @last_events = Search::Events.call(current_user, Event.visible.normal, params)
+      .nearest_first(current_user.city.coordinates)
+      .next_in_time
+    @mirador_events = Search::Events.call(current_user, Event.visible.mirador, params)
       .nearest_first(current_user.city.coordinates)
       .next_in_time
   end

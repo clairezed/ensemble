@@ -3,6 +3,7 @@ class Admin::EventsController < Admin::BaseController
   before_action :find_event, only: [:edit, :update, :destroy, :cancel, :activate]
 
   def index
+    params[:sort] ||= 'sort_by_created_at desc'
     @events = Event
       .apply_filters(params)
       .apply_sorts(params)

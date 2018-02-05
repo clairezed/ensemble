@@ -130,7 +130,7 @@ class Event < ApplicationRecord
   # Search -------------------------------------------
 
   scope :by_leisure_category, -> (val) {
-    where(leisure_category_id: val)
+    joins(:leisure).merge(Leisure.by_leisure_category(val))
   }
 
   scope :by_leisure, -> (val) {

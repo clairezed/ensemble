@@ -5,19 +5,21 @@ section.section--reverse
   .section_inner
     h1.section-title--centered Mes événements
 
-    = link_to new_users_event_path, class: "btn btn-light btn-block" do 
-      i.fa.fa-plus-circle>
-      ' Proposer un événement
+    / = link_to new_users_event_path, class: "btn btn-light btn-block" do 
+    /   i.fa.fa-plus-circle>
+    /   ' Proposer un événement
 
 / tabs ----------------------------------------
 
 section.section
   ul.section_tabs
     li.section_tabs_item
-      = link_to users_events_path, class: "section_tabs_item-link #{active_if(:future_events)}" do 
+      = link_to users_events_path, class: "section_tabs_item-link #{active_if(:future_events)}" do
+        => icon_calendar_futur
         ' Futurs
     li.section_tabs_item
       = link_to users_past_events_path, class: "section_tabs_item-link #{active_if(:past_events)}" do 
+        => icon_calendar_past
         ' Passés
 
 
