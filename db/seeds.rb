@@ -11,8 +11,8 @@ require 'csv'
 
 
 a1 = Admin.where(email: 'clairezuliani@gmail.com').first_or_create(password: 'password')
-
 Seo.where(param: 'home').first_or_create
+
 
 # Import villes
 p "Cities ------------------" 
@@ -138,3 +138,21 @@ p "Leisures ------------------"
 end
 p "End leisures ------------------"
 
+# Utilisateur mirador --------------------------
+mirador_user = User.where(email: 'contact@ensemble-app.fr').first_or_initialize
+mirador_user.update_attributes(
+  phone: "+33612310286",
+  password: 'password',
+  firstname: 'Elodie',
+  lastname: 'Mirador',
+  birthdate: '1985-03-15',
+  sms_notification: false,
+  email_notification: true,
+  registration_complete: true,
+  affiliation: 'mirador',
+  city_id: City.where(normalized_name: 'epinal').first.id,
+  verification_state: 'admin_accepted',
+  confirmed_at: Time.current,
+  sms_confirmed_at: Time.current,
+  cgu_accepted_at: Time.current
+)
