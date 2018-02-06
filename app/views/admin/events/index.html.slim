@@ -8,6 +8,8 @@
         th = hm_sort 'sort_by_title', label: 'Titre'
         th = hm_sort 'sort_by_user_id', label: 'Créateur'
         th = hm_sort 'sort_by_city_id', label: 'Ville'
+        th Participants
+        th = hm_sort 'sort_by_visibility', label: 'Pub/priv'
         th = hm_sort 'sort_by_state', label: 'Etat'
         th = hm_sort 'sort_by_affiliation', label: 'Mirador'
         th 
@@ -19,8 +21,13 @@
           td= event.title
           td= link_to event.user.fullname, edit_profile_admin_user_path(event.user)
           td= event.city.long_name
+          td= event_participants_count(event)
           td
-            span class="badge badge-#{event_state_style(event.state)}"= event_state_title(event.state)
+            span class="badge badge-#{event_visibility_style(event.visibility)}"
+              = event_visibility(event.visibility)
+          td
+            span class="badge badge-#{event_state_style(event.state)}"
+              = event_state_title(event.state)
           td= boolean_badge(event.mirador?)
 
           td.action-btns

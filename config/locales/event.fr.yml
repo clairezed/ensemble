@@ -43,8 +43,12 @@ fr:
 
   event:
     visibilities:
-      opened: Public
-      closed: Privé
+      title:
+        opened: Public
+        closed: Privé
+      style:
+        opened: info
+        closed: dark
     affiliations:
       normal: Evénement normal
       mirador: Evénement Mirador
