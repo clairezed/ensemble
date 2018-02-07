@@ -1,4 +1,4 @@
-class AddLeisures < ActiveRecord::Migration[5.1]
+class CreateLeisures < ActiveRecord::Migration[5.1]
   def change
 
     create_table :leisure_categories do |t|
