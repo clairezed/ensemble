@@ -3,6 +3,7 @@ require "rails_helper"
 feature "Inscription/Connexion User" do
   before(:each) do
     @user = create(:user)
+    p @user
   end
 
 #   scenario "User se connecte avec de bons identifiants" do
@@ -148,7 +149,7 @@ feature "Inscription/Connexion User" do
 #     expect(page).not_to have_content(@user.email)
 #   end
 
-# end
+end
 
 def fill_user_inputs
   fill_in("user_lastname", with: "nom")
