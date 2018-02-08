@@ -6,6 +6,9 @@
   section
     .section_inner
 
+      - if is_current_user?(@user)
+        = link_to "Modifier mon profil",  edit_user_registration_path, class: "button--main mb-5"
+
       .profile-info--small
         .profile-info_label
           => user_gender_head_icon(@user.gender)
@@ -68,5 +71,3 @@
           /   span.mr-2 = language.title 
 
 
-      - if is_current_user?(@user)
-        = link_to "Modifier mon profil",  edit_user_registration_path, class: "button--main"
