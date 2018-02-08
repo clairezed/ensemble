@@ -3,7 +3,7 @@
 #  - type : si renseigne, doit être "success", "warning", "error" ou "danger"
 @flash = (content, type) ->
   content = "<span class=\"alert alert-#{type}\">#{content}</span>" if type?
-  $('#flash').clearQueue().hide().html(content).fadeIn('slow').delay(3000).fadeOut('slow')
+  $('#flash').clearQueue().hide().html(content).fadeIn('slow').delay(5000).fadeOut('slow')
 
 
 $(document).ajaxComplete (event, request) ->

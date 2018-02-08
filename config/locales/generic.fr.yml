@@ -118,7 +118,7 @@ fr:
     abbr_day_names: [Dim, Lun, Mar, Mer, Jeu, Ven, Sam]
 
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
     abbr_month_names: [~, Jan, Fév, Mar, Avr, Mai, Jui, Jui, Aou, Sep, Oct, Nov, Déc]
     # Used in date_select and datime_select.
     order: "[ :day, :month, :year ]"
@@ -129,6 +129,7 @@ fr:
       time: "%Hh%M"
       hour_min: "%H:%M"
       long: "%d %B %Y à %Hh%M"
+      event: "%A %d %B, %Hh%M"
     am: "am"
     pm: "pm"
 
@@ -198,6 +199,7 @@ fr:
     pagination:
       first: "Premier"
       last: Dernier
-      next: Suivant
-      previous: "Précédent"
-      truncate: "&hellip;"
+      next: Suiv
+      previous: "Préc"
+      truncate: ""
+      # truncate: "&hellip;"

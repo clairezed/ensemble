@@ -5,7 +5,8 @@ class Users::EventsController < Users::BaseController
   before_action :find_event, only: %i[edit update destroy]
 
   def index
-    @events = Search::Events.call(current_user, current_user.events.future, params).next_in_time
+    params[:sort_by] ||= :next_in_time
+    @events = Search::Events.call(current_user, current_user.events.future, params)
   end
 
   def new

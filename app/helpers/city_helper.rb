@@ -15,7 +15,8 @@ module CityHelper
 
   def departement_cities_options(city)
     departement_cities_id = City.where(department_code: city.department_code).limit(15).pluck(:id)
-    city_options(City.where(id: departement_cities_id))
+    departement_cities_id << city.id
+    city_options(City.where(id: (departement_cities_id) ))
   end
 
   def city_options(citys = City.all)

@@ -44,20 +44,31 @@ module EventHelper
     [current_participants_count, max_participants_count].join("/")
   end
 
-  # Adresse
+  # Adresse ---------------------------------------
 
   def event_full_address(event)
     [event.address, event.city.long_name].compact.reject(&:blank?).join(", ")
   end
 
-  # Leisure
+  # Leisure ----------------------------------------
   def event_leisure_title(event)
     # event.leisure.present? ? event.leisure.title : event.leisure_category.title
     event.leisure_category.title
   end
 
+  # ouverture -------------------------------------
   def event_openess_icon(key)
     key == 'opened' ? icon_country_reverse : icon_mail_reverse
+  end
+
+  # dates ----------------------------------------
+
+  def event_date(event)
+    if event.end_at.nil?
+      l(event.start_at, format: :event)
+    else
+      "Du #{l(event.start_at, format: :event)} au #{l(event.end_at, format: :event)}"
+    end
   end
 
 

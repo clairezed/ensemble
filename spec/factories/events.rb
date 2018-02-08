@@ -6,8 +6,8 @@ FactoryBot.define do
     sequence(:title) {|n| "event#{n}"}
     start_at Date.current+1.month
     end_at Date.current+1.month+2.day
-    association :country
-    association :leisure_category
+    association :leisure
     association :user
+    association :city
   end
 end

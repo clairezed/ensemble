@@ -12,3 +12,8 @@ section
 
       - if @event.closed?
         = link_to "Gérer les invitations", users_event_invitations_path(@event), class: "btn btn-outline-primary btn-block mt-2"
+
+      - if policy(@event).cancel?
+          = link_to users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "button--main btn-danger mt-2" do 
+            i.fa.fa-close>
+            ' Annuler

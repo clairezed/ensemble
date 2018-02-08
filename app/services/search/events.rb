@@ -2,13 +2,12 @@ module Search
 
   class Events < Base
 
-    RESULTS_PER_PAGE = 20
+    RESULTS_PER_PAGE = 10
 
     private # ==================
 
     def root_relation
       EventPolicy::Scope.new(user, initial_scope).resolve
-        .includes(:user)
         .includes(:leisure)
         .includes(:leisure_category)
         .includes(:city)
@@ -24,7 +23,11 @@ module Search
     end
 
     def sort(relation)
-      relation.apply_sorts(params)
+      return relation unless params[:sort_by].present?
+      relation = relation.nearest_first(user.city.coordinates) if params[:sort_by].to_sym == :nearest_first
+      relation = relation.default_sort(user.city.coordinates) if params[:sort_by].to_sym == :default_sort
+      relation = relation.next_in_time if params[:sort_by].to_sym == :next_in_time
+      relation
     end
 
     def paginate(relation)

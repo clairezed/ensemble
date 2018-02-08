@@ -1,7 +1,7 @@
 module LanguageHelper
 
   def language_options(languages = Language.all)
-    languages.map do |language|
+    languages.order(title: :asc).map do |language|
       [language.title, language.id]
     end
   end

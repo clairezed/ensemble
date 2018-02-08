@@ -12,6 +12,10 @@ section
     - if @invited_users.empty?
       .alert.alert-light role="alert" Il n'y a pas encore d'invité à cet événement
 
+    - if @event.event_invitations.draft.any?
+      = link_to batch_valildate_users_event_invitations_path(@event), method: :patch, class: "button--main mt-4 mb-4" do
+        i.fa.fa-check>
+        ' Valider les invitations
 
 section
   .section_inner
@@ -39,9 +43,6 @@ section
 
     div data-is-list='users'
 
-    = link_to batch_valildate_users_event_invitations_path(@event), method: :patch, class: "button--main mt-4 mb-4" do
-      i.fa.fa-check>
-      ' Valider les invitations
 
 
 coffee:

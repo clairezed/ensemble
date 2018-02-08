@@ -2,12 +2,6 @@ module Search
 
   class Base
 
-    ITEM_TYPES ={
-          ads: "Dans toutes les annonces",
-          companies: "Dans toutes les startups",
-          users: "Dans tous les profils"
-    }
-
     RANGE_SEPARATOR = "au"
 
     attr_accessor :params, :user, :initial_scope

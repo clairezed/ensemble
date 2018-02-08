@@ -17,7 +17,13 @@ Seo.where(param: 'home').first_or_create
 # Import villes
 p "Cities ------------------" 
 unless City.any?
-  CSV.foreach("docs/communes_gps.csv",{headers: :true, col_sep: ';'}) do |row|
+  if Rails.env.test?
+    csv_doc = "docs/communes_gps_vosges.csv"
+  else
+    csv_doc = "docs/communes_gps.csv"
+  end
+
+  CSV.foreach(csv_doc ,{headers: :true, col_sep: ';'}) do |row|
     city = City.where(insee: row['10_code_insee']).first_or_initialize
     if city.new_record?
       city.update_attributes(
@@ -126,12 +132,10 @@ p "Leisures ------------------"
   ] },
 ].each do |category_hash|
   key_category = category_hash[:category].parameterize
-  p key_category
   leisure_category = LeisureCategory.where(key: key_category).first_or_initialize
   leisure_category.update_attributes( title: category_hash[:category] ) if leisure_category.new_record?
   category_hash[:leisures].each do |leisure_title|
     key_leisure = leisure_title.parameterize
-    p key_leisure
     leisure = leisure_category.leisures.where(key: key_leisure).first_or_initialize
     leisure.update_attributes( title: leisure_title ) if leisure.new_record?
   end

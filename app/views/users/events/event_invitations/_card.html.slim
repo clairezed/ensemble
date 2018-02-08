@@ -24,7 +24,6 @@
           = button_tag type: 'submit', class: "btn btn-secondary btn-block" do
             i.fa.fa-plus-circle>
             ' Inviter
-          / = f.submit raw("<i class='fa fa-plus-circle'></i> Inviter"), class: "btn btn-secondary btn-block" 
       / Bouton annuler
       - elsif invitation.draft?
         = link_to users_event_invitation_path(@event, invitation), method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block" do 

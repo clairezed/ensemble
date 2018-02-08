@@ -71,7 +71,7 @@ section
         .profile-info_col-icon
           = icon_clock
         .profile-info_col-content
-          span = l(@event.start_at.to_time)
+          span = event_date(@event)
       .profile-info_row
         .profile-info_col-icon
           = icon_people
@@ -111,6 +111,15 @@ section
 /   .section_inner
 /     h3.section-title Faire un commentaire
 
+section.section
+  .section_inner
+    - invitation = @event.event_invitations.where(user: current_user).first
+    - if invitation.present? && invitation.may_accept?
+      = link_to "Accepter l'invitation", accept_users_invitation_path(invitation), method: :patch, class: "button--main"
+    - elsif policy(@event).participate?
+      = button_to "Participer à l'événement", event_event_participations_path(@event), class: "button--main"
+    - elsif policy(@event).cancel_participation?
+      = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main"
 
 = render 'shared/photoswipe'
 

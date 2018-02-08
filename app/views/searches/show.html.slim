@@ -10,14 +10,16 @@ section.search-show
     
     .search-params
 
-      - search_params.reject{|k,v| v.blank?}.each do |key, val|
+      - search_params.reject{|k,v| (v.blank? || !in_displayable_search_params?(k))}.each do |key, val|
         .search-params_item
           => search_params_icon(key)
           = search_params_label(key,val)
 
 
     .search-results
-      = I18n.t("results", count: @events.count)
+      = I18n.t("results", count: @events.total_count)
 
     - @events.each do |event|
       = render partial: 'events/card', locals: {event: event}
+
+    = paginate @events, window: 0
