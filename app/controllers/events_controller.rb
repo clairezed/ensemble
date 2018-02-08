@@ -3,15 +3,11 @@
 class EventsController < ApplicationController
 
   def index
-    @recommended_events = Search::RecommendedEvents.call(current_user, Event.visible, params)
-      .nearest_first(current_user.city.coordinates)
-      .next_in_time
-    @last_events = Search::Events.call(current_user, Event.visible.normal, params)
-      .nearest_first(current_user.city.coordinates)
-      .next_in_time
+
+    params[:sort_by] ||= :default_sort
+    @recommended_events = Search::RecommendedEvents.call(current_user, Event.visible, params).limit(3)
+    @last_events = Search::Events.call(current_user, Event.visible.normal, params).limit(3)
     @mirador_events = Search::Events.call(current_user, Event.visible.mirador, params)
-      .nearest_first(current_user.city.coordinates)
-      .next_in_time
   end
 
   def show

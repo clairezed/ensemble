@@ -157,8 +157,13 @@ class Event < ApplicationRecord
   # Ordering ----------------------------------------
 
   scope :next_in_time, -> { order(start_at: :asc) }
+
   scope :nearest_first, -> (coordinates) { 
     eager_load(:city).merge(City.nearest_first(coordinates))
+  }
+
+  scope :default_sort, -> (coordinates) {
+    nearest_first(coordinates).next_in_time
   }
 
   # Admin 
@@ -184,27 +189,6 @@ class Event < ApplicationRecord
     end
   end
 
-  # def self.apply_sorts(params)
-  #   # default sorting
-  #   # params[:sort_by] ||= DEFAULT_SORTING_OPTION
-  #   # [
-  #   #   # :nearest_first
-  #   #   :next_in_time,
-  #   # ].inject(all) do |relation, filter|
-  #   #   next relation unless params[:sort_by].to_sym == filter
-  #   #   relation.send(filter)
-  #   # end
-  #   all
-  # end
-
-  # def self.apply_filters(params)
-  #   klass = self
-
-  #   # klass = klass.by_title(params[:by_title]) if params[:by_title].present?
-  #   return self unless self.is_a?(ActiveRecord::Relation)
-
-  #   klass.apply_sorts(params)
-  # end
 
   # Instance methods ====================================================
 

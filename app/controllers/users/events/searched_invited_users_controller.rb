@@ -2,7 +2,7 @@ class Users::Events::SearchedInvitedUsersController < Users::Events::BaseControl
 
 
   def index
-    @users = EventService::GetSearchableUsers.call(@event, params).limit(5)
+    @users = EventService::GetSearchableUsers.call(@event, params)#.limit(5)
     @no_search = params[:by_val].blank?
     respond_to do |format|
       format.html do
