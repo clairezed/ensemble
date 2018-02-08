@@ -86,11 +86,11 @@ html lang="#{I18n.locale}"
                 = icon_profile_reverse
                 .nav-bottom_item-title Profil
             li.nav-bottom_item
-              = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do 
+              = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)} nav-link--notif" do 
+                = icon_bell
                 - if current_user.event_invitations.pending.any?
-                  = icon_bell_notif
-                - else
-                  = icon_bell
+                  span.badge.badge-secondary.nav-link_notif-badge= current_user.event_invitations.pending.count
+
                 .nav-bottom_item-title Invitations
             li.nav-bottom_item.nav-bottom_item--main
               = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do
