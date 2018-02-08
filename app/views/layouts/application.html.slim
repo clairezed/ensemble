@@ -26,7 +26,6 @@ html lang="#{I18n.locale}"
       .container
         = link_to root_path do
           = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
-          / ' Ensemble
 
         button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
           = icon_hamburger
@@ -36,7 +35,6 @@ html lang="#{I18n.locale}"
       .main-menu_header
         .main-menu_title Menu
         .main-menu_close  data-display-menu='close'
-          ' Fermer
           => icon_close
       ul.main-menu_list
         li.main-menu_item
