@@ -8,6 +8,6 @@ FactoryBot.define do
     end_at Date.current+1.month+2.day
     association :leisure
     association :user
-    city City.first
+    association :city
   end
 end

@@ -12,7 +12,7 @@ FactoryBot.define do
     birthdate '1985-03-15'
     sms_notification false
     email_notification true
-    city City.first
+    association :city
 
     leisures{ build_list :leisure, 1 }
   end
