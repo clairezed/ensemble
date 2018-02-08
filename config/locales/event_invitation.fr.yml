@@ -4,7 +4,7 @@ fr:
     states:
       title:
         draft: brouillon
-        pending: en attente
+        pending: envoyée
         accepted: acceptée
         rejected: refusée
       style:
