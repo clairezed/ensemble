@@ -198,6 +198,7 @@ fr:
     pagination:
       first: "Premier"
       last: Dernier
-      next: Suivant
-      previous: "Précédent"
-      truncate: "&hellip;"
+      next: Suiv
+      previous: "Préc"
+      truncate: ""
+      # truncate: "&hellip;"

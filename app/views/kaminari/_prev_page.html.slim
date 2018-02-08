@@ -7,12 +7,8 @@
 /     remote:        data-remote
 
 - content_for :prev_page do
-  i.fa.fa-arrow-left>
+  i.fa.fa-angle-left>
   => t('views.pagination.previous').html_safe
 
-/ span.prev.btn.btn-light class="#{'disabled' if current_page.first?}"
-/   == link_to_unless current_page.first?, content_for(:prev_page), url, rel: 'prev', remote: remote
-
-
 span.prev
-  = link_to_unless current_page.first?, content_for(:prev_page), url, rel: 'prev', remote: remote, class: "btn btn-secondary mr-1"
+  = link_to_unless current_page.first?, content_for(:prev_page), url, rel: 'prev', remote: remote, class: "btn btn-primary"
