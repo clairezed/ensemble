@@ -1,6 +1,10 @@
-## Rails starter
+## Ensemble
 
-Rails personal project base
+Website to share our worlds - "Partageons nos monde"
+
+Ensemble is a website that makes people from different cultures meet and make things together.
+
+[![Build Status](https://travis-ci.org/clairezed/ensemble.svg?branch=master)](https://travis-ci.org/clairezed/ensemble)
 
 ## Getting Started
 
@@ -179,11 +183,12 @@ There's a `.travis.yml` file to integrate with Travis CI.
 
 ## Authors
 
-* **Claire Zuliani** - [github account](https://github.com/clairezed)
+* **Claire Zuliani** - front end / back end [github account](https://github.com/clairezed)
+* **Gabriel Loisy** - design [github account](https://github.com/Gabriel-phi)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the AGPL 3.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
