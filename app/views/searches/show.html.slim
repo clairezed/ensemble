@@ -19,7 +19,6 @@ section.search-show
     .search-results
       = I18n.t("results", count: @events.total_count)
 
-    - @events.each do |event|
-      = render partial: 'events/card', locals: {event: event}
+    = render partial: 'events/card', collection: @events, as: :event
 
     = paginate @events, window: 0

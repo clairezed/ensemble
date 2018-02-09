@@ -5,7 +5,10 @@ class @RangePicker
     mode:   'range'
     altInput: true
     altFormat: 'j/m/Y'
-    # dateFormat: 
+    onClose: (selectedDates, dateStr, instance)->
+      if !!dateStr
+        selectedDates.push(selectedDates[0]) if selectedDates.length == 1
+        instance.setDate(selectedDates)
 
   constructor: ($input = $("[data-is-rangepicker]"), options = {}) ->
     @$input = $input

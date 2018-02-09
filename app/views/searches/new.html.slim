@@ -66,9 +66,6 @@ section
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
           prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
-        / .form-group
-        /   = select_tag "by_leisure_categories[]", "", prompt: "Chercher une compétence", class: "form-control",  data: {is_autocomplete_select: 'competence', path: competences_path, minus_uc: params[:by_competence]}
-
         = submit_tag "Chercher", class: "button--main mt-4"
       
   coffee: 
