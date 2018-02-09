@@ -15,3 +15,4 @@ class @RangePicker
     @options = $.extend(true, {}, @DEFAULT_OPTIONS, options)
 
     return @$input.flatpickr(@options)
+

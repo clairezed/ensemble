@@ -56,7 +56,10 @@ section
         = label_tag :by_dates, class: ''  do
           => icon_calendar
           ' Date ou période
-        => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
+        .input.d-flex
+          => text_field_tag :by_dates, params[:by_dates], class: "form-control col-10", data: {is_rangepicker: true}
+          a.btn.btn-link.btn-sm.pl-0.col-2 data-date-clear="true"
+            i.fa.fa-refresh
 
       .form-group
         = label_tag :by_city  do

@@ -6,3 +6,6 @@ class @EventSearch
     rangePicker = new RangePicker()
     leisureCheckboxes = new LeisureCheckboxes()
 
+    $('[data-date-clear]').on 'click', =>
+      rangePicker.clear()
+
