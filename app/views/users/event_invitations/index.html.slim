@@ -12,11 +12,15 @@ section
   .section_inner
     - @event_invitations.each do |invitation|
       = render partial: 'events/card', locals: {event: invitation.event}
-      div.d-flex
-        - if invitation.may_accept?
-          = link_to "Accepter", accept_users_invitation_path(invitation), method: :patch, class: "btn btn-success w-100"
+      div.d-flex.event-invitation_actions
         - if invitation.may_reject?
-          = link_to "Refuser", reject_users_invitation_path(invitation), method: :patch, class: "btn btn-danger w-100"
+          = link_to reject_users_invitation_path(invitation), method: :patch, class: "btn btn-danger w-100" do 
+            i.fa.fa-close>
+            ' Refuser
+        - if invitation.may_accept?
+          = link_to accept_users_invitation_path(invitation), method: :patch, class: "btn btn-success w-100" do
+            i.fa.fa-check>
+            ' Accepter
 
     - if @event_invitations.empty?
       alert.alert-light Vous n'avez pas d'invitations en cours
