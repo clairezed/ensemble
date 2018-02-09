@@ -1,11 +1,22 @@
 = f.hm_form_errors
-
   
 .form-group.required
   = f.label :title, class: '' do
     => icon_edit
     ' Titre
   = f.text_field :title, class: 'form-control'
+
+.form-group.required
+  = f.label :visibility, class: '' do
+    / => icon_interest
+    ' Type
+  .row
+    - Event.visibilities.each do |key, value|
+      .col
+        => f.radio_button :visibility, key, class: "d-none button-radio-input", data: {is_visibility: key}
+        = f.label :visibility, value: key, class: "button-radio" do
+          => event_openess_icon(key)
+          span.label-title=> event_visibility(key)
 
 / centre d interet
 .form-group
@@ -95,7 +106,7 @@
 
 / Nb de personnes
 
-.form-group
+.form-group data-hidden-if="closed"
   = label_tag :participants do
     = icon_people
     ' Nombre de participants max
@@ -150,15 +161,7 @@
         = file_field_tag :"asset_event_attachment[asset]", accept: Asset::EventAttachment::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {doc_upload: true, url: users_event_attachments_path(f.object), method: 'POST', type: 'script'}, class:'d-none'
 
 
-.form-group.required
-  .row
-    - Event.visibilities.each do |key, value|
-      .col
-        => f.radio_button :visibility, key, class: "d-none button-radio-input"
-        = f.label :visibility, value: key, class: "button-radio" do
 
-          => event_openess_icon(key)
-          span.label-title=> event_visibility(key)
 
 => f.submit "Valider", class: "button--main"
 

@@ -13,6 +13,8 @@ class @EventForm
     participantSlider = new ParticipantsCountSlider()
     leisureRadio      = new LeisureRadio()
 
+    @toggleParticipantField()
+
     $('[data-date-clear="end"]').on 'click', ->
       end_datepicker.clear()
       end_timepicker.clear()
@@ -20,4 +22,12 @@ class @EventForm
     $('[data-date-clear="start"]').on 'click', ->
       start_datepicker.clear()
       start_timepicker.clear()
+
+    $("[data-is-visibility]").on 'change', =>
+      @toggleParticipantField()
+
+  toggleParticipantField: ->
+    isClosedEvent = $("[data-is-visibility='closed']").prop('checked')
+    if isClosedEvent then $("[data-hidden-if='closed']").hide() else $("[data-hidden-if='closed']").show()
+
 

@@ -47,13 +47,13 @@
     height: 40px
 
 .button-radio
-  @extend .btn, .btn-block
-  color: $white
-  background-color: lighten($primary, 10%)
-  border-color: $primary
+  @extend .btn, .btn-block, .btn-outline-primary
+  // color: $white
+  // background-color: lighten($primary, 10%)
+  // border-color: $primary
 
 .button-radio-input:checked + .button-radio
-  background-color: $primary
+  @extend .btn-primary
   .label-title:after
     content: '\f00c'
     font-family: FontAwesome

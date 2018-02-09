@@ -15,5 +15,12 @@ FactoryBot.define do
     association :city
 
     leisures{ build_list :leisure, 1 }
+
+     trait :admin_accepted do
+      verification_state :admin_accepted
+      sms_confirmed_at Time.current
+      confirmed_at Time.current
+    end
+
   end
 end
