@@ -10,7 +10,6 @@
 / centre d interet
 .form-group
   = f.label :leisures, class: '' do
-    / i.fa.fa-users>
     => icon_interest
     ' Centres d'intérêt
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
@@ -50,19 +49,29 @@
     ' Date de début
   .form-row
     .col-6
-      = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}, placeholder: "jj/mm/aaaa"
-    .col-6
-      = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}, placeholder: "hh:mm"
-  
+      small.form-text.text-muted jj/mm/aaaa
+      = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}
+    .col-5
+      small.form-text.text-muted hh:mm
+      = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}
+    .col-1.pt-4
+      a.btn.btn-link.btn-sm.pl-0 data-date-clear="start"
+        i.fa.fa-refresh
+
 .form-group
   = f.label :end_at, class: '' do
     => icon_calendar
-    ' Date de fin
+    ' Date de fin (facultatif)
   .form-row
     .col-6
-      = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}, placeholder: "jj/mm/aaaa"
-    .col-6
-      = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}, placeholder: "hh:mm"
+      small.form-text.text-muted jj/mm/aaaa
+      = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}
+    .col-5
+      small.form-text.text-muted hh:mm
+      = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}
+    .col-1.pt-4
+      a.btn.btn-link.btn-sm.pl-0 data-date-clear="end"
+        i.fa.fa-refresh
 
 .form-group
   = f.label :address, class: '' do
