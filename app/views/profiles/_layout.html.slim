@@ -4,9 +4,9 @@
 / profile header ---------------------------------------
 section.section--reverse
   .section_inner
-    .text-center.mb-2
-      = image_tag @user.avatar_url(:detail)
-    h1.section-title--centered = user_nickname(@user)
+    .text-center
+      = image_tag @user.avatar_url(:detail), class:'avatar-pic'
+    h1.section-title--centered.mb-0 = user_nickname(@user)
 
 / profile actions ---------------------------------------
 section.section
