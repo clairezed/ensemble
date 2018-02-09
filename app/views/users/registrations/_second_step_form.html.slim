@@ -14,7 +14,7 @@
   = f.label :phone, class: '' do
     => icon_mobile_phone
     ' Téléphone portable
-  = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
+  = f.phone_field :phone, class: 'form-control', placeholder: 'ex : +336... ou 06...'
 
 .form-group.required
   = f.label :city_id, class: '' do
@@ -27,7 +27,7 @@
     => icon_calendar
     ' Né.e le
   .input-group
-    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "format : jj/mm/aaaa"
     div.input-group-append data-toggle-picker=''
       span.input-group-text
         i.fa.fa-calendar
