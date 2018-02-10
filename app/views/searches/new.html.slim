@@ -14,7 +14,7 @@ section
       .form-group
         = label_tag :by_text, "Titre", class: '' do
           => icon_edit
-          ' Titre
+          ' Titre ou description
         => text_field_tag :by_text, params[:by_text], class: "form-control"
 
       .form-group
@@ -56,7 +56,10 @@ section
         = label_tag :by_dates, class: ''  do
           => icon_calendar
           ' Date ou période
-        => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true}
+        .input.d-flex
+          => text_field_tag :by_dates, params[:by_dates], class: "form-control col-10", data: {is_rangepicker: true}
+          a.btn.btn-link.btn-sm.pl-0.col-2 data-date-clear="true"
+            i.fa.fa-refresh
 
       .form-group
         = label_tag :by_city  do
@@ -65,9 +68,6 @@ section
         = select_tag :by_city, \
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
           prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
-
-        / .form-group
-        /   = select_tag "by_leisure_categories[]", "", prompt: "Chercher une compétence", class: "form-control",  data: {is_autocomplete_select: 'competence', path: competences_path, minus_uc: params[:by_competence]}
 
         = submit_tag "Chercher", class: "button--main mt-4"
       

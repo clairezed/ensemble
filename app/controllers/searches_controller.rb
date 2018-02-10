@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    params[:sort_by] ||= :default_sort
+    params[:sort_by] ||= :next_in_time
     @events = Search::Events.call(current_user, Event.visible, search_params)
   end
 

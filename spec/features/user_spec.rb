@@ -1,10 +1,99 @@
 require "rails_helper"
 
-feature "Inscription/Connexion User" do
-  before(:each) do
-    @user = create(:user)
-    p @user
+feature "Inscription User" do
+
+  # scenario "user can complete two steps registration", js: true do
+  scenario "user can complete two steps registration" do
+    # Step 1 ---------------------------------
+    visit root_path
+    click_button "OK"
+    expect(current_path).to eq(user_registration_path)
+    expect(page).to have_content 'erreurs'
+
+    fill_first_step
+    expect { click_button "OK" }.to change { User.count }.by(1)
+    new_user = User.where(email: "eglantine@mail.com").first
+    expect(new_user.registration_complete?).to be false
+    expect(current_path).to eq(new_second_step_path)
+
+    # Step 2 ---------------------------------
+    click_button "Je m'inscris"
+    expect(current_path).to eq(create_second_step_path)
+    expect(page).to have_content 'erreurs'
+
+    fill_second_step
+    click_button "Je m'inscris"
+    # save_and_open_screenshot
+    expect(current_path).to eq(users_parameters_path)
+    expect(new_user.verification_state).to eq('pending')
+    expect(new_user.reload && new_user.registration_complete?).to be true
   end
+
+  context "when registration stopped after step 1" do
+
+    scenario "user cant go to another page" do
+      visit root_path
+      fill_first_step
+      click_button "OK"
+      expect(current_path).to eq(new_second_step_path)
+
+      visit events_path
+      expect(current_path).to eq(new_second_step_path)
+    end
+
+    context "with user already created" do
+      let!(:user) { create(:user, email: 'uncomplete@mail.com', password: 'password') }
+
+      scenario "when I try to sign in" do
+        visit new_user_session_path
+        fill_in "user_email", with: user.email
+        fill_in "user_password", with: user.password
+        click_button "Connexion"
+        expect(current_path).to eq(new_second_step_path)
+      end
+
+      scenario "when I try to sign up again" do
+      end
+    end
+
+
+  end
+
+end
+
+def fill_first_step
+  fill_in("user_email", with: "eglantine@mail.com")
+  fill_in("user_firstname", with: "Eglantine")
+  fill_in("user_lastname", with: "Zuliani")
+  fill_in("user_password", with: "Password1")
+  # fill_in("user_password_confirmation", with: "Password1")
+end
+
+def fill_second_step
+  choose "user_gender_female"
+  fill_in("user_phone", with: "0606060606")
+  select 'Epinal', from: 'user_city_id', visible: false
+  # select2_ajax "Epinal", :from => "Rechercher...", :minlength => 2
+  page.find("#user_birthdate", visible: false).set("02/05/1985")
+  # page.find("#user_leisure_ids_#{Leisure.first.id}", visible: false).set("02/05/1985")
+  check "user_cgu_accepted"
+end
+
+
+def expect_user_to_not_be_logged
+  visit(edit_user_registration_path)
+  expect(current_path).to eq(new_user_session_path)
+end
+
+def expect_user_to_be_logged
+  visit(edit_user_registration_path)
+  expect(current_path).to eq(edit_user_registration_path)
+end
+
+def user_log_in
+  login_as @user, scope: :user
+  expect_user_to_be_logged
+end
 
 #   scenario "User se connecte avec de bons identifiants" do
 #     visit root_path
@@ -148,31 +237,3 @@ feature "Inscription/Connexion User" do
 #     expect(current_path).to eq(admin_users_path)
 #     expect(page).not_to have_content(@user.email)
 #   end
-
-end
-
-def fill_user_inputs
-  fill_in("user_lastname", with: "nom")
-  fill_in("user_firstname", with: "prenom")
-  fill_in("user_nickname", with: "pseudo")
-  fill_in("user_email", with: "user2@email.com")
-  fill_in("user_company", with: "Studio HB")
-  fill_in("user_password", with: "password")
-  fill_in("user_password_confirmation", with: "password")
-  first('input#locality', visible: false).set("Lyon")
-end
-
-def expect_user_to_not_be_logged
-  visit(edit_user_registration_path)
-  expect(current_path).to eq(new_user_session_path)
-end
-
-def expect_user_to_be_logged
-  visit(edit_user_registration_path)
-  expect(current_path).to eq(edit_user_registration_path)
-end
-
-def user_log_in
-  login_as @user, scope: :user
-  expect_user_to_be_logged
-end

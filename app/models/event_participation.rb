@@ -20,7 +20,7 @@ class EventParticipation < ApplicationRecord
       errors.add(:base, "L'événement est complet, vous ne pouvez pas y participer.")
       false
     end
-    validate :event_not_full?, on: :create
+    validate :event_not_full?, on: :create, if: ->(p) { p.event.opened? }
 
   protected 
 

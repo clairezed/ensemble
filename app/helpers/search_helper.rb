@@ -3,7 +3,7 @@ module SearchHelper
   DISPLAYABLE_SEARCH_PARAMS = [:by_text, :by_dates, :by_city, :by_leisures]
 
   def in_displayable_search_params?(val)
-    DISPLAYABLE_SEARCH_PARAMS.include?(val)
+    DISPLAYABLE_SEARCH_PARAMS.include?(val.to_sym)
   end
 
   def search_params_icon(key)

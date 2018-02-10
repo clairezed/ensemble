@@ -2,6 +2,7 @@ class @Select2Simple
 
   DEFAULT_OPTIONS:
     debug: true
+    placeholder: "Rechercher..."
     language: {
       errorLoading: ->
         return 'Les résultats ne peuvent pas être chargés.'
