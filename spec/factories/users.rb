@@ -16,7 +16,12 @@ FactoryBot.define do
 
     leisures{ build_list :leisure, 1 }
 
-     trait :admin_accepted do
+    trait :registration_complete do
+      registration_complete true
+    end
+
+    trait :admin_accepted do
+      registration_complete true
       verification_state :admin_accepted
       sms_confirmed_at Time.current
       confirmed_at Time.current
