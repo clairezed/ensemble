@@ -13,6 +13,9 @@
         - (1..30).each do |i|
           span class="path#{i}"
   .event-card_body
+    - if event.with_mirador_participant?
+      .event-card_body-mirador-participant
+        => icon_mirador_participant
     .event-card_body-header
       h3.event-card_body-title = event.title
     - if event.mirador?

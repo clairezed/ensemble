@@ -2,6 +2,10 @@
 
 = link_to profile_path(user)
   .profile-thumb
-    = image_tag user.avatar_url(:detail), class: "profile-thumb_picture"
+    .profile-thumb_picture
+      = image_tag user.avatar_url(:detail), class: ""
+      - if user.mirador?
+        .profile-thumb_mirador 
+          => icon_mirador
     .profile-thumb_body
       p= user_nickname(user)

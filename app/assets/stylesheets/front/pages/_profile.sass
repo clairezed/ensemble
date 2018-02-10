@@ -31,6 +31,7 @@
     align-items: center
     margin-left: .25rem
     margin-right: .25rem
+    position: relative
     &:not(:first-child)
       margin-top: .5rem
   &_col-icon
@@ -42,6 +43,14 @@
   &_col-content
     @extend .col-10
     padding: .25rem
+  &_mirador-participant
+    position: absolute
+    bottom: 5px
+    right: 0
+    padding: 3px
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.075)
+    .ico
+      font-size: 2rem
 
 .profile-info_leisure-category
   font-size: 1rem

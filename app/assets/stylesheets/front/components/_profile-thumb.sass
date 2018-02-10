@@ -1,13 +1,27 @@
 .profile-thumb
   @extend .card
+  margin-bottom: 0.25rem
   &:hover
     text-decoration: none
   &_picture
-    @extend .card-img-top
+    img
+      @extend .card-img-top
+    position: relative
+    &:hover
+      inherit
+  &_mirador
+    z-index: 100
+    position: absolute
+    bottom: -8px
+    right: 2px
+    .ico
+      font-size: 1.8rem
   &_body
     @extend .card-body
     padding: .25rem
     font-size: .8rem
     p 
       margin: 0
+    &:hover
+      inherit
 

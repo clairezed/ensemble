@@ -78,6 +78,9 @@ section
           / title="Nombre de participants actuels / Nombre maximum de participants"
         .profile-info_col-content
           span = event_participants_count(@event)
+        - if @event.with_mirador_participant?
+          .profile-info_mirador-participant
+            => icon_mirador_participant  
     
     - if wysiwyg_present?(@event.description)
       .profile-info--big

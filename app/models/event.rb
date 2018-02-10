@@ -232,4 +232,10 @@ class Event < ApplicationRecord
     participants.count >= participants_max
   end
 
+  # Participants -------------------------
+
+  def with_mirador_participant?
+    participants.mirador.any?
+  end
+
 end

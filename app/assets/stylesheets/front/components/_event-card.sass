@@ -45,6 +45,7 @@ $event-card-meta-margin: 22px
     flex-direction: column
     flex: 1 1 auto
     margin-left: - $event-card-meta-margin
+    position: relative
     &-header, &-footer
       display: flex
       flex: 1 1 auto
@@ -68,6 +69,12 @@ $event-card-meta-margin: 22px
       background-color: $primary
       color: $text-reverse
       padding-left: $event-card-meta-margin +2px
+    &-mirador-participant
+      position: absolute
+      top: 5px
+      right: 5px
+      padding: 3px
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,.075)
     &-footer
       justify-content: space-around
       align-items: center
