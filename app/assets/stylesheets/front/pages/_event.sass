@@ -31,3 +31,16 @@ $event-meta-height: 80px
       font-size: 3rem
   > section
     padding-top: 30px
+
+
+.event-show_statuses
+  &-card
+    @extend .alert, .alert-light
+    text-align: center
+    color: $text
+    &:first-child
+      margin-top: 1rem
+    &:not(:first-child)
+      margin-top: .25rem
+    .ico
+      font-size: 1.5rem
