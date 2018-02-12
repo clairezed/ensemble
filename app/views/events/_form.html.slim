@@ -161,9 +161,9 @@
         = file_field_tag :"asset_event_attachment[asset]", accept: Asset::EventAttachment::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {doc_upload: true, url: users_event_attachments_path(f.object), method: 'POST', type: 'script'}, class:'d-none'
 
 
-
-
-=> f.submit "Valider", class: "button--main"
+hr
+.form-group.mt-3
+  => f.submit "Valider", class: "button--main"
 
 - unless f.object.new_record? 
   = render "events/event_pictures/hb_thumbs"

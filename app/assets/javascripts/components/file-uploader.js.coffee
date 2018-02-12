@@ -171,6 +171,7 @@ class @FileUploader
   populateForm: (file) =>
     format = @getFormat(file.type)
     $("[data-is-ta-attribute='custom_file_name']").val(file.name)
+    $("[data-is-ta-attribute='title']").val("")
 
   submitForm: (data) =>
     data.formData= [

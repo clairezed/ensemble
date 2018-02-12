@@ -98,6 +98,17 @@ section
                 = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
                   = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
 
+    - if @event.attachments.any?
+      .profile-info--big
+        h3.section-title Documents
+
+        - @event.attachments.each do |attachment|
+          .event-attachement-block
+            .event-attachement-block_content
+              = link_to attachment.asset.url, target: "_blank", class: "" do 
+                i.fa.fa-file>
+                span = attachment.title
+
 section
   .section_inner
     h3.section-title Participants
