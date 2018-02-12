@@ -20,6 +20,7 @@ gem 'pundit'
 gem 'geocoder', '~> 1.4.0'
 gem "pg_search"
 gem 'global_phone', '~> 1.0'
+gem 'delayed_job_active_record'
 
 # Asset pipeline ==========================================
 gem 'coffee-rails', '~> 4.2'
@@ -46,8 +47,12 @@ gem 'rotp', '~> 3.3'
 gem 'twilio-ruby', '~> 5.5'
 
 #= NOTIFS =================================
-gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
-
+group :production, :staging do
+  #= NOTIFS =================================
+  gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
+  #= Outil pour delayed job en prod =========
+  gem 'daemons'
+end
 
 group :development do
   gem 'listen', '~> 3.1.5'

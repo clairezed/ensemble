@@ -33,13 +33,13 @@ module Twilio
       Rails.logger.warn recipient_number
       begin
         if Rails.env.staging? || Rails.env.production?
-          message = client.messages.create(
+          message = client.messages.delay.create(
             body: message,
             to: recipient_number,    
             from: SENDER_PHONE_NUMBER)
         end
       rescue Twilio::REST::TwilioError => e
-        raise e
+        raise e if Rails.env.development?
         puts e.message
         return false
       end

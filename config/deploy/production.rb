@@ -23,12 +23,12 @@ after "bundle:install" do
 end
 
 #= Delayed Job ==============================================
-# require 'delayed/recipes'
-# set :delayed_job_command, "bin/delayed_job"
-# after "deploy:start", "delayed_job:start"
-# after "deploy:stop", "delayed_job:stop"
-# after "deploy:restart", "delayed_job:stop"
-# after "deploy:restart", "delayed_job:start"
+require 'delayed/recipes'
+set :delayed_job_command, "bin/delayed_job"
+after "deploy:start", "delayed_job:start"
+after "deploy:stop", "delayed_job:stop"
+after "deploy:restart", "delayed_job:stop"
+after "deploy:restart", "delayed_job:start"
 
 #= Configuration=============================================
 default_run_options[:pty] = true
