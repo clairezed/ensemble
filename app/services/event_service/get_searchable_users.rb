@@ -19,12 +19,16 @@ module EventService
         :substract_organizer,
         :substract_invited_users,
         :limit
-      ].inject(User.all) do |relation, step|
+      ].inject(user_base_scope) do |relation, step|
         send(step, relation)
       end
     end
 
     private
+
+    def user_base_scope
+      User.visible
+    end
 
     def filter_by_nickname(users)
       users.by_nickname(params[:by_val], strict: true)

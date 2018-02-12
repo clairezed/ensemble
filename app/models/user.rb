@@ -111,8 +111,16 @@ class User < ApplicationRecord
 
   # Scopes ======================================================================
 
+  scope :visible, -> { with_registration_completed.not_admin_rejected }
+
+  scope :with_registration_completed, -> { where registration_complete: true }
+  scope :not_admin_rejected, -> { where.not(verification_state: verification_states[:admin_rejected])}
+
+
   scope :email_notified, -> { where email_notification: true}
   scope :sms_notified, -> { where sms_notification: true}
+
+  # filtering ---------------------------------------------
 
   scope :by_name_or_email, -> (val) {
     val.downcase!

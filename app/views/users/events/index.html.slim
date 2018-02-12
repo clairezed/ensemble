@@ -7,7 +7,12 @@
       .section_inner
         = render partial: 'events/card', locals: {event: event}
         - if policy(event).cancel_participation?
-          = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main"
+          - if event.closed?
+            = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"}
+          - else
+            = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main"
+
+
         - if policy(event).update?
           = link_to "Modifier", edit_users_event_path(event), class: "button--main"
 

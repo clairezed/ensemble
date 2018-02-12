@@ -8,6 +8,10 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+  def see?
+    visible_event? || is_participant? || is_invited? || is_organizer?
+  end
+
   def update?
     is_organizer? && record.active?
   end
@@ -32,6 +36,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def is_participant?
+    user.participation_at(record).present?
+  end
+
+  def is_invited?
     user.participation_at(record).present?
   end
 

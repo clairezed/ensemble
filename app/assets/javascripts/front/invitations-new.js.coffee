@@ -8,6 +8,7 @@ class @InvitationsNew
 
     @$userSearchInput.on 'keyup', =>
       console.log 'yo'
+      console.log @$userSearchInput.val()
       $.ajax
         type: 'GET'
         url: @userSPath
