@@ -1,0 +1,49 @@
+// Picture-card ==================================
+
+.picture-card_container
+  display: flex
+  margin-right: -8px
+  margin-left: -8px
+  flex-wrap: wrap
+  &--avatar .img-fluid
+    width: 100%
+
+
+.picture-card
+  flex: 0 0 33%
+  padding-right: 8px
+  padding-left: 8px
+  margin-bottom: 10px
+  overflow-wrap: break-word
+  overflow: hidden
+  &.picture-card--upload
+    font-size: .7rem
+    .picture-card_body
+      padding: 10px
+      background-color: #ededed
+    .picture-card_label
+      overflow: hidden
+      text-overflow: ellipsis
+
+// .button
+//   @extend .btn, .btn-block
+//   box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
+//   transition: all $transition-default
+
+// .button-upload
+//   @extend .btn, .btn-outline-primary
+//   display: flex
+//   justify-content: center
+//   align-items: center
+//   width: 80px
+//   height: 80px
+//   cursor: pointer
+//   &--block
+//     display: block
+//     width: 100%
+//     height: 40px
+
+  // &_delete-btn
+  //   @extend .btn
+    // @extend .btn, .btn-sm, .btn-danger, .btn-block
+//     margin-top: 1px

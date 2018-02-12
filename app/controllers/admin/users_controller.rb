@@ -15,7 +15,6 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new(profile_params)
     if @user.save
-
       flash[:notice] = "L'utilisateur a été créé avec succès"
       redirect_to params[:continue].present? ? edit_admin_user_path(@user) : users_redirect_path
     else
@@ -42,7 +41,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    if @user.update(parameters_params)
+    if @user.update_without_password(parameters_params)
       flash[:notice] = "Paramètres mis à jour avec succès"
       redirect_to params[:continue].present? ? edit_admin_user_path(@user) : admin_users_path
     else
@@ -95,7 +94,7 @@ class Admin::UsersController < Admin::BaseController
 
   # strong parameters
   def profile_params
-    params.require(:user).permit(:gender, :phone, :birthdate, :description, :city_id, 
+    params.require(:user).permit(:firstname, :lastname, :gender, :phone, :birthdate, :description, :city_id, :visited_countries, 
       language_ids: [], leisure_ids: [],
       avatar_attributes: [ :id, :asset, :_destroy])
   end
@@ -106,7 +105,7 @@ class Admin::UsersController < Admin::BaseController
       :sms_notification, :email_notification, 
       :affiliation
       )
-    p.merge!(params.require(:user).permit(:password, :password_confirmation)) if params[:user][:password].present?
+    # p.merge!(params.require(:user).permit(:password, :password_confirmation)) if params[:user][:password].present?
     p
   end
 

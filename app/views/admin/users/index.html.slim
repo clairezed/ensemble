@@ -3,6 +3,7 @@
   table.table.table-striped.table-hover.table-sm
     thead.thead-inverse
       tr
+        th 
         th = hm_sort 'sort_by_created_at', label: 'Date création'
         th = hm_sort 'sort_by_lastname', label: 'Nom'
         th = hm_sort 'sort_by_firstname', label: 'Prénom'
@@ -14,6 +15,7 @@
     tbody
       - @users.each do |user| 
         tr
+          td= image_tag user.avatar_url(:thumb)
           td= l user.created_at.to_date
           td= user.lastname
           td= user.firstname

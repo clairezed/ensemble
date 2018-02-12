@@ -22,6 +22,7 @@
   table.table.table-striped.table-hover.table-sm
     thead.thead-inverse
       tr
+        th 
         th Date de création
         th Famille de loisirs
         th Titre
@@ -29,6 +30,10 @@
     tbody
       - @leisures.each do |leisure| 
         tr
+          td      
+            span.ico> class="ico-#{leisure.key}"
+              - (1..30).each do |i|
+                span class="path#{i}"
           td= l leisure.created_at
           td= leisure.leisure_category.title
           td= leisure.title
