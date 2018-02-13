@@ -108,15 +108,16 @@
 
 .form-group data-hidden-if="closed"
   = label_tag :participants do
-    = icon_people
+    => icon_people
     ' Nombre de participants max
-  = f.text_field :participants_max, data: {is_slider: 'participants'}
+  .range-slider-container
+    = f.text_field :participants_max, data: {is_slider: 'participants'}
 
 / Photos
 .form-group
   / .label-title  Photos de l'événement
   = f.label :pictures do
-    = icon_camera
+    => icon_camera
     ' Photos de l'événement
   p.form-text.text-muted.small: em 
     ' Formats autorisés : .jpeg, .png

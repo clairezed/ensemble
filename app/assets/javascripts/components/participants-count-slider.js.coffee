@@ -3,6 +3,7 @@ class @ParticipantsCountSlider
   DEFAULT_OPTIONS:
     min: 1
     max: 50
+    from: 5
     grid: false,
     force_edges: true
 
