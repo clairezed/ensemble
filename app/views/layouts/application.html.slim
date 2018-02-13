@@ -17,7 +17,7 @@ html lang="#{I18n.locale}"
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
     /<![endif]
 
-    = favicon_link_tag asset_path 'favicon.ico'
+    = favicon_link_tag asset_path 'favicon.png'
 
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
@@ -52,7 +52,7 @@ html lang="#{I18n.locale}"
               ' Mes événements
           li.main-menu_item
             = link_to new_search_path, class: "main-menu_item-link" do 
-              => icon_search_reverse
+              => icon_search
               ' Recherche
           li.main-menu_item
             = link_to users_parameters_path, class: "main-menu_item-link" do
@@ -103,5 +103,5 @@ html lang="#{I18n.locale}"
                 .nav-bottom_item-title Evénements
             li.nav-bottom_item
               = link_to new_search_path, class: "nav-link #{active_if(:search)}" do 
-                = icon_search
+                = icon_search_reverse
                 .nav-bottom_item-title Recherche

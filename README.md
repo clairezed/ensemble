@@ -138,6 +138,12 @@ Exemple : `yarn add jquery`
 
 Then, in `app/assets/javascripts/application.js.coffee`, add `#= require jquery`
 
+Foreman vous permettra de démarrer serveur et delayed job à la fois
+
+```bash
+foreman start -f Procfile.dev       
+```
+
 ## Running the tests
 
   rake db:test:prepare

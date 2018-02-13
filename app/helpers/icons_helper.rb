@@ -41,7 +41,7 @@ module IconsHelper
   end
 
   def icon_calendar_futur
-    render_icon('calendar-futur', 14)
+    render_icon('calendar-future', 14)
   end
 
   def icon_calendar_past

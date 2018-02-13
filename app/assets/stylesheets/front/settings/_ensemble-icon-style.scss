@@ -1,0 +1,4424 @@
+@import "ensemble-icon-variables";
+
+@font-face {
+  font-family: 'ensemble';
+  src:  font-url('ensemble.eot?nw39y1');
+  src:  font-url('ensemble.eot?nw39y1#iefix') format('embedded-opentype'),
+    font-url('ensemble.ttf?nw39y1') format('truetype'),
+    font-url('ensemble.woff?nw39y1') format('woff'),
+    font-url('ensemble.svg?nw39y1#ensemble') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ico-"], [class*=" ico-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ensemble' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-add .path1 {
+  &:before {
+    content: $ico-add-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-add .path2 {
+  &:before {
+    content: $ico-add-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-add .path3 {
+  &:before {
+    content: $ico-add-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-add .path4 {
+  &:before {
+    content: $ico-add-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-add-reverse .path1 {
+  &:before {
+    content: $ico-add-reverse-path1;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-add-reverse .path2 {
+  &:before {
+    content: $ico-add-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-add-reverse .path3 {
+  &:before {
+    content: $ico-add-reverse-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-add-reverse .path4 {
+  &:before {
+    content: $ico-add-reverse-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-attachment .path1 {
+  &:before {
+    content: $ico-attachment-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-attachment .path2 {
+  &:before {
+    content: $ico-attachment-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path3 {
+  &:before {
+    content: $ico-attachment-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path4 {
+  &:before {
+    content: $ico-attachment-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path5 {
+  &:before {
+    content: $ico-attachment-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-attachment .path6 {
+  &:before {
+    content: $ico-attachment-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bell .path1 {
+  &:before {
+    content: $ico-bell-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-bell .path2 {
+  &:before {
+    content: $ico-bell-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-bell .path3 {
+  &:before {
+    content: $ico-bell-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-bell-notif .path1 {
+  &:before {
+    content: $ico-bell-notif-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-bell-notif .path2 {
+  &:before {
+    content: $ico-bell-notif-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-bell-notif .path3 {
+  &:before {
+    content: $ico-bell-notif-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-bell-notif .path4 {
+  &:before {
+    content: $ico-bell-notif-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-bell-notif .path5 {
+  &:before {
+    content: $ico-bell-notif-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-calendar .path1 {
+  &:before {
+    content: $ico-calendar-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-calendar .path2 {
+  &:before {
+    content: $ico-calendar-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar .path3 {
+  &:before {
+    content: $ico-calendar-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar .path4 {
+  &:before {
+    content: $ico-calendar-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar .path5 {
+  &:before {
+    content: $ico-calendar-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar .path6 {
+  &:before {
+    content: $ico-calendar-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path1 {
+  &:before {
+    content: $ico-calendar-future-path1;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path2 {
+  &:before {
+    content: $ico-calendar-future-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-calendar-future .path3 {
+  &:before {
+    content: $ico-calendar-future-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-calendar-future .path4 {
+  &:before {
+    content: $ico-calendar-future-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path5 {
+  &:before {
+    content: $ico-calendar-future-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path6 {
+  &:before {
+    content: $ico-calendar-future-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path7 {
+  &:before {
+    content: $ico-calendar-future-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path8 {
+  &:before {
+    content: $ico-calendar-future-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path9 {
+  &:before {
+    content: $ico-calendar-future-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path10 {
+  &:before {
+    content: $ico-calendar-future-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path11 {
+  &:before {
+    content: $ico-calendar-future-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path12 {
+  &:before {
+    content: $ico-calendar-future-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path13 {
+  &:before {
+    content: $ico-calendar-future-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-future .path14 {
+  &:before {
+    content: $ico-calendar-future-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path1 {
+  &:before {
+    content: $ico-calendar-past-path1;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path2 {
+  &:before {
+    content: $ico-calendar-past-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-calendar-past .path3 {
+  &:before {
+    content: $ico-calendar-past-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-calendar-past .path4 {
+  &:before {
+    content: $ico-calendar-past-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path5 {
+  &:before {
+    content: $ico-calendar-past-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path6 {
+  &:before {
+    content: $ico-calendar-past-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path7 {
+  &:before {
+    content: $ico-calendar-past-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path8 {
+  &:before {
+    content: $ico-calendar-past-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path9 {
+  &:before {
+    content: $ico-calendar-past-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path10 {
+  &:before {
+    content: $ico-calendar-past-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path11 {
+  &:before {
+    content: $ico-calendar-past-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path12 {
+  &:before {
+    content: $ico-calendar-past-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path13 {
+  &:before {
+    content: $ico-calendar-past-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-past .path14 {
+  &:before {
+    content: $ico-calendar-past-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path1 {
+  &:before {
+    content: $ico-calendar-reverse-path1;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path2 {
+  &:before {
+    content: $ico-calendar-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-calendar-reverse .path3 {
+  &:before {
+    content: $ico-calendar-reverse-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-calendar-reverse .path4 {
+  &:before {
+    content: $ico-calendar-reverse-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path5 {
+  &:before {
+    content: $ico-calendar-reverse-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path6 {
+  &:before {
+    content: $ico-calendar-reverse-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path7 {
+  &:before {
+    content: $ico-calendar-reverse-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path8 {
+  &:before {
+    content: $ico-calendar-reverse-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path9 {
+  &:before {
+    content: $ico-calendar-reverse-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path10 {
+  &:before {
+    content: $ico-calendar-reverse-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path11 {
+  &:before {
+    content: $ico-calendar-reverse-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path12 {
+  &:before {
+    content: $ico-calendar-reverse-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path13 {
+  &:before {
+    content: $ico-calendar-reverse-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-calendar-reverse .path14 {
+  &:before {
+    content: $ico-calendar-reverse-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 200, 51);
+  }
+}
+.ico-camera .path1 {
+  &:before {
+    content: $ico-camera-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-camera .path2 {
+  &:before {
+    content: $ico-camera-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-camera .path3 {
+  &:before {
+    content: $ico-camera-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-camera .path4 {
+  &:before {
+    content: $ico-camera-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-camera .path5 {
+  &:before {
+    content: $ico-camera-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-cgu .path1 {
+  &:before {
+    content: $ico-cgu-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path2 {
+  &:before {
+    content: $ico-cgu-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path3 {
+  &:before {
+    content: $ico-cgu-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path4 {
+  &:before {
+    content: $ico-cgu-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cgu .path5 {
+  &:before {
+    content: $ico-cgu-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cgu .path6 {
+  &:before {
+    content: $ico-cgu-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cgu .path7 {
+  &:before {
+    content: $ico-cgu-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-clock .path1 {
+  &:before {
+    content: $ico-clock-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path2 {
+  &:before {
+    content: $ico-clock-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path3 {
+  &:before {
+    content: $ico-clock-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path4 {
+  &:before {
+    content: $ico-clock-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path5 {
+  &:before {
+    content: $ico-clock-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path6 {
+  &:before {
+    content: $ico-clock-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path7 {
+  &:before {
+    content: $ico-clock-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path8 {
+  &:before {
+    content: $ico-clock-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path9 {
+  &:before {
+    content: $ico-clock-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path10 {
+  &:before {
+    content: $ico-clock-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path11 {
+  &:before {
+    content: $ico-clock-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path12 {
+  &:before {
+    content: $ico-clock-path12;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path13 {
+  &:before {
+    content: $ico-clock-path13;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path14 {
+  &:before {
+    content: $ico-clock-path14;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path15 {
+  &:before {
+    content: $ico-clock-path15;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path16 {
+  &:before {
+    content: $ico-clock-path16;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path17 {
+  &:before {
+    content: $ico-clock-path17;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-clock .path18 {
+  &:before {
+    content: $ico-clock-path18;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path19 {
+  &:before {
+    content: $ico-clock-path19;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-clock .path20 {
+  &:before {
+    content: $ico-clock-path20;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-close .path1 {
+  &:before {
+    content: $ico-close-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-close .path2 {
+  &:before {
+    content: $ico-close-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-close .path3 {
+  &:before {
+    content: $ico-close-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-close .path4 {
+  &:before {
+    content: $ico-close-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-country .path1 {
+  &:before {
+    content: $ico-country-path1;  
+    color: rgb(254, 203, 51);
+  }
+}
+.ico-country .path2 {
+  &:before {
+    content: $ico-country-path2;  
+    margin-left: -1em;  
+    color: rgb(254, 203, 51);
+  }
+}
+.ico-country .path3 {
+  &:before {
+    content: $ico-country-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-country-reverse {
+  &:before {
+    content: $ico-country-reverse;     
+    color: #fff;
+  }
+}
+.ico-delete-reverse .path1 {
+  &:before {
+    content: $ico-delete-reverse-path1;  
+    color: rgb(255, 201, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-delete-reverse .path2 {
+  &:before {
+    content: $ico-delete-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-delete-reverse .path3 {
+  &:before {
+    content: $ico-delete-reverse-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-delete-reverse .path4 {
+  &:before {
+    content: $ico-delete-reverse-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-delete-reverse .path5 {
+  &:before {
+    content: $ico-delete-reverse-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-desktop .path1 {
+  &:before {
+    content: $ico-desktop-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-desktop .path2 {
+  &:before {
+    content: $ico-desktop-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path3 {
+  &:before {
+    content: $ico-desktop-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-desktop .path4 {
+  &:before {
+    content: $ico-desktop-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path5 {
+  &:before {
+    content: $ico-desktop-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path6 {
+  &:before {
+    content: $ico-desktop-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path7 {
+  &:before {
+    content: $ico-desktop-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path8 {
+  &:before {
+    content: $ico-desktop-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-desktop .path9 {
+  &:before {
+    content: $ico-desktop-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-disconnect .path1 {
+  &:before {
+    content: $ico-disconnect-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-disconnect .path2 {
+  &:before {
+    content: $ico-disconnect-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-edit .path1 {
+  &:before {
+    content: $ico-edit-path1;  
+    color: rgb(255, 199, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-edit .path2 {
+  &:before {
+    content: $ico-edit-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-edit-reverse .path1 {
+  &:before {
+    content: $ico-edit-reverse-path1;  
+    color: rgb(255, 199, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-edit-reverse .path2 {
+  &:before {
+    content: $ico-edit-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path1 {
+  &:before {
+    content: $ico-hamburger-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path2 {
+  &:before {
+    content: $ico-hamburger-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path3 {
+  &:before {
+    content: $ico-hamburger-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-hamburger .path4 {
+  &:before {
+    content: $ico-hamburger-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path5 {
+  &:before {
+    content: $ico-hamburger-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path6 {
+  &:before {
+    content: $ico-hamburger-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-home .path1 {
+  &:before {
+    content: $ico-home-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-home .path2 {
+  &:before {
+    content: $ico-home-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-interest .path1 {
+  &:before {
+    content: $ico-interest-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-interest .path2 {
+  &:before {
+    content: $ico-interest-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-language .path1 {
+  &:before {
+    content: $ico-language-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-language .path2 {
+  &:before {
+    content: $ico-language-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path3 {
+  &:before {
+    content: $ico-language-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-language .path4 {
+  &:before {
+    content: $ico-language-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path5 {
+  &:before {
+    content: $ico-language-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path6 {
+  &:before {
+    content: $ico-language-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path1 {
+  &:before {
+    content: $ico-location-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-location .path2 {
+  &:before {
+    content: $ico-location-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path3 {
+  &:before {
+    content: $ico-location-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path4 {
+  &:before {
+    content: $ico-location-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path5 {
+  &:before {
+    content: $ico-location-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path6 {
+  &:before {
+    content: $ico-location-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path7 {
+  &:before {
+    content: $ico-location-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path8 {
+  &:before {
+    content: $ico-location-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path9 {
+  &:before {
+    content: $ico-location-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path10 {
+  &:before {
+    content: $ico-location-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path11 {
+  &:before {
+    content: $ico-location-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path12 {
+  &:before {
+    content: $ico-location-path12;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path13 {
+  &:before {
+    content: $ico-location-path13;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path14 {
+  &:before {
+    content: $ico-location-path14;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path15 {
+  &:before {
+    content: $ico-location-path15;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path16 {
+  &:before {
+    content: $ico-location-path16;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path17 {
+  &:before {
+    content: $ico-location-path17;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path18 {
+  &:before {
+    content: $ico-location-path18;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path19 {
+  &:before {
+    content: $ico-location-path19;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path20 {
+  &:before {
+    content: $ico-location-path20;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path21 {
+  &:before {
+    content: $ico-location-path21;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path22 {
+  &:before {
+    content: $ico-location-path22;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path23 {
+  &:before {
+    content: $ico-location-path23;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path24 {
+  &:before {
+    content: $ico-location-path24;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path25 {
+  &:before {
+    content: $ico-location-path25;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path26 {
+  &:before {
+    content: $ico-location-path26;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path27 {
+  &:before {
+    content: $ico-location-path27;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path28 {
+  &:before {
+    content: $ico-location-path28;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path29 {
+  &:before {
+    content: $ico-location-path29;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path30 {
+  &:before {
+    content: $ico-location-path30;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path31 {
+  &:before {
+    content: $ico-location-path31;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path32 {
+  &:before {
+    content: $ico-location-path32;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path33 {
+  &:before {
+    content: $ico-location-path33;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path34 {
+  &:before {
+    content: $ico-location-path34;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path35 {
+  &:before {
+    content: $ico-location-path35;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path36 {
+  &:before {
+    content: $ico-location-path36;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path37 {
+  &:before {
+    content: $ico-location-path37;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path38 {
+  &:before {
+    content: $ico-location-path38;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path39 {
+  &:before {
+    content: $ico-location-path39;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path40 {
+  &:before {
+    content: $ico-location-path40;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path41 {
+  &:before {
+    content: $ico-location-path41;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path42 {
+  &:before {
+    content: $ico-location-path42;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path43 {
+  &:before {
+    content: $ico-location-path43;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path44 {
+  &:before {
+    content: $ico-location-path44;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path45 {
+  &:before {
+    content: $ico-location-path45;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path46 {
+  &:before {
+    content: $ico-location-path46;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path47 {
+  &:before {
+    content: $ico-location-path47;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path48 {
+  &:before {
+    content: $ico-location-path48;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path49 {
+  &:before {
+    content: $ico-location-path49;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path50 {
+  &:before {
+    content: $ico-location-path50;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path51 {
+  &:before {
+    content: $ico-location-path51;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path52 {
+  &:before {
+    content: $ico-location-path52;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path53 {
+  &:before {
+    content: $ico-location-path53;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path54 {
+  &:before {
+    content: $ico-location-path54;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mail .path1 {
+  &:before {
+    content: $ico-mail-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mail .path2 {
+  &:before {
+    content: $ico-mail-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mail-reverse {
+  &:before {
+    content: $ico-mail-reverse;     
+    color: #fff;
+  }
+}
+.ico-men .path1 {
+  &:before {
+    content: $ico-men-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men .path2 {
+  &:before {
+    content: $ico-men-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men .path3 {
+  &:before {
+    content: $ico-men-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-men-mustache .path1 {
+  &:before {
+    content: $ico-men-mustache-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men-mustache .path2 {
+  &:before {
+    content: $ico-men-mustache-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mentions .path1 {
+  &:before {
+    content: $ico-mentions-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path2 {
+  &:before {
+    content: $ico-mentions-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mentions .path3 {
+  &:before {
+    content: $ico-mentions-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path4 {
+  &:before {
+    content: $ico-mentions-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path1 {
+  &:before {
+    content: $ico-mirador-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador .path2 {
+  &:before {
+    content: $ico-mirador-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path3 {
+  &:before {
+    content: $ico-mirador-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path4 {
+  &:before {
+    content: $ico-mirador-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path5 {
+  &:before {
+    content: $ico-mirador-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path6 {
+  &:before {
+    content: $ico-mirador-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path1 {
+  &:before {
+    content: $ico-mirador-participant-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path2 {
+  &:before {
+    content: $ico-mirador-participant-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador-participant .path3 {
+  &:before {
+    content: $ico-mirador-participant-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador-participant .path4 {
+  &:before {
+    content: $ico-mirador-participant-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path5 {
+  &:before {
+    content: $ico-mirador-participant-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path6 {
+  &:before {
+    content: $ico-mirador-participant-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path7 {
+  &:before {
+    content: $ico-mirador-participant-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-reverse {
+  &:before {
+    content: $ico-mirador-reverse;     
+    color: #fff;
+  }
+}
+.ico-mobile-phone .path1 {
+  &:before {
+    content: $ico-mobile-phone-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mobile-phone .path2 {
+  &:before {
+    content: $ico-mobile-phone-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path3 {
+  &:before {
+    content: $ico-mobile-phone-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path4 {
+  &:before {
+    content: $ico-mobile-phone-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path5 {
+  &:before {
+    content: $ico-mobile-phone-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path6 {
+  &:before {
+    content: $ico-mobile-phone-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path7 {
+  &:before {
+    content: $ico-mobile-phone-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path8 {
+  &:before {
+    content: $ico-mobile-phone-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-people .path1 {
+  &:before {
+    content: $ico-people-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-people .path2 {
+  &:before {
+    content: $ico-people-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-profile .path1 {
+  &:before {
+    content: $ico-profile-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-profile .path2 {
+  &:before {
+    content: $ico-profile-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-profile-reverse .path1 {
+  &:before {
+    content: $ico-profile-reverse-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-profile-reverse .path2 {
+  &:before {
+    content: $ico-profile-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-search .path1 {
+  &:before {
+    content: $ico-search-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-search .path2 {
+  &:before {
+    content: $ico-search-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-search-reverse .path1 {
+  &:before {
+    content: $ico-search-reverse-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-search-reverse .path2 {
+  &:before {
+    content: $ico-search-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-settings .path1 {
+  &:before {
+    content: $ico-settings-path1;  
+    color: rgb(80, 80, 80);
+  }
+}
+.ico-settings .path2 {
+  &:before {
+    content: $ico-settings-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-women .path1 {
+  &:before {
+    content: $ico-women-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-women .path2 {
+  &:before {
+    content: $ico-women-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-women .path3 {
+  &:before {
+    content: $ico-women-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-women-hair .path1 {
+  &:before {
+    content: $ico-women-hair-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-women-hair .path2 {
+  &:before {
+    content: $ico-women-hair-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-artistiques .path1 {
+  &:before {
+    content: $ico-activites-artistiques-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path2 {
+  &:before {
+    content: $ico-activites-artistiques-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path3 {
+  &:before {
+    content: $ico-activites-artistiques-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path4 {
+  &:before {
+    content: $ico-activites-artistiques-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path5 {
+  &:before {
+    content: $ico-activites-artistiques-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path6 {
+  &:before {
+    content: $ico-activites-artistiques-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path7 {
+  &:before {
+    content: $ico-activites-artistiques-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path8 {
+  &:before {
+    content: $ico-activites-artistiques-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path9 {
+  &:before {
+    content: $ico-activites-artistiques-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path10 {
+  &:before {
+    content: $ico-activites-artistiques-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path11 {
+  &:before {
+    content: $ico-activites-artistiques-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path12 {
+  &:before {
+    content: $ico-activites-artistiques-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path13 {
+  &:before {
+    content: $ico-activites-artistiques-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path1 {
+  &:before {
+    content: $ico-activites-culinaires-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path2 {
+  &:before {
+    content: $ico-activites-culinaires-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path3 {
+  &:before {
+    content: $ico-activites-culinaires-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path4 {
+  &:before {
+    content: $ico-activites-culinaires-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path5 {
+  &:before {
+    content: $ico-activites-culinaires-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path6 {
+  &:before {
+    content: $ico-activites-culinaires-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path7 {
+  &:before {
+    content: $ico-activites-culinaires-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path8 {
+  &:before {
+    content: $ico-activites-culinaires-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path9 {
+  &:before {
+    content: $ico-activites-culinaires-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path10 {
+  &:before {
+    content: $ico-activites-culinaires-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path1 {
+  &:before {
+    content: $ico-activites-culturelles-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path2 {
+  &:before {
+    content: $ico-activites-culturelles-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path3 {
+  &:before {
+    content: $ico-activites-culturelles-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-culturelles .path4 {
+  &:before {
+    content: $ico-activites-culturelles-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path5 {
+  &:before {
+    content: $ico-activites-culturelles-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path6 {
+  &:before {
+    content: $ico-activites-culturelles-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path7 {
+  &:before {
+    content: $ico-activites-culturelles-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path8 {
+  &:before {
+    content: $ico-activites-culturelles-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path9 {
+  &:before {
+    content: $ico-activites-culturelles-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-de-detente .path1 {
+  &:before {
+    content: $ico-activites-de-detente-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-de-detente .path2 {
+  &:before {
+    content: $ico-activites-de-detente-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-de-detente .path3 {
+  &:before {
+    content: $ico-activites-de-detente-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-en-ville .path1 {
+  &:before {
+    content: $ico-activites-en-ville-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path2 {
+  &:before {
+    content: $ico-activites-en-ville-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path3 {
+  &:before {
+    content: $ico-activites-en-ville-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path4 {
+  &:before {
+    content: $ico-activites-en-ville-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-en-ville .path5 {
+  &:before {
+    content: $ico-activites-en-ville-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path6 {
+  &:before {
+    content: $ico-activites-en-ville-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path7 {
+  &:before {
+    content: $ico-activites-en-ville-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path8 {
+  &:before {
+    content: $ico-activites-en-ville-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-en-ville .path9 {
+  &:before {
+    content: $ico-activites-en-ville-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path1 {
+  &:before {
+    content: $ico-activites-ludiques-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path2 {
+  &:before {
+    content: $ico-activites-ludiques-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path3 {
+  &:before {
+    content: $ico-activites-ludiques-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path4 {
+  &:before {
+    content: $ico-activites-ludiques-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path5 {
+  &:before {
+    content: $ico-activites-ludiques-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path6 {
+  &:before {
+    content: $ico-activites-ludiques-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path7 {
+  &:before {
+    content: $ico-activites-ludiques-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path8 {
+  &:before {
+    content: $ico-activites-ludiques-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path9 {
+  &:before {
+    content: $ico-activites-ludiques-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-manuelles .path1 {
+  &:before {
+    content: $ico-activites-manuelles-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path2 {
+  &:before {
+    content: $ico-activites-manuelles-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path3 {
+  &:before {
+    content: $ico-activites-manuelles-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path4 {
+  &:before {
+    content: $ico-activites-manuelles-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path5 {
+  &:before {
+    content: $ico-activites-manuelles-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path6 {
+  &:before {
+    content: $ico-activites-manuelles-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path7 {
+  &:before {
+    content: $ico-activites-manuelles-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path8 {
+  &:before {
+    content: $ico-activites-manuelles-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path9 {
+  &:before {
+    content: $ico-activites-manuelles-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path10 {
+  &:before {
+    content: $ico-activites-manuelles-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-sportives .path1 {
+  &:before {
+    content: $ico-activites-sportives-path1;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path2 {
+  &:before {
+    content: $ico-activites-sportives-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-sportives .path3 {
+  &:before {
+    content: $ico-activites-sportives-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path4 {
+  &:before {
+    content: $ico-activites-sportives-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path5 {
+  &:before {
+    content: $ico-activites-sportives-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path6 {
+  &:before {
+    content: $ico-activites-sportives-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path7 {
+  &:before {
+    content: $ico-activites-sportives-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path8 {
+  &:before {
+    content: $ico-activites-sportives-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-aller-voir-du-sport .path1 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path2 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path3 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path4 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path5 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path6 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path7 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path8 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path9 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path10 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path11 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path12 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path13 {
+  &:before {
+    content: $ico-aller-voir-du-sport-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-autre .path1 {
+  &:before {
+    content: $ico-autre-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-autre .path2 {
+  &:before {
+    content: $ico-autre-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-autre .path3 {
+  &:before {
+    content: $ico-autre-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path1 {
+  &:before {
+    content: $ico-bar-cafe-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-bar-cafe .path2 {
+  &:before {
+    content: $ico-bar-cafe-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path3 {
+  &:before {
+    content: $ico-bar-cafe-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path4 {
+  &:before {
+    content: $ico-bar-cafe-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path5 {
+  &:before {
+    content: $ico-bar-cafe-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path6 {
+  &:before {
+    content: $ico-bar-cafe-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-bricolage .path1 {
+  &:before {
+    content: $ico-bricolage-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-bricolage .path2 {
+  &:before {
+    content: $ico-bricolage-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bricolage .path3 {
+  &:before {
+    content: $ico-bricolage-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bricolage .path4 {
+  &:before {
+    content: $ico-bricolage-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path1 {
+  &:before {
+    content: $ico-chanter-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path2 {
+  &:before {
+    content: $ico-chanter-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path3 {
+  &:before {
+    content: $ico-chanter-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path4 {
+  &:before {
+    content: $ico-chanter-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path5 {
+  &:before {
+    content: $ico-chanter-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path6 {
+  &:before {
+    content: $ico-chanter-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path7 {
+  &:before {
+    content: $ico-chanter-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path8 {
+  &:before {
+    content: $ico-chanter-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path9 {
+  &:before {
+    content: $ico-chanter-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path10 {
+  &:before {
+    content: $ico-chanter-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path11 {
+  &:before {
+    content: $ico-chanter-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path12 {
+  &:before {
+    content: $ico-chanter-path12;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path13 {
+  &:before {
+    content: $ico-chanter-path13;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path14 {
+  &:before {
+    content: $ico-chanter-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path15 {
+  &:before {
+    content: $ico-chanter-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path16 {
+  &:before {
+    content: $ico-chanter-path16;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path17 {
+  &:before {
+    content: $ico-chanter-path17;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path18 {
+  &:before {
+    content: $ico-chanter-path18;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path19 {
+  &:before {
+    content: $ico-chanter-path19;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path20 {
+  &:before {
+    content: $ico-chanter-path20;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path21 {
+  &:before {
+    content: $ico-chanter-path21;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path22 {
+  &:before {
+    content: $ico-chanter-path22;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path23 {
+  &:before {
+    content: $ico-chanter-path23;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path1 {
+  &:before {
+    content: $ico-cinema-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cinema .path2 {
+  &:before {
+    content: $ico-cinema-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path3 {
+  &:before {
+    content: $ico-cinema-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path4 {
+  &:before {
+    content: $ico-cinema-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path5 {
+  &:before {
+    content: $ico-cinema-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path6 {
+  &:before {
+    content: $ico-cinema-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path1 {
+  &:before {
+    content: $ico-concert-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path2 {
+  &:before {
+    content: $ico-concert-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path3 {
+  &:before {
+    content: $ico-concert-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path4 {
+  &:before {
+    content: $ico-concert-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-couture-tricot .path1 {
+  &:before {
+    content: $ico-couture-tricot-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-couture-tricot .path2 {
+  &:before {
+    content: $ico-couture-tricot-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path3 {
+  &:before {
+    content: $ico-couture-tricot-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path4 {
+  &:before {
+    content: $ico-couture-tricot-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path5 {
+  &:before {
+    content: $ico-couture-tricot-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path6 {
+  &:before {
+    content: $ico-couture-tricot-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path7 {
+  &:before {
+    content: $ico-couture-tricot-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path8 {
+  &:before {
+    content: $ico-couture-tricot-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path9 {
+  &:before {
+    content: $ico-couture-tricot-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path10 {
+  &:before {
+    content: $ico-couture-tricot-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path11 {
+  &:before {
+    content: $ico-couture-tricot-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path12 {
+  &:before {
+    content: $ico-couture-tricot-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path1 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path2 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path3 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path4 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path5 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path6 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path7 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path8 {
+  &:before {
+    content: $ico-cuisine-a-la-maison-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path1 {
+  &:before {
+    content: $ico-danser-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path2 {
+  &:before {
+    content: $ico-danser-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path3 {
+  &:before {
+    content: $ico-danser-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path4 {
+  &:before {
+    content: $ico-danser-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path5 {
+  &:before {
+    content: $ico-danser-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path6 {
+  &:before {
+    content: $ico-danser-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path7 {
+  &:before {
+    content: $ico-danser-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path8 {
+  &:before {
+    content: $ico-danser-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discotheque .path1 {
+  &:before {
+    content: $ico-discotheque-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discotheque .path2 {
+  &:before {
+    content: $ico-discotheque-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discotheque .path3 {
+  &:before {
+    content: $ico-discotheque-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discotheque .path4 {
+  &:before {
+    content: $ico-discotheque-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discotheque .path5 {
+  &:before {
+    content: $ico-discotheque-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path6 {
+  &:before {
+    content: $ico-discotheque-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path7 {
+  &:before {
+    content: $ico-discotheque-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path8 {
+  &:before {
+    content: $ico-discotheque-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path9 {
+  &:before {
+    content: $ico-discotheque-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path10 {
+  &:before {
+    content: $ico-discotheque-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path11 {
+  &:before {
+    content: $ico-discotheque-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path12 {
+  &:before {
+    content: $ico-discotheque-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path13 {
+  &:before {
+    content: $ico-discotheque-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path14 {
+  &:before {
+    content: $ico-discotheque-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path15 {
+  &:before {
+    content: $ico-discotheque-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path16 {
+  &:before {
+    content: $ico-discotheque-path16;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path17 {
+  &:before {
+    content: $ico-discotheque-path17;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path18 {
+  &:before {
+    content: $ico-discotheque-path18;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discotheque .path19 {
+  &:before {
+    content: $ico-discotheque-path19;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-discussion .path1 {
+  &:before {
+    content: $ico-discussion-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path2 {
+  &:before {
+    content: $ico-discussion-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path3 {
+  &:before {
+    content: $ico-discussion-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path4 {
+  &:before {
+    content: $ico-discussion-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path5 {
+  &:before {
+    content: $ico-discussion-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path6 {
+  &:before {
+    content: $ico-discussion-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path7 {
+  &:before {
+    content: $ico-discussion-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path8 {
+  &:before {
+    content: $ico-discussion-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path9 {
+  &:before {
+    content: $ico-discussion-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path10 {
+  &:before {
+    content: $ico-discussion-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-discussion .path11 {
+  &:before {
+    content: $ico-discussion-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path12 {
+  &:before {
+    content: $ico-discussion-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path13 {
+  &:before {
+    content: $ico-discussion-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path14 {
+  &:before {
+    content: $ico-discussion-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path15 {
+  &:before {
+    content: $ico-discussion-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-discussion .path16 {
+  &:before {
+    content: $ico-discussion-path16;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path1 {
+  &:before {
+    content: $ico-jardinage-path1;  
+    color: rgb(93, 93, 93);
+  }
+}
+.ico-jardinage .path2 {
+  &:before {
+    content: $ico-jardinage-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path3 {
+  &:before {
+    content: $ico-jardinage-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path4 {
+  &:before {
+    content: $ico-jardinage-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path5 {
+  &:before {
+    content: $ico-jardinage-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path6 {
+  &:before {
+    content: $ico-jardinage-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jardinage .path7 {
+  &:before {
+    content: $ico-jardinage-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path1 {
+  &:before {
+    content: $ico-jeux-de-cartes-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-de-cartes .path2 {
+  &:before {
+    content: $ico-jeux-de-cartes-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-cartes .path3 {
+  &:before {
+    content: $ico-jeux-de-cartes-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path4 {
+  &:before {
+    content: $ico-jeux-de-cartes-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path5 {
+  &:before {
+    content: $ico-jeux-de-cartes-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path6 {
+  &:before {
+    content: $ico-jeux-de-cartes-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-de-cartes .path7 {
+  &:before {
+    content: $ico-jeux-de-cartes-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-cartes .path8 {
+  &:before {
+    content: $ico-jeux-de-cartes-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path9 {
+  &:before {
+    content: $ico-jeux-de-cartes-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path10 {
+  &:before {
+    content: $ico-jeux-de-cartes-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path11 {
+  &:before {
+    content: $ico-jeux-de-cartes-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-de-cartes .path12 {
+  &:before {
+    content: $ico-jeux-de-cartes-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-cartes .path13 {
+  &:before {
+    content: $ico-jeux-de-cartes-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path14 {
+  &:before {
+    content: $ico-jeux-de-cartes-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-cartes .path15 {
+  &:before {
+    content: $ico-jeux-de-cartes-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path1 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-de-plateaux .path2 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path2;  
+    margin-left: -1em;  
+    color: rgb(0, 0, 0);
+  }
+}
+.ico-jeux-de-plateaux .path3 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path3;  
+    margin-left: -1em;  
+    color: rgb(0, 0, 0);
+  }
+}
+.ico-jeux-de-plateaux .path4 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path5 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path6 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path7 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path8 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path9 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path10 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path11 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path12 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path13 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path14 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path15 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path16 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path16;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path17 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path17;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path18 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path18;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path19 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path19;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path20 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path20;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path21 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path21;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path22 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path22;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jeux-de-plateaux .path23 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path23;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path24 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path24;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-de-plateaux .path25 {
+  &:before {
+    content: $ico-jeux-de-plateaux-path25;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-video .path1 {
+  &:before {
+    content: $ico-jeux-video-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-video .path2 {
+  &:before {
+    content: $ico-jeux-video-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-video .path3 {
+  &:before {
+    content: $ico-jeux-video-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-video .path4 {
+  &:before {
+    content: $ico-jeux-video-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jeux-video .path5 {
+  &:before {
+    content: $ico-jeux-video-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jeux-video .path6 {
+  &:before {
+    content: $ico-jeux-video-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path1 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path2 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path3 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path4 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path5 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path6 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-jouer-de-la-musique .path7 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jouer-de-la-musique .path8 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jouer-de-la-musique .path9 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jouer-de-la-musique .path10 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jouer-de-la-musique .path11 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-jouer-de-la-musique .path12 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path13 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path14 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path14;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-jouer-de-la-musique .path15 {
+  &:before {
+    content: $ico-jouer-de-la-musique-path15;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path1 {
+  &:before {
+    content: $ico-musee-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path2 {
+  &:before {
+    content: $ico-musee-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path3 {
+  &:before {
+    content: $ico-musee-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path4 {
+  &:before {
+    content: $ico-musee-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path5 {
+  &:before {
+    content: $ico-musee-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path6 {
+  &:before {
+    content: $ico-musee-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-musee .path7 {
+  &:before {
+    content: $ico-musee-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-peindre-dessiner .path1 {
+  &:before {
+    content: $ico-peindre-dessiner-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-peindre-dessiner .path2 {
+  &:before {
+    content: $ico-peindre-dessiner-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-peindre-dessiner .path3 {
+  &:before {
+    content: $ico-peindre-dessiner-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-peindre-dessiner .path4 {
+  &:before {
+    content: $ico-peindre-dessiner-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-peindre-dessiner .path5 {
+  &:before {
+    content: $ico-peindre-dessiner-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-peindre-dessiner .path6 {
+  &:before {
+    content: $ico-peindre-dessiner-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path1 {
+  &:before {
+    content: $ico-photographier-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-photographier .path2 {
+  &:before {
+    content: $ico-photographier-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path3 {
+  &:before {
+    content: $ico-photographier-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-photographier .path4 {
+  &:before {
+    content: $ico-photographier-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-photographier .path5 {
+  &:before {
+    content: $ico-photographier-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path6 {
+  &:before {
+    content: $ico-photographier-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path7 {
+  &:before {
+    content: $ico-photographier-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path8 {
+  &:before {
+    content: $ico-photographier-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path9 {
+  &:before {
+    content: $ico-photographier-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-photographier .path10 {
+  &:before {
+    content: $ico-photographier-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-pique-nique .path1 {
+  &:before {
+    content: $ico-pique-nique-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-pique-nique .path2 {
+  &:before {
+    content: $ico-pique-nique-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-pique-nique .path3 {
+  &:before {
+    content: $ico-pique-nique-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-restaurant .path1 {
+  &:before {
+    content: $ico-restaurant-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-restaurant .path2 {
+  &:before {
+    content: $ico-restaurant-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-restaurant .path3 {
+  &:before {
+    content: $ico-restaurant-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-restaurant .path4 {
+  &:before {
+    content: $ico-restaurant-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-shopping .path1 {
+  &:before {
+    content: $ico-shopping-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-shopping .path2 {
+  &:before {
+    content: $ico-shopping-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-soiree-a-la-maison .path1 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-soiree-a-la-maison .path2 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-soiree-a-la-maison .path3 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-soiree-a-la-maison .path4 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-soiree-a-la-maison .path5 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-soiree-a-la-maison .path6 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-soiree-a-la-maison .path7 {
+  &:before {
+    content: $ico-soiree-a-la-maison-path7;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-spectacle .path1 {
+  &:before {
+    content: $ico-spectacle-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path2 {
+  &:before {
+    content: $ico-spectacle-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path3 {
+  &:before {
+    content: $ico-spectacle-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path4 {
+  &:before {
+    content: $ico-spectacle-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path5 {
+  &:before {
+    content: $ico-spectacle-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path6 {
+  &:before {
+    content: $ico-spectacle-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path7 {
+  &:before {
+    content: $ico-spectacle-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path8 {
+  &:before {
+    content: $ico-spectacle-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path9 {
+  &:before {
+    content: $ico-spectacle-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-spectacle .path10 {
+  &:before {
+    content: $ico-spectacle-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-spectacle .path11 {
+  &:before {
+    content: $ico-spectacle-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-a-pied .path1 {
+  &:before {
+    content: $ico-sports-a-pied-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-a-pied .path2 {
+  &:before {
+    content: $ico-sports-a-pied-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path3 {
+  &:before {
+    content: $ico-sports-a-pied-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path4 {
+  &:before {
+    content: $ico-sports-a-pied-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path5 {
+  &:before {
+    content: $ico-sports-a-pied-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path6 {
+  &:before {
+    content: $ico-sports-a-pied-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path7 {
+  &:before {
+    content: $ico-sports-a-pied-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path8 {
+  &:before {
+    content: $ico-sports-a-pied-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path9 {
+  &:before {
+    content: $ico-sports-a-pied-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path10 {
+  &:before {
+    content: $ico-sports-a-pied-path10;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path11 {
+  &:before {
+    content: $ico-sports-a-pied-path11;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path12 {
+  &:before {
+    content: $ico-sports-a-pied-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-pied .path13 {
+  &:before {
+    content: $ico-sports-a-pied-path13;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-roue .path1 {
+  &:before {
+    content: $ico-sports-a-roue-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-a-roue .path2 {
+  &:before {
+    content: $ico-sports-a-roue-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-a-roue .path3 {
+  &:before {
+    content: $ico-sports-a-roue-path3;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-d-eau .path1 {
+  &:before {
+    content: $ico-sports-d-eau-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-d-eau .path2 {
+  &:before {
+    content: $ico-sports-d-eau-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path3 {
+  &:before {
+    content: $ico-sports-d-eau-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path4 {
+  &:before {
+    content: $ico-sports-d-eau-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-balles .path1 {
+  &:before {
+    content: $ico-sports-de-balles-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-balles .path2 {
+  &:before {
+    content: $ico-sports-de-balles-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-balles .path3 {
+  &:before {
+    content: $ico-sports-de-balles-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-balles .path4 {
+  &:before {
+    content: $ico-sports-de-balles-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-balles .path5 {
+  &:before {
+    content: $ico-sports-de-balles-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-boules .path1 {
+  &:before {
+    content: $ico-sports-de-boules-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-boules .path2 {
+  &:before {
+    content: $ico-sports-de-boules-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-sports-de-boules .path3 {
+  &:before {
+    content: $ico-sports-de-boules-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-boules .path4 {
+  &:before {
+    content: $ico-sports-de-boules-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-boules .path5 {
+  &:before {
+    content: $ico-sports-de-boules-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-boules .path6 {
+  &:before {
+    content: $ico-sports-de-boules-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-combat .path1 {
+  &:before {
+    content: $ico-sports-de-combat-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-combat .path2 {
+  &:before {
+    content: $ico-sports-de-combat-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-combat .path3 {
+  &:before {
+    content: $ico-sports-de-combat-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-combat .path4 {
+  &:before {
+    content: $ico-sports-de-combat-path4;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-combat .path5 {
+  &:before {
+    content: $ico-sports-de-combat-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-combat .path6 {
+  &:before {
+    content: $ico-sports-de-combat-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-combat .path7 {
+  &:before {
+    content: $ico-sports-de-combat-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-combat .path8 {
+  &:before {
+    content: $ico-sports-de-combat-path8;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-combat .path9 {
+  &:before {
+    content: $ico-sports-de-combat-path9;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-combat .path10 {
+  &:before {
+    content: $ico-sports-de-combat-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path1 {
+  &:before {
+    content: $ico-sports-de-glisse-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path2 {
+  &:before {
+    content: $ico-sports-de-glisse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path3 {
+  &:before {
+    content: $ico-sports-de-glisse-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path4 {
+  &:before {
+    content: $ico-sports-de-glisse-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path5 {
+  &:before {
+    content: $ico-sports-de-glisse-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path6 {
+  &:before {
+    content: $ico-sports-de-glisse-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path7 {
+  &:before {
+    content: $ico-sports-de-glisse-path7;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path8 {
+  &:before {
+    content: $ico-sports-de-glisse-path8;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path9 {
+  &:before {
+    content: $ico-sports-de-glisse-path9;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path10 {
+  &:before {
+    content: $ico-sports-de-glisse-path10;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path11 {
+  &:before {
+    content: $ico-sports-de-glisse-path11;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path12 {
+  &:before {
+    content: $ico-sports-de-glisse-path12;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path13 {
+  &:before {
+    content: $ico-sports-de-glisse-path13;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path14 {
+  &:before {
+    content: $ico-sports-de-glisse-path14;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path15 {
+  &:before {
+    content: $ico-sports-de-glisse-path15;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path16 {
+  &:before {
+    content: $ico-sports-de-glisse-path16;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path17 {
+  &:before {
+    content: $ico-sports-de-glisse-path17;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path18 {
+  &:before {
+    content: $ico-sports-de-glisse-path18;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path19 {
+  &:before {
+    content: $ico-sports-de-glisse-path19;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path20 {
+  &:before {
+    content: $ico-sports-de-glisse-path20;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path21 {
+  &:before {
+    content: $ico-sports-de-glisse-path21;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-glisse .path22 {
+  &:before {
+    content: $ico-sports-de-glisse-path22;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path23 {
+  &:before {
+    content: $ico-sports-de-glisse-path23;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-glisse .path24 {
+  &:before {
+    content: $ico-sports-de-glisse-path24;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-raquettes .path1 {
+  &:before {
+    content: $ico-sports-de-raquettes-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-sports-de-raquettes .path2 {
+  &:before {
+    content: $ico-sports-de-raquettes-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-raquettes .path3 {
+  &:before {
+    content: $ico-sports-de-raquettes-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-raquettes .path4 {
+  &:before {
+    content: $ico-sports-de-raquettes-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-raquettes .path5 {
+  &:before {
+    content: $ico-sports-de-raquettes-path5;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-de-raquettes .path6 {
+  &:before {
+    content: $ico-sports-de-raquettes-path6;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-tourisme .path1 {
+  &:before {
+    content: $ico-tourisme-path1;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-tourisme .path2 {
+  &:before {
+    content: $ico-tourisme-path2;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-tourisme .path3 {
+  &:before {
+    content: $ico-tourisme-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-tourisme .path4 {
+  &:before {
+    content: $ico-tourisme-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-tourisme .path5 {
+  &:before {
+    content: $ico-tourisme-path5;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-tourisme .path6 {
+  &:before {
+    content: $ico-tourisme-path6;  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+
