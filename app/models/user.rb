@@ -92,12 +92,16 @@ class User < ApplicationRecord
     user.validates :gender,
       :phone,
       :birthdate,
-      :city,
+      :city_id,
       presence: true
     user.validates :phone, uniqueness: true, if: :phone?
-
-    # user.validates_format_of :phone, with: /\A\+?[1-9]\d{1,14}\z/
+    user.validate :at_least_one_leisure
   end
+
+  private def at_least_one_leisure
+    errors.add(:base, :at_least_one_leisure) if self.leisures.empty?
+  end
+
 
   validates :cgu_accepted,
           acceptance: {message: "doivent être acceptées"}
