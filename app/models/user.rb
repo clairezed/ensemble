@@ -49,6 +49,12 @@ class User < ApplicationRecord
       transitions from: :admin_accepted, to: :admin_rejected
     end
 
+    event :retrograde do
+      transitions from: :identity_verified, to: :pending
+      transitions from: :admin_accepted, to: :pending
+      transitions from: :admin_rejected, to: :pending
+    end
+
   end
 
 
@@ -107,9 +113,34 @@ class User < ApplicationRecord
           acceptance: {message: "doivent être acceptées"}
 
 
+   
+  # Callbacks ==================================================================
+
   before_validation :format_phone_number, if: :phone_changed?
   private def format_phone_number
     self.phone = User::FormatPhoneNumber.call(self.phone)
+  end
+
+  # Verification process -------------------------------------------------------
+
+  after_update :check_email_confirmation, if: :saved_change_to_unconfirmed_email?
+  private def check_email_confirmation
+    self.update_column(:confirmed_at, nil) unless unconfirmed_email.blank?
+    set_verification_state
+  end
+
+  after_update :check_sms_confirmation, if: :saved_change_to_phone?
+  private def check_sms_confirmation
+    self.update_column(:sms_confirmed_at, nil)
+    Twilio::SendConfirmationMessage.call(self)
+    set_verification_state
+  end
+
+  def set_verification_state
+    unless (confirmed? && sms_confirmed?)
+      # self.retrograde! if may_retrograde?
+      self.update_column(:verification_state, 'pending')
+    end
   end
 
 
@@ -154,8 +185,6 @@ class User < ApplicationRecord
   scope :minus, -> (id) {
     where.not(id: id)
   }
- 
-  # Callbacks ==================================================================
 
 
   # Class Methods ==============================================================
@@ -177,25 +206,6 @@ class User < ApplicationRecord
     end
     relation.apply_sorts(params)
   end
-
-  # def self.apply_sorts(params)
-  #   # default sorting
-  #   params[:sort_by] ||= DEFAULT_SORTING_OPTION
-
-  #   SORTING_OPTIONS.inject(all) do |relation, filter|
-  #     next relation unless params[:sort_by].to_sym == filter
-  #     relation.send(filter)
-  #   end
-  # end
-
-  # def self.apply_filters(params)
-  #   klass = self
-
-  #   # klass = klass.by_title(params[:by_title]) if params[:by_title].present?
-  #   return self unless self.is_a?(ActiveRecord::Relation)
-
-  #   klass.apply_sorts(params)
-  # end
 
   # Instance methods ====================================================
 

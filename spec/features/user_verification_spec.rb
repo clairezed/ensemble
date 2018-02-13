@@ -22,6 +22,7 @@ feature "Verification User" do
       travel User.allow_unconfirmed_access_for - 1.day do
         expect(user.active_for_authentication?).to be true
         sign_in_user(user)
+        # save_and_open_page
         expect(current_path).to eq(authenticated_root_path)
       end
     end
@@ -62,36 +63,73 @@ feature "Verification User" do
     before { login_as user, scope: :user }
 
     scenario "changing my email retrogrades me" do
+      # verif initialisation
+      expect(user.confirmed?).to be true
+      expect(user.verification_state).to eq('admin_accepted')
+
       visit edit_users_parameters_path
       expect(current_path).to eq(edit_users_parameters_path)
 
+      # Verif securite du changement d'email
       fill_in "user_email", with: "email_2@mail.com"
       click_button "OK"
       expect(current_path).to eq(users_parameters_path)
       expect(page).to have_content 'erreurs'
       expect(page).to have_content 'sécurité'
 
+      # Retrogradation apres changement d'email
       fill_in "user_email", with: "email_2@mail.com"
       fill_in "user_current_password", with: user.password
       click_button "OK"
-      p user
-      p user.confirmed_at
-      p user.confirmation_token
-      # expect(user.reload.confirmed?).to be false
-      # expect(user.verification_state).to eq('pending')
+      expect(current_path).to eq(users_parameters_path)
+      expect(page).to have_content 'Supprimer mon compte'
+      user.reload
+      expect(user.confirmed?).to be false
+      expect(user.verification_state).to eq('pending')
+      expect(user.active_for_authentication?).to be true
 
-
+      # Blocage après 7 jours
+      travel User.allow_unconfirmed_access_for + 1.hour do
+        expect(user.active_for_authentication?).to be false
+        visit root_path
+        expect(current_path).to eq(new_user_confirmation_path)
+      end
       # email non confirmé
       # email à revérifier
       # statut non confirmé
       # grade rétrogradé
+      # peut toujours se connecter
       # bloqué après 7 jours
     end
 
     scenario "changing my phone retrogrades me" do
-      # email non confirmé
-      # email à revérifier
+      # verif initialisation
+      expect(user.sms_confirmed?).to be true
+      expect(user.verification_state).to eq('admin_accepted')
+
+      visit edit_users_parameters_path
+      expect(current_path).to eq(edit_users_parameters_path)
+      fill_in "user_phone", with: "0612345678"
+      click_button "OK"
+      expect(current_path).to eq(users_parameters_path)
+      expect(page).to have_content 'Supprimer mon compte'
+      user.reload
+      expect(user.reload.sms_confirmed?).to be false
+      expect(user.verification_state).to eq('pending')
+      expect(user.active_for_authentication?).to be true
+
+      # Blocage après 7 jours
+      travel User.allow_unconfirmed_access_for + 1.hour do
+        expect(user.active_for_authentication?).to be false
+        visit root_path
+        expect(current_path).to eq(new_user_confirmation_path)
+      end
+      # tel non confirmé
+      # tel à revérifier
       # statut non confirmé
+      # grade rétrogradé
+      # peut toujours se connecter
+      # bloqué après 7 jours
     end
 
   end

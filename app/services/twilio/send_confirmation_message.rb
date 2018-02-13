@@ -21,17 +21,17 @@ module Twilio
     end
 
     def save_sms_confirmation_token
-      user.sms_confirmation_token = generate_one_time_password
-      user.sms_confirmation_sent_at = Time.zone.now
-      user.save!
+      user.update_columns(
+        sms_confirmation_token: generate_one_time_password,
+        sms_confirmation_sent_at: Time.zone.now
+      )
+      # user.sms_confirmation_token = generate_one_time_password
+      # user.sms_confirmation_sent_at = Time.zone.now
+      # user.save!
     end
 
     def send_confirmation_sms
-      # TODO - Update message
-      # message = "[Ensemble] #{user.sms_confirmation_token}"
       message = "Bienvenue sur ENSEMBLE ! Le code pour vérifier votre numéro de téléphone est le suivant : #{user.sms_confirmation_token}"
-      p message
-      Rails.logger.warn message
       send_sms(message, user.phone)
     end
 

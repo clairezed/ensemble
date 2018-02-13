@@ -1,5 +1,5 @@
 p = "Bonjour  #{@resource.firstname} #{@resource.lastname},"
 
-p Merci de confirmer votre inscription en suivant le lien ci-dessous :
+p Merci de confirmer l'email utilisé lors de votre inscription en cliquant sur le lien ci-dessous :
 
 p = link_to 'Confirmer mon inscription', confirmation_url(@resource, :confirmation_token => @token)
