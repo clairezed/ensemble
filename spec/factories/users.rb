@@ -21,14 +21,30 @@ FactoryBot.define do
     trait :registration_complete do
       registration_complete true
       sms_confirmation_sent_at Time.current
+      cgu_accepted_at Time.current
     end
 
-    trait :admin_accepted do
-      registration_complete true
-      verification_state :admin_accepted
-      sms_confirmed_at Time.current
-      confirmed_at Time.current
+    factory :registration_complete_user, traits: [:registration_complete] do 
+
+      trait :identity_verified do
+        sms_confirmed_at Time.current
+        confirmed_at Time.current
+        verification_state :identity_verified
+      end
+
+      factory :identity_verified_user, traits: [:identity_verified] do
+
+        trait :admin_accepted do
+          verification_state :admin_accepted
+        end
+
+        factory :admin_accepted_user, traits: [:admin_accepted]
+      end
+
+
     end
+
+
 
   end
 end

@@ -31,29 +31,54 @@ feature "Verification User" do
       sign_in_user(user)
       expect(current_path).to eq(new_user_confirmation_path)
     end
+  end 
 
-  end
+  # # TODO ===========================================
+  # context "after X days" do 
+  #   scenario "user with no phone verification cant acceed app" do
 
-  context "after X days" do 
-    scenario "user with no phone verification cant acceed app" do 
-    end
+  #   end
 
-    scenario "user with no email verification cant acceed app" do 
-    end
+  #   scenario "user with no email verification cant acceed app" do 
+  #   end
 
-    scenario "user with no admin verification cant accedd app" do
-    end
+  #   scenario "user with no admin verification cant accedd app" do
+  #     user = FactoryBot.create(:user, :registration_complete)
+  #   end
 
-    scenario "user that has verified email and phone changes states and can go back to the app" do 
-    end
+  #   scenario "user that has verified email and phone changes states and can go back to the app" do 
+  #   end
 
-    scenario "user that has is admin verified changes states and can go back to the app" do 
-    end
-  end
+  #   scenario "user that has is admin verified changes states and can go back to the app" do 
+  #   end
+  # end
 
-  context "when I change my contact info" do 
+  context "when I change my contact info" do
+
+    let!(:user) { create(:admin_accepted_user, email: 'email_1@mail.com') }
+
+    before { login_as user, scope: :user }
 
     scenario "changing my email retrogrades me" do
+      visit edit_users_parameters_path
+      expect(current_path).to eq(edit_users_parameters_path)
+
+      fill_in "user_email", with: "email_2@mail.com"
+      click_button "Valider"
+      expect(current_path).to eq(users_parameters_path)
+      expect(page).to have_content 'erreurs'
+      expect(page).to have_content 'sécurité'
+
+      fill_in "user_email", with: "email_2@mail.com"
+      fill_in "user_current_password", with: user.password
+      click_button "Valider"
+      p user
+      p user.confirmed_at
+      p user.confirmation_token
+      # expect(user.reload.confirmed?).to be false
+      # expect(user.verification_state).to eq('pending')
+
+
       # email non confirmé
       # email à revérifier
       # statut non confirmé
