@@ -61,6 +61,22 @@ feature "Inscription User" do
 
 end
 
+
+context "connexion with existing user" do
+  let!(:user) { create(:user, :registration_complete) }
+
+  scenario "User se connecte avec de bons identifiants" do
+    visit root_path
+    click_link "Connexion"
+    expect(current_path).to eq(new_user_session_path)
+
+    fill_in "user_email", with: user.email
+    fill_in "user_password", with: user.password
+    click_button "Connexion"
+    expect(current_path).to eq(authenticated_root_path)
+  end
+end
+
 def fill_first_step
   fill_in("user_email", with: "eglantine@mail.com")
   fill_in("user_firstname", with: "Eglantine")
@@ -94,21 +110,6 @@ def user_log_in
   login_as @user, scope: :user
   expect_user_to_be_logged
 end
-
-#   scenario "User se connecte avec de bons identifiants" do
-#     visit root_path
-
-#     click_link "Se connecter"
-#     expect(current_path).to eq(new_user_session_path)
-
-#     fill_in "user_email", with: @user.email
-#     fill_in "user_password", with: "password"
-#     click_button "Je me connecte"
-#     expect(current_path).to eq(main_information_path)
-
-#     find('#main-info-link').click
-#     expect(current_path).to eq(main_information_path)
-#   end
 
 #   scenario "User se connecte avec de mauvais identifiants" do
 #     visit root_path

@@ -6,7 +6,9 @@ FactoryBot.define do
     firstname "Camille"
     sequence(:lastname) {|n| "Doe#{n}"}
     sequence(:email) {|n| "user#{n}@email.com"}
-    phone "#{(0..9).to_a.sample(9)}"
+    sequence(:phone) {|n| "6#{n}00000000"[0..8]}
+    # phone "#{(0..9).to_a.sample(9).join('')}"
+    gender 'female'
     password "password"
     password_confirmation "password"
     birthdate '1985-03-15'
@@ -18,6 +20,7 @@ FactoryBot.define do
 
     trait :registration_complete do
       registration_complete true
+      sms_confirmation_sent_at Time.current
     end
 
     trait :admin_accepted do
