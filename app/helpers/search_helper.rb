@@ -2,6 +2,10 @@ module SearchHelper
 
   DISPLAYABLE_SEARCH_PARAMS = [:by_text, :by_dates, :by_city, :by_leisures]
 
+  def dry_search_params(search_params)
+    @dry_search_params ||= search_params.reject{|k,v| (v.blank? || !in_displayable_search_params?(k))}
+  end
+
   def in_displayable_search_params?(val)
     DISPLAYABLE_SEARCH_PARAMS.include?(val.to_sym)
   end

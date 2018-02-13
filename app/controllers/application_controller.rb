@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
   private
 
   def set_default_seos!
-    @seo_title       ||= 'Title du projet'
-    @seo_description ||= 'Description du projet'
-    @seo_keywords    ||= 'keywords du projet, projet'
+    @seo_title       ||= 'Ensemble'
+    @seo_description ||= 'Ensemble, partageons nos mondes'
+    @seo_keywords    ||= 'ensemble, intercultturalite, rencontres'
   end
 
   # Pour les requêtes ajax

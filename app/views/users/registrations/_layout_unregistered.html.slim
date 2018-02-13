@@ -6,15 +6,6 @@ section.section--reverse
     .section
       .section_inner
         = yield
-        / h2.section-title--centered Partez à la rencontre de l'autre
-
-        / = form_for(@user, as: :user, url: registration_path(:user), html: {class: "form-horizontal"}) do |f| 
-
-        /   = render partial: "users/registrations/new_form", locals: {f: f, button_name: "Je m'inscris"} 
-
-
-        / = link_to "Déjà inscrit ? Cliquez ici pour vous connecter.", new_session_path(:user)
-
 
 / Video
 section.section.section-straddle

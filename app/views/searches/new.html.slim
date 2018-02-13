@@ -1,13 +1,19 @@
 - content_for :current_navigation_section, :search
 
+/ header ---------------------------------------
+section.section--reverse
+  .section_inner
+    h1.section-title--centered Recherche
+    = link_to events_path, class: "btn btn-light btn-block" do 
+      i.fa.fa-eye>
+      ' Voir les événements
+
+
 section
   .section_inner
-    header.section_header
-      h1.section-title Recherche
-      .section-header_aside
-        = link_to new_search_path, class:'btn btn-link' do
-          i.fa.fa-refresh>
-          ' Recommencer
+    = link_to new_search_path, class:'button--main mb-4' do
+      i.fa.fa-refresh>
+      ' Recommencer
 
     = form_tag search_path, method: :get, class:"", data: {is_filter_form: true} do
       
@@ -71,7 +77,7 @@ section
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
           prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
-        = submit_tag "Chercher", class: "button--main mt-4"
+        = submit_tag "Rechercher", class: "button--main mt-4"
       
   coffee: 
     new EventSearch()
