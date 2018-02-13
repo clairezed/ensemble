@@ -16,7 +16,7 @@ fr:
         phone:                      Le numéro de téléphone mobile
         sms_notification:           La notification sms
         email_notification:         La notification email
-        gender:                     Le genre
+        gender:                     Le sexe
         affiliation:                L'affiliation
         language_ids:               Les langues parlées
         sms_token:                  Le code sms
@@ -52,7 +52,7 @@ fr:
         phone:                      N° de téléphone mobile
         sms_notification:           Notification sms
         email_notification:         Notification email
-        gender:                     Genre
+        gender:                     Sexe
         affiliation:                Affiliation
         language_ids:               Langues parlées
   
