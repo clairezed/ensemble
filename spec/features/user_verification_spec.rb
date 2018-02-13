@@ -19,17 +19,19 @@ feature "Verification User" do
     end
 
     scenario "user can access app until limit" do
-      travel User.allow_unconfirmed_access_for - 1.day
-      expect(user.active_for_authentication?).to be true
-      sign_in_user(user)
-      expect(current_path).to eq(authenticated_root_path)
+      travel User.allow_unconfirmed_access_for - 1.day do
+        expect(user.active_for_authentication?).to be true
+        sign_in_user(user)
+        expect(current_path).to eq(authenticated_root_path)
+      end
     end
 
     scenario "user cant access app after limit" do
-      travel User.allow_unconfirmed_access_for + 1.hour
-      expect(user.active_for_authentication?).to be false
-      sign_in_user(user)
-      expect(current_path).to eq(new_user_confirmation_path)
+      travel User.allow_unconfirmed_access_for + 1.hour do
+        expect(user.active_for_authentication?).to be false
+        sign_in_user(user)
+        expect(current_path).to eq(new_user_confirmation_path)
+      end
     end
   end 
 
@@ -64,14 +66,14 @@ feature "Verification User" do
       expect(current_path).to eq(edit_users_parameters_path)
 
       fill_in "user_email", with: "email_2@mail.com"
-      click_button "Valider"
+      click_button "OK"
       expect(current_path).to eq(users_parameters_path)
       expect(page).to have_content 'erreurs'
       expect(page).to have_content 'sécurité'
 
       fill_in "user_email", with: "email_2@mail.com"
       fill_in "user_current_password", with: user.password
-      click_button "Valider"
+      click_button "OK"
       p user
       p user.confirmed_at
       p user.confirmation_token
@@ -119,6 +121,7 @@ end
 
 def sign_in_user(user)
   visit root_path
+  # save_and_open_page
   click_link "Connexion"
   expect(current_path).to eq(new_user_session_path)
 

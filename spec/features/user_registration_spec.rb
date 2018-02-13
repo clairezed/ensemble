@@ -2,10 +2,11 @@ require "rails_helper"
 
 feature "Inscription User" do
 
-  # scenario "user can complete two steps registration", js: true do
-  scenario "user can complete two steps registration" do
+  scenario "user can complete two steps registration", js: true do
+  # scenario "user can complete two steps registration" do
     # Step 1 ---------------------------------
     visit root_path
+    # save_and_open_page
     click_button "OK"
     expect(current_path).to eq(user_registration_path)
     expect(page).to have_content 'erreurs'
@@ -23,9 +24,8 @@ feature "Inscription User" do
 
     fill_second_step
     click_button "Je m'inscris"
-    # save_and_open_screenshot
     expect(current_path).to eq(users_parameters_path)
-    expect(new_user.verification_state).to eq('pending')
+    expect(new_user.reload.verification_state).to eq('pending')
     expect(new_user.reload && new_user.registration_complete?).to be true
   end
 
@@ -87,11 +87,14 @@ end
 
 def fill_second_step
   choose "user_gender_female"
+  # to remove overlapping
+  page.find('label[for="user_leisure_category_ids_1"]', visible: false).click
+  page.find('label[for="user_leisure_ids_1"]', visible: false).click
+
   fill_in("user_phone", with: "0606060606")
   select 'Epinal', from: 'user_city_id', visible: false
   # select2_ajax "Epinal", :from => "Rechercher...", :minlength => 2
   page.find("#user_birthdate", visible: false).set("02/05/1985")
-  # page.find("#user_leisure_ids_#{Leisure.first.id}", visible: false).set("02/05/1985")
   check "user_cgu_accepted"
 end
 

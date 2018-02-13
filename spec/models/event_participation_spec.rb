@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe EventParticipation, type: :model do
 
   describe "#create" do 
-    let(:participant) { create(:user, :admin_accepted) }
+    let(:participant) { create(:admin_accepted_user) }
 
     context "when opened && not_full event" do
       let(:event) { create(:event, visibility: :opened, participants_max: 10) }
@@ -17,7 +17,7 @@ RSpec.describe EventParticipation, type: :model do
 
     context "when opened && full event" do
       let(:event) { create(:event, visibility: :opened, participants_max: 1) }
-      let(:other_participant) { create(:user, :admin_accepted) }
+      let(:other_participant) { create(:admin_accepted_user) }
       let!(:other_participation) { create(:event_participation, event: event, user: other_participant) }
 
       it "is not possible to participate" do
@@ -29,7 +29,7 @@ RSpec.describe EventParticipation, type: :model do
 
     context "when closed && full event" do
       let(:event) { create(:event, visibility: :closed, participants_max: 1) }
-      let(:other_participant) { create(:user, :admin_accepted) }
+      let(:other_participant) { create(:admin_accepted_user) }
       let!(:other_participation) { create(:event_participation, event: event, user: other_participant) }
 
       it "is possible to participate" do
