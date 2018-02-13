@@ -46,4 +46,9 @@ script:
   - bundle exec rspec spec
 
 notifications:
-  email: true
+  email: 
+    recipients:
+      - clairezuliani@gmail.com
+    on_success: change # default: change
+    on_failure: always # default: always
+
