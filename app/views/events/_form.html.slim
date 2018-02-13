@@ -132,7 +132,7 @@
     .picture-card
       = label_tag :"asset_event_picture[asset]"
         span.button-upload
-          i.fa.fa-plus-circle
+          = icon_add
 
         = file_field_tag :"asset_event_picture[asset]", accept: Asset::EventPicture::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {file_upload: true, url: users_event_pictures_path(f.object)}, class:'d-none'
         / / filtre "accept" mal géré pour certains navigateurs (dont le mien pour les doc, xls, etc)
@@ -156,7 +156,7 @@
     .event-document
       = label_tag :"asset_event_attachment[asset]"
         span.button-upload.button-upload--block
-          i.fa.fa-plus-circle
+          = icon_add
 
         = file_field_tag :"asset_event_attachment[asset]", accept: Asset::EventAttachment::VALID_CONTENT_TYPES.map(&:to_s).join(','), data: {doc_upload: true, url: users_event_attachments_path(f.object), method: 'POST', type: 'script'}, class:'d-none'
 

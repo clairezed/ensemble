@@ -72,23 +72,22 @@
         .profile-info_value
           = boolean_text @user.sms_notification
 
-
       = link_to edit_users_parameters_path, class: "button--main" do 
-        => icon_edit
+        => icon_edit_reverse
         ' Modifier mes paramètres
-
-
 
   section
     .section_inner
       h2.section-title Mot de passe
 
       = link_to edit_password_users_parameters_path, class: "button--main" do 
-        => icon_edit
+        => icon_edit_reverse
         ' Modifier mon mot de passe
 
   section
     .section_inner
       h2.section-title Supprimer mon compte
 
-      = button_to "Supprimer mon compte", registration_path(:user), data: { confirm: "Etes-vous sûre de vouloir supprimer votre compte ?" }, method: :delete, class: "btn btn-danger" 
+      = button_to registration_path(:user), data: { confirm: "Etes-vous sûre de vouloir supprimer votre compte ?" }, method: :delete, class: "btn btn-danger" do 
+        => icon_delete_reverse
+        ' Supprimer mon compte

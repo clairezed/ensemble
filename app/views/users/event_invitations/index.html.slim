@@ -5,7 +5,7 @@ section.section--reverse
   .section_inner
     h1.section-title--centered Mes invitations
     = link_to new_users_event_path, class: "btn btn-light btn-block" do 
-      i.fa.fa-plus-circle>
+      => icon_add
       ' Proposer un événement
 
 section
@@ -14,11 +14,11 @@ section
       = render partial: 'events/card', locals: {event: invitation.event}
       div.d-flex.event-invitation_actions
         - if invitation.may_reject?
-          = link_to reject_users_invitation_path(invitation), method: :patch, class: "btn btn-danger w-100", data: {confirm: "Une fois l'invitation refusée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer votre refus ?"} do 
+          = link_to reject_users_invitation_path(invitation), method: :patch, class: "button--main", data: {confirm: "Une fois l'invitation refusée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer votre refus ?"} do 
             i.fa.fa-close>
             ' Refuser
         - if invitation.may_accept?
-          = link_to accept_users_invitation_path(invitation), method: :patch, class: "btn btn-success w-100" do
+          = link_to accept_users_invitation_path(invitation), method: :patch, class: "btn btn-secondary w-100" do
             i.fa.fa-check>
             ' Accepter
 

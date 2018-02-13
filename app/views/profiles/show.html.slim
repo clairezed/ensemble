@@ -7,7 +7,9 @@
     .section_inner
 
       - if is_current_user?(@user)
-        = link_to "Modifier mon profil",  edit_user_registration_path, class: "button--main mb-5"
+        = link_to edit_user_registration_path, class: "button--main mb-5" do 
+          => icon_edit_reverse
+          ' Modifier mon profil
 
       .profile-info--small
         .profile-info_label

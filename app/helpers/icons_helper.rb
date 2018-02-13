@@ -16,11 +16,11 @@ module IconsHelper
 
   # Liste des icon ====================================
 
-  def icon_add(classes)
+  def icon_add(classes=nil)
     render_icon('add', 4, classes)
   end
 
-  def icon_add_reverse(classes)
+  def icon_add_reverse(classes=nil)
     render_icon('add-reverse', 4, classes)
   end
 
@@ -80,6 +80,10 @@ module IconsHelper
     render_icon('delete', 5)
   end
 
+  def icon_delete_reverse
+    render_icon('delete-reverse', 5)
+  end
+
   def icon_desktop
     render_icon('desktop', 9)
   end
@@ -90,6 +94,10 @@ module IconsHelper
 
   def icon_edit
     render_icon('edit', 2)
+  end
+
+  def icon_edit_reverse
+    render_icon('edit-reverse', 2)
   end
 
   def icon_hamburger

@@ -8,13 +8,18 @@
         = render partial: 'events/card', locals: {event: event}
         - if policy(event).cancel_participation?
           - if event.closed?
-            = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"}
+            = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"} do
+              .fa.fa-close>
+              ' Annuler ma participation
           - else
-            = button_to "Annuler ma participation", event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main"
-
+            = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main" do 
+              .fa.fa-close>
+              ' Annuler ma participation
 
         - if policy(event).update?
-          = link_to "Modifier", edit_users_event_path(event), class: "button--main"
+          = link_to edit_users_event_path(event), class: "button--main" do
+            => icon_edit_reverse
+            ' Modifier
 
   - if @events.empty?
     section
@@ -22,7 +27,7 @@
         p.text-center Vous n'avez pas encore d'événements prévus !
 
         = link_to new_users_event_path, class: "btn btn-outline-primary btn-block" do 
-          i.fa.fa-plus-circle>
+          => icon_add
           ' Proposer un événement
 
         = link_to new_search_path, class: "btn btn-outline-primary btn-block" do 
