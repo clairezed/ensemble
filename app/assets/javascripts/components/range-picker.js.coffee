@@ -1,14 +1,19 @@
 class @RangePicker
 
   DEFAULT_OPTIONS:
-    locale: 'fr'
     mode:   'range'
-    altInput: true
-    altFormat: 'j/m/Y'
+    locale: 'fr'
     onClose: (selectedDates, dateStr, instance)->
       if !!dateStr
         selectedDates.push(selectedDates[0]) if selectedDates.length == 1
         instance.setDate(selectedDates)
+    # onChange: (selectedDates, dateStr, instance)->
+    #   console.log "hey"
+    #   if !!dateStr
+    #     console.log "ho"
+    #     $('[data-date-close]').show()
+    #   else
+    #     $('[data-date-close]').hide()
 
   constructor: ($input = $("[data-is-rangepicker]"), options = {}) ->
     @$input = $input

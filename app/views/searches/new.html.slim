@@ -52,14 +52,16 @@ section
                   i.fa.fa-check>
                   ' Valider
 
-      .form-group
+      #rangepic.form-group data-is-date-range-picker='true' 
         = label_tag :by_dates, class: ''  do
           => icon_calendar
           ' Date ou période
-        .input.d-flex
-          => text_field_tag :by_dates, params[:by_dates], class: "form-control col-10", data: {is_rangepicker: true}
-          a.btn.btn-link.btn-sm.pl-0.col-2 data-date-clear="true"
-            i.fa.fa-refresh
+        a.btn.btn-link.btn-sm.float-right data-date-clear="true"
+          i.fa.fa-refresh
+        a.btn.btn-outline-primary.btn-micro.float-right.disabled data-date-close="true"
+          ' OK
+        / .input.d-flex
+        => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true, input: true}
 
       .form-group
         = label_tag :by_city  do
