@@ -5,6 +5,7 @@ fr:
         title:            Le titre
         leisure_category: La famille de loisir
         leisure:          Le loisir
+        leisure_id:          Le loisir
         city:             La ville
         city_id:             La ville
         address:          L'adresse

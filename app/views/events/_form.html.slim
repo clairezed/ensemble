@@ -19,10 +19,10 @@
           span.label-title=> event_visibility(key)
 
 / centre d interet
-.form-group
+.form-group.required
   = f.label :leisures, class: '' do
     => icon_interest
-    ' Centres d'intérêt
+    ' Centre d'intérêt
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
     / Leisure categories ----------------------------

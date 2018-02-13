@@ -80,6 +80,8 @@ class Event < ApplicationRecord
   # Validations ==================================================================
   validates :title,
             :start_at,
+            :city_id,
+            :leisure_id,
             presence: true
 
   def valid_bounds?

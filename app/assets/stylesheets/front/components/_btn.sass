@@ -49,13 +49,11 @@
     font-size: 1.5rem
 
 .button-radio
-  @extend .btn, .btn-block, .btn-outline-primary
-  // color: $white
-  // background-color: lighten($primary, 10%)
-  // border-color: $primary
+  @extend .btn, .btn-block
+  @include button-outline-variant(lighten($primary, 10%), $primary, $white, $primary)
 
 .button-radio-input:checked + .button-radio
-  @extend .btn-primary
+  @include button-outline-variant($primary, $primary, $white, $primary)
   .label-title:after
     content: '\f00c'
     font-family: FontAwesome
