@@ -27,11 +27,7 @@
       .event-card_location
         = icon_location
         = event.city.name
-      .event-card_participants
-        = icon_people
-        = event_participants_count(event)
-
-        
-  / .card.mt-3 class="#{'bg-secondary' if event.canceled?}"
-  /   .card-body
-  /     / p= event.leisure.title
+      - if event.opened?
+        .event-card_participants
+          = icon_people
+          = event_participants_count(event)

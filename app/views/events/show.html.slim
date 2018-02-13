@@ -23,7 +23,7 @@
     .row
       .col-6
         = link_to edit_users_event_path(@event), class: "button--main" do
-          i.fa.fa-pencil>
+          => icon_edit_reverse
           ' Modifier
 
       - if policy(@event).cancel?
@@ -32,7 +32,10 @@
             i.fa.fa-close>
             ' Annuler
 
-/ Page event  ------------
+
+
+/ Page event ====================================
+/ Header ----------------------------------------
 section.event-header
   = image_tag "#{@event.leisure_category.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure_category.title}"
   .event-header_meta
@@ -45,6 +48,8 @@ section.event-header
         - (1..30).each do |i|
           span class="path#{i}"
 
+
+/ Actions & statuses ----------------------------------------
 section.section.pt-5
   .section_inner
     .event-show_actions
@@ -53,13 +58,13 @@ section.section.pt-5
     .event-show_statuses
       - if @event.closed?
         .event-show_statuses-card role="alert" 
-          => icon_mail 
+          / => icon_mail 
           ' Evénement privé
       - if @event.past?
         .event-show_statuses-card role="alert" Evénement terminé
       - if @event.canceled?
         .event-show_statuses-card role="alert" Evénement annulé
-      - if @event.full?
+      - if @event.full? && event.opened?
         .event-show_statuses-card role="alert" Evénement complet
 
 
@@ -93,15 +98,16 @@ section
           = icon_clock
         .profile-info_col-content
           span = event_date(@event)
-      .profile-info_row
-        .profile-info_col-icon
-          = icon_people
-          / title="Nombre de participants actuels / Nombre maximum de participants"
-        .profile-info_col-content
-          span = event_participants_count(@event)
-        - if @event.with_mirador_participant?
-          .profile-info_mirador-participant
-            => icon_mirador_participant  
+      - if @event.opened?
+        .profile-info_row
+          .profile-info_col-icon
+            = icon_people
+            / title="Nombre de participants actuels / Nombre maximum de participants"
+          .profile-info_col-content
+            span = event_participants_count(@event)
+          - if @event.with_mirador_participant?
+            .profile-info_mirador-participant
+              => icon_mirador_participant
     
     - if wysiwyg_present?(@event.description)
       .profile-info--big
