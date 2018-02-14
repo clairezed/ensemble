@@ -12,16 +12,10 @@
           ' Modifier mon profil
 
       .rank-container
-        small= @user.rank.to_i
-        small= @user.rank
-        small= User.ranks[@user.rank]
         .row.no-gutters.rank-row
           - User.ranks.each do |rank_key, rank_val|
             .col-3.rank-step class="#{'complete' if User.ranks[@user.rank] >= rank_val.to_i}"
-              .text-center.rank-step_title 
-                = user_rank_title(rank_key)
-                div
-                  small= "#{rank_key} - #{rank_val}"
+              .text-center.rank-step_title = user_rank_title(rank_key)
               .rank-step_progress
                 .rank-step_progress-bar
               .rank-step_dot
