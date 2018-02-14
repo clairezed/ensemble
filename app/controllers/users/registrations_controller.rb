@@ -44,8 +44,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       # custom 
       @user = resource
-      @last_events = Event.active.order(created_at: :desc).limit(3)
-      @mirador_events = Event.active.mirador.order(created_at: :desc).limit(3)
+      @last_events = Event.visible.normal
+        .includes(:leisure_category).includes(:city)
+        .order(created_at: :desc).limit(3)
+      @mirador_events = Event.visible.mirador
+        .includes(:leisure_category).includes(:city)
+        .order(created_at: :desc).limit(3)
       render action: :new
     end
   end
@@ -60,7 +64,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       finalize_registration
       flash[:notice] = "Votre inscription a bien été finalisée"
-      redirect_to users_parameters_path(anchor: 'verify-identity')
+      cookies[:ensemble_welcome_modal] = true
+      redirect_to events_path
     else
       @user.build_avatar unless @user.avatar
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"

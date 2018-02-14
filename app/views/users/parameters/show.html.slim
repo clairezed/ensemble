@@ -9,6 +9,26 @@
       .section_inner
         h2.section-title Valider mon identité
 
+        - unless current_user.sms_confirmed?
+          p: strong Vérifier mon numéro de téléphone :
+
+          = render partial: "users/sms_confirmations/update"
+
+          = form_for current_user, as: :user, url: users_sms_confirmations_path, html: { method: :post, class: "" } do |f| 
+            = f.hidden_field :phone
+
+            - if @code_sent == true
+              .alert.alert-info role="alert" Un code a été envoyé à votre numéro de téléphone. Si vous vous souhaitez le renvoyer, cliquez de nouveau sur le bouton "Me renvoyer le code sms".
+
+            .form-group
+              .form-actions
+                small.form-text.text-muted.mb-1 Vous n'avez pas reçu sur votre téléphone le code SMS ?
+                = f.submit "Me renvoyer le code sms", class: "btn btn-outline-primary"
+
+
+
+
+        hr
         - unless current_user.confirmed?
           p: strong Vérifier mon adresse mail : 
 
@@ -17,23 +37,9 @@
 
             .form-group
               .form-actions
+                small.form-text.text-muted.mb-1 Vous n'avez pas reçu lors de votre inscription l'email de vérification ?
                 = f.submit "Me renvoyer l'email de vérification", class: "btn btn-outline-primary"
 
-          hr
-        - unless current_user.sms_confirmed?
-          p: strong Vérifier mon numéro de téléphone :
-
-          = form_for current_user, as: :user, url: users_sms_confirmations_path, html: { method: :post, class: "" } do |f| 
-            = f.hidden_field :phone
-
-            .form-group
-              .form-actions
-                = f.submit "Me renvoyer le code sms", class: "btn btn-outline-primary"
-
-            - if @code_sent == true
-              .alert.alert-info role="alert" Un code a été envoyé à votre numéro de téléphone. Si vous vous souhaitez le renvoyer, cliquez de nouveau sur le bouton "Me renvoyer le code sms".
-
-          = render partial: "users/sms_confirmations/update_form"
   
   section
     .section_inner

@@ -33,6 +33,7 @@
 #= require ./components/participants-count-slider
 #= require ./components/leisure-checkboxes
 #= require ./components/leisure-radio
+#= require ./components/welcome-modal
 
 
 #= require_tree ./front
@@ -44,3 +45,5 @@ $ ->
   $('[data-toggle="tooltip"]').tooltip()
 
   new ApplicationMenu()
+
+  new WelcomeModal()

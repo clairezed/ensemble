@@ -1,0 +1,15 @@
+  / - if session[:welcome_modal] == true 
+  - if cookies[:ensemble_welcome_modal].to_s == "true"
+
+    .modal.fade data-is-modal='welcome'
+      .modal-dialog role="document"
+        .modal-content
+          .modal-header
+            h4.modal-title Bienvenue !
+            button.close aria-label="Close" data-dismiss="modal" type="button" 
+              span aria-hidden="true"  &times;
+          .modal-body
+
+            = form_for current_user, as: :user, url: users_sms_confirmation_path(current_user),method: :patch, data: {sms_confirmation_form: true}, remote: true, class: '' do |f|
+              = render partial: "users/sms_confirmations/update_form", locals: { f: f }
+

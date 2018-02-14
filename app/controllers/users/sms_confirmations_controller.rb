@@ -32,11 +32,25 @@ class Users::SmsConfirmationsController < Users::BaseController
 
   def update
     @user = User.find(params[:id])
-    if User::ConfirmPhoneNumber.call(@user, update_params)
-      redirect_to_after_sms_confirmation_path
-    else
-      flash[:error] = 'Il y a un problème avec le code sms'
-      render_new_view
+     respond_to do |format|
+      format.html do 
+        if User::ConfirmPhoneNumber.call(@user, update_params)
+          redirect_to_after_sms_confirmation_path
+        else
+          flash[:error] = 'Il y a un problème avec le code sms'
+          render_new_view
+        end
+      end
+      # modal bienvenue affichée après l'inscription
+      format.js do
+        if User::ConfirmPhoneNumber.call(@user, update_params)
+          render json: { success: true  }, content_type: 'application/json'
+        else
+          html = render_to_string(partial: "users/sms_confirmations/update")
+          render json: { success: false, html: html }, content_type: 'application/json'
+        end
+
+      end
     end
   end
 

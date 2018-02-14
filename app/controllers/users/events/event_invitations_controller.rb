@@ -28,7 +28,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
     redirect_back fallback_location: users_event_invitations_path(@event)
   end
 
-  # Valide les 
+  # Valide les invitations en attente
   def batch_valildate
     @event.event_invitations.each do |invitation|
       invitation.validate! if invitation.may_validate?

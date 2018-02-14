@@ -24,7 +24,7 @@ feature "Inscription User" do
 
     fill_second_step
     click_button "Je m'inscris"
-    expect(current_path).to eq(users_parameters_path)
+    expect(current_path).to eq(events_path)
     expect(new_user.reload.verification_state).to eq('pending')
     expect(new_user.reload && new_user.registration_complete?).to be true
   end
