@@ -111,7 +111,8 @@ class Event < ApplicationRecord
   }
 
   scope :with_participant, -> (user_id) {
-    where(event_participations: {user_id: user_id})
+    eager_load(:event_participations)
+    .where(arel_with_participant(user_id))
   }
 
   scope :with_user, -> (user_id) {

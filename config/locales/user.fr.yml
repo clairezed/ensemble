@@ -74,3 +74,9 @@ fr:
         identity_verified: "warning"
         admin_accepted: "success"
         admin_rejected: "danger"
+    ranks:
+      title:
+        beginner: Débutant
+        regular: Habitué
+        expert: Expert
+        ambassador: Ambassadeur

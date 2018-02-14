@@ -27,6 +27,13 @@ class User < ApplicationRecord
     admin_rejected: 3
   }
 
+  enum rank: {
+    beginner: 0,
+    regular: 1, # mail et sms vérifié
+    expert: 2,
+    ambassador: 3
+  }
+
   aasm column: :verification_state, enum: true do
 
     state :pending, initial: true

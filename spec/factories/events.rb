@@ -9,5 +9,6 @@ FactoryBot.define do
     association :leisure
     association :user
     association :city
+    participants_max 20
   end
 end

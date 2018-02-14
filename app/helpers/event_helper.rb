@@ -2,13 +2,11 @@
 
 module EventHelper
 
-
   # visibilities -------------------------------------
 
   def event_visibility(visibility)
     I18n.t(visibility, scope: [:event, :visibilities, :title])
   end
-
 
   def event_visibility_style(visibility)
     I18n.t(visibility, scope: [:event, :visibilities, :style])

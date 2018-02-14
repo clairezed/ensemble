@@ -13,26 +13,12 @@
 
       .rank-container
         .row.no-gutters.rank-row
-          .col-3.rank-step.complete
-            .text-center.rank-step_title Débutant
-            .rank-step_progress
-              .rank-step_progress-bar
-            .rank-step_dot
-          .col-3.rank-step.complete
-            .text-center.rank-step_title Habitué
-            .rank-step_progress
-              .rank-step_progress-bar
-            .rank-step_dot
-          .col-3.rank-step
-            .text-center.rank-step_title Expert
-            .rank-step_progress
-              .rank-step_progress-bar
-            .rank-step_dot
-          .col-3.rank-step
-            .text-center.rank-step_title Ambassadeur
-            .rank-step_progress
-              .rank-step_progress-bar
-            .rank-step_dot            
+          - User.ranks.each do |rank_key, rank_val|
+            .col-3.rank-step class="#{'complete' if @user.rank >= rank_val}"
+              .text-center.rank-step_title = user_rank_title(rank_key)
+              .rank-step_progress
+                .rank-step_progress-bar
+              .rank-step_dot
 
       .profile-info--small
         .profile-info_label
