@@ -14,7 +14,7 @@
       .rank-container
         .row.no-gutters.rank-row
           - User.ranks.each do |rank_key, rank_val|
-            .col-3.rank-step class="#{'complete' if @user.rank >= rank_val}"
+            .col-3.rank-step class="#{'complete' if @user.rank.to_i >= rank_val.to_i}"
               .text-center.rank-step_title = user_rank_title(rank_key)
               .rank-step_progress
                 .rank-step_progress-bar
