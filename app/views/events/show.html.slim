@@ -64,7 +64,7 @@ section.section.pt-5
         .event-show_statuses-card role="alert" Evénement terminé
       - if @event.canceled?
         .event-show_statuses-card role="alert" Evénement annulé
-      - if @event.full? && event.opened?
+      - if @event.full? && @event.opened?
         .event-show_statuses-card role="alert" Evénement complet
 
 
