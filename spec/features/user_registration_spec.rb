@@ -82,6 +82,7 @@ def fill_first_step
   fill_in("user_firstname", with: "Eglantine")
   fill_in("user_lastname", with: "Zuliani")
   fill_in("user_password", with: "Password1")
+  fill_in("user_password_confirmation", with: "Password1")
   # fill_in("user_password_confirmation", with: "Password1")
 end
 

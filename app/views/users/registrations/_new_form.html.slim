@@ -12,5 +12,8 @@
 .form-group.required
   = f.label :password, class: ''
   = f.password_field :password, class: 'form-control'
+.form-group.required
+  = f.label :password_confirmation, class: ''
+  = f.password_field :password_confirmation, class: 'form-control'
 .form-actions
   => f.submit "OK", class: "button--main"
