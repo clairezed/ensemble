@@ -13,6 +13,7 @@
 
       .rank-container
         small= @user.rank.to_i
+        small= @user.rank
         .row.no-gutters.rank-row
           - User.ranks.each do |rank_key, rank_val|
             .col-3.rank-step class="#{'complete' if @user.rank.to_i >= rank_val.to_i}"
