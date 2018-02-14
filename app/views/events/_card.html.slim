@@ -17,11 +17,11 @@
       .event-card_body-mirador-participant
         => icon_mirador_participant
     .event-card_body-header
-      h3.event-card_body-title = event.title
+      h3.event-card_body-title = event.title.truncate(22)
     - if event.mirador?
       .event-card_body-mirador 
         => icon_mirador
-        ' Evénement Mirador
+        ' Evénement MIRADOR
 
     .event-card_body-footer
       .event-card_location

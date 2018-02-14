@@ -5,7 +5,7 @@
   = form_for @event, as: :event, url: admin_event_path(@event), html: {class: "form-horizontal"} do |f| 
 
     .form-group
-      label Mirador ?
+      label MIRADOR ?
       br
       - Event.affiliations.each do |key, value|
         .form-check.form-check-inline
