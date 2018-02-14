@@ -1,0 +1,72 @@
+$rank-progress-height: 3px
+$rank-progress-font-size: .7rem
+$rank-progress-bg: $secondary
+$rank-progress-border-radius: 0px
+$rank-progress-box-shadow: none
+$rank-dot-diameter: 16px
+// $rank-progress-bar-color
+// $rank-progress-bar-bg
+// $rank-progress-bar-transition
+
+.rank-container
+  margin-bottom: 1rem
+
+.rank-row
+
+.rank-step
+  position: relative
+  &_title
+    font-size: $rank-progress-font-size
+    margin-bottom: .25rem
+    color: lighten($text, 25%)
+  &_progress
+    position: relative
+    margin: 20px 0
+    display: flex
+    height: $rank-progress-height
+    overflow: hidden // force rounded corners by cropping it
+    font-size: $rank-progress-font-size
+    background-color: $rank-progress-bg
+    @include border-radius($rank-progress-border-radius)
+    @include box-shadow($rank-progress-box-shadow)
+    &-bar
+      display: flex
+      flex-direction: column
+      justify-content: center
+      color: $progress-bar-color
+      text-align: center
+      white-space: nowrap
+      background-color: $progress-bar-bg
+      @include transition($progress-bar-transition)
+  &:first-child > .rank-step_progress
+    left: 50%
+    width: 50%
+  &:last-child > .rank-step_progress
+    width: 50%
+  &_dot
+    position: absolute
+    width: $rank-dot-diameter
+    height: $rank-dot-diameter
+    display: block
+    background: $primary
+    top: 38px
+    left: 50%
+    margin-top: -($rank-dot-diameter / 2)
+    margin-left: -($rank-dot-diameter / 2)
+    border-radius: 50%
+    &:after
+      content: ' '
+      width: ($rank-dot-diameter / 4 * 3)
+      height: ($rank-dot-diameter / 4 * 3)
+      background: $white
+      border-radius: 50%
+      position: absolute
+      top: ($rank-dot-diameter / 8)
+      left: ($rank-dot-diameter / 8)
+  &.complete
+    .rank-step_title
+      color: $text
+    .rank-step_progress
+      &-bar
+    .rank-step_dot:after
+      background: $primary

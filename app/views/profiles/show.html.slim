@@ -11,6 +11,29 @@
           => icon_edit_reverse
           ' Modifier mon profil
 
+      .rank-container
+        .row.no-gutters.rank-row
+          .col-3.rank-step.complete
+            .text-center.rank-step_title Débutant
+            .rank-step_progress
+              .rank-step_progress-bar
+            .rank-step_dot
+          .col-3.rank-step.complete
+            .text-center.rank-step_title Habitué
+            .rank-step_progress
+              .rank-step_progress-bar
+            .rank-step_dot
+          .col-3.rank-step
+            .text-center.rank-step_title Expert
+            .rank-step_progress
+              .rank-step_progress-bar
+            .rank-step_dot
+          .col-3.rank-step
+            .text-center.rank-step_title Ambassadeur
+            .rank-step_progress
+              .rank-step_progress-bar
+            .rank-step_dot            
+
       .profile-info--small
         .profile-info_label
           => user_gender_head_icon(@user.gender)
