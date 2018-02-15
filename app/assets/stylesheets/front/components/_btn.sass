@@ -1,23 +1,74 @@
 //          - Component BTN 
 
-@mixin button-reverse-color($color)
-  color: $color
-  border-color: $color
+@mixin base-button
+  display: inline-block
+  font-weight: $btn-font-weight
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  user-select: none
+  border: $btn-border-width solid transparent
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius)
+  @include transition($btn-transition)
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
+
+  // Share hover and focus styles
+  @include hover-focus
+    text-decoration: none
+
+  &:focus,
+  &.focus
+    outline: 0
+    box-shadow: $btn-focus-box-shadow
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled
+    opacity: $btn-disabled-opacity
+    @include box-shadow(none)
+
+  // Opinionated: add "hand" cursor to non-disabled .btn elements
+  &:not(:disabled):not(.disabled)
+    cursor: pointer
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active
+    background-image: none
+    @include box-shadow($btn-active-box-shadow)
+
+    &:focus
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow)
+
+@mixin base-button-block
+  @include base-button
+  display: block
+  width: 100%
+
+
+@mixin secondary-shadow
+  box-shadow: 2px 2px 0px 0px rgba(255,218,68,0.66)
 
 
 .button
-  @extend .btn, .btn-block
-  box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.06)
-  transition: all $transition-default
-  &--main
-    @extend .button
-    @extend .btn-primary
-  &--reverse 
-    @extend .button
-    border-color: $text
-  &--reverse-danger
-    @extend .button
-    @extend .btn-outline-danger
+  @include base-button-block
+
+.button--main
+  @include base-button-block
+  @include button-variant($primary, $primary)
+  @include secondary-shadow
+
+.button--main-reverse
+  @include base-button-block
+  // @include button-outline-variant(lighten($primary, 10%), $primary, $white, $primary)
+  @include button-variant($white, $primary)
+
+.button--reverse
+  @include base-button-block
+  border-color: $text
+
+.button--reverse-danger
+  @include base-button-block
+  @include button-outline-variant($danger, $danger)
 
 .button-burger
   font-size: 1.75rem
@@ -33,8 +84,8 @@
     font-size: .6rem
 
 .button-upload
-  @extend .button 
-  @extend .btn-outline-primary
+  @include base-button
+  @include button-outline-variant($primary, $primary)
   display: flex
   justify-content: center
   align-items: center
@@ -49,7 +100,7 @@
     font-size: 1.5rem
 
 .button-radio
-  @extend .btn, .btn-block
+  @include base-button-block
   @include button-outline-variant(lighten($primary, 10%), $primary, $white, $primary)
 
 .button-radio-input:checked + .button-radio
