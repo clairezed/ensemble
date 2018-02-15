@@ -18,12 +18,12 @@ feature "Inscription User" do
     expect(current_path).to eq(new_second_step_path)
 
     # Step 2 ---------------------------------
-    click_button "Je m'inscris"
+    click_button "OK"
     expect(current_path).to eq(create_second_step_path)
     expect(page).to have_content 'erreurs'
 
     fill_second_step
-    click_button "Je m'inscris"
+    click_button "OK"
     expect(current_path).to eq(events_path)
     expect(new_user.reload.verification_state).to eq('pending')
     expect(new_user.reload && new_user.registration_complete?).to be true
