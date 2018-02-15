@@ -12,7 +12,7 @@ module SearchHelper
 
   def search_params_icon(key)
     case key
-    when 'by_text'              then icon_edit
+    when 'by_text'              then icon_text
     when 'by_leisures'          then icon_interest
     when 'by_dates'             then icon_calendar
     when 'by_city'              then icon_location

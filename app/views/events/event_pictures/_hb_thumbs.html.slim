@@ -16,5 +16,5 @@
       = link_to "{{url}}", target: "_blank" do 
         img.img-fluid src="{{thumbnail_url}}"
     = link_to "{{delete_url}}", method: :delete, remote: true, class: "picture-card_delete-btn", data:{delete_picture: "{{id}}", confirm: "Confirmer la suppression ?"} do
-      => icon_delete
+      => icon_delete_reverse
       ' supp

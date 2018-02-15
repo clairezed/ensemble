@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'ensemble';
-  src:  font-url('ensemble.eot?nw39y1');
-  src:  font-url('ensemble.eot?nw39y1#iefix') format('embedded-opentype'),
-    font-url('ensemble.ttf?nw39y1') format('truetype'),
-    font-url('ensemble.woff?nw39y1') format('woff'),
-    font-url('ensemble.svg?nw39y1#ensemble') format('svg');
+  src:  font-url('ensemble.eot?mq13f6');
+  src:  font-url('ensemble.eot?mq13f6#iefix') format('embedded-opentype'),
+    font-url('ensemble.ttf?mq13f6') format('truetype'),
+    font-url('ensemble.woff?mq13f6') format('woff'),
+    font-url('ensemble.svg?mq13f6#ensemble') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -541,6 +541,24 @@
     color: rgb(255, 199, 51);
   }
 }
+.ico-cancel {
+  &:before {
+    content: $ico-cancel;     
+    color: #666;
+  }
+}
+.ico-cancel-white {
+  &:before {
+    content: $ico-cancel-white;     
+    color: #fff;
+  }
+}
+.ico-cance-reverse {
+  &:before {
+    content: $ico-cance-reverse;     
+    color: #ffc933;
+  }
+}
 .ico-cgu .path1 {
   &:before {
     content: $ico-cgu-path1;  
@@ -751,6 +769,33 @@
 .ico-close .path4 {
   &:before {
     content: $ico-close-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-close-reverse .path1 {
+  &:before {
+    content: $ico-close-reverse-path1;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-close-reverse .path2 {
+  &:before {
+    content: $ico-close-reverse-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-close-reverse .path3 {
+  &:before {
+    content: $ico-close-reverse-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-close-reverse .path4 {
+  &:before {
+    content: $ico-close-reverse-path4;  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
@@ -1041,370 +1086,6 @@
     content: $ico-location-path2;  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path3 {
-  &:before {
-    content: $ico-location-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path4 {
-  &:before {
-    content: $ico-location-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path5 {
-  &:before {
-    content: $ico-location-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path6 {
-  &:before {
-    content: $ico-location-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path7 {
-  &:before {
-    content: $ico-location-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path8 {
-  &:before {
-    content: $ico-location-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path9 {
-  &:before {
-    content: $ico-location-path9;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path10 {
-  &:before {
-    content: $ico-location-path10;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path11 {
-  &:before {
-    content: $ico-location-path11;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path12 {
-  &:before {
-    content: $ico-location-path12;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path13 {
-  &:before {
-    content: $ico-location-path13;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path14 {
-  &:before {
-    content: $ico-location-path14;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path15 {
-  &:before {
-    content: $ico-location-path15;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path16 {
-  &:before {
-    content: $ico-location-path16;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path17 {
-  &:before {
-    content: $ico-location-path17;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path18 {
-  &:before {
-    content: $ico-location-path18;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path19 {
-  &:before {
-    content: $ico-location-path19;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path20 {
-  &:before {
-    content: $ico-location-path20;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path21 {
-  &:before {
-    content: $ico-location-path21;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path22 {
-  &:before {
-    content: $ico-location-path22;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path23 {
-  &:before {
-    content: $ico-location-path23;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path24 {
-  &:before {
-    content: $ico-location-path24;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path25 {
-  &:before {
-    content: $ico-location-path25;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path26 {
-  &:before {
-    content: $ico-location-path26;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path27 {
-  &:before {
-    content: $ico-location-path27;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path28 {
-  &:before {
-    content: $ico-location-path28;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path29 {
-  &:before {
-    content: $ico-location-path29;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path30 {
-  &:before {
-    content: $ico-location-path30;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path31 {
-  &:before {
-    content: $ico-location-path31;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path32 {
-  &:before {
-    content: $ico-location-path32;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path33 {
-  &:before {
-    content: $ico-location-path33;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path34 {
-  &:before {
-    content: $ico-location-path34;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path35 {
-  &:before {
-    content: $ico-location-path35;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path36 {
-  &:before {
-    content: $ico-location-path36;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path37 {
-  &:before {
-    content: $ico-location-path37;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path38 {
-  &:before {
-    content: $ico-location-path38;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path39 {
-  &:before {
-    content: $ico-location-path39;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path40 {
-  &:before {
-    content: $ico-location-path40;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path41 {
-  &:before {
-    content: $ico-location-path41;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path42 {
-  &:before {
-    content: $ico-location-path42;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path43 {
-  &:before {
-    content: $ico-location-path43;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path44 {
-  &:before {
-    content: $ico-location-path44;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path45 {
-  &:before {
-    content: $ico-location-path45;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path46 {
-  &:before {
-    content: $ico-location-path46;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path47 {
-  &:before {
-    content: $ico-location-path47;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path48 {
-  &:before {
-    content: $ico-location-path48;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path49 {
-  &:before {
-    content: $ico-location-path49;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path50 {
-  &:before {
-    content: $ico-location-path50;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path51 {
-  &:before {
-    content: $ico-location-path51;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path52 {
-  &:before {
-    content: $ico-location-path52;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path53 {
-  &:before {
-    content: $ico-location-path53;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path54 {
-  &:before {
-    content: $ico-location-path54;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
   }
 }
 .ico-mail .path1 {
@@ -1712,6 +1393,45 @@
     content: $ico-settings-path2;  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
+  }
+}
+.ico-text .path1 {
+  &:before {
+    content: $ico-text-path1;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-text .path2 {
+  &:before {
+    content: $ico-text-path2;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-text .path3 {
+  &:before {
+    content: $ico-text-path3;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-text .path4 {
+  &:before {
+    content: $ico-text-path4;  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-validate {
+  &:before {
+    content: $ico-validate;     
+    color: #666;
+  }
+}
+.ico-validate-reverse {
+  &:before {
+    content: $ico-validate-reverse;     
+    color: #ffc933;
   }
 }
 .ico-women .path1 {
@@ -2329,7 +2049,7 @@
 .ico-autre .path1 {
   &:before {
     content: $ico-autre-path1;  
-    color: rgb(102, 102, 102);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-autre .path2 {
@@ -2343,7 +2063,7 @@
   &:before {
     content: $ico-autre-path3;  
     margin-left: -1em;  
-    color: rgb(255, 204, 51);
+    color: rgb(102, 102, 102);
   }
 }
 .ico-bar-cafe .path1 {
@@ -3233,63 +2953,63 @@
 .ico-jeux-de-plateaux .path1 {
   &:before {
     content: $ico-jeux-de-plateaux-path1;  
-    color: rgb(102, 102, 102);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path2 {
   &:before {
     content: $ico-jeux-de-plateaux-path2;  
     margin-left: -1em;  
-    color: rgb(0, 0, 0);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path3 {
   &:before {
     content: $ico-jeux-de-plateaux-path3;  
     margin-left: -1em;  
-    color: rgb(0, 0, 0);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path4 {
   &:before {
     content: $ico-jeux-de-plateaux-path4;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path5 {
   &:before {
     content: $ico-jeux-de-plateaux-path5;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-de-plateaux .path6 {
   &:before {
     content: $ico-jeux-de-plateaux-path6;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path7 {
   &:before {
     content: $ico-jeux-de-plateaux-path7;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path8 {
   &:before {
     content: $ico-jeux-de-plateaux-path8;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path9 {
   &:before {
     content: $ico-jeux-de-plateaux-path9;  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path10 {
@@ -3316,90 +3036,6 @@
 .ico-jeux-de-plateaux .path13 {
   &:before {
     content: $ico-jeux-de-plateaux-path13;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-plateaux .path14 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path14;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-plateaux .path15 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path15;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path16 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path16;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-plateaux .path17 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path17;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path18 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path18;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-plateaux .path19 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path19;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path20 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path20;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path21 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path21;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path22 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path22;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-plateaux .path23 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path23;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path24 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path24;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-plateaux .path25 {
-  &:before {
-    content: $ico-jeux-de-plateaux-path25;  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }

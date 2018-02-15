@@ -12,4 +12,6 @@
 
         .form-group
           .form-actions
-            => f.submit "OK", class: "button--main"
+            = button_tag(class: "button--main") do 
+              => icon_validate_reverse
+              ' OK

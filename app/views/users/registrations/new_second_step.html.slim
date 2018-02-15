@@ -6,7 +6,9 @@ section
       =  render partial: "second_step_form", locals: {f: f}
 
       .form-group
-        => f.submit "Je m'inscris", class: "button--main"
+        = button_tag(class: "button--main") do 
+          => icon_validate_reverse
+          ' OK
     
     .form-group
       = button_to "Annuler l'inscription", registration_path(:user), data: { confirm: "Etes-vous sûre de vouloir annuler l'inscription ?" }, method: :delete, class: "button--reverse mt-2" 

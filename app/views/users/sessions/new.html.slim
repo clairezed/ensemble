@@ -25,7 +25,10 @@
     /         = f.check_box :remember_me  
     /         = f.label :remember_me, "Se souvenir de moi" 
     .form-actions
-      = f.submit "Connexion", class: "button--main"
+      / = f.submit "Connexion", class: "button--main"
+      = button_tag(class: "button--main") do 
+        => icon_validate_reverse
+        ' Connexion
 
 
   .form-links

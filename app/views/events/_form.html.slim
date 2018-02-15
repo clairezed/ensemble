@@ -2,7 +2,7 @@
   
 .form-group.required
   = f.label :title, class: '' do
-    => icon_edit
+    => icon_text
     ' Titre
   = f.text_field :title, class: 'form-control'
 
@@ -51,7 +51,7 @@
                     .leisure_choice-label=> leisure.title
         .footer
           a.button--main data-toggle-up="#{leisure_category.id}"
-            i.fa.fa-check>
+            => icon_validate_reverse
             ' Valider
   
 .form-group.required
@@ -98,7 +98,7 @@
 
 .form-group
   = f.label :description, class: '' do
-    => icon_edit
+    => icon_text
     ' Description
   = f.hidden_field :description, class: 'form-control', data: {is_hidden_field: 'description'}
   div data-is-wysiwyg="quill"
@@ -164,7 +164,9 @@
 
 hr
 .form-group.mt-3
-  => f.submit "Valider", class: "button--main"
+  = button_tag(class: "button--main") do 
+    => icon_validate_reverse
+    ' OK
 
 - unless f.object.new_record? 
   = render "events/event_pictures/hb_thumbs"

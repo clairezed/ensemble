@@ -48,6 +48,8 @@
 @mixin secondary-shadow
   box-shadow: 2px 2px 0px 0px rgba(255,218,68,0.66)
 
+@mixin primary-shadow
+  box-shadow: 2px 2px 0px 0px rgba(102,102,102,0.66)
 
 .button
   @include base-button-block
@@ -59,8 +61,12 @@
 
 .button--main-reverse
   @include base-button-block
-  // @include button-outline-variant(lighten($primary, 10%), $primary, $white, $primary)
   @include button-variant($white, $primary)
+
+.button--main-secondary
+  @include base-button-block
+  @include button-variant($secondary, $secondary)
+  @include primary-shadow
 
 .button--reverse
   @include base-button-block

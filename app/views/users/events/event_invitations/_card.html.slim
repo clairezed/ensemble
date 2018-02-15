@@ -22,12 +22,12 @@
         = form_for @event.event_invitations.new, as: :event_invitation, url: users_event_invitations_path(@event) do |f|
           = f.hidden_field :user_id, value: user.id
           = button_tag type: 'submit', class: "btn btn-secondary btn-block" do
-            i.fa.fa-plus-circle>
+            => icon_add
             ' Inviter
       / Bouton annuler
       - elsif invitation.draft?
         = link_to users_event_invitation_path(@event, invitation), method: :delete, title: "Supprimer", class: "btn btn-secondary btn-block" do 
-          i.fa.fa-times-circle-o>
+          => icon_cancel
           ' Annuler
       / Statut de l'invitation
       - else

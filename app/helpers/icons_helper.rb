@@ -56,6 +56,18 @@ module IconsHelper
     render_icon('camera', 5)
   end
 
+  def icon_cancel
+    render_icon('cancel', 1)
+  end
+
+  def icon_cancel_white
+    render_icon('cancel-white', 1)
+  end
+
+  def icon_cancel_reverse
+    render_icon('cance-reverse', 1)
+  end
+
   def icon_cgu
     render_icon('cgu', 7)
   end
@@ -68,6 +80,10 @@ module IconsHelper
     render_icon('close', 4)
   end
 
+  def icon_close_reverse
+    render_icon('close-reverse', 4)
+  end
+
   def icon_country
     render_icon('country', 3)
   end
@@ -76,9 +92,9 @@ module IconsHelper
     render_icon('country-reverse', 1)
   end
 
-  def icon_delete
-    render_icon('delete', 5)
-  end
+  # def icon_delete
+  #   render_icon('delete', 5)
+  # end
 
   def icon_delete_reverse
     render_icon('delete-reverse', 5)
@@ -117,7 +133,7 @@ module IconsHelper
   end
 
   def icon_location
-    render_icon('location', 54)
+    render_icon('location', 2)
   end
 
   def icon_mail
@@ -148,6 +164,10 @@ module IconsHelper
     render_icon('mirador-participant', 7)
   end
 
+  def icon_mirador_reverse
+    render_icon('mirador-reverse', 1)
+  end
+
   def icon_mobile_phone
     render_icon('mobile-phone', 8)
   end
@@ -174,6 +194,18 @@ module IconsHelper
 
   def icon_settings
     render_icon('settings', 2)
+  end
+
+  def icon_text
+    render_icon('text', 4)
+  end
+
+  def icon_validate
+    render_icon('validate', 1)
+  end
+
+  def icon_validate_reverse
+    render_icon('validate-reverse', 1)
   end
 
   def icon_women

@@ -19,7 +19,7 @@ section
       
       .form-group
         = label_tag :by_text, "Titre", class: '' do
-          => icon_edit
+          => icon_text
           ' Titre ou description
         => text_field_tag :by_text, params[:by_text], class: "form-control"
 
@@ -77,7 +77,10 @@ section
           options_for_select(single_city_options(params[:by_city]), params[:by_city]), \
           prompt: "Toutes", class: "form-control",  data: {is_ajax_select2: 'city', path: cities_path}
 
-        = submit_tag "Rechercher", class: "button--main mt-4"
+        / = submit_tag "Rechercher", class: "button--main mt-4"
+        = button_tag(class: "button--main mt-4") do 
+          => icon_search_reverse
+          ' Rechercher
       
   coffee: 
     new EventSearch()

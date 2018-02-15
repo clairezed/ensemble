@@ -1,24 +1,31 @@
 / Actions possible sur l'event, qu'on retrouve en haut et bas de page  ------------
 = content_for :event_actions do
   - invitation = @event.event_invitations.where(user: current_user).first
-
   - if invitation.present? 
     .actions-flex
       - if invitation.may_reject?
-         = link_to reject_users_invitation_path(invitation), method: :patch, class: "btn btn-danger", data: {confirm: "Une fois l'invitation refusée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer votre refus ?"} do 
-          i.fa.fa-close>
+         = link_to reject_users_invitation_path(invitation), method: :patch, class: "button--main", data: {confirm: "Une fois l'invitation refusée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer votre refus ?"} do 
+          => icon_cancel_reverse
           ' Refuser
       - if invitation.may_accept?
-        = link_to accept_users_invitation_path(invitation), method: :patch, class: "button--main" do
-          i.fa.fa-check>
+        = link_to accept_users_invitation_path(invitation), method: :patch, class: "button--main-secondary" do
+          => icon_validate
           ' Accepter
+
   - elsif policy(@event).participate?
-    = button_to "Participer à l'événement", event_event_participations_path(@event), class: "button--main"
+    = button_to event_event_participations_path(@event), class: "button--main" do
+      => icon_validate_reverse
+      ' Participer à l'événement
+
   - if policy(@event).cancel_participation?
     - if @event.closed?
-      = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"}
+      = button_to event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"} do
+        => icon_cancel_reverse
+        ' Annuler ma participation
     - else
-      = button_to "Annuler ma participation", event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main"
+      = button_to event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main" do
+        => icon_cancel_reverse
+        ' Annuler ma participation
   - if policy(@event).update?
     .row
       .col-6
@@ -29,7 +36,7 @@
       - if policy(@event).cancel?
         .col-6
           = link_to users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "button--main" do 
-            i.fa.fa-close>
+            => icon_cancel_reverse
             ' Annuler
 
 
@@ -90,18 +97,18 @@ section
             strong = link_to user_nickname(@event.user), profile_path(@event.user)
       .profile-info_row
         .profile-info_col-icon
-          = icon_location
+          => icon_location
         .profile-info_col-content
           span = event_full_address(@event)
       .profile-info_row
         .profile-info_col-icon
-          = icon_clock
+          => icon_clock
         .profile-info_col-content
           span = event_date(@event)
       - if @event.opened?
         .profile-info_row
           .profile-info_col-icon
-            = icon_people
+            => icon_people
             / title="Nombre de participants actuels / Nombre maximum de participants"
           .profile-info_col-content
             span = event_participants_count(@event)
@@ -133,7 +140,7 @@ section
           .event-attachement-block
             .event-attachement-block_content
               = link_to attachment.asset.url, target: "_blank", class: "" do 
-                i.fa.fa-file>
+                = icon_attachment
                 span = attachment.title
 
 section
