@@ -94,16 +94,20 @@ class Event < ApplicationRecord
 
   # Scopes ======================================================================
 
-  scope :future, -> {
-    where(arel_table[:start_at].gteq(Date.current))
+  scope :past, -> { where(
+    (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].lt(Time.zone.now)))
+    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].lt(Time.zone.now.end_of_day)))
+    )
+  }
+
+  scope :future, -> { where(
+    (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].gteq(Time.zone.now)))
+    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].gteq(Time.zone.now.end_of_day)))
+    )
   }
 
   scope :visible, -> {
     opened.future.active
-  }
-
-  scope :past, -> {
-    where(arel_table[:start_at].lt(Date.current))
   }
 
   scope :organized_by, -> (user_id) {
@@ -218,11 +222,19 @@ class Event < ApplicationRecord
   end
 
   def past?
-    start_at < Time.current
+    if end_at.present?
+      end_at < Time.zone.now
+    else
+      start_at < Time.zone.now.end_of_day
+    end
   end
 
   def future?
-    start_at >= Time.current
+    if end_at.present?
+      end_at >= Time.zone.now
+    else
+      start_at >= Time.zone.now.end_of_day
+    end
   end
 
   def visible?
