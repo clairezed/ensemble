@@ -1,5 +1,5 @@
 class Leisure < ActiveRecord::Base
-
+  include Sortable
   # Associations ===============================================================
 
   belongs_to :leisure_category

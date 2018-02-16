@@ -47,9 +47,9 @@ html lang="#{I18n.locale}"
                 = menu_link admin_events_path, section: :events, title: "Evénements" do 
                   i.fa.fa-calendar
                   | Evénements
-                = menu_link '#', section: :section4, title: "Retour à l'accueil" do 
+                = menu_link admin_user_reports_path, section: :user_reports, title: "Signalements" do 
                   i.fa.fa-pencil-square-o
-                  | Section 4
+                  | Signalements
 
                 = submenu(raw("<i class='fa fa-cog'></i> Configurations"), %w(basic_pages seos admins))
                   = menu_link 'Gestion des admins', admin_admins_path, section: :admins

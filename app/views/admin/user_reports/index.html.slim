@@ -1,0 +1,24 @@
+= render layout: 'layout_index' do 
+
+  table.table.table-striped.table-hover.table-sm
+    thead.thead-inverse
+      tr
+        th = hm_sort 'sort_by_created_at', label: 'Date création'
+        th = hm_sort 'sort_by_user_id', label: 'Bloqueur'
+        th = hm_sort 'sort_by_reported_user_id', label: 'Bloqué'
+        th = hm_sort 'sort_by_comment', label: 'Commentaire'
+    tbody
+      - @user_reports.each do |user_report| 
+        tr
+          td= l user_report.created_at.to_date
+          td= link_to user_report.user.fullname, edit_profile_admin_user_path(user_report.user)
+          td= link_to user_report.reported_user.fullname, edit_profile_admin_user_path(user_report.reported_user)
+          td= user_report.comment
+      
+      - if @user_reports.empty?
+        tr
+          td colspan="7"
+            p.text-center: em.text-muted Aucun résultat
+
+
+  = paginate @user_reports

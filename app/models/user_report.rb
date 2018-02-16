@@ -1,5 +1,5 @@
 class UserReport < ApplicationRecord
-
+  include Sortable
   # Enums --------------------------------------------------
 
   # Associations ===============================================================
@@ -18,5 +18,15 @@ class UserReport < ApplicationRecord
   scope :blocking, -> (user_id) { active.reporting(user_id) }
 
   # Instance methods =========================================
+
+    # Class Methods ==============================================================
+  
+  def self.apply_filters(params)
+    klass = self
+    klass = klass.reporting(params[:reporting]) if params[:reporting].present?
+    klass = klass.blocking(params[:blocking]) unless params[:blocking].nil?
+
+    klass
+  end
 
 end

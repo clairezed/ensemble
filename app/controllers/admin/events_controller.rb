@@ -4,7 +4,7 @@ class Admin::EventsController < Admin::BaseController
 
   def index
     params[:sort] ||= 'sort_by_created_at desc'
-    @events = Event
+    @events = Event.includes(:user).includes(:city)
       .apply_filters(params)
       .apply_sorts(params)
       .page(params[:page]).per(20)

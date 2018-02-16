@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     resources :leisure_categories
     resources :leisures
+    resources :user_reports, only: [:index]
     root to: 'dashboard#index'
   end
 
