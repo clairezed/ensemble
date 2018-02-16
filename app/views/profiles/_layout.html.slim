@@ -23,16 +23,29 @@ section.section
     .profile-status-bar
       .profile-status_item
         - if @user.admin_accepted?
-          i.fa.fa-check>
-          ' Profil vérifié
+          i.fa.fa-check.mr-1>
+          '  Profil vérifié
         - else
-          i.fa.fa-exclamation-triangle>
-          ' Profil non vérifié
+          i.fa.fa-exclamation-triangle.mr-1>
+          '  Profil non vérifié
       .profile-status_item
-        = link_to "#", class: 'button--reverse-danger disabled' do
-          i.fa.fa-close>
-          ' Bloquer
+        - report = current_user.active_report_for(@user)
+        - if report.present?
+          = link_to profile_report_path(@user, report), method: 'delete', class: 'button--reverse-danger' do
+            i.fa.fa-check>
+            ' Débloquer
+        - else
+          = link_to new_profile_report_path(@user), class: 'button--reverse-danger', data: {trigger_new_report: true, remote: true} do
+            i.fa.fa-close>
+            ' Bloquer
 
 
 / profile content ---------------------------------------------
 = yield
+
+#modal-report.modal.fade data-is-modal='report'
+  .modal-dialog role="document"
+    .modal-content data-is-report-modal='content'
+
+coffee:
+  new ProfileShow()

@@ -1,10 +1,8 @@
-class EventPolicy < ApplicationPolicy
+ class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
-    # TODO : pas événements privés ou je suis pas invité
-    # TODO : pas événements organisés/ par qqn qui m'a bloqué
     def resolve
-      scope
+      scope.not_blocked_to(user)
     end
   end
 
@@ -43,8 +41,13 @@ class EventPolicy < ApplicationPolicy
     user.participation_at(record).present?
   end
 
+  def isnt_blocked_by_organizer?
+    organizer = record.user
+    organizer.active_report_for(user).blank?
+  end
+
   def visible_event?
-    record.visible?
+    record.visible? && isnt_blocked_by_organizer?
   end
 
   def event_not_full?

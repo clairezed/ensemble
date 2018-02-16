@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180214170049) do
+ActiveRecord::Schema.define(version: 20180215153743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,17 @@ ActiveRecord::Schema.define(version: 20180214170049) do
     t.index ["user_id"], name: "index_user_languages_on_user_id"
   end
 
+  create_table "user_reports", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "reported_user_id"
+    t.text "comment"
+    t.boolean "blocked", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reported_user_id"], name: "index_user_reports_on_reported_user_id"
+    t.index ["user_id"], name: "index_user_reports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -233,4 +244,6 @@ ActiveRecord::Schema.define(version: 20180214170049) do
   add_foreign_key "leisures", "leisure_categories"
   add_foreign_key "user_languages", "languages"
   add_foreign_key "user_languages", "users"
+  add_foreign_key "user_reports", "users"
+  add_foreign_key "user_reports", "users", column: "reported_user_id"
 end

@@ -34,6 +34,7 @@
 #= require ./components/leisure-checkboxes
 #= require ./components/leisure-radio
 #= require ./components/welcome-modal
+#= require ./components/user-reporter
 
 
 #= require_tree ./front

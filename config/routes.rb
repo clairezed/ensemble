@@ -77,7 +77,9 @@ Rails.application.routes.draw do
 
   # Front ======================================
 
-  resources :profiles, only: [:show]
+  resources :profiles, only: [:show] do
+    resources :user_reports, as: :reports, controller: "profiles/user_reports", only: [:new, :create, :destroy]
+  end
   resources :cities, only: [:index]
   resources :events, only: [:index, :show]
 

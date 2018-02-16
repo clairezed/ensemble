@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
   before_action :set_default_seos!#, :get_basic_pages
   after_action :flash_to_headers, if: -> { request.xhr? && flash.present? }
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   protected
 
   def get_seo_for_static_page(param)
@@ -74,6 +76,11 @@ class ApplicationController < ActionController::Base
     if current_user.present? && !current_user.registration_complete?
       redirect_to new_second_step_path
     end
+  end
+
+  def user_not_authorized
+    flash[:alert] = "Vous n'êtes pas autorisé à effectuer cette action"
+    redirect_to(request.referrer || authenticated_root_path)
   end
 
 end

@@ -110,8 +110,16 @@ class Event < ApplicationRecord
     opened.future.active
   }
 
+  scope :blocked_to, -> (user_id) {
+    joins(:user).merge(User.blocking(user_id))
+  }
+
+  scope :not_blocked_to, -> (user_id) {
+    where.not(user_id: User.blocking(user_id))
+  }
+
   scope :organized_by, -> (user_id) {
-    where(user_id: user_id)
+    where(arel_organized_by(user_id))
   }
 
   scope :with_participant, -> (user_id) {

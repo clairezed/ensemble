@@ -94,6 +94,9 @@ class User < ApplicationRecord
 
   has_many :event_invitations, dependent: :destroy
 
+  has_many :created_user_reports, class_name: 'UserReport', source: :user
+  has_many :given_user_reports, class_name: 'UserReport', source: :reported_user
+
   # Validations ==================================================================
   validates :lastname,
             :firstname,
@@ -158,9 +161,12 @@ class User < ApplicationRecord
   scope :with_registration_completed, -> { where registration_complete: true }
   scope :not_admin_rejected, -> { where.not(verification_state: verification_states[:admin_rejected])}
 
-
   scope :email_notified, -> { where email_notification: true}
   scope :sms_notified, -> { where sms_notification: true}
+
+  scope :blocking, -> (user_id) { 
+    joins(:created_user_reports).merge(UserReport.blocking(user_id))
+  }
 
   # filtering ---------------------------------------------
 
@@ -276,6 +282,12 @@ class User < ApplicationRecord
 
   def participation_at(event)
     self.event_participations.find_by_event_id(event.id)
+  end
+
+  # User Report ------------------------------------------------
+
+  def active_report_for(user)
+    self.created_user_reports.reporting(user.id).active.first
   end
 
 
