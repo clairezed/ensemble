@@ -9,15 +9,18 @@
     = f.hidden_field :reported_user_id
 
     .form-group
-      = f.label :comment, "Pourquoi je veux bloquer cette personne", class: ''
+      = f.label :comment, class: '' do 
+        => icon_text
+        ' Pourquoi je veux bloquer cette personne
       = f.text_area :comment, class: 'form-control'
-      small.form-text.text-muted Seul l'administrateur d'ensemble peut lire votre commentaire
+      small.form-text.text-muted Seul l'administrateur d'ensemble peut lire votre commentaire.
 
-    p Si vous cliquez sur OK, cette personne ne pourra plus :
-    ul 
-      li vous inviter à des événements
-      li voir les événements que vous créez
-    p Vous serez aussi informé si vous participez tous les deux au même événement.
+    .report-explanation
+      p Si vous cliquez sur OK, cette personne ne pourra plus :
+      ul 
+        li vous inviter à des événements
+        li voir les événements que vous créez
+      p Vous serez aussi informé si vous participez tous les deux au même événement.
 
     .form-group
       .row.no-gutters

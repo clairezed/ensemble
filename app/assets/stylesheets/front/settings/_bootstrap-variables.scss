@@ -205,7 +205,7 @@
 // $border-color:                $gray-300 !default;
 
 // $border-radius:               .25rem !default;
-// $border-radius-lg:            .3rem !default;
+$border-radius-lg:            0rem !default;
 // $border-radius-sm:            .2rem !default;
 
 // $component-active-color:      $white !default;
@@ -749,7 +749,7 @@ $btn-border-radius-sm:        0px;
 // $modal-footer-border-color:   $modal-header-border-color !default;
 // $modal-header-border-width:   $modal-content-border-width !default;
 // $modal-footer-border-width:   $modal-header-border-width !default;
-// $modal-header-padding:        1rem !default;
+$modal-header-padding:        1rem 1rem .5rem
 
 // $modal-lg:                          800px !default;
 // $modal-md:                          500px !default;
