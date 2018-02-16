@@ -19,6 +19,7 @@ module EventService
         :near_organizer,
         :substract_organizer,
         :substract_invited_users,
+        :substract_blocking_users,
         :paginate
       ].inject(User.all) do |relation, step|
         send(step, relation)
@@ -28,11 +29,7 @@ module EventService
     private
 
     def filter_by_leisure(users)
-      # if @event.leisure.present?
-      #   users.by_leisure(@event.leisure.id)
-      # else
-        users.by_leisure_category(@event.leisure_category.id)
-      # end
+      users.by_leisure_category(@event.leisure_category.id)
     end
 
     def substract_organizer(users)
@@ -43,6 +40,10 @@ module EventService
       users.where.not(id: @event.invited_user_ids)
     end
 
+    def substract_blocking_users(users)
+      users.where.not(id: User.blocking(@event.user_id))
+    end
+
     def near_organizer(users)
       users
     end
@@ -50,6 +51,7 @@ module EventService
     def paginate(users)
       users.page(params[:page]).per(3)
     end
+
 
   end
 end
