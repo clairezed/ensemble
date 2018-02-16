@@ -22,6 +22,16 @@ module Twilio
       send_sms(message, @user.phone )
     end
 
+    def blocked_user_participating(user, event_participation)
+      @event_participation = event_participation
+      @event = @event_participation.event
+      @user = user
+      message = "[Ensemble] #{@event_participation.user.nickname} , que vous avez bloqué, vient de s'inscrire à l'événément #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")}"
+      p message 
+      # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
+      send_sms(message, @user.phone)
+    end
+
   end
 
 end

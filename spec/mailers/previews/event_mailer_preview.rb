@@ -6,4 +6,11 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.new_invitation(EventInvitation.last)
   end
 
+  # http://localhost:3000/rails/mailers/event_mailer/blocked_user_participating
+  def blocked_user_participating
+    user = User.last
+    event_participation = EventParticipation.last
+    EventMailer.blocked_user_participating(user, event_participation)
+  end
+
 end

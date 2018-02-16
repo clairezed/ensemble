@@ -10,6 +10,15 @@ class EventParticipation < ApplicationRecord
   # Validations ===============================================================
   validates :event_id, uniqueness: { scope: :user_id }
 
+  # Callbacks =================================================================
+  after_create :notify_blocking_users
+  private def notify_blocking_users
+    participants_blocking_users = event.participants.blocking(self.user)
+    participants_blocking_users.each do |user|
+      SendNotification.blocked_user_participating(user, self)
+    end
+  end
+
   # Scopes =====================================================================
   scope :persisted, -> { where.not(id: nil)}
 

@@ -17,4 +17,11 @@ class EventMailer < ApplicationMailer
     mail to: @user.email, subject: subject
   end
 
+  def blocked_user_participating(user, event_participation)
+    @event_participation = event_participation
+    @user = user
+    subject = "Une personne bloquée participe au même événement que vous"
+    mail to: @user.email, subject: subject
+  end
+
 end

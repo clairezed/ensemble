@@ -1,0 +1,8 @@
+p Bonjour #{@user.firstname},
+
+p #{user_nickname(@event_participation.user)}, que vous avez bloqué, vient de s'inscrire à l'événement <b>#{@event_participation.event.title}</b> prévu le #{@event_participation.event.start_at.strftime("%d/%m/%Y")} et auquel tu participes.
+
+p 
+  ' Pour voir le détail de l'événement et gérer ta participation, rendez-vous sur
+  => link_to "ENSEMBLE", event_url(@event_participation.event)
+  ' .
