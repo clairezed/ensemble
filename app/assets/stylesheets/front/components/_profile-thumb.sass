@@ -1,5 +1,4 @@
 .profile-thumb
-  // @extend .card
   position: relative
   display: flex
   margin-bottom: 0.25rem
@@ -26,6 +25,17 @@
     right: 2px
     .ico
       font-size: 1.8rem
+  &_blocked
+    z-index: 100
+    position: absolute
+    bottom: -12px
+    right: 2px
+    background-color: $white
+    padding: 2px 4px
+    border-radius: 50%
+    i
+      font-size: 1.2rem
+      color: $danger
   &_body
     flex: 1 1 auto
     padding: $card-spacer-x
@@ -33,6 +43,4 @@
     font-size: .8rem
     p 
       margin: 0
-    &:hover
-      text-decoration: none
 

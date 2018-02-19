@@ -290,5 +290,13 @@ class User < ApplicationRecord
     self.created_user_reports.reporting(user.id).active.first
   end
 
+  def blocking?(user)
+    self.active_report_for(user).present?
+  end
+
+  def blocking_any?(users)
+    self.created_user_reports.reporting(users.pluck(:id)).active.any?
+  end
+
 
 end

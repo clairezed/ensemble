@@ -7,15 +7,26 @@
          = link_to reject_users_invitation_path(invitation), method: :patch, class: "button--main", data: {confirm: "Une fois l'invitation refusée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer votre refus ?"} do 
           => icon_cancel_reverse
           ' Refuser
+
       - if invitation.may_accept?
-        = link_to accept_users_invitation_path(invitation), method: :patch, class: "button--main-secondary" do
-          => icon_validate
-          ' Accepter
+        - if current_user.blocking_any?(@event.participants)
+          = link_to accept_users_invitation_path(invitation), method: :patch, class: "button--main-secondary", data: {confirm: "Au moins une personne que vous avez bloquée participe à l'événement. Confirmez-vous votre participation ?"} do
+            => icon_validate
+            ' Accepter
+        - else
+          = link_to accept_users_invitation_path(invitation), method: :patch, class: "button--main-secondary" do
+            => icon_validate
+            ' Accepter
 
   - elsif policy(@event).participate?
-    = button_to event_event_participations_path(@event), class: "button--main" do
-      => icon_validate_reverse
-      ' Participer à l'événement
+    - if current_user.blocking_any?(@event.participants)
+      = button_to event_event_participations_path(@event), class: "button--main", data: {confirm: "Au moins une personne que vous avez bloquée participe à l'événement. Confirmez-vous votre participation ?"} do
+        => icon_validate_reverse
+        ' Participer à l'événement
+    - else
+      = button_to event_event_participations_path(@event), class: "button--main" do
+        => icon_validate_reverse
+        ' Participer à l'événement
 
   - if policy(@event).cancel_participation?
     - if @event.closed?
@@ -38,7 +49,6 @@
           = link_to users_event_path(@event), method: :delete, data: {confirm: "Confirmer l'annulation ?"}, class: "button--main" do 
             => icon_cancel_reverse
             ' Annuler
-
 
 
 / Page event ====================================
@@ -149,7 +159,7 @@ section
 
     - if @event.participants.any?
       .row.sm-gutter
-        - @event.participants.each do |user|
+        - @event.participants.includes(:avatar).each do |user|
           .col-4.sm-gutter
             = render partial: 'profiles/thumb', locals: {user: user}
     - else
