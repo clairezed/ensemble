@@ -15,7 +15,7 @@ fr:
 
   devise:
     failure:
-      unauthenticated: 'Veuillez vous connecter ou vous enregistrer pour continuer.'
+      unauthenticated: 'Veuillez vous connecter ou vous inscrire pour continuer.'
       unconfirmed: 'Veuillez confirmer votre compte pour continuer.'
       locked: 'Votre compte est bloqué.'
       invalid: 'Email ou mot de passe invalides.'

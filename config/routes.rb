@@ -82,12 +82,13 @@ Rails.application.routes.draw do
     resources :user_reports, as: :reports, controller: "profiles/user_reports", only: [:new, :create, :destroy]
   end
   resources :cities, only: [:index]
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show], path: 'evenements'
+  resources :mirador_events, only: [:index], path: 'evenements-mirador'
 
   scope module: :events do
-   resources :events, only: [] do
-    resources :event_participations
-   end
+    resources :events, only: [] do
+      resources :event_participations
+    end
   end
 
   resource :search, only: [:new, :show]

@@ -16,7 +16,7 @@ module Twilio
       @invitation = invitation
       @event = invitation.event
       @user = invitation.user
-      message = "[Ensemble] #{@event.user.nickname} vous invite à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}. Répondez  'OK #{@event.id}' pour accepter l'invitation."
+      message = "[Ensemble] #{@event.user.nickname} vous invite à l'événement #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")}. Répondez 'OK #{@event.id}' pour accepter l'invitation."
       p message 
       # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
       send_sms(message, @user.phone )
@@ -26,7 +26,7 @@ module Twilio
       @event_participation = event_participation
       @event = @event_participation.event
       @user = user
-      message = "[Ensemble] #{@event_participation.user.nickname} , que vous avez bloqué, vient de s'inscrire à l'événément #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")}"
+      message = "[Ensemble] #{@event_participation.user.nickname}, que vous avez bloqué, vient de s'inscrire à l'événément #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")}"
       p message 
       # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
       send_sms(message, @user.phone)

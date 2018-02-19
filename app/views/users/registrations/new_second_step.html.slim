@@ -8,7 +8,7 @@ section
       .form-group
         = button_tag(class: "button--main") do 
           => icon_validate_reverse
-          ' OK
+          ' Ok
     
     .form-group
       = button_to "Annuler l'inscription", registration_path(:user), data: { confirm: "Etes-vous sûre de vouloir annuler l'inscription ?" }, method: :delete, class: "button--reverse mt-2" 

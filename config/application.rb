@@ -21,7 +21,7 @@ module RailsStarter
     config.max_upload_size = 4.megabytes
 
     config.action_mailer.default_options = {
-        from: 'noreply@ensemble.fr',
+        from: 'contact@ensemble-app.fr',
         to:   'clairezuliani@gmail.com'
       }
   end

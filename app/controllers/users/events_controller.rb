@@ -16,7 +16,7 @@ class Users::EventsController < Users::BaseController
   def create  
     @event = current_user.organized_events.new(event_params)
     if @event.save
-      flash[:notice] = "L'événement a été créé avec succès"
+      flash[:notice] = "L'événement a bien été créé"
       if @event.closed?
         redirect_to users_event_invitations_path(@event)
       else
@@ -33,7 +33,7 @@ class Users::EventsController < Users::BaseController
 
   def update
     if @event.update_attributes(event_params)
-      flash[:notice] = "L'événement a été mis à jour avec succès"
+      flash[:notice] = "L'événement a été modifié"
       redirect_to action: :index
     else
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'événement"
@@ -43,7 +43,7 @@ class Users::EventsController < Users::BaseController
 
   def destroy
     @event.cancel!
-    flash[:notice] = "L'événement a bien été annulé"
+    flash[:notice] = "L'événement a été annulé"
     redirect_back fallback_location: event_path(@event)
   end
 

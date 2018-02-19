@@ -89,7 +89,7 @@ Rails.application.configure do
   HOST = "ensemble.clairezuliani.com"
   URL = "http://#{HOST}"
 
-  SYSTEM_MAILER     = "contact <noreply@ensemble.fr>"
+  SYSTEM_MAILER     = "contact <contact@ensemble-app.fr>"
   DEFAULT_RECIPIENT = ["contact@project-mirador.org", "Contact <clairezuliani@gmail.com>"] 
   routes.default_url_options = { :host => HOST }
   config.action_mailer.default_url_options = { :host => HOST }

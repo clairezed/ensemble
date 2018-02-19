@@ -76,7 +76,7 @@ fr:
         admin_rejected: "danger"
     ranks:
       title:
-        beginner: Débutant
-        regular: Habitué
-        expert: Expert
-        ambassador: Ambassadeur
+        beginner: Débutant·e
+        regular: Habitué·e
+        expert: Expert·e
+        ambassador: Ambassadeur·e

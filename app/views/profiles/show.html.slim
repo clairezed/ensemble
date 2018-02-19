@@ -9,7 +9,7 @@
       - if is_current_user?(@user)
         = link_to edit_user_registration_path, class: "button--main mb-4" do 
           => icon_edit_reverse
-          ' Modifier mon profil
+          ' Changer mon profil
 
       .rank-container
         .row.no-gutters.rank-row
@@ -44,14 +44,14 @@
       .profile-info--big
         .profile-info_label
           => icon_text
-          ' Présentation
+          ' Description
         .profile-info_value
           = @user.description
 
       .profile-info--big
         .profile-info_label
           => icon_interest
-          ' Centres d'intérêt
+          ' Loisirs
         .profile-info_value
           - @user.leisure_categories.each do |leisure_category|
             h5.profile-info_leisure-category = leisure_category.title
@@ -78,7 +78,5 @@
           ' Langues parlées
         .profile-info_value
           = @user.languages.map(&:title).compact.join(", ")
-          / - @user.languages.each do |language|
-          /   span.mr-2 = language.title 
 
 

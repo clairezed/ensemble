@@ -31,7 +31,7 @@ class Profiles::UserReportsController < Profiles::BaseController
 
   def destroy
     if @user_report.update(blocked: false)
-      flash[:notice] = "L'utilisateur a bien été débloqué"
+      flash[:notice] = "L'utilisateur a été débloqué"
     else
       flash[:error] = "Il y a eu un problème, veuillez réessayer plus tard"
     end

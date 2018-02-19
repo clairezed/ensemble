@@ -22,7 +22,7 @@
 .form-group.required
   = f.label :leisures, class: '' do
     => icon_interest
-    ' Centre d'intérêt
+    ' Loisir
   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
 
     / Leisure categories ----------------------------
@@ -57,7 +57,7 @@
 .form-group.required
   = f.label :start_at, class: '' do
     => icon_calendar
-    ' Date de début
+    ' Date et heure de début
   .form-row
     .col-6
       small.form-text.text-muted jj/mm/aaaa
@@ -72,7 +72,7 @@
 .form-group
   = f.label :end_at, class: '' do
     => icon_calendar
-    ' Date de fin (facultatif)
+    ' Date et heure de fin (facultatif)
   .form-row
     .col-6
       small.form-text.text-muted jj/mm/aaaa
@@ -109,7 +109,7 @@
 .form-group data-hidden-if="closed"
   = label_tag :participants do
     => icon_people
-    ' Nombre de participants max
+    ' Nombre de personnes max
   .range-slider-container
     = f.text_field :participants_max, data: {is_slider: 'participants'}
 
@@ -143,7 +143,7 @@
 .form-group
   = f.label :attachements do
     => icon_attachment
-    ' Documents
+    ' Documents de l'événement
   p.form-text.text-muted.small: em 
     ' Formats autorisés : .pdf
     br
@@ -166,7 +166,7 @@ hr
 .form-group.mt-3
   = button_tag(class: "button--main") do 
     => icon_validate_reverse
-    ' OK
+    ' Ok
 
 - unless f.object.new_record? 
   = render "events/event_pictures/hb_thumbs"

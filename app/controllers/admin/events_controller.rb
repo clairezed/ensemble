@@ -41,13 +41,13 @@ class Admin::EventsController < Admin::BaseController
   def cancel
     @event.cancel!
     # TODO Notif oragnisateur ?
-    flash[:notice] = "L'événement a bien été annulé"
+    flash[:notice] = "L'événement a été annulé"
     redirect_back fallback_location: event_path(@event)
   end
 
   def activate
     @event.activate!
-    flash[:notice] = "L'événement a bien été réactivé"
+    flash[:notice] = "L'événement a été réactivé"
     redirect_back fallback_location: event_path(@event)
   end
 

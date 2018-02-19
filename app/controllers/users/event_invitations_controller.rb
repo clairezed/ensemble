@@ -10,13 +10,13 @@ class Users::EventInvitationsController < Users::BaseController
 
   def accept
     @event_invitation.accept!
-    flash[:notice] = "L'invitation a bien été acceptée"
+    flash[:notice] = "L'invitation a été acceptée"
     redirect_to action: :index
   end
 
   def reject
     @event_invitation.reject!
-    flash[:notice] = "L'invitation a bien été rejetée"
+    flash[:notice] = "L'invitation a été rejetée"
     redirect_to action: :index
   end
 
@@ -24,11 +24,11 @@ class Users::EventInvitationsController < Users::BaseController
   def edit
     if params[:query].present? and params[:query] == 'accept'
       @event_invitation.accept!
-      flash[:notice] = "L'invitation a bien été acceptée"
+      flash[:notice] = "L'invitation a été acceptée"
       redirect_to action: :index
     elsif params[:query].present? and params[:query] == 'reject'
       @event_invitation.reject!
-      flash[:notice] = "L'invitation a bien été rejetée"
+      flash[:notice] = "L'invitation a été rejetée"
       redirect_to action: :index
     else
       flash[:notice] = "Nous n'avons pas retrouvé cette invitation"

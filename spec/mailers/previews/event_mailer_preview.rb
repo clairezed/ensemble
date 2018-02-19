@@ -13,4 +13,11 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.blocked_user_participating(user, event_participation)
   end
 
+    # http://localhost:3000/rails/mailers/event_mailer/event_canceled
+  def event_canceled
+    user = User.last
+    event = Event.last
+    EventMailer.event_canceled(user, event)
+  end
+
 end

@@ -7,23 +7,23 @@ feature "Inscription User" do
     # Step 1 ---------------------------------
     visit root_path
     # save_and_open_page
-    click_button "OK"
+    click_button "Ok"
     expect(current_path).to eq(user_registration_path)
     expect(page).to have_content 'erreurs'
 
     fill_first_step
-    expect { click_button "OK" }.to change { User.count }.by(1)
+    expect { click_button "Ok" }.to change { User.count }.by(1)
     new_user = User.where(email: "eglantine@mail.com").first
     expect(new_user.registration_complete?).to be false
     expect(current_path).to eq(new_second_step_path)
 
     # Step 2 ---------------------------------
-    click_button "OK"
+    click_button "Ok"
     expect(current_path).to eq(create_second_step_path)
     expect(page).to have_content 'erreurs'
 
     fill_second_step
-    click_button "OK"
+    click_button "Ok"
     expect(current_path).to eq(events_path)
     expect(new_user.reload.verification_state).to eq('pending')
     expect(new_user.reload && new_user.registration_complete?).to be true
@@ -34,7 +34,7 @@ feature "Inscription User" do
     scenario "user cant go to another page" do
       visit root_path
       fill_first_step
-      click_button "OK"
+      click_button "Ok"
       expect(current_path).to eq(new_second_step_path)
 
       visit events_path

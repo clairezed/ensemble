@@ -77,13 +77,13 @@ class Users::SmsConfirmationsController < Users::BaseController
   def redirect_to_after_sms_confirmation_path
     if @user.identity_verified?
       sign_in @user unless user_signed_in?
-      flash[:notice] = 'Votre profil a bien été entièrement vérifié'
+      flash[:notice] = 'Votre profil a été entièrement vérifié'
       redirect_to authenticated_root_path
     elsif !@user.confirmed?
-      flash[:notice] = 'Votre numéro de téléphone a bien été vérifié. Il vous reste à vérifier votre adresse email.'
+      flash[:notice] = 'Votre numéro de téléphone a été vérifié. Il vous reste à vérifier votre adresse email.'
       redirect_to (user_signed_in? ? users_parameters_path : new_confirmation_path(:user))
     else
-      flash[:notice] = 'Votre numéro de téléphone a bien été vérifié'
+      flash[:notice] = 'Votre numéro de téléphone a été vérifié'
       redirect_to (user_signed_in? ? users_parameters_path : user_new_session_path) 
     end
   end

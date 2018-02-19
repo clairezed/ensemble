@@ -5,7 +5,7 @@
 
   section
     .section_inner
-      h2.section-title Modifier mon profil
+      h2.section-title Changer mon profil
 
 
       = form_for(@user, as: :user, url: user_registration_path, html: {class: ""}) do |f| 
@@ -14,7 +14,7 @@
         .form-actions
           = button_tag(class: "button--main") do 
             => icon_validate_reverse
-            ' OK
+            ' Ok
           / => f.submit "Valider", class: "button--main"
 
 

@@ -63,7 +63,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.attributes = second_step_params
     if @user.save
       finalize_registration
-      flash[:notice] = "Votre inscription a bien été finalisée"
+      flash[:notice] = "Votre inscription est terminée."
       cookies[:ensemble_welcome_modal] = true
       redirect_to events_path
     else

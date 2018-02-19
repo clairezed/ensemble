@@ -4,7 +4,7 @@
 = render layout: 'profiles/layout' do
 
   / Vérification identité ===============================================
-  - unless current_user.identity_verified?
+  - unless current_user.sms_confirmed? && current_user.confirmed?
     section
       .section_inner
         h2.section-title Valider mon identité
@@ -45,6 +45,10 @@
     .section_inner
       h2.section-title Paramètres de contact
 
+      = link_to edit_users_parameters_path, class: "button--main mb-4" do 
+        => icon_edit_reverse
+        ' Changer mes paramètres
+
       - if @user.unconfirmed_email.present?
         .alert.alert-info role="alert" Un email vous a été envoyé pour confirmer votre nouvelle adresse mail "#{@user.unconfirmed_email}".
 
@@ -67,20 +71,17 @@
       .profile-info--small
         .profile-info_label
           => icon_mail
-          ' Notifications mail
+          ' Invitations par mail
         .profile-info_value
           => boolean_text @user.email_notification
 
       .profile-info--small
         .profile-info_label
           => icon_mobile_phone
-          ' Notifications sms
+          ' Invitations par sms
         .profile-info_value
           = boolean_text @user.sms_notification
 
-      = link_to edit_users_parameters_path, class: "button--main" do 
-        => icon_edit_reverse
-        ' Modifier mes paramètres
 
   section
     .section_inner
@@ -88,7 +89,7 @@
 
       = link_to edit_password_users_parameters_path, class: "button--main" do 
         => icon_edit_reverse
-        ' Modifier mon mot de passe
+        ' Changer mon mot de passe
 
   section
     .section_inner

@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     params[:sort_by] ||= :default_sort
     @recommended_events = Search::RecommendedEvents.call(current_user, Event.visible, params).limit(3)
     @last_events = Search::Events.call(current_user, Event.visible.normal, params).limit(3)
-    @mirador_events = Search::Events.call(current_user, Event.visible.mirador, params)
+    @mirador_events = Search::Events.call(current_user, Event.visible.mirador, params).limit(3)
   end
 
   def show

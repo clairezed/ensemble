@@ -1,0 +1,16 @@
+- content_for :current_navigation_section, :search
+
+section.search-show
+  .section_inner
+    h2.section-title Prochains événements MIRADOR
+    = link_to new_search_path, class: "button--main" do
+      => icon_search_reverse
+      ' Rechercher
+    
+
+    .search-results
+      = I18n.t("results", count: @events.total_count)
+
+    = render partial: 'events/card', collection: @events, as: :event
+
+    = paginate @events, window: 0

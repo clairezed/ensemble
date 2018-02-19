@@ -72,7 +72,7 @@ feature "Verification User" do
 
       # Verif securite du changement d'email
       fill_in "user_email", with: "email_2@mail.com"
-      click_button "OK"
+      click_button "Ok"
       expect(current_path).to eq(users_parameters_path)
       expect(page).to have_content 'erreurs'
       expect(page).to have_content 'sécurité'
@@ -80,7 +80,7 @@ feature "Verification User" do
       # Retrogradation apres changement d'email
       fill_in "user_email", with: "email_2@mail.com"
       fill_in "user_current_password", with: user.password
-      click_button "OK"
+      click_button "Ok"
       expect(current_path).to eq(users_parameters_path)
       expect(page).to have_content 'Supprimer mon compte'
       user.reload
@@ -110,7 +110,7 @@ feature "Verification User" do
       visit edit_users_parameters_path
       expect(current_path).to eq(edit_users_parameters_path)
       fill_in "user_phone", with: "0612345678"
-      click_button "OK"
+      click_button "Ok"
       expect(current_path).to eq(users_parameters_path)
       expect(page).to have_content 'Supprimer mon compte'
       user.reload

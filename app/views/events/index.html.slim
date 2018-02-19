@@ -4,7 +4,7 @@ section.section
   .section_inner
     = link_to new_search_path, class: "button--main" do 
       => icon_search_reverse
-      ' Chercher un événement
+      ' Rechercher un événement
 
 section.section
   .section_inner
@@ -35,3 +35,7 @@ section.section
 
     - @mirador_events.each do |event|
       = render partial: 'events/card', locals: {event: event}
+
+    = link_to mirador_events_path, class:'quick-link' do 
+      ' Voir tous les événements MIRADOR
+      i.fa.fa-angle-right

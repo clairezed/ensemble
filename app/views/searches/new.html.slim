@@ -26,7 +26,7 @@ section
       .form-group
         = label_tag :leisure_category_id do
           => icon_interest
-          ' Centres d'intérêt
+          ' Loisirs
 
         - LeisureCategory.all.includes(:leisures).order(created_at: :asc).each_slice(4) do |leisure_category_row|
           
@@ -65,8 +65,7 @@ section
         a.btn.btn-link.btn-sm.float-right data-date-clear="true"
           i.fa.fa-refresh
         a.btn.btn-outline-primary.btn-micro.float-right.disabled data-date-close="true"
-          ' OK
-        / .input.d-flex
+          ' Ok
         => text_field_tag :by_dates, params[:by_dates], class: "form-control", data: {is_rangepicker: true, input: true}
 
       .form-group
@@ -79,8 +78,8 @@ section
 
         / = submit_tag "Rechercher", class: "button--main mt-4"
         = button_tag(class: "button--main mt-4") do 
-          => icon_search_reverse
-          ' Rechercher
+          => icon_validate_reverse
+          ' Ok
       
   coffee: 
     new EventSearch()

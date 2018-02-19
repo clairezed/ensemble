@@ -24,7 +24,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
 
   def destroy
     @event_invitation.destroy
-    flash[:notice] = "L'invitation a bien été annulée"
+    flash[:notice] = "L'invitation a été annulée"
     redirect_back fallback_location: users_event_invitations_path(@event)
   end
 
@@ -33,7 +33,7 @@ class Users::Events::EventInvitationsController < Users::Events::BaseController
     @event.event_invitations.each do |invitation|
       invitation.validate! if invitation.may_validate?
     end
-    flash[:notice] = "Les invitations ont bien été validées et envoyées"
+    flash[:notice] = "Les invitations ont été validées et envoyées"
     redirect_to users_events_path
   end
 
