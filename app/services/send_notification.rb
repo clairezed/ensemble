@@ -22,4 +22,10 @@ class SendNotification
     Twilio::EventSmsSender.new.blocked_user_participating(user, event_participation) if user.sms_notification?
   end
 
+  # Utilisateur bloqué par l'admin
+  def self.admin_rejected(user)
+    UserMailer.admin_rejected(user).deliver_later if user.email_notification?
+    Twilio::UserSmsSender.new.admin_rejected(user) if user.sms_notification?
+  end
+
 end

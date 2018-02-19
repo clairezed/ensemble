@@ -1,28 +1,28 @@
-div bgcolor="#eaeced" style="background-color:#eaeced" 
-  table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#eaeced" style="background-color:#eaeced"
+div bgcolor="#666666" style="background-color:#666666" 
+  table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666" style="background-color:#666666"
     tbody
       tr
-        td align="center" valign="top" bgcolor="#eaeced"
+        td align="center" valign="top" bgcolor="#666666"
           table align="center" width="600" border="0" cellpadding="0" cellspacing="0"
             tbody
               tr
-                td height="20" bgcolor="#eaeced" style="font-size:0px!important;line-height:20px!important"  
+                td height="20" bgcolor="#666666" style="font-size:0px!important;line-height:20px!important"  
               tr
-                td align="center" valign="top" bgcolor="#eaeced"
-                  p style="font-size: 10px; color:#4d4d4d; margin:0; padding: 0; font-family:OpenSans, Arial,Helvetica,sans-serif;text-align:center'" 
-                    | Vous recevez cet email suite à votre visite sur Ensemble
+                td align="center" valign="top" bgcolor="#666666"
+                  p style="font-size: 10px; color:#cccccc; margin:0; padding: 0; font-family:OpenSans, Arial,Helvetica,sans-serif;text-align:center'" 
+                    | Vous recevez cet email suite à votre visite sur ENSEMBLE
 
               tr
-                td height="20" bgcolor="#eaeced" style="font-size:0px!important;line-height:20px!important" 
+                td height="20" bgcolor="#666666" style="font-size:0px!important;line-height:20px!important" 
 
           // HEADER
           table align="center" width="600" border="0" cellpadding="0" cellspacing="0"
             tbody
               tr
-                td height="30" bgcolor="#fff" style="font-size:0px!important;line-height:30px!important" 
-              tr
-                td align="center" valign="top" bgcolor="#fff"
+                td align="center" valign="top" bgcolor="#666666"
                   = image_tag "logo-ensemble.png", alt: "", width:'190px'
+              tr
+                td height="30" bgcolor="#666" style="font-size:0px!important;line-height:30px!important" 
               tr
                 td height="30" bgcolor="#fff" style="font-size:0px!important;line-height:30px!important" 
 
@@ -43,10 +43,13 @@ div bgcolor="#eaeced" style="background-color:#eaeced"
               tr
 
                 td align="center" valign="top" bgcolor="#fff" 
-                    p style="font-size: 10px; color:#4d4d4d; margin:0; padding: 0; font-family:OpenSans, Arial,Helvetica,sans-serif;text-align:center"  © 2017 Ensemble
+                  p style="font-size: 10px; color:#4d4d4d; margin:0; padding: 0; font-family:OpenSans, Arial,Helvetica,sans-serif;text-align:center"  © #{Time.zone.now.year} ENSEMBLE
+              tr
+                td align="center" valign="top" bgcolor="#fff" 
+                  p style="font-size: 10px; color:#4d4d4d; margin:0; padding: 0; font-family:OpenSans, Arial,Helvetica,sans-serif;text-align:center"  = link_to "www.ensemble-app.fr", root_url
              
                   
               tr
                 td height="20" bgcolor="#fff" style="font-size:0px!important;line-height:20px!important"  
               tr
-                td height="20" bgcolor="#eaeced" style="font-size:0px!important;line-height:20px!important"  
+                td height="40" bgcolor="#666666" style="font-size:0px!important;line-height:40px!important"  

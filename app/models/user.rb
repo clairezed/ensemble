@@ -51,7 +51,7 @@ class User < ApplicationRecord
     end
 
     # TODO : notify_user, cancel_events, block ip & email
-    event :admin_reject do
+    event :admin_reject, after: [:notify_rejected_user]  do
       transitions from: :identity_verified, to: :admin_rejected
       transitions from: :admin_accepted, to: :admin_rejected
     end
@@ -67,6 +67,10 @@ class User < ApplicationRecord
 
   private def notify_admin_for_validation
     AdminMailer.user_to_verify(self).deliver_later
+  end
+
+  private def notify_rejected_user
+    SendNotification.admin_rejected(self)
   end
 
   # Associations ===============================================================
