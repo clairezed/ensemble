@@ -69,5 +69,18 @@ module EventHelper
     end
   end
 
+  # commentaires 
+
+  def event_comments_count(event)
+    comments = event.comments
+    comments.any? ? comments.count : '-'
+  end
+
+  def event_pending_comments_count(event)
+    pending = event.comments.pending
+    return unless pending.any?
+    content_tag :span, "#{pending.count} nv", class: "badge badge-warning"
+  end
+
 
 end

@@ -35,6 +35,12 @@ Rails.application.routes.draw do
         patch :cancel
         patch :activate
       end
+      resources :comments, controller: "events/comments", only: [:index] do 
+        member do
+          patch :accept
+          patch :reject
+        end
+      end
     end
     resources :leisure_categories
     resources :leisures
@@ -87,7 +93,8 @@ Rails.application.routes.draw do
 
   scope module: :events do
     resources :events, only: [] do
-      resources :event_participations
+      resources :event_participations, only: [:create, :destroy]
+      resources :comments, only: [:create]
     end
   end
 

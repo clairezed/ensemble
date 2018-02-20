@@ -1,0 +1,8 @@
+p Nouveau commentaire à vérifier pour l'événement #{@comment.event.title} : 
+
+p =simple_format @comment.body
+
+p 
+  ' Retrouvez-le dans
+  => link_to "votre interface admin", admin_event_comments_url(@comment.event)
+  ' .

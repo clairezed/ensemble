@@ -1,0 +1,35 @@
+- content_for :current_navigation_sub_section, :comments
+
+= render layout: 'admin/events/layout_form' do
+
+  table.table.table-striped.table-hover.table-sm
+    thead.thead-inverse
+      tr
+        th = hm_sort 'sort_by_created_at', label: 'Date création'
+        th = hm_sort 'sort_by_user_id', label: 'Auteur'
+        th = hm_sort 'sort_by_body', label: 'Contenu'
+        th = hm_sort 'sort_by_state', label: 'Etat'
+        th 
+    tbody
+      - @comments.each do |comment| 
+        tr
+          td= l comment.created_at.to_date
+          td= link_to comment.user.fullname, edit_profile_admin_user_path(comment.user)
+          td= comment.body
+          td
+            span class="badge badge-#{comment_state_style(comment.state)}"
+              = comment_state_title(comment.state)
+
+          td.action-btns
+            - if comment.may_accept?
+              = link_to "Accepter", accept_admin_event_comment_path(@event, comment), method: :patch, class: "btn btn-success btn-sm"
+            - if comment.may_reject?
+              = link_to "Rejeter", reject_admin_event_comment_path(@event, comment), method: :patch, class: "btn btn-danger btn-sm ml-1"
+      
+      - if @comments.empty?
+        tr
+          td colspan="7"
+            p.text-center: em.text-muted Aucun résultat
+
+
+  = paginate @comments

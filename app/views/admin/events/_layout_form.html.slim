@@ -16,6 +16,12 @@
         | Edition de l'événement
         em=< @event.title
 
+      ul.nav.nav-tabs.card-header-tabs
+        li.nav-item
+          = link_to "Informations", edit_admin_event_path(@event), class: "nav-link #{active_if(:informations)}"
+        li.nav-item
+          = link_to "Commentaires", admin_event_comments_path(@event), class: "nav-link #{active_if(:comments)}"
+
     .card-body
       .row
         .col-md-2.border-right
@@ -27,9 +33,9 @@
 
           hr
           - if @event.may_activate?
-            = link_to "Réactiver", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
+            = link_to "Réactiver l'évt", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
           - if @event.may_cancel?
-            = link_to "Annuler", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
+            = link_to "Annuler l'évt", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
 
         .col-md-10
           = yield

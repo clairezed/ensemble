@@ -160,14 +160,37 @@ section
     - if @event.participants.any?
       .row.sm-gutter
         - @event.participants.includes(:avatar).each do |user|
-          .col-4.sm-gutter
+          .col-3.sm-gutter
             = render partial: 'profiles/thumb', locals: {user: user}
     - else
       p: small Il n'y a pas encore de participant à cet événement. Soyez le premier !
 
-/ section
-/   .section_inner
-/     h3.section-title Ecrire un commentaire
+section
+  .section_inner
+    h3.section-title Ecrire un commentaire
+
+    / Formulaire ----------------------------
+    .row.sm-gutter.comment-form
+      .col-3.sm-gutter
+        = render partial: 'profiles/thumb', locals: {user: current_user}
+      .col-9.sm-gutter
+        = form_for(@event.comments.new, as: :comment, \
+          url: event_comments_path(@event), html: {class: ""}) do |f|
+
+          = f.hm_form_errors
+
+          .form-group
+            / = f.label :body, class: '' do
+            /   => icon_text
+            /   ' Mon commentaire
+            = f.text_area :body, class: 'form-control', placeholder: 'Mon commentaire...'
+
+            = button_tag(class: "btn btn-primary btn-sm float-right") do 
+              => icon_validate_reverse
+              ' Ok
+
+    / Liste commentaires ----------------------------
+    = render partial: 'comments/card', collection: @event.accepted_comments.order(created_at: :desc), as: :comment
 
 section.section
   .section_inner

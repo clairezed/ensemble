@@ -32,6 +32,16 @@ module Twilio
       send_sms(message, @user.phone)
     end
 
+    def new_comment_on_your_event(user, comment)
+      @comment = comment
+      @event = @comment.event
+      @user = user
+      message = "[Ensemble] #{@comment.user.nickname} a commenté #{@event.title}. Pour lire, connectez-vous à ENSEMBLE."
+      p message 
+      # send_sms("new invit, rep \"ok #{@event.id}\" pour accepter")
+      send_sms(message, @user.phone)
+    end
+
   end
 
 end

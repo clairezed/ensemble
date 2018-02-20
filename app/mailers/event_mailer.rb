@@ -24,4 +24,11 @@ class EventMailer < ApplicationMailer
     mail to: @user.email, subject: subject
   end
 
+  def new_comment_on_your_event(user, comment)
+    @comment = comment
+    @user = user
+    subject = "Nouveau commentaire sur votre événement #{@comment.event.title}"
+    mail to: @user.email, subject: subject
+  end
+
 end

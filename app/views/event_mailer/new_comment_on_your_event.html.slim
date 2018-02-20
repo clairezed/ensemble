@@ -1,0 +1,10 @@
+p Bonjour #{@user.firstname},
+
+p #{user_nickname(@comment.user)} a commenté votre événement <b>#{@comment.event.title}</b>.
+
+p Commentaire : #{simple_format @comment.body}
+
+p 
+  ' Pour voir le commentaire, connectez-vous à
+  = link_to "ENSEMBLE", event_url(@comment.event)
+  ' .

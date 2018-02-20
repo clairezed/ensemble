@@ -1,0 +1,22 @@
+fr:
+  activerecord:
+    attributes:
+      comment:
+        body:              Le contenu
+
+  helpers:
+    label:
+      comment:
+        body:              Contenu
+
+  
+  comment:
+    states:
+      title:
+        pending: en attente
+        accepted: "accepté"
+        rejected: "rejeté"
+      style:
+        pending: warning
+        accepted: "success"
+        rejected: "danger"

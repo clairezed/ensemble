@@ -8,10 +8,11 @@
         th = hm_sort 'sort_by_title', label: 'Titre'
         th = hm_sort 'sort_by_user_id', label: 'Créateur'
         th = hm_sort 'sort_by_city_id', label: 'Ville'
-        th Participants
+        th Partic.
+        th Com.
         th = hm_sort 'sort_by_visibility', label: 'Pub/priv'
         th = hm_sort 'sort_by_state', label: 'Etat'
-        th = hm_sort 'sort_by_affiliation', label: 'MIRADOR'
+        th = hm_sort 'sort_by_affiliation', label: 'MIR.'
         th 
     tbody
       - @events.each do |event| 
@@ -22,6 +23,10 @@
           td= link_to event.user.fullname, edit_profile_admin_user_path(event.user)
           td= event.city.long_name
           td= event_participants_count(event)
+          td
+            = link_to admin_event_comments_path(event) do
+              => event_pending_comments_count(event)
+              = event_comments_count(event)
           td
             span class="badge badge-#{event_visibility_style(event.visibility)}"
               = event_visibility(event.visibility)

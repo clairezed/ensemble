@@ -1,0 +1,8 @@
+.row.sm-gutter.comment-card
+  .col-3.sm-gutter
+    = render partial: 'profiles/thumb', locals: {user: comment.user}
+  .col-9.sm-gutter
+    .comment-wrapper
+      / = l comment.created_at
+      .comment_date il y a #{time_ago_in_words(comment.created_at)}
+      .comment_body = simple_format comment.body

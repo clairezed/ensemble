@@ -213,7 +213,7 @@ class User < ApplicationRecord
       .compact
   end
 
-    def self.apply_filters(params)
+  def self.apply_filters(params)
     [
       :by_name_or_email,
       :by_verification_state,

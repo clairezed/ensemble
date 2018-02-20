@@ -13,7 +13,14 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.blocked_user_participating(user, event_participation)
   end
 
-    # http://localhost:3000/rails/mailers/event_mailer/event_canceled
+  # http://localhost:3000/rails/mailers/event_mailer/new_comment_on_your_event
+  def new_comment_on_your_event
+    comment = Comment.last
+    user = comment.event.user
+    EventMailer.new_comment_on_your_event(user, comment)
+  end
+
+  # http://localhost:3000/rails/mailers/event_mailer/event_canceled
   def event_canceled
     user = User.last
     event = Event.last

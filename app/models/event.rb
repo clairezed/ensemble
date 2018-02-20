@@ -76,6 +76,9 @@ class Event < ApplicationRecord
   has_many :event_invitations, dependent: :destroy
   has_many :invited_users, class_name: 'User', source: :user, through: :event_invitations
 
+  has_many :comments, dependent: :destroy
+  has_many :accepted_comments, -> { accepted }, class_name: 'Comment', dependent: :destroy
+
 
   # Validations ==================================================================
   validates :title,
