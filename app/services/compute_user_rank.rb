@@ -40,7 +40,7 @@ class ComputeUserRank
   # ---------------------------------
 
   def identity_verified
-    user.identity_verified?
+    user.sms_confirmed? && user.confirmed?
   end
 
   def participated(count)
