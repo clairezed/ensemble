@@ -1,0 +1,38 @@
+section
+  .section_inner
+    h1.section-title Racontez votre événement
+
+    p Vous avez participé à <b>#{@event.title}</b>, organisé par <b>#{user_nickname(@event.user)}</b>,  #{event_short_date(@event)}.
+
+    = link_to event_path(@event), class:'quick-link' do 
+      ' Voir l'événement
+      i.fa.fa-angle-right
+
+
+section
+  .section_inner
+    p.font-weight-bold Racontez-nous votre événement !
+
+    = form_for(@event.testimonies.new, as: :testimony, \
+    url: event_testimonies_path(@event), html: {class: ""}) do |f|
+
+      = f.hm_form_errors
+
+      .form-group
+        = f.label :public_comment, class: '' do
+          => icon_text
+          ' Commentaire public
+        = f.text_area :public_comment, class: 'form-control', placeholder: "Grâce à l'événement, j'ai pu... "
+        small.form-text.text-muted Ce commentaire pourra être affiché sur le site
+
+      .form-group
+        = f.label :admin_comment, class: '' do
+          => icon_text
+          ' Commentaire pour l'administrateur
+        = f.text_area :admin_comment, class: 'form-control', placeholder: "L'événement s'est bien / mal passé parce que..."
+        small.form-text.text-muted Seul l'administrateur d'ensemble peut lire ce commentaire.
+
+      .form-actions
+        = button_tag(class: "button--main") do 
+          => icon_validate_reverse
+          ' Ok

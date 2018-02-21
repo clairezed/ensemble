@@ -10,7 +10,6 @@
 
 .card
   - if !@event.new_record?
-
     .card-header
       h2
         | Edition de l'événement
@@ -20,25 +19,36 @@
         li.nav-item
           = link_to "Informations", edit_admin_event_path(@event), class: "nav-link #{active_if(:informations)}"
         li.nav-item
-          = link_to "Commentaires", admin_event_comments_path(@event), class: "nav-link #{active_if(:comments)}"
+          = link_to admin_event_comments_path(@event), class: "nav-link #{active_if(:comments)}" do 
+            ' Commentaires
+            - if (pending_comments = @event.comments.pending).any?
+              span.badge.badge-warning=> pending_comments.count
+        li.nav-item
+          = link_to admin_event_testimonies_path(@event), class: "nav-link #{active_if(:testimonies)}" do
+            ' Témoignages
+            - if (pending_testimonies = @event.testimonies.pending).any?
+              span.badge.badge-warning=> pending_testimonies.count
 
     .card-body
-      .row
-        .col-md-2.border-right
-          dl
-            dt Date création :
-            dd= l @event.created_at.to_date
-            dt Dernière mise à jour :
-            dd= l @event.updated_at
+      - if currently_in_sub_section?('informations')
+        .row
+          .col-md-2.border-right
+            dl
+              dt Date création :
+              dd= l @event.created_at.to_date
+              dt Dernière mise à jour :
+              dd= l @event.updated_at
 
-          hr
-          - if @event.may_activate?
-            = link_to "Réactiver l'évt", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
-          - if @event.may_cancel?
-            = link_to "Annuler l'évt", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
+            hr
+            - if @event.may_activate?
+              = link_to "Réactiver l'évt", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
+            - if @event.may_cancel?
+              = link_to "Annuler l'évt", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
 
-        .col-md-10
-          = yield
+          .col-md-10
+            = yield
+      - else
+        = yield
 
   - else
     h2.card-header Créer un nouvel événement

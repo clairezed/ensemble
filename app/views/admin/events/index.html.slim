@@ -39,14 +39,12 @@
             => link_to edit_admin_event_path(event), 
                         class: "btn btn-sm btn-info", 
                         title: "Editer" do
-
               i.fa.fa-pencil
             = link_to admin_event_path(event),
                       method: :delete, 
                       data: {confirm: "Confirmer la suppression ?"}, 
                       title: "Supprimer", 
                       class: "btn btn-sm btn-danger" do 
-
                 i.fa.fa-trash
       
       - if @events.empty?

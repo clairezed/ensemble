@@ -18,6 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @mirador_events = Event.visible.mirador
       .includes(:leisure_category).includes(:city)
       .order(created_at: :desc).limit(3)
+    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(3)
     @user = User.new_with_session({}, session)
   end
 

@@ -203,6 +203,12 @@ class User < ApplicationRecord
     where.not(id: id)
   }
 
+  # sorting ---------------------------------------
+
+  scope :sort_by_fullname, ->(direction){
+    order(lastname: direction, firstname: direction)
+  }
+
 
   # Class Methods ==============================================================
 

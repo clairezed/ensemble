@@ -4,7 +4,8 @@ class Admin::Events::BaseController < Admin::BaseController
   private
 
   def load_event
-    @event = Event.find(params[:event_id])
+    @event = Event.includes(:comments).includes(:testimonies)
+      .find(params[:event_id])
   end
 
 end

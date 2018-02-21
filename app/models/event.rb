@@ -79,6 +79,8 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :accepted_comments, -> { accepted }, class_name: 'Comment', dependent: :destroy
 
+  has_many :testimonies, dependent: :destroy
+  has_many :accepted_testimonies, -> { accepted }, class_name: 'Testimony', dependent: :destroy
 
   # Validations ==================================================================
   validates :title,
@@ -100,6 +102,12 @@ class Event < ApplicationRecord
   scope :past, -> { where(
     (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].lt(Time.zone.now)))
     .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].lt(Time.zone.now.end_of_day)))
+    )
+  }
+
+  scope :ended_at, -> (date = Date.yesterday) { where(
+    (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].lt(date.end_of_day).and(arel_table[:end_at].gteq(date.beginning_of_day))))
+    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].lt(date.end_of_day).and(arel_table[:start_at].gteq(date.beginning_of_day))))
     )
   }
 

@@ -1,4 +1,4 @@
-class Comment < ApplicationRecord
+class Testimony < ApplicationRecord
   
   # Configurations =============================================================
   include Sortable
@@ -18,29 +18,20 @@ class Comment < ApplicationRecord
     state :accepted
     state :rejected
 
-    event :accept, after: [:notify_acception_to_author, :notify_organizer] do
+    event :accept, after: [:touch_accepted_at] do
       transitions from: :pending, to: :accepted
       transitions from: :rejected, to: :accepted
     end
 
-    event :reject, after: [:notify_rejection] do
+    event :reject do
       transitions from: :pending, to: :rejected
       transitions from: :accepted, to: :rejected
     end
 
   end
 
-  private def notify_acception_to_author
-    # SendNotification.comment_accepted(self)
-  end
-
-  private def notify_organizer
-    recipient = self.event.user
-    SendNotification.new_comment_on_your_event(recipient, self)
-  end
-
-  private def notify_rejection
-    # SendNotification.new_comment_on_your_event(self)
+  private def touch_accepted_at
+    self.touch(:accepted_at)    
   end
 
   # Associations ===============================================================
@@ -49,50 +40,53 @@ class Comment < ApplicationRecord
   belongs_to :event
 
   # Validations ==================================================================
-  validates :body,
-            presence: true
+  private def at_least_one_comment
+    return true if (public_comment.present? || admin_comment.present?)
+    errors.add(:base, "Vous devez écrire au moins un commentaire (public ou admin)")
+  end
+  validate :at_least_one_comment
 
   # Callbacks ===================================================================
 
 
   private def notify_admin
-    AdminMailer.comment_to_verify(self).deliver_later
+    AdminMailer.testimony_to_verify(self).deliver_later
   end
   after_create :notify_admin
 
 
   # Scopes ======================================================================
 
-  # Admin 
+  # Admin -----------------------------
 
   scope :by_state, ->(state) {
     where(state: states.fetch(state.to_sym))
   }
- 
+
+  scope :by_user, ->(user_id){
+    where(user_id: user_id)
+  }
+
+  scope :by_user_fullname, ->(hint){
+    joins(:user).merge(User.full_text_search hint)
+  }
+
+  scope :sort_by_user_fullname, ->(direction = :asc){
+    joins(:user).merge(User.sort_by_fullname direction)
+  }
+
+
   # Class Methods ==============================================================
 
   def self.apply_filters(params)
-
-        klass = self
-
-    klass = klass.by_state(params[:by_state]) if params[:by_state].present?
-    # klass = klass.by_prestation_restrict(params[:by_prestation_restrict]) if params[:by_prestation_restrict].present?
-
-    klass
-
-    
-    # p self
-    # klass = self
-    # [
-    #   :by_state,
-    # ].inject(klass) do |relation, filter|
-    #   p relation
-    #   next relation unless params[filter].present?
-    #   relation.send(filter, params[filter])
-    # end
-    # p klass
-    # relation
-    # relation.apply_sorts(params)
+    [
+      :by_state,
+      :by_user,
+    ].inject(all) do |relation, filter|
+      next relation unless params[filter].present?
+      relation.send(filter, params[filter])
+    end
+    relation.apply_sorts(params)
   end
 
   # Instance methods ====================================================

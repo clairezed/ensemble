@@ -28,7 +28,17 @@ class SendNotification
     Twilio::EventSmsSender.new.new_comment_on_your_event(user, comment) if user.sms_notification?
   end
 
-  # Utilisateur bloqué par l'admin
+  # Demande de témoignage ========================================
+  def self.testimony_required(event)
+    event.participants.email_notified.each do |user|
+      EventMailer.testimony_required(user, event).deliver_later
+    end
+    event.participants.sms_notified.each do |user|
+      Twilio::EventSmsSender.new.testimony_required(user, event)
+    end
+  end
+
+  # Utilisateur bloqué par l'admin ===============================
   def self.admin_rejected(user)
     UserMailer.admin_rejected(user).deliver_later if user.email_notification?
     Twilio::UserSmsSender.new.admin_rejected(user) if user.sms_notification?

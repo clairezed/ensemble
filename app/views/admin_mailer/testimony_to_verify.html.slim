@@ -1,0 +1,18 @@
+p Nouveau témoignage à vérifier pour l'événement #{@testimony.event.title} : 
+
+p 
+  b Auteur : 
+  = user_nickname(@testimony.user)
+
+p 
+  b Commentaire public : 
+  = @testimony.public_comment
+
+p 
+  b Commentaire admin : 
+  = @testimony.admin_comment
+
+p 
+  ' Retrouvez-le dans
+  => link_to "votre interface admin", admin_event_testimonies_url(@testimony.event)
+  ' .

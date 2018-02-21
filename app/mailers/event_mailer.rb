@@ -31,4 +31,11 @@ class EventMailer < ApplicationMailer
     mail to: @user.email, subject: subject
   end
 
+  def testimony_required(user, event)
+    @event = event
+    @user = user
+    subject = "Racontez nous votre événement !"
+    mail to: @user.email, subject: subject
+  end
+
 end

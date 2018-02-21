@@ -1,5 +1,6 @@
 class AdminMailer < ApplicationMailer
-
+  helper UserHelper
+  
   def user_to_verify(user)
     @user = user
     subject = "Nouveau profil à vérifier"
@@ -11,5 +12,12 @@ class AdminMailer < ApplicationMailer
     subject = "Nouveau commentaire à vérifier"
     mail(subject: subject)
   end
+
+  def testimony_to_verify(testimony)
+    @testimony = testimony
+    subject = "Nouveau témoignage  à vérifier"
+    mail(subject: subject)
+  end
+
 
 end

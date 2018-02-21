@@ -69,6 +69,14 @@ module EventHelper
     end
   end
 
+  def event_short_date(event)
+    if event.end_at.nil?
+      l(event.start_at, format: '%D %d %B').downcase
+    else
+      "du #{l(event.start_at, format: '%A %d %B').downcase} au #{l(event.end_at, format: '%A %d %B').downcase}"
+    end
+  end
+
   # commentaires 
 
   def event_comments_count(event)

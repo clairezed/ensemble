@@ -1,0 +1,29 @@
+- content_for :current_navigation_sub_section, :testimonies
+
+= render layout: 'admin/events/layout_form' do
+
+
+  h2 Editer le témoignage 
+
+  = form_for(@testimony, as: :testimony, \
+    url: admin_event_testimony_path(@event, @testimony), html: {class: "form-horizontal"}) do |f| 
+    
+    = f.hm_form_errors
+
+    .form-group
+      = f.label :public_comment, class: '' do
+        => icon_text
+        ' Commentaire public
+      = f.text_area :public_comment, class: 'form-control', placeholder: "Grâce à l'événement, j'ai pu... "
+      / small.form-text.text-muted Ce commentaire pourra être affiché sur le site
+
+    .form-group
+      = f.label :admin_comment, class: '' do
+        => icon_text
+        ' Commentaire pour l'administrateur
+      = f.text_area :admin_comment, class: 'form-control', placeholder: "L'événement s'est bien / mal passé parce que..."
+      / small.form-text.text-muted Seul l'administrateur d'ensemble peut lire ce commentaire.
+      
+    .form-group
+      = link_to "Retour", admin_event_testimonies_path(@event), class: "btn btn-light"
+      => f.submit "Valider", class: "btn btn-primary"

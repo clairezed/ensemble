@@ -1,0 +1,10 @@
+p Bonjour #{@user.firstname},
+
+p Vous avez participé à <b>#{@event.title}</b> le #{@event.start_at.strftime("%d/%m/%Y")} à #{@event.city.name}.
+
+p Votre avis est important. 
+
+p 
+  ' Cliquez sur 
+  => link_to "répondre", new_event_testimony_url(@event)
+  ' et racontez-nous votre événement.

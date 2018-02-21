@@ -41,6 +41,12 @@ Rails.application.routes.draw do
           patch :reject
         end
       end
+      resources :testimonies, controller: "events/testimonies", only: [:index, :edit, :update] do 
+        member do
+          patch :accept
+          patch :reject
+        end
+      end
     end
     resources :leisure_categories
     resources :leisures
@@ -95,6 +101,7 @@ Rails.application.routes.draw do
     resources :events, only: [] do
       resources :event_participations, only: [:create, :destroy]
       resources :comments, only: [:create]
+      resources :testimonies, only: [:new, :create, :show]
     end
   end
 

@@ -27,4 +27,11 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.event_canceled(user, event)
   end
 
+  # http://localhost:3000/rails/mailers/event_mailer/testimony_required
+  def testimony_required
+    user = User.last
+    event = Event.last
+    EventMailer.testimony_required(user, event)
+  end
+
 end
