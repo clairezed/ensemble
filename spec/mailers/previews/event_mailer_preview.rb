@@ -20,6 +20,12 @@ class EventMailerPreview < ActionMailer::Preview
     EventMailer.new_comment_on_your_event(user, comment)
   end
 
+  # http://localhost:3000/rails/mailers/event_mailer/comment_rejected
+  def comment_rejected
+    comment = Comment.last
+    EventMailer.comment_rejected(comment)
+  end
+
   # http://localhost:3000/rails/mailers/event_mailer/event_canceled
   def event_canceled
     user = User.last

@@ -40,6 +40,13 @@ module Twilio
       send_sms(message, @user.phone)
     end
 
+    def comment_rejected(comment)
+      @comment = comment
+      @user = @comment.user
+      message = "[Ensemble] Votre commentaire est refusé par l'administrateur. Il ne respecte les CGU. Contact : contact@ensemble-app.fr"
+      send_sms(message, @user.phone)
+    end
+
   end
 
 end

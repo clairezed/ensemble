@@ -18,7 +18,7 @@ class Comment < ApplicationRecord
     state :accepted
     state :rejected
 
-    event :accept, after: [:notify_acception_to_author, :notify_organizer] do
+    event :accept, after: [:notify_organizer] do
       transitions from: :pending, to: :accepted
       transitions from: :rejected, to: :accepted
     end
@@ -30,17 +30,13 @@ class Comment < ApplicationRecord
 
   end
 
-  private def notify_acception_to_author
-    # SendNotification.comment_accepted(self)
-  end
-
   private def notify_organizer
     recipient = self.event.user
     SendNotification.new_comment_on_your_event(recipient, self)
   end
 
   private def notify_rejection
-    # SendNotification.new_comment_on_your_event(self)
+    SendNotification.comment_rejected(self)
   end
 
   # Associations ===============================================================

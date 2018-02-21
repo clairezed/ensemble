@@ -31,6 +31,13 @@ class EventMailer < ApplicationMailer
     mail to: @user.email, subject: subject
   end
 
+  def comment_rejected(comment)
+    @comment = comment
+    @user = @comment.user
+    subject = "Commentaire refusé"
+    mail to: @user.email, subject: subject
+  end
+
   def testimony_required(user, event)
     @event = event
     @user = user

@@ -6,11 +6,11 @@ p
 
 p 
   b Commentaire public : 
-  = @testimony.public_comment
+  blockquote= simple_format @testimony.public_comment
 
 p 
   b Commentaire admin : 
-  = @testimony.admin_comment
+  blockquote= simple_format @testimony.admin_comment
 
 p 
   ' Retrouvez-le dans

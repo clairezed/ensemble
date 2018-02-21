@@ -1,0 +1,10 @@
+p Bonjour #{@user.firstname},
+
+p Vous avez écrit pour l'événement <b>#{@comment.event.title}</b> le commentaire suivant : 
+blockquote = simple_format @comment.body
+
+p Votre commentaire a été refusé par l'administrateur. Il ne respecte pas les Conditions Générales d'Utilisation.
+p
+  ' Pour plus d'informations, écrivez à 
+  => mail_to "contact@ensemble-app.fr", 'contact@ensemble-app.fr', target: 'blank'
+  '.
