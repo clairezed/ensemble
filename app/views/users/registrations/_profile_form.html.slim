@@ -46,10 +46,15 @@
     => icon_calendar
     ' Né.e le
   .input-group
-    = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
-    div.input-group-append data-toggle-picker=''
-      span.input-group-text
-        = icon_calendar
+    = f.date_select :birthdate, {\
+      order: [:day, :month, :year],\
+      start_year: Date.current.year - 120, end_year: Date.current.year,\
+      prompt: true\
+    }, {class: "form-control"}
+    / = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
+    / div.input-group-append data-toggle-picker=''
+    /   span.input-group-text
+    /     = icon_calendar
 
 .form-group
   = f.label :leisures, class: '' do
