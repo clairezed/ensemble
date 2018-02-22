@@ -3,21 +3,21 @@
   table.table.table-striped.table-hover.table-sm
     thead.thead-inverse
       tr
-        th= hm_sort 'sort_by_position', label: 'Position'
+        / th= hm_sort 'sort_by_position', label: 'Position'
         th= hm_sort 'sort_by_title', label: 'Titre'
         th= hm_sort 'sort_by_enabled', label: 'Affiché?'
         th 
     tbody
-      - max_position    = @basic_pages.map( &:position ).compact.max || 1
-      - position_select = (1..max_position).map {|i| [i,i] }
+      / - max_position    = @basic_pages.map( &:position ).compact.max || 1
+      / - position_select = (1..max_position).map {|i| [i,i] }
       - @basic_pages.each do |basic_page| 
         tr
-          td 
-            = form_tag position_admin_basic_page_path(basic_page), method: :patch do
-              = select_tag  :position, 
-                            options_for_select( position_select, basic_page.position ),
-                            onchange: '$(this).parent().submit();',
-                            class: "form-control input-sm", style: "width:70px", id: nil 
+          / td 
+          /   = form_tag position_admin_basic_page_path(basic_page), method: :patch do
+          /     = select_tag  :position, 
+          /                   options_for_select( position_select, basic_page.position ),
+          /                   onchange: '$(this).parent().submit();',
+          /                   class: "form-control input-sm", style: "width:70px", id: nil 
           td= basic_page.title
           td
             span class="label label-#{basic_page.enabled? ? 'success' : 'warning'}" = basic_page.enabled? ? "Oui" : "Non"

@@ -209,6 +209,11 @@ module ApplicationHelper
     raw sanitize text, tags: %w(strong em a p u ul ol li), attributes: %w(href)
   end
 
+  def wysiwyg_present?(text)
+    return false if text.blank?
+    text != "<p><br></p>"
+  end
+
   # handlebars =================================================================
 
 
@@ -220,9 +225,18 @@ module ApplicationHelper
     content_tag :script, content, type: "text/x-handlebars-template", data: {template: name}
   end
 
-  def wysiwyg_present?(text)
-    return false if text.blank?
-    text != "<p><br></p>"
+
+    # Pages statiques =============================================================
+
+  def get_basic_page_path(key)
+    page = BasicPage.where(key: key).first
+    return "#" unless page
+    basic_page_path(page)
+  end
+
+  def get_basic_page_link(key)
+    basic_page = BasicPage.where(key: key).first
+    content_tag :li, link_to(basic_page.title, basic_page_path(basic_page)) if basic_page.enabled?
   end
   
 end

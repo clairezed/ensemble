@@ -6,10 +6,11 @@
   .controls-default
     .form-check.form-check-inline
       label.form-check-label
-        => f.radio_button :enabled, true
+        => f.radio_button :enabled, true, class: 'form-check-input'
         | Oui
+    .form-check.form-check-inline
       label.form-check-label
-        => f.radio_button :enabled, false
+        => f.radio_button :enabled, false, class: 'form-check-input'
         | Non
 
 = f.hm_text_field :title, {}, {class: "required"}

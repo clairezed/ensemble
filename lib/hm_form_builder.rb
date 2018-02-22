@@ -160,7 +160,7 @@ module HomeMade
 
     def hm_bootstrap_field_block(attribute, input_controls, div_options = {}, custom_label = nil)
       label = self.label attribute, custom_label
-      label_wrapper = @template.content_tag :div, label, class: 'form-label-default'
+      label_wrapper = @template.content_tag :div, label, class: 'col-sm-2 col-form-label'
       div_options[:class] = ['form-group row', div_options[:class]].compact.join(' ')
 
       @template.content_tag :div, [label_wrapper, input_controls].join.html_safe, div_options

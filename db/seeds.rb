@@ -160,3 +160,18 @@ mirador_user.update_attributes(
   sms_confirmed_at: Time.current,
   cgu_accepted_at: Time.current
 )
+
+
+# Basïc Pages ==================================================
+[
+  # { key: 'data_policy', title: "Charte des données personnelles", enabled: true },
+  { key: 'who_we_are', title: "Qui sommes-nous ?", enabled: true },
+  { key: 'cgu', title: "Conditions Générales d'Utilisation", enabled: true },
+  { key: 'legal_mentions', title: "Mentions légales", enabled: true },
+  { key: 'cookies', title: "Cookies", enabled: true }
+].each do |option|
+  BasicPage.where(key: option[:key]).first_or_create(
+    enabled: option[:enabled], 
+    title: option[:title]
+  )
+end

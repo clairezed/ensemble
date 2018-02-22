@@ -59,11 +59,15 @@ html lang="#{I18n.locale}"
               => icon_settings
               ' Paramètres
           li.main-menu_item
-            = link_to "#", class: "main-menu_item-link" do
+            = link_to get_basic_page_path(:cgu), class: "main-menu_item-link" do
               => icon_cgu
               ' CGU
           li.main-menu_item
-            = link_to "#", class: "main-menu_item-link" do
+            = link_to get_basic_page_path(:who_we_are), class: "main-menu_item-link" do
+              => icon_people
+              ' Qui sommes-nous ?
+          li.main-menu_item
+            = link_to get_basic_page_path(:legal_mentions), class: "main-menu_item-link" do
               => icon_mentions
               ' Mentions légales
           li.main-menu_item

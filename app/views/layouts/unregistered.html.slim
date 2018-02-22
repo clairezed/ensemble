@@ -46,11 +46,11 @@ html lang="#{I18n.locale}"
             .col
               h3.section-title Découvrir
               ul.footer_links
-                li= link_to "Qui sommes-nous ?", "#"
-                li= link_to "Charte utilisateur", "#"
-                li= link_to "Conditions générales", "#"
+                li= link_to "Qui sommes-nous ?", get_basic_page_path(:who_we_are)
+                / li= link_to "Charte utilisateur", "#"
+                li= link_to "Conditions générales", get_basic_page_path(:cgu)
                 li= link_to "Plan du site", "#"
-                li= link_to "Mentions légales", "#"
+                li= link_to "Mentions légales", get_basic_page_path(:legal_mentions)
             .col
               h3.section-title Suivez-nous
               .social-links
