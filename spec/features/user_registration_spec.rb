@@ -83,7 +83,6 @@ def fill_first_step
   fill_in("user_lastname", with: "Zuliani")
   fill_in("user_password", with: "Password1")
   fill_in("user_password_confirmation", with: "Password1")
-  # fill_in("user_password_confirmation", with: "Password1")
 end
 
 def fill_second_step
@@ -95,7 +94,10 @@ def fill_second_step
   fill_in("user_phone", with: "0606060606")
   select 'Epinal', from: 'user_city_id', visible: false
   # select2_ajax "Epinal", :from => "Rechercher...", :minlength => 2
-  page.find("#user_birthdate", visible: false).set("02/05/1985")
+  # page.find("#user_birthdate", visible: false).set("02/05/1985")
+  select '2', from: 'user_birthdate_3i'
+  select 'mai', from: 'user_birthdate_2i'
+  select '1985', from: 'user_birthdate_1i'
   check "user_cgu_accepted"
 end
 
