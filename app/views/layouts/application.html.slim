@@ -67,6 +67,10 @@ html lang="#{I18n.locale}"
               => icon_mentions
               ' Mentions légales
           li.main-menu_item
+            = link_to "/lexique", class: "main-menu_item-link" do
+              => icon_language
+              ' Lexiques
+          li.main-menu_item
             = link_to destroy_user_session_path, method: :delete, class: "main-menu_item-link" do
               => icon_disconnect
               ' Déconnexion
