@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'ensemble';
-  src:  font-url('ensemble.eot?mq13f6');
-  src:  font-url('ensemble.eot?mq13f6#iefix') format('embedded-opentype'),
-    font-url('ensemble.ttf?mq13f6') format('truetype'),
-    font-url('ensemble.woff?mq13f6') format('woff'),
-    font-url('ensemble.svg?mq13f6#ensemble') format('svg');
+  src:  font-url('ensemble.eot?nsjsim');
+  src:  font-url('ensemble.eot?nsjsim#iefix') format('embedded-opentype'),
+    font-url('ensemble.ttf?nsjsim') format('truetype'),
+    font-url('ensemble.woff?nsjsim') format('woff'),
+    font-url('ensemble.svg?nsjsim#ensemble') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -26,823 +26,1908 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+.ico-activites-artistiques .path1 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path2 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path3 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path4 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path5 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path6 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path7 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path8 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path9 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path9);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-artistiques .path10 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path10);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path11 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path11);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path12 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path12);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-artistiques .path13 {
+  &:before {
+    content: unicode($ico-activites-artistiques-path13);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path1 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path2 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path3 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path4 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path5 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path6 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path7 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-culinaires .path8 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path9 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path9);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culinaires .path10 {
+  &:before {
+    content: unicode($ico-activites-culinaires-path10);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path1 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path2 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path3 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-culturelles .path4 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path5 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path6 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path7 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path8 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-culturelles .path9 {
+  &:before {
+    content: unicode($ico-activites-culturelles-path9);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-de-detente .path1 {
+  &:before {
+    content: unicode($ico-activites-de-detente-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-de-detente .path2 {
+  &:before {
+    content: unicode($ico-activites-de-detente-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-de-detente .path3 {
+  &:before {
+    content: unicode($ico-activites-de-detente-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-en-ville .path1 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path2 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path3 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path4 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-en-ville .path5 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path6 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path7 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-en-ville .path8 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-en-ville .path9 {
+  &:before {
+    content: unicode($ico-activites-en-ville-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path1 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path2 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path3 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path4 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path5 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path6 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path7 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-ludiques .path8 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-ludiques .path9 {
+  &:before {
+    content: unicode($ico-activites-ludiques-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-manuelles .path1 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path2 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path3 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path4 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path5 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path6 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path7 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-manuelles .path8 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path9 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-manuelles .path10 {
+  &:before {
+    content: unicode($ico-activites-manuelles-path10);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-activites-sportives .path1 {
+  &:before {
+    content: unicode($ico-activites-sportives-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path2 {
+  &:before {
+    content: unicode($ico-activites-sportives-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-activites-sportives .path3 {
+  &:before {
+    content: unicode($ico-activites-sportives-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path4 {
+  &:before {
+    content: unicode($ico-activites-sportives-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path5 {
+  &:before {
+    content: unicode($ico-activites-sportives-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path6 {
+  &:before {
+    content: unicode($ico-activites-sportives-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path7 {
+  &:before {
+    content: unicode($ico-activites-sportives-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-activites-sportives .path8 {
+  &:before {
+    content: unicode($ico-activites-sportives-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
 .ico-add .path1 {
   &:before {
-    content: $ico-add-path1;  
+    content: unicode($ico-add-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-add .path2 {
   &:before {
-    content: $ico-add-path2;  
+    content: unicode($ico-add-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-add .path3 {
   &:before {
-    content: $ico-add-path3;  
+    content: unicode($ico-add-path3);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-add .path4 {
   &:before {
-    content: $ico-add-path4;  
+    content: unicode($ico-add-path4);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-add-reverse .path1 {
   &:before {
-    content: $ico-add-reverse-path1;  
+    content: unicode($ico-add-reverse-path1);  
     color: rgb(255, 201, 51);
   }
 }
 .ico-add-reverse .path2 {
   &:before {
-    content: $ico-add-reverse-path2;  
+    content: unicode($ico-add-reverse-path2);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-add-reverse .path3 {
   &:before {
-    content: $ico-add-reverse-path3;  
+    content: unicode($ico-add-reverse-path3);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-add-reverse .path4 {
   &:before {
-    content: $ico-add-reverse-path4;  
+    content: unicode($ico-add-reverse-path4);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
+.ico-aller-voir-du-sport .path1 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path2 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path3 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path4 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path5 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path6 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path7 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path8 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path9 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path10 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path10);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-aller-voir-du-sport .path11 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path11);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path12 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path12);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-aller-voir-du-sport .path13 {
+  &:before {
+    content: unicode($ico-aller-voir-du-sport-path13);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
 .ico-attachment .path1 {
   &:before {
-    content: $ico-attachment-path1;  
+    content: unicode($ico-attachment-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-attachment .path2 {
   &:before {
-    content: $ico-attachment-path2;  
+    content: unicode($ico-attachment-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-attachment .path3 {
   &:before {
-    content: $ico-attachment-path3;  
+    content: unicode($ico-attachment-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-attachment .path4 {
   &:before {
-    content: $ico-attachment-path4;  
+    content: unicode($ico-attachment-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-attachment .path5 {
   &:before {
-    content: $ico-attachment-path5;  
+    content: unicode($ico-attachment-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-attachment .path6 {
   &:before {
-    content: $ico-attachment-path6;  
+    content: unicode($ico-attachment-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-autre .path1 {
+  &:before {
+    content: unicode($ico-autre-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-autre .path2 {
+  &:before {
+    content: unicode($ico-autre-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-autre .path3 {
+  &:before {
+    content: unicode($ico-autre-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-bar-cafe .path1 {
+  &:before {
+    content: unicode($ico-bar-cafe-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-bar-cafe .path2 {
+  &:before {
+    content: unicode($ico-bar-cafe-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path3 {
+  &:before {
+    content: unicode($ico-bar-cafe-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path4 {
+  &:before {
+    content: unicode($ico-bar-cafe-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path5 {
+  &:before {
+    content: unicode($ico-bar-cafe-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bar-cafe .path6 {
+  &:before {
+    content: unicode($ico-bar-cafe-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
 .ico-bell .path1 {
   &:before {
-    content: $ico-bell-path1;  
+    content: unicode($ico-bell-path1);  
     color: rgb(255, 255, 255);
   }
 }
 .ico-bell .path2 {
   &:before {
-    content: $ico-bell-path2;  
+    content: unicode($ico-bell-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-bell .path3 {
   &:before {
-    content: $ico-bell-path3;  
+    content: unicode($ico-bell-path3);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-bell-notif .path1 {
   &:before {
-    content: $ico-bell-notif-path1;  
+    content: unicode($ico-bell-notif-path1);  
     color: rgb(255, 255, 255);
   }
 }
 .ico-bell-notif .path2 {
   &:before {
-    content: $ico-bell-notif-path2;  
+    content: unicode($ico-bell-notif-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-bell-notif .path3 {
   &:before {
-    content: $ico-bell-notif-path3;  
+    content: unicode($ico-bell-notif-path3);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-bell-notif .path4 {
   &:before {
-    content: $ico-bell-notif-path4;  
+    content: unicode($ico-bell-notif-path4);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-bell-notif .path5 {
   &:before {
-    content: $ico-bell-notif-path5;  
+    content: unicode($ico-bell-notif-path5);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
+.ico-bricolage .path1 {
+  &:before {
+    content: unicode($ico-bricolage-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-bricolage .path2 {
+  &:before {
+    content: unicode($ico-bricolage-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bricolage .path3 {
+  &:before {
+    content: unicode($ico-bricolage-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-bricolage .path4 {
+  &:before {
+    content: unicode($ico-bricolage-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
 .ico-calendar .path1 {
   &:before {
-    content: $ico-calendar-path1;  
+    content: unicode($ico-calendar-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-calendar .path2 {
   &:before {
-    content: $ico-calendar-path2;  
+    content: unicode($ico-calendar-path2);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar .path3 {
   &:before {
-    content: $ico-calendar-path3;  
+    content: unicode($ico-calendar-path3);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar .path4 {
   &:before {
-    content: $ico-calendar-path4;  
+    content: unicode($ico-calendar-path4);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar .path5 {
   &:before {
-    content: $ico-calendar-path5;  
+    content: unicode($ico-calendar-path5);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar .path6 {
   &:before {
-    content: $ico-calendar-path6;  
+    content: unicode($ico-calendar-path6);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path1 {
   &:before {
-    content: $ico-calendar-future-path1;  
+    content: unicode($ico-calendar-future-path1);  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path2 {
   &:before {
-    content: $ico-calendar-future-path2;  
+    content: unicode($ico-calendar-future-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-calendar-future .path3 {
   &:before {
-    content: $ico-calendar-future-path3;  
+    content: unicode($ico-calendar-future-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-calendar-future .path4 {
   &:before {
-    content: $ico-calendar-future-path4;  
+    content: unicode($ico-calendar-future-path4);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path5 {
   &:before {
-    content: $ico-calendar-future-path5;  
+    content: unicode($ico-calendar-future-path5);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path6 {
   &:before {
-    content: $ico-calendar-future-path6;  
+    content: unicode($ico-calendar-future-path6);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path7 {
   &:before {
-    content: $ico-calendar-future-path7;  
+    content: unicode($ico-calendar-future-path7);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path8 {
   &:before {
-    content: $ico-calendar-future-path8;  
+    content: unicode($ico-calendar-future-path8);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path9 {
   &:before {
-    content: $ico-calendar-future-path9;  
+    content: unicode($ico-calendar-future-path9);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path10 {
   &:before {
-    content: $ico-calendar-future-path10;  
+    content: unicode($ico-calendar-future-path10);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path11 {
   &:before {
-    content: $ico-calendar-future-path11;  
+    content: unicode($ico-calendar-future-path11);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path12 {
   &:before {
-    content: $ico-calendar-future-path12;  
+    content: unicode($ico-calendar-future-path12);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path13 {
   &:before {
-    content: $ico-calendar-future-path13;  
+    content: unicode($ico-calendar-future-path13);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-future .path14 {
   &:before {
-    content: $ico-calendar-future-path14;  
+    content: unicode($ico-calendar-future-path14);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path1 {
   &:before {
-    content: $ico-calendar-past-path1;  
+    content: unicode($ico-calendar-past-path1);  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path2 {
   &:before {
-    content: $ico-calendar-past-path2;  
+    content: unicode($ico-calendar-past-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-calendar-past .path3 {
   &:before {
-    content: $ico-calendar-past-path3;  
+    content: unicode($ico-calendar-past-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-calendar-past .path4 {
   &:before {
-    content: $ico-calendar-past-path4;  
+    content: unicode($ico-calendar-past-path4);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path5 {
   &:before {
-    content: $ico-calendar-past-path5;  
+    content: unicode($ico-calendar-past-path5);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path6 {
   &:before {
-    content: $ico-calendar-past-path6;  
+    content: unicode($ico-calendar-past-path6);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path7 {
   &:before {
-    content: $ico-calendar-past-path7;  
+    content: unicode($ico-calendar-past-path7);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path8 {
   &:before {
-    content: $ico-calendar-past-path8;  
+    content: unicode($ico-calendar-past-path8);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path9 {
   &:before {
-    content: $ico-calendar-past-path9;  
+    content: unicode($ico-calendar-past-path9);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path10 {
   &:before {
-    content: $ico-calendar-past-path10;  
+    content: unicode($ico-calendar-past-path10);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path11 {
   &:before {
-    content: $ico-calendar-past-path11;  
+    content: unicode($ico-calendar-past-path11);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path12 {
   &:before {
-    content: $ico-calendar-past-path12;  
+    content: unicode($ico-calendar-past-path12);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path13 {
   &:before {
-    content: $ico-calendar-past-path13;  
+    content: unicode($ico-calendar-past-path13);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-past .path14 {
   &:before {
-    content: $ico-calendar-past-path14;  
+    content: unicode($ico-calendar-past-path14);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path1 {
   &:before {
-    content: $ico-calendar-reverse-path1;  
+    content: unicode($ico-calendar-reverse-path1);  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path2 {
   &:before {
-    content: $ico-calendar-reverse-path2;  
+    content: unicode($ico-calendar-reverse-path2);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-calendar-reverse .path3 {
   &:before {
-    content: $ico-calendar-reverse-path3;  
+    content: unicode($ico-calendar-reverse-path3);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-calendar-reverse .path4 {
   &:before {
-    content: $ico-calendar-reverse-path4;  
+    content: unicode($ico-calendar-reverse-path4);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path5 {
   &:before {
-    content: $ico-calendar-reverse-path5;  
+    content: unicode($ico-calendar-reverse-path5);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path6 {
   &:before {
-    content: $ico-calendar-reverse-path6;  
+    content: unicode($ico-calendar-reverse-path6);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path7 {
   &:before {
-    content: $ico-calendar-reverse-path7;  
+    content: unicode($ico-calendar-reverse-path7);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path8 {
   &:before {
-    content: $ico-calendar-reverse-path8;  
+    content: unicode($ico-calendar-reverse-path8);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path9 {
   &:before {
-    content: $ico-calendar-reverse-path9;  
+    content: unicode($ico-calendar-reverse-path9);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path10 {
   &:before {
-    content: $ico-calendar-reverse-path10;  
+    content: unicode($ico-calendar-reverse-path10);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path11 {
   &:before {
-    content: $ico-calendar-reverse-path11;  
+    content: unicode($ico-calendar-reverse-path11);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path12 {
   &:before {
-    content: $ico-calendar-reverse-path12;  
+    content: unicode($ico-calendar-reverse-path12);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path13 {
   &:before {
-    content: $ico-calendar-reverse-path13;  
+    content: unicode($ico-calendar-reverse-path13);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-calendar-reverse .path14 {
   &:before {
-    content: $ico-calendar-reverse-path14;  
+    content: unicode($ico-calendar-reverse-path14);  
     margin-left: -1em;  
     color: rgb(255, 200, 51);
   }
 }
 .ico-camera .path1 {
   &:before {
-    content: $ico-camera-path1;  
+    content: unicode($ico-camera-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-camera .path2 {
   &:before {
-    content: $ico-camera-path2;  
+    content: unicode($ico-camera-path2);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-camera .path3 {
   &:before {
-    content: $ico-camera-path3;  
+    content: unicode($ico-camera-path3);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-camera .path4 {
   &:before {
-    content: $ico-camera-path4;  
+    content: unicode($ico-camera-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-camera .path5 {
   &:before {
-    content: $ico-camera-path5;  
+    content: unicode($ico-camera-path5);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
+.ico-cance-reverse {
+  &:before {
+    content: unicode($ico-cance-reverse);     
+    color: #ffc933;
+  }
+}
 .ico-cancel {
   &:before {
-    content: $ico-cancel;     
+    content: unicode($ico-cancel);     
     color: #666;
   }
 }
 .ico-cancel-white {
   &:before {
-    content: $ico-cancel-white;     
+    content: unicode($ico-cancel-white);     
     color: #fff;
-  }
-}
-.ico-cance-reverse {
-  &:before {
-    content: $ico-cance-reverse;     
-    color: #ffc933;
   }
 }
 .ico-cgu .path1 {
   &:before {
-    content: $ico-cgu-path1;  
+    content: unicode($ico-cgu-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-cgu .path2 {
   &:before {
-    content: $ico-cgu-path2;  
+    content: unicode($ico-cgu-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-cgu .path3 {
   &:before {
-    content: $ico-cgu-path3;  
+    content: unicode($ico-cgu-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-cgu .path4 {
   &:before {
-    content: $ico-cgu-path4;  
+    content: unicode($ico-cgu-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-cgu .path5 {
   &:before {
-    content: $ico-cgu-path5;  
+    content: unicode($ico-cgu-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-cgu .path6 {
   &:before {
-    content: $ico-cgu-path6;  
+    content: unicode($ico-cgu-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-cgu .path7 {
   &:before {
-    content: $ico-cgu-path7;  
+    content: unicode($ico-cgu-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path1 {
+  &:before {
+    content: unicode($ico-chanter-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path2 {
+  &:before {
+    content: unicode($ico-chanter-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path3 {
+  &:before {
+    content: unicode($ico-chanter-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path4 {
+  &:before {
+    content: unicode($ico-chanter-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path5 {
+  &:before {
+    content: unicode($ico-chanter-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path6 {
+  &:before {
+    content: unicode($ico-chanter-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path7 {
+  &:before {
+    content: unicode($ico-chanter-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path8 {
+  &:before {
+    content: unicode($ico-chanter-path8);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path9 {
+  &:before {
+    content: unicode($ico-chanter-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path10 {
+  &:before {
+    content: unicode($ico-chanter-path10);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path11 {
+  &:before {
+    content: unicode($ico-chanter-path11);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path12 {
+  &:before {
+    content: unicode($ico-chanter-path12);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path13 {
+  &:before {
+    content: unicode($ico-chanter-path13);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path14 {
+  &:before {
+    content: unicode($ico-chanter-path14);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path15 {
+  &:before {
+    content: unicode($ico-chanter-path15);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path16 {
+  &:before {
+    content: unicode($ico-chanter-path16);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path17 {
+  &:before {
+    content: unicode($ico-chanter-path17);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path18 {
+  &:before {
+    content: unicode($ico-chanter-path18);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path19 {
+  &:before {
+    content: unicode($ico-chanter-path19);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path20 {
+  &:before {
+    content: unicode($ico-chanter-path20);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path21 {
+  &:before {
+    content: unicode($ico-chanter-path21);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-chanter .path22 {
+  &:before {
+    content: unicode($ico-chanter-path22);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-chanter .path23 {
+  &:before {
+    content: unicode($ico-chanter-path23);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path1 {
+  &:before {
+    content: unicode($ico-cinema-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cinema .path2 {
+  &:before {
+    content: unicode($ico-cinema-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path3 {
+  &:before {
+    content: unicode($ico-cinema-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path4 {
+  &:before {
+    content: unicode($ico-cinema-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cinema .path5 {
+  &:before {
+    content: unicode($ico-cinema-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-clock .path1 {
   &:before {
-    content: $ico-clock-path1;  
+    content: unicode($ico-clock-path1);  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path2 {
   &:before {
-    content: $ico-clock-path2;  
+    content: unicode($ico-clock-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path3 {
   &:before {
-    content: $ico-clock-path3;  
+    content: unicode($ico-clock-path3);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path4 {
   &:before {
-    content: $ico-clock-path4;  
+    content: unicode($ico-clock-path4);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path5 {
   &:before {
-    content: $ico-clock-path5;  
+    content: unicode($ico-clock-path5);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path6 {
   &:before {
-    content: $ico-clock-path6;  
+    content: unicode($ico-clock-path6);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path7 {
   &:before {
-    content: $ico-clock-path7;  
+    content: unicode($ico-clock-path7);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path8 {
   &:before {
-    content: $ico-clock-path8;  
+    content: unicode($ico-clock-path8);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path9 {
   &:before {
-    content: $ico-clock-path9;  
+    content: unicode($ico-clock-path9);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path10 {
   &:before {
-    content: $ico-clock-path10;  
+    content: unicode($ico-clock-path10);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path11 {
   &:before {
-    content: $ico-clock-path11;  
+    content: unicode($ico-clock-path11);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path12 {
   &:before {
-    content: $ico-clock-path12;  
+    content: unicode($ico-clock-path12);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path13 {
   &:before {
-    content: $ico-clock-path13;  
+    content: unicode($ico-clock-path13);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path14 {
   &:before {
-    content: $ico-clock-path14;  
+    content: unicode($ico-clock-path14);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path15 {
   &:before {
-    content: $ico-clock-path15;  
+    content: unicode($ico-clock-path15);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path16 {
   &:before {
-    content: $ico-clock-path16;  
+    content: unicode($ico-clock-path16);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path17 {
   &:before {
-    content: $ico-clock-path17;  
+    content: unicode($ico-clock-path17);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-clock .path18 {
   &:before {
-    content: $ico-clock-path18;  
+    content: unicode($ico-clock-path18);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path19 {
   &:before {
-    content: $ico-clock-path19;  
+    content: unicode($ico-clock-path19);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-clock .path20 {
   &:before {
-    content: $ico-clock-path20;  
+    content: unicode($ico-clock-path20);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-close .path1 {
   &:before {
-    content: $ico-close-path1;  
+    content: unicode($ico-close-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-close .path2 {
   &:before {
-    content: $ico-close-path2;  
+    content: unicode($ico-close-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-close .path3 {
   &:before {
-    content: $ico-close-path3;  
+    content: unicode($ico-close-path3);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-close .path4 {
   &:before {
-    content: $ico-close-path4;  
+    content: unicode($ico-close-path4);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-close-reverse .path1 {
   &:before {
-    content: $ico-close-reverse-path1;  
+    content: unicode($ico-close-reverse-path1);  
     color: rgb(255, 255, 255);
   }
 }
 .ico-close-reverse .path2 {
   &:before {
-    content: $ico-close-reverse-path2;  
+    content: unicode($ico-close-reverse-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-close-reverse .path3 {
   &:before {
-    content: $ico-close-reverse-path3;  
+    content: unicode($ico-close-reverse-path3);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
 .ico-close-reverse .path4 {
   &:before {
-    content: $ico-close-reverse-path4;  
+    content: unicode($ico-close-reverse-path4);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
   }
 }
+.ico-concert .path1 {
+  &:before {
+    content: unicode($ico-concert-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path2 {
+  &:before {
+    content: unicode($ico-concert-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path3 {
+  &:before {
+    content: unicode($ico-concert-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-concert .path4 {
+  &:before {
+    content: unicode($ico-concert-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
 .ico-country .path1 {
   &:before {
-    content: $ico-country-path1;  
+    content: unicode($ico-country-path1);  
     color: rgb(254, 203, 51);
   }
 }
 .ico-country .path2 {
   &:before {
-    content: $ico-country-path2;  
+    content: unicode($ico-country-path2);  
     margin-left: -1em;  
     color: rgb(254, 203, 51);
   }
 }
 .ico-country .path3 {
   &:before {
-    content: $ico-country-path3;  
+    content: unicode($ico-country-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-country-reverse {
   &:before {
-    content: $ico-country-reverse;     
+    content: unicode($ico-country-reverse);     
     color: #fff;
+  }
+}
+.ico-couture-tricot .path1 {
+  &:before {
+    content: unicode($ico-couture-tricot-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-couture-tricot .path2 {
+  &:before {
+    content: unicode($ico-couture-tricot-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path3 {
+  &:before {
+    content: unicode($ico-couture-tricot-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path4 {
+  &:before {
+    content: unicode($ico-couture-tricot-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path5 {
+  &:before {
+    content: unicode($ico-couture-tricot-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path6 {
+  &:before {
+    content: unicode($ico-couture-tricot-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path7 {
+  &:before {
+    content: unicode($ico-couture-tricot-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path8 {
+  &:before {
+    content: unicode($ico-couture-tricot-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path9 {
+  &:before {
+    content: unicode($ico-couture-tricot-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path10 {
+  &:before {
+    content: unicode($ico-couture-tricot-path10);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path11 {
+  &:before {
+    content: unicode($ico-couture-tricot-path11);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-couture-tricot .path12 {
+  &:before {
+    content: unicode($ico-couture-tricot-path12);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path1 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path2 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path3 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path4 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path5 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-cuisine-a-la-maison .path6 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path7 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-cuisine-a-la-maison .path8 {
+  &:before {
+    content: unicode($ico-cuisine-a-la-maison-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path1 {
+  &:before {
+    content: unicode($ico-danser-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path2 {
+  &:before {
+    content: unicode($ico-danser-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path3 {
+  &:before {
+    content: unicode($ico-danser-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path4 {
+  &:before {
+    content: unicode($ico-danser-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-danser .path5 {
+  &:before {
+    content: unicode($ico-danser-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path6 {
+  &:before {
+    content: unicode($ico-danser-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path7 {
+  &:before {
+    content: unicode($ico-danser-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-danser .path8 {
+  &:before {
+    content: unicode($ico-danser-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
   }
 }
 .ico-delete-reverse .path1 {
   &:before {
-    content: $ico-delete-reverse-path1;  
+    content: unicode($ico-delete-reverse-path1);  
     color: rgb(255, 201, 51);  
     opacity: 0.9;
   }
 }
 .ico-delete-reverse .path2 {
   &:before {
-    content: $ico-delete-reverse-path2;  
+    content: unicode($ico-delete-reverse-path2);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-delete-reverse .path3 {
   &:before {
-    content: $ico-delete-reverse-path3;  
+    content: unicode($ico-delete-reverse-path3);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);  
     opacity: 0.9;
@@ -850,7 +1935,7 @@
 }
 .ico-delete-reverse .path4 {
   &:before {
-    content: $ico-delete-reverse-path4;  
+    content: unicode($ico-delete-reverse-path4);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);  
     opacity: 0.9;
@@ -858,7 +1943,7 @@
 }
 .ico-delete-reverse .path5 {
   &:before {
-    content: $ico-delete-reverse-path5;  
+    content: unicode($ico-delete-reverse-path5);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);  
     opacity: 0.9;
@@ -866,3195 +1951,2030 @@
 }
 .ico-desktop .path1 {
   &:before {
-    content: $ico-desktop-path1;  
+    content: unicode($ico-desktop-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-desktop .path2 {
   &:before {
-    content: $ico-desktop-path2;  
+    content: unicode($ico-desktop-path2);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path3 {
   &:before {
-    content: $ico-desktop-path3;  
+    content: unicode($ico-desktop-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-desktop .path4 {
   &:before {
-    content: $ico-desktop-path4;  
+    content: unicode($ico-desktop-path4);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path5 {
   &:before {
-    content: $ico-desktop-path5;  
+    content: unicode($ico-desktop-path5);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path6 {
   &:before {
-    content: $ico-desktop-path6;  
+    content: unicode($ico-desktop-path6);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path7 {
   &:before {
-    content: $ico-desktop-path7;  
+    content: unicode($ico-desktop-path7);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path8 {
   &:before {
-    content: $ico-desktop-path8;  
+    content: unicode($ico-desktop-path8);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-desktop .path9 {
   &:before {
-    content: $ico-desktop-path9;  
+    content: unicode($ico-desktop-path9);  
     margin-left: -1em;  
     color: rgb(255, 199, 51);
   }
 }
 .ico-disconnect .path1 {
   &:before {
-    content: $ico-disconnect-path1;  
+    content: unicode($ico-disconnect-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-disconnect .path2 {
   &:before {
-    content: $ico-disconnect-path2;  
+    content: unicode($ico-disconnect-path2);  
     margin-left: -1em;  
     color: rgb(255, 201, 51);
-  }
-}
-.ico-edit .path1 {
-  &:before {
-    content: $ico-edit-path1;  
-    color: rgb(255, 199, 51);  
-    opacity: 0.9;
-  }
-}
-.ico-edit .path2 {
-  &:before {
-    content: $ico-edit-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-edit-reverse .path1 {
-  &:before {
-    content: $ico-edit-reverse-path1;  
-    color: rgb(255, 199, 51);  
-    opacity: 0.9;
-  }
-}
-.ico-edit-reverse .path2 {
-  &:before {
-    content: $ico-edit-reverse-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-hamburger .path1 {
-  &:before {
-    content: $ico-hamburger-path1;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-hamburger .path2 {
-  &:before {
-    content: $ico-hamburger-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-hamburger .path3 {
-  &:before {
-    content: $ico-hamburger-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 201, 51);
-  }
-}
-.ico-hamburger .path4 {
-  &:before {
-    content: $ico-hamburger-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-hamburger .path5 {
-  &:before {
-    content: $ico-hamburger-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-hamburger .path6 {
-  &:before {
-    content: $ico-hamburger-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-home .path1 {
-  &:before {
-    content: $ico-home-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-home .path2 {
-  &:before {
-    content: $ico-home-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-interest .path1 {
-  &:before {
-    content: $ico-interest-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-interest .path2 {
-  &:before {
-    content: $ico-interest-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-language .path1 {
-  &:before {
-    content: $ico-language-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-language .path2 {
-  &:before {
-    content: $ico-language-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-language .path3 {
-  &:before {
-    content: $ico-language-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-language .path4 {
-  &:before {
-    content: $ico-language-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-language .path5 {
-  &:before {
-    content: $ico-language-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-language .path6 {
-  &:before {
-    content: $ico-language-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-location .path1 {
-  &:before {
-    content: $ico-location-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-location .path2 {
-  &:before {
-    content: $ico-location-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mail .path1 {
-  &:before {
-    content: $ico-mail-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mail .path2 {
-  &:before {
-    content: $ico-mail-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mail-reverse {
-  &:before {
-    content: $ico-mail-reverse;     
-    color: #fff;
-  }
-}
-.ico-men .path1 {
-  &:before {
-    content: $ico-men-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-men .path2 {
-  &:before {
-    content: $ico-men-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-men .path3 {
-  &:before {
-    content: $ico-men-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-men-mustache .path1 {
-  &:before {
-    content: $ico-men-mustache-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-men-mustache .path2 {
-  &:before {
-    content: $ico-men-mustache-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mentions .path1 {
-  &:before {
-    content: $ico-mentions-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-mentions .path2 {
-  &:before {
-    content: $ico-mentions-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mentions .path3 {
-  &:before {
-    content: $ico-mentions-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-mentions .path4 {
-  &:before {
-    content: $ico-mentions-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-mirador .path1 {
-  &:before {
-    content: $ico-mirador-path1;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-mirador .path2 {
-  &:before {
-    content: $ico-mirador-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-mirador .path3 {
-  &:before {
-    content: $ico-mirador-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador .path4 {
-  &:before {
-    content: $ico-mirador-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador .path5 {
-  &:before {
-    content: $ico-mirador-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador .path6 {
-  &:before {
-    content: $ico-mirador-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-participant .path1 {
-  &:before {
-    content: $ico-mirador-participant-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-participant .path2 {
-  &:before {
-    content: $ico-mirador-participant-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-mirador-participant .path3 {
-  &:before {
-    content: $ico-mirador-participant-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-mirador-participant .path4 {
-  &:before {
-    content: $ico-mirador-participant-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-participant .path5 {
-  &:before {
-    content: $ico-mirador-participant-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-participant .path6 {
-  &:before {
-    content: $ico-mirador-participant-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-participant .path7 {
-  &:before {
-    content: $ico-mirador-participant-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mirador-reverse {
-  &:before {
-    content: $ico-mirador-reverse;     
-    color: #fff;
-  }
-}
-.ico-mobile-phone .path1 {
-  &:before {
-    content: $ico-mobile-phone-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-mobile-phone .path2 {
-  &:before {
-    content: $ico-mobile-phone-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path3 {
-  &:before {
-    content: $ico-mobile-phone-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path4 {
-  &:before {
-    content: $ico-mobile-phone-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path5 {
-  &:before {
-    content: $ico-mobile-phone-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path6 {
-  &:before {
-    content: $ico-mobile-phone-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path7 {
-  &:before {
-    content: $ico-mobile-phone-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-mobile-phone .path8 {
-  &:before {
-    content: $ico-mobile-phone-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-people .path1 {
-  &:before {
-    content: $ico-people-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-people .path2 {
-  &:before {
-    content: $ico-people-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-profile .path1 {
-  &:before {
-    content: $ico-profile-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-profile .path2 {
-  &:before {
-    content: $ico-profile-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 201, 51);
-  }
-}
-.ico-profile-reverse .path1 {
-  &:before {
-    content: $ico-profile-reverse-path1;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-profile-reverse .path2 {
-  &:before {
-    content: $ico-profile-reverse-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 201, 51);
-  }
-}
-.ico-search .path1 {
-  &:before {
-    content: $ico-search-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-search .path2 {
-  &:before {
-    content: $ico-search-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 201, 51);
-  }
-}
-.ico-search-reverse .path1 {
-  &:before {
-    content: $ico-search-reverse-path1;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-search-reverse .path2 {
-  &:before {
-    content: $ico-search-reverse-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 201, 51);
-  }
-}
-.ico-settings .path1 {
-  &:before {
-    content: $ico-settings-path1;  
-    color: rgb(80, 80, 80);
-  }
-}
-.ico-settings .path2 {
-  &:before {
-    content: $ico-settings-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-text .path1 {
-  &:before {
-    content: $ico-text-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-text .path2 {
-  &:before {
-    content: $ico-text-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-text .path3 {
-  &:before {
-    content: $ico-text-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-text .path4 {
-  &:before {
-    content: $ico-text-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-validate {
-  &:before {
-    content: $ico-validate;     
-    color: #666;
-  }
-}
-.ico-validate-reverse {
-  &:before {
-    content: $ico-validate-reverse;     
-    color: #ffc933;
-  }
-}
-.ico-women .path1 {
-  &:before {
-    content: $ico-women-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-women .path2 {
-  &:before {
-    content: $ico-women-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-women .path3 {
-  &:before {
-    content: $ico-women-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-women-hair .path1 {
-  &:before {
-    content: $ico-women-hair-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-women-hair .path2 {
-  &:before {
-    content: $ico-women-hair-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-artistiques .path1 {
-  &:before {
-    content: $ico-activites-artistiques-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path2 {
-  &:before {
-    content: $ico-activites-artistiques-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path3 {
-  &:before {
-    content: $ico-activites-artistiques-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path4 {
-  &:before {
-    content: $ico-activites-artistiques-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path5 {
-  &:before {
-    content: $ico-activites-artistiques-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path6 {
-  &:before {
-    content: $ico-activites-artistiques-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-artistiques .path7 {
-  &:before {
-    content: $ico-activites-artistiques-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-artistiques .path8 {
-  &:before {
-    content: $ico-activites-artistiques-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path9 {
-  &:before {
-    content: $ico-activites-artistiques-path9;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-artistiques .path10 {
-  &:before {
-    content: $ico-activites-artistiques-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path11 {
-  &:before {
-    content: $ico-activites-artistiques-path11;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path12 {
-  &:before {
-    content: $ico-activites-artistiques-path12;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-artistiques .path13 {
-  &:before {
-    content: $ico-activites-artistiques-path13;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path1 {
-  &:before {
-    content: $ico-activites-culinaires-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path2 {
-  &:before {
-    content: $ico-activites-culinaires-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path3 {
-  &:before {
-    content: $ico-activites-culinaires-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culinaires .path4 {
-  &:before {
-    content: $ico-activites-culinaires-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path5 {
-  &:before {
-    content: $ico-activites-culinaires-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path6 {
-  &:before {
-    content: $ico-activites-culinaires-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culinaires .path7 {
-  &:before {
-    content: $ico-activites-culinaires-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-culinaires .path8 {
-  &:before {
-    content: $ico-activites-culinaires-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culinaires .path9 {
-  &:before {
-    content: $ico-activites-culinaires-path9;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culinaires .path10 {
-  &:before {
-    content: $ico-activites-culinaires-path10;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path1 {
-  &:before {
-    content: $ico-activites-culturelles-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path2 {
-  &:before {
-    content: $ico-activites-culturelles-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path3 {
-  &:before {
-    content: $ico-activites-culturelles-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-culturelles .path4 {
-  &:before {
-    content: $ico-activites-culturelles-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path5 {
-  &:before {
-    content: $ico-activites-culturelles-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path6 {
-  &:before {
-    content: $ico-activites-culturelles-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path7 {
-  &:before {
-    content: $ico-activites-culturelles-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path8 {
-  &:before {
-    content: $ico-activites-culturelles-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-culturelles .path9 {
-  &:before {
-    content: $ico-activites-culturelles-path9;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-de-detente .path1 {
-  &:before {
-    content: $ico-activites-de-detente-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-de-detente .path2 {
-  &:before {
-    content: $ico-activites-de-detente-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-de-detente .path3 {
-  &:before {
-    content: $ico-activites-de-detente-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-en-ville .path1 {
-  &:before {
-    content: $ico-activites-en-ville-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path2 {
-  &:before {
-    content: $ico-activites-en-ville-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path3 {
-  &:before {
-    content: $ico-activites-en-ville-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path4 {
-  &:before {
-    content: $ico-activites-en-ville-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-en-ville .path5 {
-  &:before {
-    content: $ico-activites-en-ville-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path6 {
-  &:before {
-    content: $ico-activites-en-ville-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path7 {
-  &:before {
-    content: $ico-activites-en-ville-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-en-ville .path8 {
-  &:before {
-    content: $ico-activites-en-ville-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-en-ville .path9 {
-  &:before {
-    content: $ico-activites-en-ville-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-ludiques .path1 {
-  &:before {
-    content: $ico-activites-ludiques-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-ludiques .path2 {
-  &:before {
-    content: $ico-activites-ludiques-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-ludiques .path3 {
-  &:before {
-    content: $ico-activites-ludiques-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-ludiques .path4 {
-  &:before {
-    content: $ico-activites-ludiques-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-ludiques .path5 {
-  &:before {
-    content: $ico-activites-ludiques-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-ludiques .path6 {
-  &:before {
-    content: $ico-activites-ludiques-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-ludiques .path7 {
-  &:before {
-    content: $ico-activites-ludiques-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-ludiques .path8 {
-  &:before {
-    content: $ico-activites-ludiques-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-ludiques .path9 {
-  &:before {
-    content: $ico-activites-ludiques-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-manuelles .path1 {
-  &:before {
-    content: $ico-activites-manuelles-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-manuelles .path2 {
-  &:before {
-    content: $ico-activites-manuelles-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-manuelles .path3 {
-  &:before {
-    content: $ico-activites-manuelles-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-manuelles .path4 {
-  &:before {
-    content: $ico-activites-manuelles-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-manuelles .path5 {
-  &:before {
-    content: $ico-activites-manuelles-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-manuelles .path6 {
-  &:before {
-    content: $ico-activites-manuelles-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-manuelles .path7 {
-  &:before {
-    content: $ico-activites-manuelles-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-manuelles .path8 {
-  &:before {
-    content: $ico-activites-manuelles-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-manuelles .path9 {
-  &:before {
-    content: $ico-activites-manuelles-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-manuelles .path10 {
-  &:before {
-    content: $ico-activites-manuelles-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-activites-sportives .path1 {
-  &:before {
-    content: $ico-activites-sportives-path1;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path2 {
-  &:before {
-    content: $ico-activites-sportives-path2;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-activites-sportives .path3 {
-  &:before {
-    content: $ico-activites-sportives-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path4 {
-  &:before {
-    content: $ico-activites-sportives-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path5 {
-  &:before {
-    content: $ico-activites-sportives-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path6 {
-  &:before {
-    content: $ico-activites-sportives-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path7 {
-  &:before {
-    content: $ico-activites-sportives-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-activites-sportives .path8 {
-  &:before {
-    content: $ico-activites-sportives-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 199, 51);
-  }
-}
-.ico-aller-voir-du-sport .path1 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path2 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path3 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path4 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path5 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-aller-voir-du-sport .path6 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-aller-voir-du-sport .path7 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-aller-voir-du-sport .path8 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-aller-voir-du-sport .path9 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path10 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path10;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-aller-voir-du-sport .path11 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path11;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path12 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path12;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-aller-voir-du-sport .path13 {
-  &:before {
-    content: $ico-aller-voir-du-sport-path13;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-autre .path1 {
-  &:before {
-    content: $ico-autre-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-autre .path2 {
-  &:before {
-    content: $ico-autre-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-autre .path3 {
-  &:before {
-    content: $ico-autre-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-bar-cafe .path1 {
-  &:before {
-    content: $ico-bar-cafe-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-bar-cafe .path2 {
-  &:before {
-    content: $ico-bar-cafe-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bar-cafe .path3 {
-  &:before {
-    content: $ico-bar-cafe-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bar-cafe .path4 {
-  &:before {
-    content: $ico-bar-cafe-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bar-cafe .path5 {
-  &:before {
-    content: $ico-bar-cafe-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bar-cafe .path6 {
-  &:before {
-    content: $ico-bar-cafe-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-bricolage .path1 {
-  &:before {
-    content: $ico-bricolage-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-bricolage .path2 {
-  &:before {
-    content: $ico-bricolage-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bricolage .path3 {
-  &:before {
-    content: $ico-bricolage-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-bricolage .path4 {
-  &:before {
-    content: $ico-bricolage-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path1 {
-  &:before {
-    content: $ico-chanter-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path2 {
-  &:before {
-    content: $ico-chanter-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path3 {
-  &:before {
-    content: $ico-chanter-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path4 {
-  &:before {
-    content: $ico-chanter-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path5 {
-  &:before {
-    content: $ico-chanter-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path6 {
-  &:before {
-    content: $ico-chanter-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path7 {
-  &:before {
-    content: $ico-chanter-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path8 {
-  &:before {
-    content: $ico-chanter-path8;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path9 {
-  &:before {
-    content: $ico-chanter-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path10 {
-  &:before {
-    content: $ico-chanter-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path11 {
-  &:before {
-    content: $ico-chanter-path11;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path12 {
-  &:before {
-    content: $ico-chanter-path12;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path13 {
-  &:before {
-    content: $ico-chanter-path13;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path14 {
-  &:before {
-    content: $ico-chanter-path14;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path15 {
-  &:before {
-    content: $ico-chanter-path15;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path16 {
-  &:before {
-    content: $ico-chanter-path16;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path17 {
-  &:before {
-    content: $ico-chanter-path17;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path18 {
-  &:before {
-    content: $ico-chanter-path18;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path19 {
-  &:before {
-    content: $ico-chanter-path19;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path20 {
-  &:before {
-    content: $ico-chanter-path20;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path21 {
-  &:before {
-    content: $ico-chanter-path21;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-chanter .path22 {
-  &:before {
-    content: $ico-chanter-path22;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-chanter .path23 {
-  &:before {
-    content: $ico-chanter-path23;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cinema .path1 {
-  &:before {
-    content: $ico-cinema-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-cinema .path2 {
-  &:before {
-    content: $ico-cinema-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cinema .path3 {
-  &:before {
-    content: $ico-cinema-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cinema .path4 {
-  &:before {
-    content: $ico-cinema-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cinema .path5 {
-  &:before {
-    content: $ico-cinema-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cinema .path6 {
-  &:before {
-    content: $ico-cinema-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-concert .path1 {
-  &:before {
-    content: $ico-concert-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-concert .path2 {
-  &:before {
-    content: $ico-concert-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-concert .path3 {
-  &:before {
-    content: $ico-concert-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-concert .path4 {
-  &:before {
-    content: $ico-concert-path4;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-couture-tricot .path1 {
-  &:before {
-    content: $ico-couture-tricot-path1;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-couture-tricot .path2 {
-  &:before {
-    content: $ico-couture-tricot-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path3 {
-  &:before {
-    content: $ico-couture-tricot-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path4 {
-  &:before {
-    content: $ico-couture-tricot-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path5 {
-  &:before {
-    content: $ico-couture-tricot-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path6 {
-  &:before {
-    content: $ico-couture-tricot-path6;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path7 {
-  &:before {
-    content: $ico-couture-tricot-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path8 {
-  &:before {
-    content: $ico-couture-tricot-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path9 {
-  &:before {
-    content: $ico-couture-tricot-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path10 {
-  &:before {
-    content: $ico-couture-tricot-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path11 {
-  &:before {
-    content: $ico-couture-tricot-path11;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-couture-tricot .path12 {
-  &:before {
-    content: $ico-couture-tricot-path12;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cuisine-a-la-maison .path1 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cuisine-a-la-maison .path2 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cuisine-a-la-maison .path3 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path3;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-cuisine-a-la-maison .path4 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cuisine-a-la-maison .path5 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-cuisine-a-la-maison .path6 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-cuisine-a-la-maison .path7 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-cuisine-a-la-maison .path8 {
-  &:before {
-    content: $ico-cuisine-a-la-maison-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-danser .path1 {
-  &:before {
-    content: $ico-danser-path1;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-danser .path2 {
-  &:before {
-    content: $ico-danser-path2;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-danser .path3 {
-  &:before {
-    content: $ico-danser-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-danser .path4 {
-  &:before {
-    content: $ico-danser-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-danser .path5 {
-  &:before {
-    content: $ico-danser-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-danser .path6 {
-  &:before {
-    content: $ico-danser-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-danser .path7 {
-  &:before {
-    content: $ico-danser-path7;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-danser .path8 {
-  &:before {
-    content: $ico-danser-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
   }
 }
 .ico-discotheque .path1 {
   &:before {
-    content: $ico-discotheque-path1;  
+    content: unicode($ico-discotheque-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discotheque .path2 {
   &:before {
-    content: $ico-discotheque-path2;  
+    content: unicode($ico-discotheque-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discotheque .path3 {
   &:before {
-    content: $ico-discotheque-path3;  
+    content: unicode($ico-discotheque-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discotheque .path4 {
   &:before {
-    content: $ico-discotheque-path4;  
+    content: unicode($ico-discotheque-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discotheque .path5 {
   &:before {
-    content: $ico-discotheque-path5;  
+    content: unicode($ico-discotheque-path5);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path6 {
   &:before {
-    content: $ico-discotheque-path6;  
+    content: unicode($ico-discotheque-path6);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path7 {
   &:before {
-    content: $ico-discotheque-path7;  
+    content: unicode($ico-discotheque-path7);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path8 {
   &:before {
-    content: $ico-discotheque-path8;  
+    content: unicode($ico-discotheque-path8);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path9 {
   &:before {
-    content: $ico-discotheque-path9;  
+    content: unicode($ico-discotheque-path9);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path10 {
   &:before {
-    content: $ico-discotheque-path10;  
+    content: unicode($ico-discotheque-path10);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path11 {
   &:before {
-    content: $ico-discotheque-path11;  
+    content: unicode($ico-discotheque-path11);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path12 {
   &:before {
-    content: $ico-discotheque-path12;  
+    content: unicode($ico-discotheque-path12);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path13 {
   &:before {
-    content: $ico-discotheque-path13;  
+    content: unicode($ico-discotheque-path13);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path14 {
   &:before {
-    content: $ico-discotheque-path14;  
+    content: unicode($ico-discotheque-path14);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path15 {
   &:before {
-    content: $ico-discotheque-path15;  
+    content: unicode($ico-discotheque-path15);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path16 {
   &:before {
-    content: $ico-discotheque-path16;  
+    content: unicode($ico-discotheque-path16);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path17 {
   &:before {
-    content: $ico-discotheque-path17;  
+    content: unicode($ico-discotheque-path17);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path18 {
   &:before {
-    content: $ico-discotheque-path18;  
+    content: unicode($ico-discotheque-path18);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discotheque .path19 {
   &:before {
-    content: $ico-discotheque-path19;  
+    content: unicode($ico-discotheque-path19);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-discussion .path1 {
   &:before {
-    content: $ico-discussion-path1;  
+    content: unicode($ico-discussion-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path2 {
   &:before {
-    content: $ico-discussion-path2;  
+    content: unicode($ico-discussion-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path3 {
   &:before {
-    content: $ico-discussion-path3;  
+    content: unicode($ico-discussion-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path4 {
   &:before {
-    content: $ico-discussion-path4;  
+    content: unicode($ico-discussion-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path5 {
   &:before {
-    content: $ico-discussion-path5;  
+    content: unicode($ico-discussion-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path6 {
   &:before {
-    content: $ico-discussion-path6;  
+    content: unicode($ico-discussion-path6);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path7 {
   &:before {
-    content: $ico-discussion-path7;  
+    content: unicode($ico-discussion-path7);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path8 {
   &:before {
-    content: $ico-discussion-path8;  
+    content: unicode($ico-discussion-path8);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path9 {
   &:before {
-    content: $ico-discussion-path9;  
+    content: unicode($ico-discussion-path9);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path10 {
   &:before {
-    content: $ico-discussion-path10;  
+    content: unicode($ico-discussion-path10);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-discussion .path11 {
   &:before {
-    content: $ico-discussion-path11;  
+    content: unicode($ico-discussion-path11);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path12 {
   &:before {
-    content: $ico-discussion-path12;  
+    content: unicode($ico-discussion-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path13 {
   &:before {
-    content: $ico-discussion-path13;  
+    content: unicode($ico-discussion-path13);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path14 {
   &:before {
-    content: $ico-discussion-path14;  
+    content: unicode($ico-discussion-path14);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path15 {
   &:before {
-    content: $ico-discussion-path15;  
+    content: unicode($ico-discussion-path15);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-discussion .path16 {
   &:before {
-    content: $ico-discussion-path16;  
+    content: unicode($ico-discussion-path16);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-edit .path1 {
+  &:before {
+    content: unicode($ico-edit-path1);  
+    color: rgb(255, 199, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-edit .path2 {
+  &:before {
+    content: unicode($ico-edit-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-edit-reverse .path1 {
+  &:before {
+    content: unicode($ico-edit-reverse-path1);  
+    color: rgb(255, 199, 51);  
+    opacity: 0.9;
+  }
+}
+.ico-edit-reverse .path2 {
+  &:before {
+    content: unicode($ico-edit-reverse-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path1 {
+  &:before {
+    content: unicode($ico-hamburger-path1);  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path2 {
+  &:before {
+    content: unicode($ico-hamburger-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path3 {
+  &:before {
+    content: unicode($ico-hamburger-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-hamburger .path4 {
+  &:before {
+    content: unicode($ico-hamburger-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path5 {
+  &:before {
+    content: unicode($ico-hamburger-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-hamburger .path6 {
+  &:before {
+    content: unicode($ico-hamburger-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-home .path1 {
+  &:before {
+    content: unicode($ico-home-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-home .path2 {
+  &:before {
+    content: unicode($ico-home-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-interest .path1 {
+  &:before {
+    content: unicode($ico-interest-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-interest .path2 {
+  &:before {
+    content: unicode($ico-interest-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
 .ico-jardinage .path1 {
   &:before {
-    content: $ico-jardinage-path1;  
+    content: unicode($ico-jardinage-path1);  
     color: rgb(93, 93, 93);
   }
 }
 .ico-jardinage .path2 {
   &:before {
-    content: $ico-jardinage-path2;  
+    content: unicode($ico-jardinage-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jardinage .path3 {
   &:before {
-    content: $ico-jardinage-path3;  
+    content: unicode($ico-jardinage-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jardinage .path4 {
   &:before {
-    content: $ico-jardinage-path4;  
+    content: unicode($ico-jardinage-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jardinage .path5 {
   &:before {
-    content: $ico-jardinage-path5;  
+    content: unicode($ico-jardinage-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jardinage .path6 {
   &:before {
-    content: $ico-jardinage-path6;  
+    content: unicode($ico-jardinage-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jardinage .path7 {
   &:before {
-    content: $ico-jardinage-path7;  
+    content: unicode($ico-jardinage-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-cartes .path1 {
   &:before {
-    content: $ico-jeux-de-cartes-path1;  
+    content: unicode($ico-jeux-de-cartes-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-de-cartes .path2 {
   &:before {
-    content: $ico-jeux-de-cartes-path2;  
+    content: unicode($ico-jeux-de-cartes-path2);  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-cartes .path3 {
   &:before {
-    content: $ico-jeux-de-cartes-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path4 {
-  &:before {
-    content: $ico-jeux-de-cartes-path4;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path5 {
-  &:before {
-    content: $ico-jeux-de-cartes-path5;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path6 {
-  &:before {
-    content: $ico-jeux-de-cartes-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-jeux-de-cartes .path7 {
-  &:before {
-    content: $ico-jeux-de-cartes-path7;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-cartes .path8 {
-  &:before {
-    content: $ico-jeux-de-cartes-path8;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path9 {
-  &:before {
-    content: $ico-jeux-de-cartes-path9;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path10 {
-  &:before {
-    content: $ico-jeux-de-cartes-path10;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path11 {
-  &:before {
-    content: $ico-jeux-de-cartes-path11;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-jeux-de-cartes .path12 {
-  &:before {
-    content: $ico-jeux-de-cartes-path12;  
-    margin-left: -1em;  
-    color: rgb(255, 255, 255);
-  }
-}
-.ico-jeux-de-cartes .path13 {
-  &:before {
-    content: $ico-jeux-de-cartes-path13;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path14 {
-  &:before {
-    content: $ico-jeux-de-cartes-path14;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
-  }
-}
-.ico-jeux-de-cartes .path15 {
-  &:before {
-    content: $ico-jeux-de-cartes-path15;  
+    content: unicode($ico-jeux-de-cartes-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path1 {
   &:before {
-    content: $ico-jeux-de-plateaux-path1;  
+    content: unicode($ico-jeux-de-plateaux-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path2 {
   &:before {
-    content: $ico-jeux-de-plateaux-path2;  
+    content: unicode($ico-jeux-de-plateaux-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path3 {
   &:before {
-    content: $ico-jeux-de-plateaux-path3;  
+    content: unicode($ico-jeux-de-plateaux-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path4 {
   &:before {
-    content: $ico-jeux-de-plateaux-path4;  
+    content: unicode($ico-jeux-de-plateaux-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path5 {
   &:before {
-    content: $ico-jeux-de-plateaux-path5;  
+    content: unicode($ico-jeux-de-plateaux-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-de-plateaux .path6 {
   &:before {
-    content: $ico-jeux-de-plateaux-path6;  
+    content: unicode($ico-jeux-de-plateaux-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path7 {
   &:before {
-    content: $ico-jeux-de-plateaux-path7;  
+    content: unicode($ico-jeux-de-plateaux-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path8 {
   &:before {
-    content: $ico-jeux-de-plateaux-path8;  
+    content: unicode($ico-jeux-de-plateaux-path8);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path9 {
   &:before {
-    content: $ico-jeux-de-plateaux-path9;  
+    content: unicode($ico-jeux-de-plateaux-path9);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path10 {
   &:before {
-    content: $ico-jeux-de-plateaux-path10;  
+    content: unicode($ico-jeux-de-plateaux-path10);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path11 {
   &:before {
-    content: $ico-jeux-de-plateaux-path11;  
+    content: unicode($ico-jeux-de-plateaux-path11);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path12 {
   &:before {
-    content: $ico-jeux-de-plateaux-path12;  
+    content: unicode($ico-jeux-de-plateaux-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-de-plateaux .path13 {
   &:before {
-    content: $ico-jeux-de-plateaux-path13;  
+    content: unicode($ico-jeux-de-plateaux-path13);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-video .path1 {
   &:before {
-    content: $ico-jeux-video-path1;  
+    content: unicode($ico-jeux-video-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-video .path2 {
   &:before {
-    content: $ico-jeux-video-path2;  
+    content: unicode($ico-jeux-video-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-video .path3 {
   &:before {
-    content: $ico-jeux-video-path3;  
+    content: unicode($ico-jeux-video-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-video .path4 {
   &:before {
-    content: $ico-jeux-video-path4;  
+    content: unicode($ico-jeux-video-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jeux-video .path5 {
   &:before {
-    content: $ico-jeux-video-path5;  
+    content: unicode($ico-jeux-video-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jeux-video .path6 {
   &:before {
-    content: $ico-jeux-video-path6;  
+    content: unicode($ico-jeux-video-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path1 {
   &:before {
-    content: $ico-jouer-de-la-musique-path1;  
+    content: unicode($ico-jouer-de-la-musique-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path2 {
   &:before {
-    content: $ico-jouer-de-la-musique-path2;  
+    content: unicode($ico-jouer-de-la-musique-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path3 {
   &:before {
-    content: $ico-jouer-de-la-musique-path3;  
+    content: unicode($ico-jouer-de-la-musique-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path4 {
   &:before {
-    content: $ico-jouer-de-la-musique-path4;  
+    content: unicode($ico-jouer-de-la-musique-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path5 {
   &:before {
-    content: $ico-jouer-de-la-musique-path5;  
+    content: unicode($ico-jouer-de-la-musique-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path6 {
   &:before {
-    content: $ico-jouer-de-la-musique-path6;  
+    content: unicode($ico-jouer-de-la-musique-path6);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-jouer-de-la-musique .path7 {
   &:before {
-    content: $ico-jouer-de-la-musique-path7;  
+    content: unicode($ico-jouer-de-la-musique-path7);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-jouer-de-la-musique .path8 {
   &:before {
-    content: $ico-jouer-de-la-musique-path8;  
+    content: unicode($ico-jouer-de-la-musique-path8);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-jouer-de-la-musique .path9 {
   &:before {
-    content: $ico-jouer-de-la-musique-path9;  
+    content: unicode($ico-jouer-de-la-musique-path9);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-jouer-de-la-musique .path10 {
   &:before {
-    content: $ico-jouer-de-la-musique-path10;  
+    content: unicode($ico-jouer-de-la-musique-path10);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-jouer-de-la-musique .path11 {
   &:before {
-    content: $ico-jouer-de-la-musique-path11;  
+    content: unicode($ico-jouer-de-la-musique-path11);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-jouer-de-la-musique .path12 {
   &:before {
-    content: $ico-jouer-de-la-musique-path12;  
+    content: unicode($ico-jouer-de-la-musique-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path13 {
   &:before {
-    content: $ico-jouer-de-la-musique-path13;  
+    content: unicode($ico-jouer-de-la-musique-path13);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path14 {
   &:before {
-    content: $ico-jouer-de-la-musique-path14;  
+    content: unicode($ico-jouer-de-la-musique-path14);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-jouer-de-la-musique .path15 {
   &:before {
-    content: $ico-jouer-de-la-musique-path15;  
+    content: unicode($ico-jouer-de-la-musique-path15);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-language .path1 {
+  &:before {
+    content: unicode($ico-language-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-language .path2 {
+  &:before {
+    content: unicode($ico-language-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path3 {
+  &:before {
+    content: unicode($ico-language-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-language .path4 {
+  &:before {
+    content: unicode($ico-language-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path5 {
+  &:before {
+    content: unicode($ico-language-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-language .path6 {
+  &:before {
+    content: unicode($ico-language-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-location .path1 {
+  &:before {
+    content: unicode($ico-location-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-location .path2 {
+  &:before {
+    content: unicode($ico-location-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mail .path1 {
+  &:before {
+    content: unicode($ico-mail-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mail .path2 {
+  &:before {
+    content: unicode($ico-mail-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mail-reverse {
+  &:before {
+    content: unicode($ico-mail-reverse);     
+    color: #fff;
+  }
+}
+.ico-men .path1 {
+  &:before {
+    content: unicode($ico-men-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men .path2 {
+  &:before {
+    content: unicode($ico-men-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men .path3 {
+  &:before {
+    content: unicode($ico-men-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-men-mustache .path1 {
+  &:before {
+    content: unicode($ico-men-mustache-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-men-mustache .path2 {
+  &:before {
+    content: unicode($ico-men-mustache-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mentions .path1 {
+  &:before {
+    content: unicode($ico-mentions-path1);  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path2 {
+  &:before {
+    content: unicode($ico-mentions-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mentions .path3 {
+  &:before {
+    content: unicode($ico-mentions-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mentions .path4 {
+  &:before {
+    content: unicode($ico-mentions-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path1 {
+  &:before {
+    content: unicode($ico-mirador-path1);  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador .path2 {
+  &:before {
+    content: unicode($ico-mirador-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador .path3 {
+  &:before {
+    content: unicode($ico-mirador-path3);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path4 {
+  &:before {
+    content: unicode($ico-mirador-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path5 {
+  &:before {
+    content: unicode($ico-mirador-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador .path6 {
+  &:before {
+    content: unicode($ico-mirador-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path1 {
+  &:before {
+    content: unicode($ico-mirador-participant-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path2 {
+  &:before {
+    content: unicode($ico-mirador-participant-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-mirador-participant .path3 {
+  &:before {
+    content: unicode($ico-mirador-participant-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-mirador-participant .path4 {
+  &:before {
+    content: unicode($ico-mirador-participant-path4);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path5 {
+  &:before {
+    content: unicode($ico-mirador-participant-path5);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path6 {
+  &:before {
+    content: unicode($ico-mirador-participant-path6);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-participant .path7 {
+  &:before {
+    content: unicode($ico-mirador-participant-path7);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mirador-reverse {
+  &:before {
+    content: unicode($ico-mirador-reverse);     
+    color: #fff;
+  }
+}
+.ico-mobile-phone .path1 {
+  &:before {
+    content: unicode($ico-mobile-phone-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-mobile-phone .path2 {
+  &:before {
+    content: unicode($ico-mobile-phone-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path3 {
+  &:before {
+    content: unicode($ico-mobile-phone-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path4 {
+  &:before {
+    content: unicode($ico-mobile-phone-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path5 {
+  &:before {
+    content: unicode($ico-mobile-phone-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path6 {
+  &:before {
+    content: unicode($ico-mobile-phone-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path7 {
+  &:before {
+    content: unicode($ico-mobile-phone-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-mobile-phone .path8 {
+  &:before {
+    content: unicode($ico-mobile-phone-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
 .ico-musee .path1 {
   &:before {
-    content: $ico-musee-path1;  
+    content: unicode($ico-musee-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path2 {
   &:before {
-    content: $ico-musee-path2;  
+    content: unicode($ico-musee-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path3 {
   &:before {
-    content: $ico-musee-path3;  
+    content: unicode($ico-musee-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path4 {
   &:before {
-    content: $ico-musee-path4;  
+    content: unicode($ico-musee-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path5 {
   &:before {
-    content: $ico-musee-path5;  
+    content: unicode($ico-musee-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path6 {
   &:before {
-    content: $ico-musee-path6;  
+    content: unicode($ico-musee-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-musee .path7 {
   &:before {
-    content: $ico-musee-path7;  
+    content: unicode($ico-musee-path7);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-peindre-dessiner .path1 {
   &:before {
-    content: $ico-peindre-dessiner-path1;  
+    content: unicode($ico-peindre-dessiner-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-peindre-dessiner .path2 {
   &:before {
-    content: $ico-peindre-dessiner-path2;  
+    content: unicode($ico-peindre-dessiner-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-peindre-dessiner .path3 {
   &:before {
-    content: $ico-peindre-dessiner-path3;  
+    content: unicode($ico-peindre-dessiner-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-peindre-dessiner .path4 {
   &:before {
-    content: $ico-peindre-dessiner-path4;  
+    content: unicode($ico-peindre-dessiner-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-peindre-dessiner .path5 {
   &:before {
-    content: $ico-peindre-dessiner-path5;  
+    content: unicode($ico-peindre-dessiner-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-peindre-dessiner .path6 {
   &:before {
-    content: $ico-peindre-dessiner-path6;  
+    content: unicode($ico-peindre-dessiner-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-people .path1 {
+  &:before {
+    content: unicode($ico-people-path1);  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-people .path2 {
+  &:before {
+    content: unicode($ico-people-path2);  
+    margin-left: -1em;  
+    color: rgb(102, 102, 102);
+  }
+}
 .ico-photographier .path1 {
   &:before {
-    content: $ico-photographier-path1;  
+    content: unicode($ico-photographier-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-photographier .path2 {
   &:before {
-    content: $ico-photographier-path2;  
+    content: unicode($ico-photographier-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path3 {
   &:before {
-    content: $ico-photographier-path3;  
+    content: unicode($ico-photographier-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-photographier .path4 {
   &:before {
-    content: $ico-photographier-path4;  
+    content: unicode($ico-photographier-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-photographier .path5 {
   &:before {
-    content: $ico-photographier-path5;  
+    content: unicode($ico-photographier-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path6 {
   &:before {
-    content: $ico-photographier-path6;  
+    content: unicode($ico-photographier-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path7 {
   &:before {
-    content: $ico-photographier-path7;  
+    content: unicode($ico-photographier-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path8 {
   &:before {
-    content: $ico-photographier-path8;  
+    content: unicode($ico-photographier-path8);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path9 {
   &:before {
-    content: $ico-photographier-path9;  
+    content: unicode($ico-photographier-path9);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-photographier .path10 {
   &:before {
-    content: $ico-photographier-path10;  
+    content: unicode($ico-photographier-path10);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-pique-nique .path1 {
   &:before {
-    content: $ico-pique-nique-path1;  
+    content: unicode($ico-pique-nique-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-pique-nique .path2 {
   &:before {
-    content: $ico-pique-nique-path2;  
+    content: unicode($ico-pique-nique-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-pique-nique .path3 {
   &:before {
-    content: $ico-pique-nique-path3;  
+    content: unicode($ico-pique-nique-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-profile .path1 {
+  &:before {
+    content: unicode($ico-profile-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-profile .path2 {
+  &:before {
+    content: unicode($ico-profile-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-profile-reverse .path1 {
+  &:before {
+    content: unicode($ico-profile-reverse-path1);  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-profile-reverse .path2 {
+  &:before {
+    content: unicode($ico-profile-reverse-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
 .ico-restaurant .path1 {
   &:before {
-    content: $ico-restaurant-path1;  
+    content: unicode($ico-restaurant-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-restaurant .path2 {
   &:before {
-    content: $ico-restaurant-path2;  
+    content: unicode($ico-restaurant-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-restaurant .path3 {
   &:before {
-    content: $ico-restaurant-path3;  
+    content: unicode($ico-restaurant-path3);  
     margin-left: -1em;  
     color: rgb(255, 255, 255);
   }
 }
 .ico-restaurant .path4 {
   &:before {
-    content: $ico-restaurant-path4;  
+    content: unicode($ico-restaurant-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
+.ico-search .path1 {
+  &:before {
+    content: unicode($ico-search-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-search .path2 {
+  &:before {
+    content: unicode($ico-search-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-search-reverse .path1 {
+  &:before {
+    content: unicode($ico-search-reverse-path1);  
+    color: rgb(255, 255, 255);
+  }
+}
+.ico-search-reverse .path2 {
+  &:before {
+    content: unicode($ico-search-reverse-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 201, 51);
+  }
+}
+.ico-settings .path1 {
+  &:before {
+    content: unicode($ico-settings-path1);  
+    color: rgb(80, 80, 80);
+  }
+}
+.ico-settings .path2 {
+  &:before {
+    content: unicode($ico-settings-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
 .ico-shopping .path1 {
   &:before {
-    content: $ico-shopping-path1;  
+    content: unicode($ico-shopping-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-shopping .path2 {
   &:before {
-    content: $ico-shopping-path2;  
+    content: unicode($ico-shopping-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-soiree-a-la-maison .path1 {
   &:before {
-    content: $ico-soiree-a-la-maison-path1;  
+    content: unicode($ico-soiree-a-la-maison-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-soiree-a-la-maison .path2 {
   &:before {
-    content: $ico-soiree-a-la-maison-path2;  
+    content: unicode($ico-soiree-a-la-maison-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-soiree-a-la-maison .path3 {
   &:before {
-    content: $ico-soiree-a-la-maison-path3;  
+    content: unicode($ico-soiree-a-la-maison-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-soiree-a-la-maison .path4 {
   &:before {
-    content: $ico-soiree-a-la-maison-path4;  
+    content: unicode($ico-soiree-a-la-maison-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-soiree-a-la-maison .path5 {
   &:before {
-    content: $ico-soiree-a-la-maison-path5;  
+    content: unicode($ico-soiree-a-la-maison-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-soiree-a-la-maison .path6 {
   &:before {
-    content: $ico-soiree-a-la-maison-path6;  
+    content: unicode($ico-soiree-a-la-maison-path6);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-soiree-a-la-maison .path7 {
   &:before {
-    content: $ico-soiree-a-la-maison-path7;  
+    content: unicode($ico-soiree-a-la-maison-path7);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-spectacle .path1 {
   &:before {
-    content: $ico-spectacle-path1;  
+    content: unicode($ico-spectacle-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path2 {
   &:before {
-    content: $ico-spectacle-path2;  
+    content: unicode($ico-spectacle-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path3 {
   &:before {
-    content: $ico-spectacle-path3;  
+    content: unicode($ico-spectacle-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path4 {
   &:before {
-    content: $ico-spectacle-path4;  
+    content: unicode($ico-spectacle-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path5 {
   &:before {
-    content: $ico-spectacle-path5;  
+    content: unicode($ico-spectacle-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path6 {
   &:before {
-    content: $ico-spectacle-path6;  
+    content: unicode($ico-spectacle-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path7 {
   &:before {
-    content: $ico-spectacle-path7;  
+    content: unicode($ico-spectacle-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path8 {
   &:before {
-    content: $ico-spectacle-path8;  
+    content: unicode($ico-spectacle-path8);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path9 {
   &:before {
-    content: $ico-spectacle-path9;  
+    content: unicode($ico-spectacle-path9);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-spectacle .path10 {
   &:before {
-    content: $ico-spectacle-path10;  
+    content: unicode($ico-spectacle-path10);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-spectacle .path11 {
   &:before {
-    content: $ico-spectacle-path11;  
+    content: unicode($ico-spectacle-path11);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-a-pied .path1 {
   &:before {
-    content: $ico-sports-a-pied-path1;  
+    content: unicode($ico-sports-a-pied-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-a-pied .path2 {
   &:before {
-    content: $ico-sports-a-pied-path2;  
+    content: unicode($ico-sports-a-pied-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path3 {
   &:before {
-    content: $ico-sports-a-pied-path3;  
+    content: unicode($ico-sports-a-pied-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path4 {
   &:before {
-    content: $ico-sports-a-pied-path4;  
+    content: unicode($ico-sports-a-pied-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path5 {
   &:before {
-    content: $ico-sports-a-pied-path5;  
+    content: unicode($ico-sports-a-pied-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path6 {
   &:before {
-    content: $ico-sports-a-pied-path6;  
+    content: unicode($ico-sports-a-pied-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path7 {
   &:before {
-    content: $ico-sports-a-pied-path7;  
+    content: unicode($ico-sports-a-pied-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path8 {
   &:before {
-    content: $ico-sports-a-pied-path8;  
+    content: unicode($ico-sports-a-pied-path8);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path9 {
   &:before {
-    content: $ico-sports-a-pied-path9;  
+    content: unicode($ico-sports-a-pied-path9);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path10 {
   &:before {
-    content: $ico-sports-a-pied-path10;  
+    content: unicode($ico-sports-a-pied-path10);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path11 {
   &:before {
-    content: $ico-sports-a-pied-path11;  
+    content: unicode($ico-sports-a-pied-path11);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path12 {
   &:before {
-    content: $ico-sports-a-pied-path12;  
+    content: unicode($ico-sports-a-pied-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-pied .path13 {
   &:before {
-    content: $ico-sports-a-pied-path13;  
+    content: unicode($ico-sports-a-pied-path13);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-roue .path1 {
   &:before {
-    content: $ico-sports-a-roue-path1;  
+    content: unicode($ico-sports-a-roue-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-a-roue .path2 {
   &:before {
-    content: $ico-sports-a-roue-path2;  
+    content: unicode($ico-sports-a-roue-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-a-roue .path3 {
   &:before {
-    content: $ico-sports-a-roue-path3;  
+    content: unicode($ico-sports-a-roue-path3);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-d-eau .path1 {
   &:before {
-    content: $ico-sports-d-eau-path1;  
+    content: unicode($ico-sports-d-eau-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-d-eau .path2 {
   &:before {
-    content: $ico-sports-d-eau-path2;  
+    content: unicode($ico-sports-d-eau-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-d-eau .path3 {
   &:before {
-    content: $ico-sports-d-eau-path3;  
+    content: unicode($ico-sports-d-eau-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-d-eau .path4 {
   &:before {
-    content: $ico-sports-d-eau-path4;  
+    content: unicode($ico-sports-d-eau-path4);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path5 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path5);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path6 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path6);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path7 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path7);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path8 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path8);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path9 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path9);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path10 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path10);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path11 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path11);  
+    margin-left: -1em;  
+    color: rgb(255, 204, 51);
+  }
+}
+.ico-sports-d-eau .path12 {
+  &:before {
+    content: unicode($ico-sports-d-eau-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-balles .path1 {
   &:before {
-    content: $ico-sports-de-balles-path1;  
+    content: unicode($ico-sports-de-balles-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-balles .path2 {
   &:before {
-    content: $ico-sports-de-balles-path2;  
+    content: unicode($ico-sports-de-balles-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-balles .path3 {
   &:before {
-    content: $ico-sports-de-balles-path3;  
+    content: unicode($ico-sports-de-balles-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-balles .path4 {
   &:before {
-    content: $ico-sports-de-balles-path4;  
+    content: unicode($ico-sports-de-balles-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-balles .path5 {
   &:before {
-    content: $ico-sports-de-balles-path5;  
+    content: unicode($ico-sports-de-balles-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-boules .path1 {
   &:before {
-    content: $ico-sports-de-boules-path1;  
+    content: unicode($ico-sports-de-boules-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-boules .path2 {
   &:before {
-    content: $ico-sports-de-boules-path2;  
+    content: unicode($ico-sports-de-boules-path2);  
     margin-left: -1em;  
-    color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-boules .path3 {
   &:before {
-    content: $ico-sports-de-boules-path3;  
+    content: unicode($ico-sports-de-boules-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-boules .path4 {
   &:before {
-    content: $ico-sports-de-boules-path4;  
+    content: unicode($ico-sports-de-boules-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
-.ico-sports-de-boules .path5 {
-  &:before {
-    content: $ico-sports-de-boules-path5;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
-.ico-sports-de-boules .path6 {
-  &:before {
-    content: $ico-sports-de-boules-path6;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
 .ico-sports-de-combat .path1 {
   &:before {
-    content: $ico-sports-de-combat-path1;  
+    content: unicode($ico-sports-de-combat-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-combat .path2 {
   &:before {
-    content: $ico-sports-de-combat-path2;  
+    content: unicode($ico-sports-de-combat-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-combat .path3 {
   &:before {
-    content: $ico-sports-de-combat-path3;  
+    content: unicode($ico-sports-de-combat-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-combat .path4 {
   &:before {
-    content: $ico-sports-de-combat-path4;  
+    content: unicode($ico-sports-de-combat-path4);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-combat .path5 {
   &:before {
-    content: $ico-sports-de-combat-path5;  
+    content: unicode($ico-sports-de-combat-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-combat .path6 {
   &:before {
-    content: $ico-sports-de-combat-path6;  
+    content: unicode($ico-sports-de-combat-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-combat .path7 {
   &:before {
-    content: $ico-sports-de-combat-path7;  
+    content: unicode($ico-sports-de-combat-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-combat .path8 {
   &:before {
-    content: $ico-sports-de-combat-path8;  
+    content: unicode($ico-sports-de-combat-path8);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-combat .path9 {
   &:before {
-    content: $ico-sports-de-combat-path9;  
+    content: unicode($ico-sports-de-combat-path9);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
-.ico-sports-de-combat .path10 {
-  &:before {
-    content: $ico-sports-de-combat-path10;  
-    margin-left: -1em;  
-    color: rgb(102, 102, 102);
-  }
-}
 .ico-sports-de-glisse .path1 {
   &:before {
-    content: $ico-sports-de-glisse-path1;  
+    content: unicode($ico-sports-de-glisse-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path2 {
   &:before {
-    content: $ico-sports-de-glisse-path2;  
+    content: unicode($ico-sports-de-glisse-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path3 {
   &:before {
-    content: $ico-sports-de-glisse-path3;  
+    content: unicode($ico-sports-de-glisse-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path4 {
   &:before {
-    content: $ico-sports-de-glisse-path4;  
+    content: unicode($ico-sports-de-glisse-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path5 {
   &:before {
-    content: $ico-sports-de-glisse-path5;  
+    content: unicode($ico-sports-de-glisse-path5);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path6 {
   &:before {
-    content: $ico-sports-de-glisse-path6;  
+    content: unicode($ico-sports-de-glisse-path6);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path7 {
   &:before {
-    content: $ico-sports-de-glisse-path7;  
+    content: unicode($ico-sports-de-glisse-path7);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path8 {
   &:before {
-    content: $ico-sports-de-glisse-path8;  
+    content: unicode($ico-sports-de-glisse-path8);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path9 {
   &:before {
-    content: $ico-sports-de-glisse-path9;  
+    content: unicode($ico-sports-de-glisse-path9);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path10 {
   &:before {
-    content: $ico-sports-de-glisse-path10;  
+    content: unicode($ico-sports-de-glisse-path10);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path11 {
   &:before {
-    content: $ico-sports-de-glisse-path11;  
+    content: unicode($ico-sports-de-glisse-path11);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path12 {
   &:before {
-    content: $ico-sports-de-glisse-path12;  
+    content: unicode($ico-sports-de-glisse-path12);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path13 {
   &:before {
-    content: $ico-sports-de-glisse-path13;  
+    content: unicode($ico-sports-de-glisse-path13);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path14 {
   &:before {
-    content: $ico-sports-de-glisse-path14;  
+    content: unicode($ico-sports-de-glisse-path14);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path15 {
   &:before {
-    content: $ico-sports-de-glisse-path15;  
+    content: unicode($ico-sports-de-glisse-path15);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path16 {
   &:before {
-    content: $ico-sports-de-glisse-path16;  
+    content: unicode($ico-sports-de-glisse-path16);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path17 {
   &:before {
-    content: $ico-sports-de-glisse-path17;  
+    content: unicode($ico-sports-de-glisse-path17);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path18 {
   &:before {
-    content: $ico-sports-de-glisse-path18;  
+    content: unicode($ico-sports-de-glisse-path18);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path19 {
   &:before {
-    content: $ico-sports-de-glisse-path19;  
+    content: unicode($ico-sports-de-glisse-path19);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path20 {
   &:before {
-    content: $ico-sports-de-glisse-path20;  
+    content: unicode($ico-sports-de-glisse-path20);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path21 {
   &:before {
-    content: $ico-sports-de-glisse-path21;  
+    content: unicode($ico-sports-de-glisse-path21);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-glisse .path22 {
   &:before {
-    content: $ico-sports-de-glisse-path22;  
+    content: unicode($ico-sports-de-glisse-path22);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path23 {
   &:before {
-    content: $ico-sports-de-glisse-path23;  
+    content: unicode($ico-sports-de-glisse-path23);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-glisse .path24 {
   &:before {
-    content: $ico-sports-de-glisse-path24;  
+    content: unicode($ico-sports-de-glisse-path24);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-sports-de-raquettes .path1 {
   &:before {
-    content: $ico-sports-de-raquettes-path1;  
+    content: unicode($ico-sports-de-raquettes-path1);  
     color: rgb(102, 102, 102);
   }
 }
 .ico-sports-de-raquettes .path2 {
   &:before {
-    content: $ico-sports-de-raquettes-path2;  
+    content: unicode($ico-sports-de-raquettes-path2);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
-.ico-sports-de-raquettes .path3 {
+.ico-text .path1 {
   &:before {
-    content: $ico-sports-de-raquettes-path3;  
-    margin-left: -1em;  
-    color: rgb(255, 204, 51);
+    content: unicode($ico-text-path1);  
+    color: rgb(102, 102, 102);
   }
 }
-.ico-sports-de-raquettes .path4 {
+.ico-text .path2 {
   &:before {
-    content: $ico-sports-de-raquettes-path4;  
+    content: unicode($ico-text-path2);  
     margin-left: -1em;  
-    color: rgb(255, 204, 51);
+    color: rgb(255, 199, 51);
   }
 }
-.ico-sports-de-raquettes .path5 {
+.ico-text .path3 {
   &:before {
-    content: $ico-sports-de-raquettes-path5;  
+    content: unicode($ico-text-path3);  
     margin-left: -1em;  
-    color: rgb(255, 204, 51);
+    color: rgb(255, 199, 51);
   }
 }
-.ico-sports-de-raquettes .path6 {
+.ico-text .path4 {
   &:before {
-    content: $ico-sports-de-raquettes-path6;  
+    content: unicode($ico-text-path4);  
     margin-left: -1em;  
-    color: rgb(255, 204, 51);
+    color: rgb(255, 199, 51);
   }
 }
 .ico-tourisme .path1 {
   &:before {
-    content: $ico-tourisme-path1;  
+    content: unicode($ico-tourisme-path1);  
     color: rgb(255, 204, 51);
   }
 }
 .ico-tourisme .path2 {
   &:before {
-    content: $ico-tourisme-path2;  
+    content: unicode($ico-tourisme-path2);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-tourisme .path3 {
   &:before {
-    content: $ico-tourisme-path3;  
+    content: unicode($ico-tourisme-path3);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-tourisme .path4 {
   &:before {
-    content: $ico-tourisme-path4;  
+    content: unicode($ico-tourisme-path4);  
     margin-left: -1em;  
     color: rgb(255, 204, 51);
   }
 }
 .ico-tourisme .path5 {
   &:before {
-    content: $ico-tourisme-path5;  
+    content: unicode($ico-tourisme-path5);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
   }
 }
 .ico-tourisme .path6 {
   &:before {
-    content: $ico-tourisme-path6;  
+    content: unicode($ico-tourisme-path6);  
     margin-left: -1em;  
     color: rgb(102, 102, 102);
+  }
+}
+.ico-validate {
+  &:before {
+    content: unicode($ico-validate);     
+    color: #666;
+  }
+}
+.ico-validate-reverse {
+  &:before {
+    content: unicode($ico-validate-reverse);     
+    color: #ffc933;
+  }
+}
+.ico-women .path1 {
+  &:before {
+    content: unicode($ico-women-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-women .path2 {
+  &:before {
+    content: unicode($ico-women-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-women .path3 {
+  &:before {
+    content: unicode($ico-women-path3);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
+  }
+}
+.ico-women-hair .path1 {
+  &:before {
+    content: unicode($ico-women-hair-path1);  
+    color: rgb(102, 102, 102);
+  }
+}
+.ico-women-hair .path2 {
+  &:before {
+    content: unicode($ico-women-hair-path2);  
+    margin-left: -1em;  
+    color: rgb(255, 199, 51);
   }
 }
 
