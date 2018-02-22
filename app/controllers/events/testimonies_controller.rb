@@ -1,10 +1,12 @@
 class Events::TestimoniesController < Events::BaseController
 
   def new
+    authorize @event, :testify?
     @testimony = @event.testimonies.new
   end
 
   def create
+    authorize @event, :testify?
     @testimony = @event.testimonies.new(testimony_params)
     if @testimony.save
       flash[:notice] = "Merci ! Votre témoignage a été envoyé à l'administrateur"

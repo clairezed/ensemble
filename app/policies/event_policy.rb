@@ -26,6 +26,10 @@
     visible_event? && is_participant? && !is_organizer?
   end
 
+  def testify?
+    record.past? && record.active? && is_participant? && !testimony_already_exists?
+  end
+
 
   private #========================
 
@@ -41,17 +45,21 @@
     user.participation_at(record).present?
   end
 
-  def isnt_blocked_by_organizer?
+  def user_not_blocked_by_organizer?
     organizer = record.user
     organizer.active_report_for(user).blank?
   end
 
   def visible_event?
-    record.visible? && isnt_blocked_by_organizer?
+    record.visible? && user_not_blocked_by_organizer?
   end
 
   def event_not_full?
     !record.full?
+  end
+
+  def testimony_already_exists?
+    record.testimonies.where(user_id: user.id).any?
   end
 
 end

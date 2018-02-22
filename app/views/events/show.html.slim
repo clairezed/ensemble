@@ -1,5 +1,6 @@
 / Actions possible sur l'event, qu'on retrouve en haut et bas de page  ------------
 = content_for :event_actions do
+  / Actions participant ---------------------------------------
   - invitation = @event.event_invitations.where(user: current_user).first
   - if invitation.present? 
     .actions-flex
@@ -37,6 +38,11 @@
       = button_to event_event_participation_path(@event, current_user.participation_at(@event)), method: :delete, class: "button--main" do
         => icon_cancel_reverse
         ' Annuler ma participation
+  - if policy(@event).testify?
+    = link_to new_event_testimony_path(@event), class: "button--main" do
+      => icon_edit_reverse
+      ' Raconter l'événement
+  / Actions organisateur ---------------------------------------
   - if policy(@event).update?
     .row
       .col-6

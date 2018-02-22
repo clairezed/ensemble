@@ -15,7 +15,7 @@ namespace :ensemble do
   task send_testimony_demands: :environment do
     p "Starting send_testimony_demands"
     Rails.logger.info "send_testimony_demands starting ==="
-    Event.ended_at(Date.yesterday).each do |event|
+    Event.active.ended_at(Date.yesterday).each do |event|
       p "Event #{event.id} : #{event.participants.count} participants"
       Rails.logger.info "Event #{event.id} : #{event.participants.count} participants"
       SendNotification.testimony_required(event)

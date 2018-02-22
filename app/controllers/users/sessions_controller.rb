@@ -9,12 +9,7 @@ class Users::SessionsController < Devise::SessionsController
   
   # GET /resource/sign_in
   def new
-    @last_events = Event.visible.normal
-      .includes(:leisure).includes(:city).includes(:leisure_category)
-      .order(created_at: :desc).limit(3)
-    @mirador_events = Event.visible.mirador.includes(:leisure_category)
-      .includes(:leisure).includes(:city)
-      .order(created_at: :desc).limit(3)
+    set_landing_page_data
     super
   end
 
@@ -35,5 +30,15 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   private 
+
+  def set_landing_page_data
+    @last_events = Event.visible.normal
+      .includes(:leisure_category).includes(:city)
+      .order(created_at: :desc).limit(3)
+    @mirador_events = Event.visible.mirador
+      .includes(:leisure_category).includes(:city)
+      .order(created_at: :desc).limit(3)
+    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(3)
+  end
 
 end

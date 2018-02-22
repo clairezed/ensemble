@@ -12,13 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     get_seo_for_static_page('home')
-    @last_events = Event.visible.normal
-      .includes(:leisure_category).includes(:city)
-      .order(created_at: :desc).limit(3)
-    @mirador_events = Event.visible.mirador
-      .includes(:leisure_category).includes(:city)
-      .order(created_at: :desc).limit(3)
-    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(3)
+    set_landing_page_data
     @user = User.new_with_session({}, session)
   end
 
@@ -42,15 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       clean_up_passwords resource
       set_minimum_password_length
-
-      # custom 
-      @user = resource
-      @last_events = Event.visible.normal
-        .includes(:leisure_category).includes(:city)
-        .order(created_at: :desc).limit(3)
-      @mirador_events = Event.visible.mirador
-        .includes(:leisure_category).includes(:city)
-        .order(created_at: :desc).limit(3)
+      set_landing_page_data
       render action: :new
     end
   end
@@ -113,6 +99,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def profile_params
     params.require(:user).permit(*profile_params_array)
+  end
+
+  def set_landing_page_data
+    @last_events = Event.visible.normal
+      .includes(:leisure_category).includes(:city)
+      .order(created_at: :desc).limit(3)
+    @mirador_events = Event.visible.mirador
+      .includes(:leisure_category).includes(:city)
+      .order(created_at: :desc).limit(3)
+    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(3)
   end
 
   

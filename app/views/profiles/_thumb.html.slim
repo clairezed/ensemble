@@ -7,7 +7,7 @@
     - if user.mirador?
       .profile-thumb_mirador data-toggle="tooltip" title="Cette personne est un membre de MIRADOR"
         => icon_mirador
-    - elsif current_user.blocking?(user)
+    - elsif current_user.present? && current_user.blocking?(user)
       .profile-thumb_blocked data-toggle="tooltip" title="Vous bloquez cette personne"
         i.fa.fa-ban
   .profile-thumb_body

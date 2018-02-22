@@ -38,7 +38,8 @@ class SendNotification
   # Demande de témoignage ========================================
   def self.testimony_required(event)
     event.participants.email_notified.each do |user|
-      EventMailer.testimony_required(user, event).deliver_later
+      # Deliver_now, because the notification is handled by rake job (deliver_later doesnt deliver in jobs)
+      EventMailer.testimony_required(user, event).deliver_now
     end
     event.participants.sms_notified.each do |user|
       Twilio::EventSmsSender.new.testimony_required(user, event)
