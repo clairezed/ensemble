@@ -9,7 +9,8 @@
         th = hm_sort 'sort_by_firstname', label: 'Prénom'
         th Email
         th Inscr. finalisée ?
-        th = hm_sort 'sort_by_affiliation', label: 'MIRADOR'
+        th = hm_sort 'sort_by_affiliation', label: 'MIR.'
+        th = hm_sort 'sort_by_rank', label: 'Grade'
         th = hm_sort 'sort_by_verification_state', label: 'Statut'
         th 
     tbody
@@ -22,6 +23,7 @@
           td= user.email
           td= boolean_badge(user.registration_complete)
           td= boolean_badge(user.mirador?)
+          td= user_rank_title(user.rank)
           td 
             span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
 

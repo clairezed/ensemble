@@ -101,7 +101,7 @@ class Event < ApplicationRecord
 
   scope :past, -> { where(
     (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].lt(Time.zone.now)))
-    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].lt(Time.zone.now.end_of_day)))
+    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].lt(Time.zone.now.beginning_of_day)))
     )
   }
 
@@ -113,7 +113,7 @@ class Event < ApplicationRecord
 
   scope :future, -> { where(
     (arel_table[:end_at].not_eq(nil).and(arel_table[:end_at].gteq(Time.zone.now)))
-    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].gteq(Time.zone.now.end_of_day)))
+    .or(arel_table[:end_at].eq(nil).and(arel_table[:start_at].gteq(Time.zone.now.beginning_of_day)))
     )
   }
 
@@ -184,6 +184,8 @@ class Event < ApplicationRecord
 
   scope :next_in_time, -> { order(start_at: :asc) }
 
+  scope :older_last, -> { order(start_at: :desc) }
+
   scope :nearest_first, -> (coordinates) { 
     eager_load(:city).merge(City.nearest_first(coordinates))
   }
@@ -244,7 +246,7 @@ class Event < ApplicationRecord
     if end_at.present?
       end_at < Time.zone.now
     else
-      start_at < Time.zone.now.end_of_day
+      start_at < Time.zone.now.beginning_of_day
     end
   end
 
@@ -252,7 +254,7 @@ class Event < ApplicationRecord
     if end_at.present?
       end_at >= Time.zone.now
     else
-      start_at >= Time.zone.now.end_of_day
+      start_at >= Time.zone.now.beginning_of_day
     end
   end
 

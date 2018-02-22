@@ -7,6 +7,10 @@
       .section_inner
         = render partial: 'events/card', locals: {event: event}
 
+        - if policy(event).testify?
+          = link_to new_event_testimony_path(event), class: "button--main" do
+            => icon_edit_reverse
+            ' Raconter l'événement
 
 
   - if @events.empty?

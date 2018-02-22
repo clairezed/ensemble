@@ -27,6 +27,7 @@ module Search
       relation = relation.nearest_first(user.city.coordinates) if params[:sort_by].to_sym == :nearest_first
       relation = relation.default_sort(user.city.coordinates) if params[:sort_by].to_sym == :default_sort
       relation = relation.next_in_time if params[:sort_by].to_sym == :next_in_time
+      relation = relation.older_last if params[:sort_by].to_sym == :older_last
       relation
     end
 
