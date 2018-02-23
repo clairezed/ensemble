@@ -22,7 +22,7 @@ html lang="#{I18n.locale}"
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
   body.main
-    nav.nav-top.fixed-top
+    nav.nav-top.fixed-top class="#{'bg-sudo-mirador' if sudo_mode_active?}"
       .container
         = link_to root_path do
           = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
@@ -37,6 +37,11 @@ html lang="#{I18n.locale}"
         .main-menu_close  data-display-menu='close'
           => icon_close
       ul.main-menu_list
+        - if sudo_mode_active?
+          li.main-menu_item 
+            = link_to sign_out_as_admin_user_path(current_user), class: "main-menu_item-link", method: :post do
+              => icon_disconnect
+              ' Retour admin  
         li.main-menu_item
           = link_to root_path, title: "Retour à l'accueil", class:"main-menu_item-link"
             => icon_home

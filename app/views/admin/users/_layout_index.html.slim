@@ -20,15 +20,15 @@
             class: "form-control", placeholder: "par nom, prénom, email"
 
         .form-group.col-3
-          = select_tag :by_verification_state, \
-                options_for_select(user_verification_state_options, params[:by_verification_state]), \
-                prompt: "Tous les statuts",\
-                class: "form-control", \
-                onchange: "$('[data-is-filter-form]').submit()"
-        .form-group.col-3
           = select_tag :by_rank, \
                 options_for_select(user_rank_options, params[:by_rank]), \
                 prompt: "Tous les grades",\
+                class: "form-control", \
+                onchange: "$('[data-is-filter-form]').submit()"
+        .form-group.col-3
+          = select_tag :by_verification_state, \
+                options_for_select(user_verification_state_options, params[:by_verification_state]), \
+                prompt: "Tous les statuts",\
                 class: "form-control", \
                 onchange: "$('[data-is-filter-form]').submit()"
 

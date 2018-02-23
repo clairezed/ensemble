@@ -28,6 +28,8 @@ Rails.application.routes.draw do
         patch :update_profile
         patch :accept
         patch :reject
+        post :sign_as
+        post :sign_out_as
       end
     end
     resources :events do

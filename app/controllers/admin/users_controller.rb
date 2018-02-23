@@ -8,40 +8,18 @@ class Admin::UsersController < Admin::BaseController
     @users = User.includes(:avatar).apply_filters(params).page(params[:page]).per(20)
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(profile_params)
-    if @user.save
-      flash[:notice] = "L'utilisateur a été créé avec succès"
-      redirect_to params[:continue].present? ? edit_admin_user_path(@user) : users_redirect_path
-    else
-      flash[:error] = "Une erreur s'est produite lors de la création de l'utilisateur"
-      render :new
-    end
-  end
-
-  def edit_profile
-  end
-
-  def update_profile
-    @user.attributes = profile_params
-    if @user.save
-      flash[:notice] = "L'utilisateur a été mis à jour avec succès"
-      redirect_to params[:continue].present? ? edit_profile_admin_user_path(@user) : admin_users_path
-    else
-      flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'utilisateur"
-      render :edit_profile
-    end
-  end
-
+  # paramètres ---------------------
   def edit
   end
 
   def update
-    if @user.update_without_password(parameters_params)
+    if params[:user][:password].blank?
+      @user.attributes = user_params.except(:password, :password_confirmation)
+    else
+      @user.attributes = user_params
+    end
+    @user.skip_reconfirmation!
+    if @user.save
       flash[:notice] = "Paramètres mis à jour avec succès"
       redirect_to params[:continue].present? ? edit_admin_user_path(@user) : admin_users_path
     else
@@ -50,17 +28,35 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
+  # se connecter en tant que tel utilisateur
+  # bypass : pour ne pas enregistrer last_sign_in_at et current_sign_in
+  def sign_as
+    signed_as_user = User.find(params[:id])
+    sign_in(:user, signed_as_user, { :bypass => true })
+    cookies[:ens_sudo] = true
+    flash[:notice] = "Vous êtes désormais connecté en tant que #{signed_as_user.fullname}"
+    redirect_to authenticated_root_url
+  end
+
+  # se déconnecter en tant qu'utilisateur et se reconnecter comme admin
+  # bypass : pour ne pas enregistrer last_sign_in_at et current_sign_in
+  def sign_out_as
+    sign_out(:user)
+    cookies.delete :ens_sudo
+    redirect_to admin_root_url
+  end
+
   def destroy
     @user.destroy
     flash[:notice] = "L'utilisateur a été supprimé définitivement avec succès"
     redirect_to admin_users_path
   end
 
-  def confirm
-    @user.confirm
-    flash[:notice] = "L'inscription a été validée avec succès"
-    redirect_to users_redirect_path
-  end
+  # def confirm
+  #   @user.confirm
+  #   flash[:notice] = "L'inscription a été validée avec succès"
+  #   redirect_to users_redirect_path
+  # end
 
   def accept
     @user.admin_accept!
@@ -74,35 +70,15 @@ class Admin::UsersController < Admin::BaseController
     redirect_to action: :index
   end
 
-  # def sign_as
-  #   signed_as_user = User.find(params[:id])
-  #   sign_in(:user, signed_as_user, { :bypass => true })
-  #   cookies[:sudo] = true
-  #   flash[:notice] = "Vous êtes désormais connecté en tant que #{signed_as_user.nickname}"
-  #   redirect_to root_url
-  # end
-
   private
 
   def find_user
     @user = User.find params[:id]
   end
 
-  def users_redirect_path
-    (url_for(user_search_params.merge(action: :index)))
-  end
-
-  # strong parameters
-  def profile_params
-    params.require(:user).permit(:firstname, :lastname, :gender, :phone, :birthdate, :description, :city_id, :visited_countries, 
-      language_ids: [], leisure_ids: [],
-      avatar_attributes: [ :id, :asset, :_destroy])
-  end
-
-
-  def parameters_params
+  def user_params
     p = params.require(:user).permit(:email, :phone, 
-      :sms_notification, :email_notification, 
+      :sms_notification, :email_notification, :password, :password_confirmation, 
       :affiliation
       )
     # p.merge!(params.require(:user).permit(:password, :password_confirmation)) if params[:user][:password].present?

@@ -16,10 +16,10 @@
     color: $text
 
 .error_explanation
-  @extend .alert
-  @extend .alert-danger
-  border-radius: 0
-  border: none
+  position: relative
+  padding: $alert-padding-y $alert-padding-x
+  margin-bottom: $alert-margin-bottom
+  @include alert-variant(theme-color-level("danger", $alert-bg-level), theme-color-level("danger", $alert-border-level), theme-color-level("danger", $alert-color-level))
 
 .field_with_errors
   input

@@ -4,7 +4,52 @@
 
   = form_for @user, as: :user, url: admin_user_path(@user), html: {class: "form-horizontal"} do |f| 
 
-    = render partial: "users/parameters/form", locals: {f: f}
+    = f.hm_form_errors
+
+    .form-group.required
+      = f.label :email, class: ''
+      = f.email_field :email, class: 'form-control'
+      small.form-text.text-muted = email_verified_status(f.object)
+
+    .form-group
+      = f.label :phone, class: '' do
+        => icon_mobile_phone
+        ' Téléphone portable
+      = f.phone_field :phone, class: 'form-control', placeholder: '+336XXXXXXXX'
+      small.form-text.text-muted = phone_verified_status(f.object)
+
+
+    .form-group
+      = label_tag :notification, nil, class: '' do
+        ' Recevoir les invitations par :
+      .row.icon-input--vertical
+        .col-4
+          = label_tag :desktop_notification, class: "icon-input_col" do
+            => check_box_tag :desktop_notification, true, true, {class: "", disabled: true}
+            => icon_desktop
+            ' Site web
+        .col-4
+          = f.label :sms_notification, class: "icon-input_col" do
+            => f.check_box :sms_notification, {class: ""}, 'true', 'false'
+            => icon_mobile_phone
+            ' SMS
+        .col-4
+          = f.label :email_notification, class: "icon-input_col" do
+            => f.check_box :email_notification, {class: ""}, 'true', 'false'
+            => icon_mail
+            ' E-mail
+            
+    .form-group
+      => f.label :password, "Nouveau mot de passe", class: ""
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
+      - if @minimum_password_length
+        em
+          => @minimum_password_length
+          ' caractères minimum
+
+    .form-group
+      = f.label :password_confirmation, "Valider le nouveau mot de passe", class: ""
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
 
     .form-group
       label MIRADOR ?

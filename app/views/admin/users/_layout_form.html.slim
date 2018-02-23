@@ -18,7 +18,7 @@
         
       ul.nav.nav-tabs.card-header-tabs
         li.nav-item
-          = link_to "Informations", edit_profile_admin_user_path(@user), class: "nav-link #{active_if(:edit_profile)}"
+          = link_to "Informations", admin_user_path(@user), class: "nav-link #{active_if(:show)}"
         li.nav-item
           = link_to "Paramètres", edit_admin_user_path(@user), class: "nav-link #{active_if(:parameters)}"
 
@@ -36,6 +36,9 @@
             = link_to "Accepter", accept_admin_user_path(@user), method: :patch, class: "btn btn-success btn-block mb-3"
           - if @user.may_admin_reject?
             = link_to "Rejeter et bloquer", reject_admin_user_path(@user), method: :patch, class: "btn btn-danger btn-block btn-wrap"
+          = link_to sign_as_admin_user_path(@user), class: "btn btn-sm btn-secondary", method: :post, title: "Se connecter en tant que cet utilisateur" do 
+            i.fa.fa-sign-in>
+            ' Connect.
 
         .col-md-10
           = yield

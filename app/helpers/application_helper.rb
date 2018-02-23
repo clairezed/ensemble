@@ -226,7 +226,7 @@ module ApplicationHelper
   end
 
 
-    # Pages statiques =============================================================
+  # Pages statiques =============================================================
 
   def get_basic_page_path(key)
     page = BasicPage.where(key: key).first
@@ -234,9 +234,10 @@ module ApplicationHelper
     basic_page_path(page)
   end
 
-  def get_basic_page_link(key)
-    basic_page = BasicPage.where(key: key).first
-    content_tag :li, link_to(basic_page.title, basic_page_path(basic_page)) if basic_page.enabled?
+  # Sudo - sign_as -------------------
+
+  def sudo_mode_active?
+    cookies[:ens_sudo] == 'true'
   end
   
 end

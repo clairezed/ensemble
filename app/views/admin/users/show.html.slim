@@ -1,0 +1,142 @@
+- content_for :current_navigation_sub_section, :show
+
+= render layout: 'layout_form' do
+
+  = form_for @user, as: :user, url: update_profile_admin_user_path(@user), html: {class: "form-horizontal"} do |f| 
+
+    = f.hm_form_errors
+
+    .form-group.row
+      = f.label :firstname, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :firstname, class: 'form-control-plaintext', readonly: 'true'
+      
+    .form-group.row
+      = f.label :lastname, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :lastname, class: 'form-control', class: 'form-control-plaintext', readonly: 'true'
+
+    .form-group.row
+      = label_tag :avatar, nil, class: 'col-sm-2 col-form-label' do
+        => icon_camera
+        ' Photo de profil
+
+      .picture-card_container.col-sm-10
+        div.picture-card_container--avatar data-is-upload-anchor="true"
+          - avatar = f.object.avatar
+          - if avatar.present? && !avatar.new_record?
+            .picture-card data-is-download="#{avatar.id}"
+              .picture-card_image
+                = link_to avatar.asset(:original), target: "_blank" do
+                  => image_tag avatar.asset(:thumb), class: "img-fluid"
+
+    .form-group.row
+      = f.label :gender, class: 'col-sm-2 col-form-label' do
+        ' Sexe
+      .gender-icon-radio.col-sm-10
+        - User.genders.each do |key, value|
+          .form-check.form-check-inline
+            label.form-check-label
+              => f.radio_button :gender, key, class: "form-check-input hidden-error", readonly: true
+              = user_gender_icon(key)
+      
+    .form-group.row
+      = f.label :birthdate, class: 'col-sm-2 col-form-label' do
+        => icon_calendar
+        ' Né.e le
+      .input-group.col-sm-6
+        = f.date_select :birthdate, {\
+          order: [:day, :month, :year],\
+          start_year: Date.current.year - 120, end_year: Date.current.year,\
+          prompt: true\
+        }, {class: "form-control", readonly: true}
+
+    .form-group.row
+      .profile-info_label.col-sm-2.col-form-label
+        => icon_interest
+        ' Loisirs
+      .profile-info_value.col-sm-10
+        - @user.leisure_categories.each do |leisure_category|
+          .profile-info_leisure-category.font-weight-bold = leisure_category.title
+          .profile-info_value--leisures.row.sm-gutter
+            - @user.leisures.where(leisure_category: leisure_category).each do |leisure|
+              .col-4.sm-gutter.mb-2
+                .leisure-thumb
+                  span.ico.leisure-thumb_icon> class="ico-#{leisure.key}"
+                    - (1..30).each do |i|
+                      span class="path#{i}"
+                  .leisure-thumb_title
+                    =leisure.title
+
+    / .form-group
+    /   = f.label :leisures, class: '' do
+    /     => icon_interest
+    /     ' Loisirs
+    /   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
+
+    /     / Leisure categories ----------------------------
+    /     .row.sm-gutter.leisure-category-row
+    /       - leisure_category_row.each do |leisure_category|
+    /         .col-3.sm-gutter.leisure-category_card-wrapper
+    /           / = f.check_box :leisure_category_ids, {multiple: true, class: ""}, leisure_category.id, nil
+    /           = f.label "leisure_category_ids_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
+    /             span.ico> class="ico-#{leisure_category.key}"
+    /               - (1..15).each do |i|
+    /                 span class="path#{i}"
+    /             .leisure-category_card-label=> leisure_category.title
+
+    /     / Leisures ----------------------------
+    /     - leisure_category_row.each do |leisure_category|
+    /       .leisure-row data-leisure-row="#{leisure_category.id}"
+    /         .leisure-row_inner
+    /           .row.sm-gutter
+    /             - leisure_category.leisures.each do |leisure|
+    /               .col-6.sm-gutter
+    /                 .leisure_block
+    /                   = f.check_box :leisure_ids, {multiple: true, class: "", data: {is_leisure_input: true}}, leisure.id, nil
+    /                   = f.label "leisure_ids_#{leisure.id}", class: "leisure_choice" do
+    /                     span.ico> class="ico-#{leisure.key}"
+    /                       - (1..30).each do |i|
+    /                         span class="path#{i}"
+    /                     .leisure_choice-label=> leisure.title
+    /         .footer
+    /           a.button--main data-toggle-up="#{leisure_category.id}"
+    /             i.fa.fa-check>
+    /             ' Ok
+
+
+
+    .form-group.row
+      = f.label :city_id, class: 'col-sm-2 col-form-label' do
+        => icon_location
+        ' Ville
+      .col-sm-10.form-text
+        = @user.city.name
+
+    .form-group.row
+      = f.label :visited_countries, class: 'col-sm-2 col-form-label' do
+        => icon_country
+        ' Pays visités
+      .col-sm-10
+        = f.text_area :visited_countries, class: 'form-control', readonly: true
+      
+    .form-group.row
+      = f.label :language_ids, class: 'col-sm-2 col-form-label' do
+        => icon_language
+        ' Langues parlées
+      .col-sm-10.form-text
+        = @user.languages.map(&:title).compact.join(", ")
+
+      / Pays visités
+
+    .form-group.row
+      = f.label :description, class: 'col-sm-2 col-form-label' do
+        => icon_text
+        ' Description
+      .col-sm-10
+        = f.text_area :description, class: 'form-control', readonly: true
+
+    = render "events/event_pictures/hb_thumbs"
+
+    coffee:
+      new ProfileEdit()

@@ -13,6 +13,7 @@
         th Signal.
         th = hm_sort 'sort_by_verification_state', label: 'Statut'
         th = hm_sort 'sort_by_affiliation', label: 'MIR.'
+        th Connexion
         th 
     tbody
       - @users.each do |user| 
@@ -28,13 +29,20 @@
           td 
             span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
           td= boolean_badge(user.mirador?)
+          td.text-center  
+            = link_to sign_as_admin_user_path(user), class: "btn btn-sm btn-secondary", method: :post, title: "Se connecter en tant que cet utilisateur" do 
+              i.fa.fa-sign-in
 
           td.action-btns
-            => link_to edit_profile_admin_user_path(user), 
+            => link_to admin_user_path(user), 
+                        class: "btn btn-sm btn-light", 
+                        title: "Voir" do
+              i.fa.fa-eye
+            => link_to edit_admin_user_path(user), 
                         class: "btn btn-sm btn-info", 
                         title: "Editer" do
-
               i.fa.fa-pencil
+
             = link_to admin_user_path(user),
                       method: :delete, 
                       data: {confirm: "Confirmer la suppression ?"}, 
