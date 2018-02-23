@@ -200,10 +200,14 @@ class Event < ApplicationRecord
     where(state: states.fetch(state.to_sym))
   }
 
+  scope :by_visibility, ->(visibility) {
+    where(visibility: visibilities.fetch(visibility.to_sym))
+  }
+
  
   # Class Methods ==============================================================
 
-    def self.apply_filters(params)
+  def self.apply_filters(params)
     [
       :by_text,
       :by_leisure_category,
@@ -211,6 +215,8 @@ class Event < ApplicationRecord
       :by_start_at,
       :by_end_at,
       :by_city,
+      :by_state,
+      :by_visibility
     ].inject(all) do |relation, filter|
       next relation unless params[filter].present?
       relation.send(filter, params[filter])

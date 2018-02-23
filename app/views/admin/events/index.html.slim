@@ -10,6 +10,7 @@
         th = hm_sort 'sort_by_city_id', label: 'Ville'
         th Partic.
         th Com.
+        th Tém.
         th = hm_sort 'sort_by_visibility', label: 'Pub/priv'
         th = hm_sort 'sort_by_state', label: 'Etat'
         th = hm_sort 'sort_by_affiliation', label: 'MIR.'
@@ -27,6 +28,10 @@
             = link_to admin_event_comments_path(event) do
               => event_pending_comments_count(event)
               = event_comments_count(event)
+          td
+            = link_to admin_event_testimonies_path(event) do
+              => event_pending_testimonies_count(event)
+              = event_testimonies_count(event)
           td
             span class="badge badge-#{event_visibility_style(event.visibility)}"
               = event_visibility(event.visibility)

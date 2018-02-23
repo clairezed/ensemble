@@ -12,6 +12,12 @@ module EventHelper
     I18n.t(visibility, scope: [:event, :visibilities, :style])
   end
 
+  def event_visibility_options(visibilities = Event.visibilities.keys)
+    visibilities.map do |visibility|
+      [event_visibility(visibility), visibility.to_s]
+    end
+  end
+
   # Affiliation
 
   def event_affiliation(affiliation)
@@ -86,6 +92,19 @@ module EventHelper
 
   def event_pending_comments_count(event)
     pending = event.comments.pending
+    return unless pending.any?
+    content_tag :span, "#{pending.count} nv", class: "badge badge-warning"
+  end
+
+  # témoignages 
+
+  def event_testimonies_count(event)
+    testimonies = event.testimonies
+    testimonies.any? ? testimonies.count : '-'
+  end
+
+  def event_pending_testimonies_count(event)
+    pending = event.testimonies.pending
     return unless pending.any?
     content_tag :span, "#{pending.count} nv", class: "badge badge-warning"
   end
