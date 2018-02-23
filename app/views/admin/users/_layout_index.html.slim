@@ -25,6 +25,12 @@
                 prompt: "Tous les statuts",\
                 class: "form-control", \
                 onchange: "$('[data-is-filter-form]').submit()"
+        .form-group.col-3
+          = select_tag :by_rank, \
+                options_for_select(user_rank_options, params[:by_rank]), \
+                prompt: "Tous les grades",\
+                class: "form-control", \
+                onchange: "$('[data-is-filter-form]').submit()"
 
         .form-group.col-5
           = submit_tag "Appliquer", class: "btn btn-success"

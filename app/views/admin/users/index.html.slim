@@ -3,29 +3,31 @@
   table.table.table-striped.table-hover.table-sm
     thead.thead-inverse
       tr
-        th 
+        th style="width: 45px"
         th = hm_sort 'sort_by_created_at', label: 'Date création'
         th = hm_sort 'sort_by_lastname', label: 'Nom'
         th = hm_sort 'sort_by_firstname', label: 'Prénom'
         th Email
         th Inscr. finalisée ?
-        th = hm_sort 'sort_by_affiliation', label: 'MIR.'
         th = hm_sort 'sort_by_rank', label: 'Grade'
+        th Signal.
         th = hm_sort 'sort_by_verification_state', label: 'Statut'
+        th = hm_sort 'sort_by_affiliation', label: 'MIR.'
         th 
     tbody
       - @users.each do |user| 
         tr
-          td= image_tag user.avatar_url(:thumb)
+          td= image_tag user.avatar_url(:thumb), class: 'img-fluid'
           td= l user.created_at.to_date
           td= user.lastname
           td= user.firstname
           td= user.email
           td= boolean_badge(user.registration_complete)
-          td= boolean_badge(user.mirador?)
           td= user_rank_title(user.rank)
+          td= (reports_count = user.given_user_reports.count) > 0 ? reports_count : '-'
           td 
             span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
+          td= boolean_badge(user.mirador?)
 
           td.action-btns
             => link_to edit_profile_admin_user_path(user), 
@@ -43,7 +45,7 @@
       
       - if @users.empty?
         tr
-          td colspan="7"
+          td colspan="10"
             p.text-center: em.text-muted Aucun résultat
 
 

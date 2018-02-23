@@ -2,7 +2,7 @@
 
 class BasicPagesController < ApplicationController
   include SlugsAndRedirections
-    skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!
   skip_before_action :reject_blocked_ip!
 
   def show

@@ -5,7 +5,7 @@ class Admin::UsersController < Admin::BaseController
 
   def index
     params[:sort] ||= "sort_by_created_at desc"
-    @users = User.includes(:avatar).apply_filters(params).page(params[:page]).per(10)
+    @users = User.includes(:avatar).apply_filters(params).page(params[:page]).per(20)
   end
 
   def new

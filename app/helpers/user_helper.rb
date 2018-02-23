@@ -50,6 +50,22 @@ module UserHelper
     end
   end
 
+  # Grade -------------------------------------
+
+  def user_rank_title(rank)
+    I18n.t(rank, scope: [:user, :ranks, :title])
+  end
+
+  def user_rank_style(state)
+    I18n.t(state, scope: %i(user ranks style))
+  end
+
+  def user_rank_options(states = User.ranks.keys)
+    states.map do |state|
+      [user_rank_title(state), state.to_s]
+    end
+  end
+
   # def user_gender_options(genders = User.genders.keys)
   #   user_gender_full_options(genders)
   # end
