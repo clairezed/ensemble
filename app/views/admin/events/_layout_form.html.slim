@@ -17,7 +17,7 @@
 
       ul.nav.nav-tabs.card-header-tabs
         li.nav-item
-          = link_to "Informations", edit_admin_event_path(@event), class: "nav-link #{active_if(:informations)}"
+          = link_to "Informations", admin_event_path(@event), class: "nav-link #{active_if(:informations)}"
         li.nav-item
           = link_to admin_event_comments_path(@event), class: "nav-link #{active_if(:comments)}" do 
             ' Commentaires
@@ -41,9 +41,9 @@
 
             hr
             - if @event.may_activate?
-              = link_to "Réactiver l'évt", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3"
+              = link_to "Réactiver l'évt", activate_admin_event_path(@event), method: :patch, class: "btn btn-success btn-block mb-3 btn-wrap"
             - if @event.may_cancel?
-              = link_to "Annuler l'évt", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3"
+              = link_to "Annuler l'évt", cancel_admin_event_path(@event), method: :patch, class: "btn btn-danger btn-block mb-3 btn-wrap"
 
           .col-md-10
             = yield

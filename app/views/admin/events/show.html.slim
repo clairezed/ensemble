@@ -1,0 +1,127 @@
+- content_for :current_navigation_sub_section, :informations
+
+= render layout: 'layout_form' do
+
+  = form_for @event, as: :event, url: admin_event_path(@event), html: {class: "form-horizontal"} do |f| 
+
+    .form-group.row
+      label.col-sm-3.col-form-label MIRADOR ?
+      .col-sm-9
+        - Event.affiliations.each do |key, value|
+          .form-check.form-check-inline
+            label.form-check-label
+              => f.radio_button :affiliation, key, class: "form-check-input"
+              => event_affiliation(key)
+          
+
+    .form-group.row
+      = f.label :title, class: 'col-sm-3 col-form-label' do
+        => icon_text
+        ' Titre
+      .col-sm-9
+        = f.text_field :title, class: 'form-control', disabled: true
+
+    .form-group.row
+      = f.label :visibility, class: 'col-sm-3 col-form-label' do
+        / => icon_interest
+        ' Type
+      .col-sm-6
+        .row
+          - Event.visibilities.each do |key, value|
+            .col
+              => f.radio_button :visibility, key, class: "button-radio-input", data: {is_visibility: key}, disabled: true
+              = f.label :visibility, value: key, class: "button-radio" do
+                => event_openess_icon(key)
+                span.label-title=> event_visibility(key)
+
+    / centre d interet
+    .form-group.row
+      = f.label :leisures, class: 'col-sm-3 col-form-label' do
+        => icon_interest
+        ' Loisir
+      .col-sm-9
+        = [@event.leisure_category.title, @event.leisure.title].join(' - ')
+
+      
+    .form-group.row
+      = f.label :start_at, class: 'col-sm-3 col-form-label' do
+        => icon_calendar
+        ' Date 
+      .col-sm-9.form-text
+        = event_date(@event)
+    /   .form-row
+    /     .col-6
+    /       small.form-text.text-muted jj/mm/aaaa
+    /       = f.text_field :start_date, class: 'form-control', data: {date_picker: 'start'}
+    /     .col-5
+    /       small.form-text.text-muted hh:mm
+    /       = f.text_field :start_time, class: 'form-control', data: {time_picker: 'start'}
+    /     .col-1.pt-4
+    /       a.btn.btn-link.btn-sm.pl-0 data-date-clear="start"
+    /         i.fa.fa-refresh
+
+    / .form-group.row
+    /   = f.label :end_at, class: 'col-sm-3 col-form-label' do
+    /     => icon_calendar
+    /     ' Date et heure de fin (facultatif)
+    /   .form-row
+    /     .col-6
+    /       small.form-text.text-muted jj/mm/aaaa
+    /       = f.text_field :end_date, class: 'form-control', data: {date_picker: 'end'}
+    /     .col-5
+    /       small.form-text.text-muted hh:mm
+    /       = f.text_field :end_time, class: 'form-control', data: {time_picker: 'end'}
+    /     .col-1.pt-4
+    /       a.btn.btn-link.btn-sm.pl-0 data-date-clear="end"
+    /         i.fa.fa-refresh
+
+    .form-group.row
+      = f.label :address, class: 'col-sm-3 col-form-label' do
+        => icon_location
+        ' Adresse
+      .col-sm-9.form-text
+        = event_full_address(@event)
+
+    .form-group.row
+      = f.label :description, class: 'col-sm-3 col-form-label' do
+        => icon_text
+        ' Description
+      .col-sm-9.form-text
+        = raw @event.description
+
+    / Nb de personnes
+
+    .form-group.row data-hidden-if="closed"
+      = label_tag :participants, class: 'col-sm-3 col-form-label' do
+        => icon_people
+        ' Participants
+      .col-sm-9.form-text
+        = event_participants_count(@event)
+
+    / Photos
+    .form-group.row
+      / .label-title  Photos de l'événement
+      = f.label :pictures, class: 'col-sm-3 col-form-label' do
+        => icon_camera
+        ' Photos
+      .col-sm-9
+        div data-is-gallery="true" itemscope="" itemtype="http://schema.org/ImageGallery"
+          .row 
+            - @event.pictures.each do |picture|
+              figure itemprop="associatedMedia" itemscope='' itemtype="http://schema.org/ImageObject" class="col-4"
+                = link_to picture.asset.url(:large), itemprop: "contentUrl", data: {size: "#{picture.asset.width(:original)}x#{picture.asset.height(:original)}"} do
+                  = image_tag picture.asset(:detail), class: "img-fluid", alt: "Image d'illustration"
+
+    / Documents
+    .form-group.row
+      = f.label :attachements, class: 'col-sm-3 col-form-label' do
+        => icon_attachment
+        ' Documents
+      .col-sm-9
+        - @event.attachments.each do |attachment|
+          .event-attachement-block
+            .event-attachement-block_content
+              = link_to attachment.asset.url, target: "_blank", class: "" do 
+                = icon_attachment
+                span = attachment.title
+

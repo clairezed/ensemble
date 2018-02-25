@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       member do
         patch :cancel
         patch :activate
+        post :sign_as
       end
       resources :comments, controller: "events/comments", only: [:index] do 
         member do

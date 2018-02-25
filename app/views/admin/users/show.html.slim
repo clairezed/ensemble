@@ -68,44 +68,6 @@
                   .leisure-thumb_title
                     =leisure.title
 
-    / .form-group
-    /   = f.label :leisures, class: '' do
-    /     => icon_interest
-    /     ' Loisirs
-    /   - LeisureCategory.all.order(created_at: :asc).includes(:leisures).each_slice(4) do |leisure_category_row|
-
-    /     / Leisure categories ----------------------------
-    /     .row.sm-gutter.leisure-category-row
-    /       - leisure_category_row.each do |leisure_category|
-    /         .col-3.sm-gutter.leisure-category_card-wrapper
-    /           / = f.check_box :leisure_category_ids, {multiple: true, class: ""}, leisure_category.id, nil
-    /           = f.label "leisure_category_ids_#{leisure_category.id}", class: "leisure-category_card", data: {leisure_category: leisure_category.id} do
-    /             span.ico> class="ico-#{leisure_category.key}"
-    /               - (1..15).each do |i|
-    /                 span class="path#{i}"
-    /             .leisure-category_card-label=> leisure_category.title
-
-    /     / Leisures ----------------------------
-    /     - leisure_category_row.each do |leisure_category|
-    /       .leisure-row data-leisure-row="#{leisure_category.id}"
-    /         .leisure-row_inner
-    /           .row.sm-gutter
-    /             - leisure_category.leisures.each do |leisure|
-    /               .col-6.sm-gutter
-    /                 .leisure_block
-    /                   = f.check_box :leisure_ids, {multiple: true, class: "", data: {is_leisure_input: true}}, leisure.id, nil
-    /                   = f.label "leisure_ids_#{leisure.id}", class: "leisure_choice" do
-    /                     span.ico> class="ico-#{leisure.key}"
-    /                       - (1..30).each do |i|
-    /                         span class="path#{i}"
-    /                     .leisure_choice-label=> leisure.title
-    /         .footer
-    /           a.button--main data-toggle-up="#{leisure_category.id}"
-    /             i.fa.fa-check>
-    /             ' Ok
-
-
-
     .form-group.row
       = f.label :city_id, class: 'col-sm-2 col-form-label' do
         => icon_location

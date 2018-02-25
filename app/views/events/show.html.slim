@@ -42,13 +42,14 @@
     = link_to new_event_testimony_path(@event), class: "button--main" do
       => icon_edit_reverse
       ' Raconter l'événement
+
   / Actions organisateur ---------------------------------------
   - if policy(@event).update?
     .row
       .col-6
         = link_to edit_users_event_path(@event), class: "button--main" do
           => icon_edit_reverse
-          ' Modifier
+          ' Changer
 
       - if policy(@event).cancel?
         .col-6

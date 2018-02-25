@@ -1,6 +1,6 @@
 class Admin::EventsController < Admin::BaseController
 
-  before_action :find_event, only: [:edit, :update, :destroy, :cancel, :activate]
+  before_action :find_event, except: [ :index, :new, :create ]
 
   def index
     params[:sort] ||= 'sort_by_created_at desc'
@@ -10,20 +10,20 @@ class Admin::EventsController < Admin::BaseController
       .page(params[:page]).per(20)
   end
 
-  def new
-    @event = Event.new
-  end
+  # def new
+  #   @event = Event.new
+  # end
 
-  def create
-    @event = Event.new(event_params)
-    if @event.save
-      flash[:notice] = "L'événement a été créé avec succès"
-      redirect_to action: :index
-    else
-      flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'événement"
-      render :new
-    end
-  end
+  # def create
+  #   @event = Event.new(event_params)
+  #   if @event.save
+  #     flash[:notice] = "L'événement a été créé avec succès"
+  #     redirect_to action: :index
+  #   else
+  #     flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'événement"
+  #     render :new
+  #   end
+  # end
 
   def edit
   end
@@ -55,6 +55,16 @@ class Admin::EventsController < Admin::BaseController
     @event.destroy
     flash[:notice] = "L'événement a été supprimé avec succès"
     redirect_to action: :index
+  end
+
+  # se connecter en tant que tel utilisateur
+  # bypass : pour ne pas enregistrer last_sign_in_at et current_sign_in
+  def sign_as
+    signed_as_user = @event.user
+    sign_in(:user, signed_as_user, { :bypass => true })
+    cookies[:ens_sudo] = true
+    flash[:notice] = "Vous êtes désormais connecté en tant que #{signed_as_user.fullname}"
+    redirect_to edit_users_event_path(@event)
   end
 
  
