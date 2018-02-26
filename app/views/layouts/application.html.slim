@@ -27,27 +27,28 @@ html lang="#{I18n.locale}"
         = link_to root_path do
           = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
         / Desktop ------------------------------------------------------------------
-        .nav-top_list-wrapper.d-none.d-md-block
-          ul.nav-top_list
-            .nav-top_item-btn
-              = link_to new_users_event_path, class: "button--main-secondary" do 
-                => icon_add
-                ' Proposer un événement
-            li.nav-top_item
-              = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do
-                .nav-link--notif
-                  = icon_bell
-                  - if current_user.event_invitations.pending.any?
-                    span.badge.badge-secondary.nav-link_notif-badge= current_user.event_invitations.pending.count
-                .nav-top_item-title Invitations
-            li.nav-top_item
-              = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
-                = icon_calendar_reverse
-                .nav-top_item-title Evénements
-            li.nav-top_item
-              = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do
-                = icon_profile_reverse
-                .nav-top_item-title = user_nickname(current_user)
+        - if current_user.present?
+          .nav-top_list-wrapper.d-none.d-md-block
+            ul.nav-top_list
+              .nav-top_item-btn
+                = link_to new_users_event_path, class: "button--main-secondary" do 
+                  => icon_add
+                  ' Proposer un événement
+              li.nav-top_item
+                = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do
+                  .nav-link--notif
+                    = icon_bell
+                    - if current_user.event_invitations.pending.any?
+                      span.badge.badge-secondary.nav-link_notif-badge= current_user.event_invitations.pending.count
+                  .nav-top_item-title Invitations
+              li.nav-top_item
+                = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
+                  = icon_calendar_reverse
+                  .nav-top_item-title Evénements
+              li.nav-top_item
+                = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do
+                  = icon_profile_reverse
+                  .nav-top_item-title = user_nickname(current_user)
 
         button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
           = icon_hamburger
