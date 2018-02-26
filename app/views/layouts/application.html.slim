@@ -26,10 +26,33 @@ html lang="#{I18n.locale}"
       .container
         = link_to root_path do
           = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 130
+        / Desktop ------------------------------------------------------------------
+        .nav-top_list-wrapper.d-none.d-md-block
+          ul.nav-top_list
+            .nav-top_item-btn
+              = link_to new_users_event_path, class: "button--main-secondary" do 
+                => icon_add
+                ' Proposer un événement
+            li.nav-top_item
+              = link_to users_invitations_path, class: "nav-link #{active_if(:my_invitations)}" do
+                .nav-link--notif
+                  = icon_bell
+                  - if current_user.event_invitations.pending.any?
+                    span.badge.badge-secondary.nav-link_notif-badge= current_user.event_invitations.pending.count
+                .nav-top_item-title Invitations
+            li.nav-top_item
+              = link_to users_events_path, class: "nav-link #{active_if(:my_events)}" do 
+                = icon_calendar_reverse
+                .nav-top_item-title Evénements
+            li.nav-top_item
+              = link_to profile_path(current_user), class: "nav-link #{active_if(:my_profile)}" do
+                = icon_profile_reverse
+                .nav-top_item-title = user_nickname(current_user)
 
         button.button-burger aria-expanded="false" aria-label="Toggle menu" data-display-menu='open'
           = icon_hamburger
           .button-burger_title= 'Menu'
+
 
     nav.main-menu data-is-menu="main"
       .main-menu_header
@@ -92,6 +115,7 @@ html lang="#{I18n.locale}"
 
     = render 'layouts/welcome_modal'
 
+    / mobile ---------------------------------------------------------
     nav.nav-bottom
       .container
         ul.nav-bottom_list
@@ -106,7 +130,6 @@ html lang="#{I18n.locale}"
                   = icon_bell
                   - if current_user.event_invitations.pending.any?
                     span.badge.badge-secondary.nav-link_notif-badge= current_user.event_invitations.pending.count
-
                 .nav-bottom_item-title Invitations
             li.nav-bottom_item.nav-bottom_item--main
               = link_to new_users_event_path, class: "nav-link #{active_if(:new_event)}" do
@@ -120,3 +143,29 @@ html lang="#{I18n.locale}"
               = link_to new_search_path, class: "nav-link #{active_if(:search)}" do 
                 = icon_search_reverse
                 .nav-bottom_item-title Recherche
+
+
+    / desktop --------------------------------------
+    footer.main-footer
+      .section--reverse
+        .section_inner
+          .row
+            .col
+              h3.section-title Découvrir
+              ul.footer_links
+                li= link_to "Qui sommes-nous ?", get_basic_page_path(:who_we_are)
+                / li= link_to "Charte utilisateur", "#"
+                li= link_to "Conditions générales", get_basic_page_path(:cgu)
+                li= link_to "Plan du site", "#"
+                li= link_to "Mentions légales", get_basic_page_path(:legal_mentions)
+            .col
+              h3.section-title Suivez-nous
+              .social-links
+                = link_to "#", class: "social-links_item", title: "lien vers le twitter de Ensemble" do
+                  i.fa.fa-twitter
+                = link_to "#", class: "social-links_item", title: "lien vers le facebook de Ensemble" do
+                  i.fa.fa-facebook
+                = link_to "#", class: "social-links_item", title: "lien vers l'instagram de Ensemble" do
+                  i.fa.fa-instagram
+
+

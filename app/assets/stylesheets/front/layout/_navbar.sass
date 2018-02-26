@@ -5,8 +5,31 @@
   @extend .navbar, .navbar-dark
   background-color: $primary
   > .container
+  &_list-wrapper
+    margin-left: auto
+  &_list
+    @extend .navbar-nav
+    display: flex 
+    flex-flow: row nowrap
+    text-align: center
+    padding-left: 0
+    margin-bottom: 0
+    list-style: none
+  &_item
+    &-title
+      font-size: .6rem
+      text-transform: uppercase
+    .nav-link
+      padding: 0.5rem 1rem
+    .ico:not(.nav-bottom_item--main-icon)
+      font-size: 1.75rem
+  &_item-btn
+    display: flex 
+    align-items: center
+    padding: 0.5rem 1rem
 
-@media (max-width: 576px)
+// @media (max-width: 576px)
+@media (min-width: 768px)
   .nav-top
     > .container
       padding: 0
@@ -60,3 +83,9 @@
 
 .nav-bottom .nav-bottom_list .nav-bottom_item--main .nav-link
   padding: 0
+
+// Desktop -----------------------------
+// @media (min-width: 576px)
+@media (min-width: 768px)
+  .nav-bottom
+    display: none
