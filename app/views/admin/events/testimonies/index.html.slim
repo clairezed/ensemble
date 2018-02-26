@@ -16,7 +16,7 @@
       - @testimonies.each do |testimony| 
         tr
           td= l testimony.created_at.to_date
-          td= link_to testimony.user.fullname, edit_profile_admin_user_path(testimony.user)
+          td= link_to testimony.user.fullname, admin_user_path(testimony.user)
           td= testimony.public_comment.truncate(50)
           td= testimony.admin_comment.truncate(50)
           td

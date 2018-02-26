@@ -14,7 +14,7 @@
       - @comments.each do |comment| 
         tr
           td= l comment.created_at.to_date
-          td= link_to comment.user.fullname, edit_profile_admin_user_path(comment.user)
+          td= link_to comment.user.fullname, admin_user_path(comment.user)
           td= comment.body
           td
             span class="badge badge-#{comment_state_style(comment.state)}"

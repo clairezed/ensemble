@@ -22,7 +22,7 @@
           td= l event.created_at.to_date
           td= l event.start_at.to_date
           td= event.title
-          td= link_to event.user.fullname, edit_profile_admin_user_path(event.user)
+          td= link_to event.user.fullname, admin_user_path(event.user)
           td= event.city.long_name
           td= event_participants_count(event)
           td
