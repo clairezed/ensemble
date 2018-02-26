@@ -8,5 +8,10 @@
             | Afin de vous proposer des services et offres adaptés à vos centres d'intérêts, nous utilisons des cookies.
               En continuant de naviguer sur le site, vous déclarez accepter leur utilisation.
         .col-lg-3.col-md-4.col-12
-          = link_to "J'ai compris", "javascript:void(0)", class: "btn btn-primary", data: {is_accept_cookies: true}
-          = link_to "En savoir plus" , "/cookies_info", class: 'btn btn-secondary'
+          .row.sm-gutter
+            .col-6.sm-gutter
+              = link_to "En savoir plus" , "/cookies_info", class: 'button--main-reverse'
+            .col-6.sm-gutter
+              = link_to "javascript:void(0)", class: "button--main-secondary", data: {is_accept_cookies: true} do 
+                = icon_validate
+                ' OK

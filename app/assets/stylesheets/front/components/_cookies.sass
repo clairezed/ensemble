@@ -11,37 +11,32 @@
   left: 0
   display: block
   width: 100%
-  background: #323232
-  color: #9F9F9F
-  padding: 15px
+  background-color: $primary
+  color: #efefef
+  padding: 1.25rem .75rem 2rem
   text-align: left
-  font-size: 1.3rem
-  z-index: 60
+  font-size: .8rem
+  z-index: 1060
   border-radius: 0
   margin-bottom: 0
   animation-duration: 3s
   animation-name: slidein
   animation-delay: 3s
   animation-fill-mode: forwards
-
   p 
     text-align: justify
     font-weight: normal
   a 
     text-decoration: underline
     color: #9F9F9F
-  .btn 
+  .btn, .button--main-reverse, .button--main-secondary
+    font-size: .8rem
     text-decoration: none
-    color: #fff 
-    border-radius: 2px
-    margin-right: 5px
-    font-size: 1.3rem
-  .btn-secondary
-    color: #333
-    opacity: 0.3
+    // color: #fff 
+    // border-radius: 2px
+    // margin-right: 5px
 
  
-
 @keyframes slidein 
   from 
     bottom: -100%
