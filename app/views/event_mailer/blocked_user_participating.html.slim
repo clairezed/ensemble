@@ -3,6 +3,6 @@ p Bonjour #{@user.firstname},
 p #{user_nickname(@event_participation.user)}, que vous avez bloqué, vient de s'inscrire à un événement auquel vous participez : <b>#{@event_participation.event.title}</b> prévu le #{@event_participation.event.start_at.strftime("%d/%m/%Y")} à #{@event_participation.event.city.name}.
 
 p 
-  ' Pour voir le détail de l'événement et gérer votre participation, connectez-vous à
+  ' Pour voir le détail de l'événement et décider de maintenir ou non votre participation, connectez-vous à
   = link_to "ENSEMBLE", event_url(@event_participation.event)
   ' .

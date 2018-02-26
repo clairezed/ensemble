@@ -1,5 +1,6 @@
-p = "Bonjour  #{@resource.firstname} #{@resource.lastname},"
+p = "Bonjour  #{@resource.firstname},"
 
-p Merci de confirmer l'email utilisé lors de votre inscription en cliquant sur le lien ci-dessous :
+p Bienvenue sur ENSEMBLE.
+p Pour utiliser le site, validez votre email en cliquant ici : 
 
-p = link_to 'Confirmer mon inscription', confirmation_url(@resource, :confirmation_token => @token)
+p = link_to 'Valider mon email', confirmation_url(@resource, :confirmation_token => @token)

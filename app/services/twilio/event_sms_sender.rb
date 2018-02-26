@@ -5,7 +5,7 @@ module Twilio
     def event_canceled(user, event)
       @event = event
       @user = user
-      message = "[Ensemble] L'événement #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")} a été annulé."
+      message = "[Ensemble] L'événement #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")} est annulé."
       send_sms(message, @user.phone )
     end
 
@@ -28,7 +28,7 @@ module Twilio
       @event_participation = event_participation
       @event = @event_participation.event
       @user = user
-      message = "[Ensemble] #{@event_participation.user.nickname}, que vous avez bloqué, vient de s'inscrire à l'événément #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")}"
+      message = "[Ensemble] #{@event_participation.user.nickname}, que vous avez bloqué, vient de s'inscrire à l'événément #{@event.title} prévu le #{@event.start_at.strftime("%d/%m/%Y")}. Connectez-vous à ENSEMBLE."
       send_sms(message, @user.phone)
     end
 
