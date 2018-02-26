@@ -16,6 +16,10 @@ body
     display: flex
     justify-content: space-between
 
+// Responsive ======================================
+@media (min-width: 768px)
+  .section_inner
+    max-width: 720px
 
 // Section a cheval (straddle) --------------------------
 @mixin section-straddle-margin($margin)
@@ -31,7 +35,7 @@ body
   @include section-straddle-margin(6rem)
 
 
-@media (min-width: 767px)
+@media (min-width: 768px)
   .section-straddle
     @include section-straddle-margin(10rem)
 
@@ -58,5 +62,6 @@ body
         border-bottom: 3px solid $primary
       &:hover
         text-decoration: none
+
 
 

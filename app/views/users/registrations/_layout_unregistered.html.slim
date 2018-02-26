@@ -30,8 +30,11 @@ section.section.section-straddle
   section.section
     .section_inner
       h2.section-title Derniers événements
+      .row 
+        - @last_events.each do |event|
+          .col-12.col-md-6
+            = render partial: 'events/card', locals: {event: event}
 
-      = render partial: 'events/card', collection: @last_events, as: :event
 
 / Mirador événements
 - if @mirador_events.any?
@@ -39,4 +42,7 @@ section.section.section-straddle
     .section_inner
       h2.section-title Evénements MIRADOR
 
-      = render partial: 'events/card', collection: @mirador_events, as: :event
+      .row 
+        - @mirador_events.each do |event|
+          .col-12.col-md-6
+            = render partial: 'events/card', locals: {event: event}

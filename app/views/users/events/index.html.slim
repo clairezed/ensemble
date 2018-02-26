@@ -2,24 +2,27 @@
 
 = render layout: 'users/events/layout' do
 
-  - @events.each do |event|
-    section
-      .section_inner
-        = render partial: 'events/card', locals: {event: event}
-        - if policy(event).cancel_participation?
-          - if event.closed?
-            = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"} do
-              => icon_cancel_reverse
-              ' Annuler ma participation
-          - else
-            = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main" do 
-              => icon_cancel_reverse
-              ' Annuler ma participation
+  section
+    .section_inner
+      .row
+        - @events.each do |event|
+          .col-12.col-md-6.mb-2
+            = render partial: 'events/card', locals: {event: event}
+            .d-flex.event-invitation_actions
+              - if policy(event).cancel_participation?
+                - if event.closed?
+                  = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main", data: {confirm: "Une fois votre participation annulée, vous ne pourrez plus retrouver cet événement privé. \nConfirmer l'annulation de votre participation ?"} do
+                    => icon_cancel_reverse
+                    ' Annuler ma participation
+                - else
+                  = button_to event_event_participation_path(event, current_user.participation_at(event)), method: :delete, class: "button--main" do 
+                    => icon_cancel_reverse
+                    ' Annuler ma participation
 
-        - if policy(event).update?
-          = link_to edit_users_event_path(event), class: "button--main" do
-            => icon_edit_reverse
-            ' Modifier
+              - if policy(event).update?
+                = link_to edit_users_event_path(event), class: "button--main" do
+                  => icon_edit_reverse
+                  ' Modifier
 
   - if @events.empty?
     section

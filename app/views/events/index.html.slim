@@ -9,15 +9,19 @@ section.section
 section.section
   .section_inner
     h2.section-title Événements recommandés
-    - @recommended_events.each do |event|
-      = render partial: 'events/card', locals: {event: event}
+    .row
+      - @recommended_events.each do |event|
+        .col-12.col-md-6
+          = render partial: 'events/card', locals: {event: event}
 
 section.section
   .section_inner
     h2.section-title Derniers événements
 
-    - @last_events.each do |event|
-      = render partial: 'events/card', locals: {event: event}
+    .row
+      - @last_events.each do |event|
+        .col-12.col-md-6
+          = render partial: 'events/card', locals: {event: event}
 
 section.section
   .section_inner
@@ -33,8 +37,10 @@ section.section
   .section_inner
     h2.section-title Événements MIRADOR
 
-    - @mirador_events.each do |event|
-      = render partial: 'events/card', locals: {event: event}
+    .row
+      - @mirador_events.each do |event|
+        .col-12.col-md-6
+          = render partial: 'events/card', locals: {event: event}
 
     = link_to mirador_events_path, class:'quick-link' do 
       ' Voir tous les événements MIRADOR

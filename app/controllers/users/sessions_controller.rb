@@ -34,11 +34,11 @@ class Users::SessionsController < Devise::SessionsController
   def set_landing_page_data
     @last_events = Event.visible.normal
       .includes(:leisure_category).includes(:city)
-      .order(created_at: :desc).limit(3)
+      .order(created_at: :desc).limit(4)
     @mirador_events = Event.visible.mirador
       .includes(:leisure_category).includes(:city)
-      .order(created_at: :desc).limit(3)
-    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(3)
+      .order(created_at: :desc).limit(4)
+    @testimonies = Testimony.accepted.order(accepted_at: :desc).includes(:user).limit(4)
   end
 
 end

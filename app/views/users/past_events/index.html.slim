@@ -2,15 +2,17 @@
 
 = render layout: 'users/events/layout' do
 
-  - @events.each do |event|
-    section
-      .section_inner
-        = render partial: 'events/card', locals: {event: event}
-
-        - if policy(event).testify?
-          = link_to new_event_testimony_path(event), class: "button--main" do
-            => icon_edit_reverse
-            ' Raconter l'événement
+  section
+    .section_inner
+      .row
+        - @events.each do |event|
+          .col-12.col-md-6.mb-2
+            = render partial: 'events/card', locals: {event: event}
+            .d-flex.event-invitation_actions
+              - if policy(event).testify?
+                = link_to new_event_testimony_path(event), class: "button--main" do
+                  => icon_edit_reverse
+                  ' Raconter l'événement
 
 
   - if @events.empty?
