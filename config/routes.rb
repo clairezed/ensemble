@@ -60,21 +60,21 @@ Rails.application.routes.draw do
   # User ======================================
   scope controller: 'users/registrations' do
     get  :new_second_step, path: 'finaliser-inscription'
-    patch :create_second_step
+    patch :create_second_step, path: 'finaliser-inscription'
   end
 
-  namespace :users do
+  namespace :users, path: 'mon-compte' do
     resources :avatars
-    resources :sms_confirmations, only: [:new, :create, :update] do 
+    resources :sms_confirmations, path: "validation-tel", only: [:new, :create, :update] do 
       get :new_verify, on: :collection
       patch :verify, on: :collection
     end
-    resource :parameters, only: [:show, :edit, :update] do 
-      get :edit_password
-      patch :update_password
+    resource :parameters, path: "mes-parametres", only: [:show, :edit, :update] do 
+      get :edit_password, path: 'changer-mot-de-passe'
+      patch :update_password, path: 'changer-mot-de-passe'
     end
-    resources :events do
-      resources :event_invitations, as: :invitations, controller: "events/event_invitations" do 
+    resources :events, path: "mes-evenements" do
+      resources :event_invitations, as: :invitations, path: 'invitations', controller: "events/event_invitations" do 
         patch :batch_valildate, on: :collection
       end
       resources :searched_invited_users, controller: "events/searched_invited_users", only: [:index]
@@ -82,8 +82,8 @@ Rails.application.routes.draw do
       resources :event_attachments, as: :attachments, controller: "events/event_attachments"
 
     end
-    resources :past_events, only: :index
-    resources :event_invitations, as: :invitations, only: [:index, :edit] do
+    resources :past_events, path: 'mes-evenemets-passes', only: :index
+    resources :event_invitations, as: :invitations, path: 'mes-invitations', only: [:index, :edit] do
       member do
         patch :accept
         patch :reject
@@ -93,7 +93,7 @@ Rails.application.routes.draw do
 
   # Front ======================================
 
-  resources :profiles, only: [:show] do
+  resources :profiles, path: "profils", only: [:show] do
     resources :user_reports, as: :reports, controller: "profiles/user_reports", only: [:new, :create, :destroy]
   end
   resources :cities, only: [:index]
@@ -104,13 +104,13 @@ Rails.application.routes.draw do
     resources :events, only: [] do
       resources :event_participations, only: [:create, :destroy]
       resources :comments, only: [:create]
-      resources :testimonies, only: [:new, :create, :show]
+      resources :testimonies, path: "raconter", only: [:new, :create, :show]
     end
   end
 
-  resource :search, only: [:new, :show]
+  resource :search, path: "recherche", only: [:new, :show]
 
-  resources :basic_pages, only: [:show]
+  resources :basic_pages, path: "pages", only: [:show]
   resources :sms_notifications, only: [:index]
 
   get '/:filename', to: 'statics#show'
