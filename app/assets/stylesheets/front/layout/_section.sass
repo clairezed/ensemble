@@ -44,13 +44,15 @@ body
     @include section-straddle-margin(16rem)
 
 // Section tabs --------------------------
+.section_tabs_wrapper
+  box-shadow: 0px 3px 18px 0px rgba(102,102,102,0.44)
+
 .section_tabs
   display: flex
   flex-wrap: wrap 
   padding-left: 0
   margin-bottom: 0
   list-style: none
-  box-shadow: 0px 3px 18px 0px rgba(102,102,102,0.44)
   &_item
     flex-basis: 0
     flex-grow: 1
@@ -63,5 +65,9 @@ body
       &:hover
         text-decoration: none
 
+@media (min-width: 768px)
+  .section_tabs
+    max-width: 710px
+    margin: 0 auto
 
 

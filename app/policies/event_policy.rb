@@ -11,7 +11,7 @@
   end
 
   def update?
-    is_organizer? && record.active?
+    is_organizer? && record.active? && record.future?
   end
 
   def cancel?

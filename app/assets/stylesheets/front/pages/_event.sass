@@ -1,11 +1,18 @@
 $event-meta-height: 80px
+$event-picture-height: 200px
 
 .event-header
-  margin-bottom: - ($event-meta-height/2)
+  position: relative
+  &_picture
+    position: relative
+    background-size: cover
+    background-position: center
+    width: 100%
+    height: $event-picture-height
   &_meta
     display: flex
     justify-content: center
-    margin-top: - ($event-meta-height/2)
+    padding-top: $event-picture-height - ($event-meta-height/2)
     z-index: 50
     &-date, &-icon
       display: flex

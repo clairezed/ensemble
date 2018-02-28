@@ -2,12 +2,14 @@
 
 section
   .section_inner
-    h1.section-title Invitations
+    h1.section-title Invitations pour "#{@event.title}"
 
     h2.section-subtitle Invités
 
-    - @invited_users.each do |invitation|
-      = render partial: 'users/events/event_invitations/card', locals: {invitation: invitation}
+    .row.sm-gutter
+      - @invited_users.each do |invitation|
+        .col-12.col-md-6.sm-gutter
+          = render partial: 'users/events/event_invitations/card', locals: {invitation: invitation}
     
     - if @invited_users.empty?
       .alert.alert-light role="alert" Il n'y a pas encore d'invité à cet événement
@@ -26,8 +28,10 @@ section
             span class="path#{i}"
       ' Personnes aimant "#{event_leisure_title(@event)}"
 
-    - @leisure_users.each do |user|
-      = render partial: 'users/events/event_invitations/card', locals: {invitation: @event.event_invitations.new(user: user)}
+    .row.sm-gutter
+      - @leisure_users.each do |user|
+        .col-12.col-md-6.sm-gutter
+          = render partial: 'users/events/event_invitations/card', locals: {invitation: @event.event_invitations.new(user: user)}
     = paginate @leisure_users
 
     - if @leisure_users.empty?
@@ -41,7 +45,8 @@ section
     = form_tag users_event_searched_invited_users_path(@event), method: :get, class:"", data: {is_filter_form: true} do
       = text_field_tag :by_nickname, "", prompt: "Chercher une personne", class: "form-control", data: {is_ajax_select2: 'user', path: users_event_searched_invited_users_path(@event), event_id: @event.id }
 
-    div data-is-list='users'
+    .row.sm-gutter
+      .col-12.col-md-6.sm-gutter data-is-list='users'
 
 
 

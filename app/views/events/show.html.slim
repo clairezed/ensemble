@@ -61,16 +61,17 @@
 / Page event ====================================
 / Header ----------------------------------------
 section.event-header
-  = image_tag "leisures/#{@event.leisure.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure.title}"
-  .event-header_meta
-    .event-header_meta-date
-      .day-number= l(@event.start_at, format: '%d')
-      .month= l(@event.start_at, format: '%b')
-      .year= l(@event.start_at, format: '%Y')
-    .event-header_meta-icon data-toggle="tooltip" title="#{@event.leisure.title}"
-      span.ico> class="ico-#{@event.leisure.key}"
-        - (1..30).each do |i|
-          span class="path#{i}"
+  / = image_tag "leisures/#{@event.leisure.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure.title}"
+  .event-header_picture style=("background-image: url('#{image_path "leisures/#{@event.leisure.key}.jpg"}')")
+    .event-header_meta
+      .event-header_meta-date
+        .day-number= l(@event.start_at, format: '%d')
+        .month= l(@event.start_at, format: '%b')
+        .year= l(@event.start_at, format: '%Y')
+      .event-header_meta-icon data-toggle="tooltip" title="#{@event.leisure.title}"
+        span.ico> class="ico-#{@event.leisure.key}"
+          - (1..30).each do |i|
+            span class="path#{i}"
 
 
 / Actions & statuses ----------------------------------------
@@ -167,7 +168,7 @@ section
     - if @event.participants.any?
       .row.sm-gutter
         - @event.participants.includes(:avatar).each do |user|
-          .col-3.sm-gutter
+          .col-3.col-md-2.sm-gutter
             = render partial: 'profiles/thumb', locals: {user: user}
     - else
       p: small Il n'y a pas encore de participant à cet événement. Soyez le premier !
@@ -178,9 +179,9 @@ section
 
     / Formulaire ----------------------------
     .row.sm-gutter.comment-form
-      .col-3.sm-gutter
+      .col-3.col-md-2.sm-gutter
         = render partial: 'profiles/thumb', locals: {user: current_user}
-      .col-9.sm-gutter
+      .col-9.col-md-10.sm-gutter
         = form_for(@event.comments.new, as: :comment, \
           url: event_comments_path(@event), html: {class: ""}) do |f|
 
