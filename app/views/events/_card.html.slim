@@ -2,7 +2,7 @@
 = link_to event_path(event), class: "event-card #{'canceled' if event.canceled?}" do
   / .event-card class="#{'bg-secondary' if event.canceled?}"
   .event-card_picture
-     = image_tag "#{event.leisure_category.key}-square.jpg", class: 'img-fluid', alt: "Image d'illustration #{event.leisure_category.title}"
+     = image_tag "leisures/#{event.leisure.key}-carre.jpg", class: 'img-fluid', alt: "Image d'illustration #{event.leisure.title}"
   .event-card_meta
     .event-card_meta-date
       .day-number= l(event.start_at, format: '%d')

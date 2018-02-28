@@ -23,6 +23,7 @@
     thead.thead-inverse
       tr
         th 
+        th 
         th Date de création
         th Famille de loisirs
         th Titre
@@ -34,6 +35,7 @@
             span.ico> class="ico-#{leisure.key}"
               - (1..30).each do |i|
                 span class="path#{i}"
+          td = image_tag "leisures/#{leisure.key}-carre.jpg", class: 'img-fluid', alt: "Image d'illustration #{leisure.title}", style:"width: 30px"
           td= l leisure.created_at
           td= leisure.leisure_category.title
           td= leisure.title

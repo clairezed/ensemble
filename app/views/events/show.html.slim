@@ -61,7 +61,7 @@
 / Page event ====================================
 / Header ----------------------------------------
 section.event-header
-  = image_tag "#{@event.leisure_category.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure_category.title}"
+  = image_tag "leisures/#{@event.leisure.key}.jpg", class: 'img-fluid', alt: "Image d'illustration #{@event.leisure.title}"
   .event-header_meta
     .event-header_meta-date
       .day-number= l(@event.start_at, format: '%d')

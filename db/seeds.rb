@@ -73,71 +73,69 @@ p "End languages ------------------"
 # Leisures
 p "Leisures ------------------"
 [
-  { category: "Activités sportives", leisures: [
-    "Sports de balles",
-    "Sports de boules",
-    "Sports de glisse",
-    "Sports d'eau ",
-    "Sports de raquettes",
-    "Sports de combat",
-    "Sports à pied",
-    "Sports à roue",
-    "Aller voir du sport",
-    "Autre",
+  { category_title: "Sports", category_key: "activites-sportives", leisures: [
+    {title: "Sports de balles", key: "sports-de-balles"},
+    {title: "Sports de boules", key: "sports-de-boules"},
+    {title: "Sports de glisse", key: "sports-de-glisse"},
+    {title: "Sports de d'eau",  key: "sports-d-eau"},
+    {title: "Sports de raquettes", key: "sports-de-raquettes"},
+    {title: "Sports de combat", key: "sports-de-combat"},
+    {title: "Sports à pied", key: "sports-a-pied"},
+    {title: "Sports à roue", key: "sports-a-roue"},
+    {title: "Aller voir du sport", key: "aller-voir-du-sport"},
+    {title: "Autre", key: "autre"},
   ]},
-  { category: "Activités culinaires", leisures: [
-    "Cuisine à la maison",
-    "Restaurant",
-    "Pique-nique",
-    "Autre",
-  ] },
-  { category: "Activités culturelles", leisures: [
-    "Cinéma",
-    "Concert",
-    "Spectacle",
-    "Musée",
-    "Tourisme",
-    "Autre",
-  ] },
-  { category: "Activités artistiques", leisures: [
-    "Jouer de la musique",
-    "Chanter",
-    "Peindre-dessiner",
-    "Photographier",
-    "Danser",
-    "Autre",
-  ] },
-  { category: "Activités manuelles", leisures: [
-    "Couture-tricot",
-    "Jardinage",
-    "Bricolage",
-    "Autre",
-  ] },
-  { category: "Activités ludiques", leisures: [
-    "Jeux de cartes",
-    "Jeux de plateaux",
-    "Jeux vidéo,",
-    "Autre",
-  ] },
-  { category: "Activités de détente", leisures: [
-    "Soirée à la maison",
-    "Discussion",
-    "Autre",
-  ] },
-  { category: "Activités en ville", leisures: [
-    "Bar-café",
-    "Discothèque",
-    "Shopping",
-    "Autre",
-  ] },
+  { category_title: "À table", category_key: "activites-culinaires", leisures: [
+    {title: "Cuisine à la maison", key: "cuisine-a-la-maison"},
+    {title: "Restaurant", key: "restaurant"},
+    {title: "Pique-nique", key: "pique-nique"},
+    {title: "Autre", key: "autre"},
+  ]},
+  { category_title: "Culture", category_key: "activites-culturelles", leisures: [
+    {title: "Cinéma", key: "cinema"},
+    {title: "Concert", key: "concert"},
+    {title: "Spectacle", key: "spectacle"},
+    {title: "Musée", key: "musee"},
+    {title: "Tourisme", key: "tourisme"},
+    {title: "Autre", key: "autre"},
+  ]},
+  { category_title: "Arts", category_key: "activites-artistiques", leisures: [
+    {title: "Jouer de la musique", key: "jouer-de-la-musique"},
+    {title: "Chanter", key: "chanter"},
+    {title: "Peindre-dessiner", key: "peindre-dessiner"},
+    {title: "Photographier", key: "photographier"},
+    {title: "Danser", key: "danser"},
+    {title: "Autre", key: "autre"},
+  ]},
+    { category_title: "Avec les mains", category_key: "activites-manuelles", leisures: [
+    {title: "Couture-tricot", key: "couture-tricot"},
+    {title: "Jardinage", key: "jardinage"},
+    {title: "Bricolage", key: "bricolage"},
+    {title: "Autre", key: "autre"},
+  ]},
+    { category_title: "Jeux", category_key: "activites-ludiques", leisures: [
+    {title: "Jeux de cartes", key: "jeux-de-cartes"},
+    {title: "Jeux de plateaux", key: "jeux-de-plateaux"},
+    {title: "Jeux vidéo", key: "jeux-video"},
+    {title: "Autre", key: "autre"},
+  ]},
+  { category_title: "Détente", category_key: "activites-de-detente", leisures: [
+    {title: "Soirée à la maison", key: "soiree-a-la-maison"},
+    {title: "Discussion", key: "discussion"},
+    {title: "Autre", key: "autre"},
+  ]},
+  { category_title: "En ville", category_key: "activites-en-ville", leisures: [
+    {title: "Bar-café", key: "bar-cafe"},
+    {title: "Discothèque", key: "discotheque"},
+    {title: "Shopping", key: "shopping"},
+    {title: "Autre", key: "autre"},
+  ]},
 ].each do |category_hash|
-  key_category = category_hash[:category].parameterize
-  leisure_category = LeisureCategory.where(key: key_category).first_or_initialize
-  leisure_category.update_attributes( title: category_hash[:category] ) if leisure_category.new_record?
-  category_hash[:leisures].each do |leisure_title|
-    key_leisure = leisure_title.parameterize
-    leisure = leisure_category.leisures.where(key: key_leisure).first_or_initialize
-    leisure.update_attributes( title: leisure_title ) if leisure.new_record?
+  leisure_category = LeisureCategory.where(key: category_hash[:category_key]).first_or_initialize
+  leisure_category.update_attributes( title: category_hash[:category_title] ) if leisure_category.new_record?
+  category_hash[:leisures].each do |leisure_hash|
+    leisure = leisure_category.leisures.where(key: leisure_hash[:key]).first_or_initialize
+    leisure.update_attributes( title: leisure_hash[:title] ) if leisure.new_record?
   end
 end
 p "End leisures ------------------"
