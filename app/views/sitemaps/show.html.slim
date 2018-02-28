@@ -1,0 +1,6 @@
+section#sitemap
+  .section_inner
+    h1.section-title Plan du site
+
+    - @site_map.each do |elements|
+     = raw site_map_html(elements)

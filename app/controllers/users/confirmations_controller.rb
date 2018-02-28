@@ -1,5 +1,6 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
   skip_before_action :authenticate_user!
+  layout 'unregistered', only: [:new]
 
   # GET /resource/confirmation/new
   # def new

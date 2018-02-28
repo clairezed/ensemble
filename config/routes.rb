@@ -112,6 +112,7 @@ Rails.application.routes.draw do
 
   resources :basic_pages, path: "pages", only: [:show]
   resources :sms_notifications, only: [:index]
+  resource :sitemap, only: [:show]
 
   get '/:filename', to: 'statics#show'
 

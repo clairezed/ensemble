@@ -12,7 +12,7 @@ module Twilio
     def testimony_required(user, event)
       @event = event
       @user = user
-      message = "[Ensemble] Vous avez participé à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")} à #{@event.city.name}. Donnez votre avis en vous rendant sur le site."
+      message = "[Ensemble] Vous avez participé à #{@event.title} le #{@event.start_at.strftime("%d/%m/%Y")} à #{@event.city.name}. Donnez votre avis en allant sur le site."
       send_sms(message, @user.phone )
     end
 
