@@ -1,7 +1,11 @@
 .profile-status-bar
   display: flex
   justify-content: space-between
-  box-shadow: 0px 3px 18px 0px rgba(102,102,102,0.44)
+@media (min-width: 768px)
+  .profile-status-bar
+    max-width: 710px
+    margin: 0 auto
+    
 .profile-status_item
   padding: 0.5rem 1rem
   display: flex

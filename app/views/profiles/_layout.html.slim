@@ -8,7 +8,7 @@ section.section--reverse
     h1.section-title--centered.mb-0 = user_nickname(@user)
 
 / profile actions ---------------------------------------
-section.section
+section.section.section_tabs_wrapper
   - if is_current_user?(@user)
     ul.section_tabs
       li.section_tabs_item
