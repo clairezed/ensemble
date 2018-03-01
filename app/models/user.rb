@@ -215,6 +215,16 @@ class User < ApplicationRecord
     order(lastname: direction, firstname: direction)
   }
 
+  # stats ----------------------------------------------
+
+  scope :created_in_day, ->(date) {
+    where arel_table[:created_at].in(date.at_beginning_of_day..date.at_end_of_day)
+  }
+
+  scope :created_before, ->(date) {
+    where arel_table[:created_at].lteq(date.at_end_of_day)
+  }
+
 
   # Class Methods ==============================================================
 

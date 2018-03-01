@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222145447) do
+ActiveRecord::Schema.define(version: 20180301152910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,6 +180,17 @@ ActiveRecord::Schema.define(version: 20180222145447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seoable_type", "seoable_id"], name: "index_seos_on_seoable_type_and_seoable_id"
+  end
+
+  create_table "statistics", force: :cascade do |t|
+    t.date "day"
+    t.integer "new_user_count", default: 0
+    t.integer "total_user_count", default: 0
+    t.integer "registered_user_count", default: 0
+    t.integer "new_event_count", default: 0
+    t.integer "total_event_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "testimonies", force: :cascade do |t|

@@ -1,3 +1,58 @@
 - content_for :current_navigation_section, :home 
 
-h1 Bienvenue dans la partie Administration
+h1 Tableau de bord ensemble.
+
+.row.mb-5
+  .col-4
+    .card
+      .card-header Commentaires en attente
+      .card-body
+        h2.card-title.text-center = Comment.pending.count
+
+  .col-4
+    .card
+      .card-header Témoignages en attente
+      .card-body
+        h2.card-title.text-center = Testimony.pending.count
+.row
+  .col-12
+    .container
+      .card.mb-2
+        .card-body
+          = form_tag admin_root_path, method: :get, remote: true, data: {filter_period: true}, class:"form-inline" do
+            .form-group
+              label.control-label.mr-2 Du
+              => text_field_tag :begin_at, l(params[:begin_at], format: :default), class: "form-control mr-2", placeholder: "date", data: {pick: 'begin_at'}
+            .form-group
+              label.control-label.mr-2> au
+              => text_field_tag :end_at, l(params[:end_at], format: :default), class: "form-control mr-2", placeholder: "date", data: {pick: 'end_at'}
+            .form-group
+              = submit_tag "OK", class: "btn btn-primary", data: {filter_period_btn: true}
+
+.row
+  .col-12
+    .container
+      .card.mb-3
+        .card-body
+          h5.card-title Evénements
+
+          canvas#eventChart data-stats='events'
+
+
+
+coffee:
+  $ ->
+    $('[data-pick="begin_at"]').datepicker
+      format: 'dd/mm/yyyy'
+      language: 'fr'
+      autoclose: true
+      endDate: '-1d'
+
+    $('[data-pick="end_at"]').datepicker
+      format: 'dd/mm/yyyy'
+      language: 'fr' 
+      autoclose: true
+      endDate: 'today'
+
+    new DashboardIndex()
+

@@ -194,7 +194,7 @@ class Event < ApplicationRecord
     nearest_first(coordinates).next_in_time
   }
 
-  # Admin 
+  # Admin ---------------------------------------------------
 
   scope :by_state, ->(state) {
     where(state: states.fetch(state.to_sym))
@@ -204,6 +204,15 @@ class Event < ApplicationRecord
     where(visibility: visibilities.fetch(visibility.to_sym))
   }
 
+  # Stats --------------------------------------------------
+
+  scope :created_in_day, ->(date) {
+    where arel_table[:created_at].in(date.at_beginning_of_day..date.at_end_of_day)
+  }
+
+  scope :created_before, ->(date) {
+    where arel_table[:created_at].lteq(date.at_end_of_day)
+  }
  
   # Class Methods ==============================================================
 

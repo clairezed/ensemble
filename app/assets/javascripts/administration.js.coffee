@@ -14,6 +14,7 @@
 #= require quill/dist/quill.min
 #= require handlebars/dist/handlebars.min
 #= require ion-rangeslider/js/ion.rangeSlider.min
+#= require chart.js/dist/Chart.bundle.min
 
 #= require_tree ./vendor/locales
 

@@ -1,7 +1,7 @@
 doctype html
 html lang="#{I18n.locale}"
   head
-    title= "Admin PROJET"
+    title= "Admin ensemble."
     meta http-equiv="content-type" content="text/html;charset=UTF-8"
     = stylesheet_link_tag 'administration', :media => "all" 
     = javascript_include_tag 'administration'
@@ -30,7 +30,7 @@ html lang="#{I18n.locale}"
           .sidebar-container
             .sidebar-header
               .brand
-                = link_to "Admin Projet", admin_root_path
+                = link_to "Admin", admin_root_path
 
             nav.menu
               ul#sidebar-menu.nav.metismenu.flex-column
@@ -41,19 +41,21 @@ html lang="#{I18n.locale}"
                 = menu_link admin_users_path, section: :users, title: "Retour à l'accueil" do 
                   i.fa.fa-users
                   | Utilisateurs
-                = menu_link admin_leisure_categories_path, section: :leisure_menu, title: "Loisirs" do 
-                  i.fa.fa-gamepad
-                  | Loisirs
                 = menu_link admin_events_path, section: :events, title: "Evénements" do 
                   i.fa.fa-calendar
                   | Evénements
                 = menu_link admin_user_reports_path, section: :user_reports, title: "Signalements" do 
-                  i.fa.fa-pencil-square-o
+                  i.fa.fa-ban
                   | Signalements
+                = menu_link admin_leisure_categories_path, section: :leisure_menu, title: "Loisirs" do 
+                  i.fa.fa-gamepad
+                  | Loisirs
+                = menu_link admin_basic_pages_path, section: :basic_pages, title: "Pages éditables" do 
+                  i.fa.fa-pencil-square-o
+                  | Pages éditables                
 
                 = submenu(raw("<i class='fa fa-cog'></i> Configurations"), %w(basic_pages seos admins))
                   = menu_link 'Gestion des admins', admin_admins_path, section: :admins
-                  = menu_link 'Pages Basiques', admin_basic_pages_path, section: :basic_pages
                   = menu_link 'SEO pages statiques', admin_seos_path, section: :seos
 
         article.content

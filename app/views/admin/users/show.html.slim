@@ -73,7 +73,7 @@
         => icon_location
         ' Ville
       .col-sm-10.form-text
-        = @user.city.name
+        = @user.city.try(:name)
 
     .form-group.row
       = f.label :visited_countries, class: 'col-sm-2 col-form-label' do

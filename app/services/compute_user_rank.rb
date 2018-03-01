@@ -20,7 +20,6 @@ class ComputeUserRank
     else
       user.beginner! unless user.beginner?
     end
-      
   end
 
   private
