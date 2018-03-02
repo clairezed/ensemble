@@ -101,6 +101,9 @@ class User < ApplicationRecord
   has_many :created_user_reports, class_name: 'UserReport', source: :user
   has_many :given_user_reports, class_name: 'UserReport', source: :reported_user
 
+  has_many :comments, dependent: :destroy
+  has_many :testimonies, dependent: :destroy
+  
   # Validations ==================================================================
   validates :lastname,
             :firstname,

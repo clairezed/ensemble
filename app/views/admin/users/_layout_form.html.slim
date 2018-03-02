@@ -36,9 +36,14 @@
             = link_to "Accepter", accept_admin_user_path(@user), method: :patch, class: "btn btn-success btn-block mb-3"
           - if @user.may_admin_reject?
             = link_to "Rejeter et bloquer", reject_admin_user_path(@user), method: :patch, class: "btn btn-danger btn-block btn-wrap"
-          = link_to sign_as_admin_user_path(@user), class: "btn btn-sm btn-secondary", method: :post, title: "Se connecter en tant que cet utilisateur" do 
+
+          = link_to sign_as_admin_user_path(@user), class: "btn btn-secondary mt-2", method: :post, title: "Se connecter en tant que cet utilisateur" do 
             i.fa.fa-sign-in>
             ' Connect.
+
+          = link_to download_personal_data_admin_user_path(@user), class: "btn btn-outline-primary mt-2", title: "Télécharger les données personnelles" do 
+            i.fa.fa-download>
+            ' Données perso.
 
         .col-md-10
           = yield

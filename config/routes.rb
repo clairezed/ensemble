@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         patch :reject
         post :sign_as
         post :sign_out_as
+        get :download_personal_data
       end
     end
     resources :events do

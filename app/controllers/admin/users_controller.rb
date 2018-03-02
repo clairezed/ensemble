@@ -70,6 +70,10 @@ class Admin::UsersController < Admin::BaseController
     redirect_to action: :index
   end
 
+  def download_personal_data
+    send_data GeneratePersonnalData.call(@user), filename: "personnal_data_#{@user.id}.json"
+  end
+
   private
 
   def find_user

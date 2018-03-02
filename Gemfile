@@ -21,6 +21,8 @@ gem 'geocoder', '~> 1.4.0'
 gem "pg_search"
 gem 'global_phone', '~> 1.0'
 gem 'delayed_job_active_record'
+gem 'jsonapi-rails'
+
 
 # Asset pipeline ==========================================
 gem 'coffee-rails', '~> 4.2'
