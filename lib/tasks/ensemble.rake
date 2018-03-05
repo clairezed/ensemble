@@ -34,5 +34,16 @@ namespace :ensemble do
     p "Ending generate_statistics ========================="
   end
 
+  desc "Suppression des utilisateurs inactifs"
+  task delete_inactive_users: :environment do
+    p "#{Time.zone.now} - Starting delete_inactive_users"
+    Rails.logger.info "#{Time.zone.now} - Starting delete_inactive_users"
+    inactive_date = 2.years.ago
+    inactive_users = User.where(User.arel_table[:last_sign_in_at].lteq(inactive_date))
+    inactive_users_count = inactive_users.count
+    inactive_users.destroy_all
+    Rails.logger.info "Ending delete_inactive_users - deleted #{inactive_users_count} users ========================="
+    p "Ending delete_inactive_users - deleted #{inactive_users_count} users  ========================="
+  end
 
 end
