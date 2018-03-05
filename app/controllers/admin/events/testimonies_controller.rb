@@ -3,8 +3,7 @@ class Admin::Events::TestimoniesController < Admin::Events::BaseController
 
   def index
     params[:sort] ||= "sort_by_created_at desc"
-    @testimonies = @event.testimonies.page(params[:page]).per(10)
-    # @testimonies = @testimony.testimonies.apply_filters(params).page(params[:page]).per(10)
+    @testimonies = @event.testimonies.apply_sorts(params).page(params[:page]).per(10)
   end
 
 

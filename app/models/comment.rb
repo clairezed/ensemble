@@ -69,7 +69,7 @@ class Comment < ApplicationRecord
 
   def self.apply_filters(params)
 
-        klass = self
+    klass = self
 
     klass = klass.by_state(params[:by_state]) if params[:by_state].present?
     # klass = klass.by_prestation_restrict(params[:by_prestation_restrict]) if params[:by_prestation_restrict].present?

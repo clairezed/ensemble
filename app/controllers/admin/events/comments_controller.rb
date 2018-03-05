@@ -3,8 +3,7 @@ class Admin::Events::CommentsController < Admin::Events::BaseController
 
   def index
     params[:sort] ||= "sort_by_created_at desc"
-    @comments = @event.comments.page(params[:page]).per(10)
-    # .apply_filters(params).page(params[:page]).per(10)
+    @comments = @event.comments.apply_sorts(params).page(params[:page]).per(10)
   end
 
   def accept
