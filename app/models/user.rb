@@ -194,11 +194,9 @@ class User < ApplicationRecord
     where(verification_state: verification_states.fetch(state.to_sym))
   }
 
-
   scope :by_rank, ->(rank) {
     where(rank: ranks.fetch(rank.to_sym))
   }
-
 
   scope :by_leisure_category, -> (val) {
     joins(:leisure_interests).merge(LeisureInterest.by_leisure_category(val))

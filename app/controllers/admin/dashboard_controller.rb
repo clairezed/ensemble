@@ -6,6 +6,8 @@ class Admin::DashboardController < Admin::BaseController
   def index
     respond_to do |format|
       format.html
+        @pending_comments_count = Comment.pending.count
+        @pending_testimonies_count = Testimony.pending.count
       format.js do
         data = Statistics::ComputeEventStats.call({begin_at: params[:begin_at], end_at: params[:end_at]})
         render json: { success: true, data: data }, content_type: 'application/json'

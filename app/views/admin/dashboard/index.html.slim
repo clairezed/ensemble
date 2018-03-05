@@ -6,14 +6,22 @@ h1 Tableau de bord ensemble.
   .col-4
     .card
       .card-header Commentaires en attente
-      .card-body
-        h2.card-title.text-center = Comment.pending.count
+      .card-body.text-center
+        h2.card-title = @pending_comments_count
+        - if @pending_comments_count > 0
+          = link_to admin_events_path(with_pending_comments: true), class: 'btn btn-primary btn-sm' do 
+            ' Voir les événements
+            i.fa.fa-angle-right
 
   .col-4
     .card
       .card-header Témoignages en attente
-      .card-body
-        h2.card-title.text-center = Testimony.pending.count
+      .card-body.text-center
+        h2.card-title = @pending_testimonies_count
+        - if @pending_testimonies_count > 0
+          = link_to admin_events_path(with_pending_testimonies: true), class: 'btn btn-primary btn-sm' do 
+            ' Voir les événements
+            i.fa.fa-angle-right
 .row
   .col-12
     .container

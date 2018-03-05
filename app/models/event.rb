@@ -22,7 +22,6 @@ class Event < ApplicationRecord
     mirador: 1
   }
 
-
   # états de publication et validation par l'admin
   #
   enum state: {
@@ -204,6 +203,11 @@ class Event < ApplicationRecord
     where(visibility: visibilities.fetch(visibility.to_sym))
   }
 
+  scope :with_comments, -> { joins(:comments) }
+  scope :with_pending_comments, -> (bool) { with_comments.merge(Comment.pending) }
+
+  scope :with_testimonies, -> { joins(:testimonies) }
+  scope :with_pending_testimonies, -> (bool) { with_testimonies.merge(Testimony.pending) }
   # Stats --------------------------------------------------
 
   scope :created_in_day, ->(date) {
@@ -225,7 +229,9 @@ class Event < ApplicationRecord
       :by_end_at,
       :by_city,
       :by_state,
-      :by_visibility
+      :by_visibility,
+      :with_pending_comments,
+      :with_pending_testimonies
     ].inject(all) do |relation, filter|
       next relation unless params[filter].present?
       relation.send(filter, params[filter])
