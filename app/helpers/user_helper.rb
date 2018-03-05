@@ -97,16 +97,14 @@ module UserHelper
     end
   end
 
-  # Sorting -----------------------------------------
+  # Admin -----------------------------------------
 
-  # def user_sorting_options(option_keys = User::SORTING_OPTIONS)
-  #   option_keys.map do |key|
-  #     [user_sorting_option(key), key]
-  #   end
-  # end
+  def user_options(users = User.all)
+    users.map do |user|
+      [user.fullname, user.id]
+    end
+  end
 
-  # def user_sorting_option(key)
-  #   I18n.t(key, scope: [:sorting, :user])
-  # end
+
 
 end

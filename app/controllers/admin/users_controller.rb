@@ -4,8 +4,17 @@ class Admin::UsersController < Admin::BaseController
   before_action :find_user, except: [ :index, :new, :create ]
 
   def index
-    params[:sort] ||= "sort_by_created_at desc"
-    @users = User.includes(:avatar).apply_filters(params).page(params[:page]).per(20)
+    respond_to do |format|
+      format.html do
+        params[:sort] ||= "sort_by_created_at desc"
+        @users = User.includes(:avatar).apply_filters(params).page(params[:page]).per(20)
+      end
+      format.json do
+        @users = User.by_name_or_email(params.require :by_val).limit(10)
+        render json: @users.map { |user| { id: user.id, text: user.fullname } }
+      end
+    end
+
   end
 
   # paramètres ---------------------
