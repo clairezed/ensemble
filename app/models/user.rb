@@ -98,8 +98,8 @@ class User < ApplicationRecord
 
   has_many :event_invitations, dependent: :destroy
 
-  has_many :created_user_reports, class_name: 'UserReport', source: :user
-  has_many :given_user_reports, class_name: 'UserReport', source: :reported_user
+  has_many :created_user_reports, class_name: 'UserReport'
+  has_many :received_user_reports, class_name: 'UserReport', foreign_key: :reported_user_id
 
   has_many :comments, dependent: :destroy
   has_many :testimonies, dependent: :destroy

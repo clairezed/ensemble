@@ -25,7 +25,9 @@
           td= user.email
           td= boolean_badge(user.registration_complete)
           td= user_rank_title(user.rank)
-          td= (reports_count = user.given_user_reports.count) > 0 ? reports_count : '-'
+          td
+            - if (reports_count = user.received_user_reports.count) > 0
+              = link_to reports_count, admin_user_reports_path({reporting: user.id}), class: 'btn btn-sm btn-outline-primary'
           td 
             span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
           td= boolean_badge(user.mirador?)
