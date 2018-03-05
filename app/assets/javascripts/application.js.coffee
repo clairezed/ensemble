@@ -41,7 +41,7 @@
 
 
 $ ->
-  new CookiesAcceptance()
+  # new CookiesAcceptance()
   $('.tooltip_bottom').tooltip(placement: 'bottom')
   $('[data-toggle="tooltip"]').tooltip()
 

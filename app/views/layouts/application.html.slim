@@ -16,11 +16,25 @@ html lang="#{I18n.locale}"
     /[if lt IE 9]
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
     /<![endif]
-
+    
     = favicon_link_tag asset_path 'favicon.png'
 
     = javascript_include_tag "application" 
-    = render_document_ready_scripts 
+    = render_document_ready_scripts
+
+    / Gestion des cookies
+    script src="/tarteaucitron/tarteaucitron.js" type="text/javascript" 
+    coffee:
+      tarteaucitron.init
+        'hashtag': '#tarteaucitron'
+        'highPrivacy': false
+        'orientation': 'top'
+        'adblocker': false
+        'showAlertSmall': false
+        'cookieslist': true
+        'removeCredit': false
+      (tarteaucitron.job = tarteaucitron.job || []).push('youtube')
+
   body.main
     nav.nav-top.fixed-top class="#{'bg-sudo-mirador' if sudo_mode_active?}"
       .container
@@ -67,7 +81,7 @@ html lang="#{I18n.locale}"
               => icon_disconnect
               ' Retour admin  
         li.main-menu_item
-          = link_to root_path, title: "Retour à l'accueil", class:"main-menu_item-link"
+          = link_to root_path, title: "Retour à l'accueil", class:"main-menu_item-link" do
             => icon_home
             ' Accueil
         - if current_user.present?
@@ -108,9 +122,8 @@ html lang="#{I18n.locale}"
               => icon_disconnect
               ' Déconnexion
 
-
     = raw flash_messages
-    = render 'layouts/cookies_banner'
+    / = render 'layouts/cookies_banner'
 
     = yield
 
@@ -159,6 +172,7 @@ html lang="#{I18n.locale}"
                 li= link_to "Conditions générales d'utilisation", get_basic_page_path(:cgu)
                 li= link_to "Plan du site", sitemap_path
                 li= link_to "Mentions légales", get_basic_page_path(:legal_mentions)
+                li= link_to "Gérer les cookies", "javascript:tarteaucitron.userInterface.openPanel();"
             .col
               h3.section-title Suivez-nous
               .social-links

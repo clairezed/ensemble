@@ -21,6 +21,21 @@ html lang="#{I18n.locale}"
 
     = javascript_include_tag "application" 
     = render_document_ready_scripts 
+
+    script src="/tarteaucitron/tarteaucitron.js" type="text/javascript" 
+    coffee:
+      tarteaucitron.init
+        'hashtag': '#tarteaucitron'
+        'highPrivacy': false
+        'orientation': 'top'
+        'adblocker': false
+        'showAlertSmall': false
+        'cookieslist': true
+        'removeCredit': false
+      (tarteaucitron.job = tarteaucitron.job || []).push('youtube')
+
+
+
   body.unregistered
 
     nav.nav-top
@@ -33,7 +48,7 @@ html lang="#{I18n.locale}"
 
     = raw flash_messages 
 
-    = render 'layouts/cookies_banner'
+    / = render 'layouts/cookies_banner'
     
 
     = yield
@@ -51,6 +66,7 @@ html lang="#{I18n.locale}"
                 li= link_to "Conditions générales", get_basic_page_path(:cgu)
                 li= link_to "Plan du site", sitemap_path
                 li= link_to "Mentions légales", get_basic_page_path(:legal_mentions)
+                li= link_to "Gérer les cookies", "javascript:tarteaucitron.userInterface.openPanel();"
             .col
               h3.section-title Suivez-nous
               .social-links

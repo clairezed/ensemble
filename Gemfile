@@ -38,6 +38,7 @@ gem 'htmlentities', '~> 4.3.4'
 gem 'slim', '~> 3.0.7'
 gem 'font-awesome-rails'
 gem 'kaminari'
+gem 'tarteaucitron'
 
 # Uploads ================================================
 gem 'paperclip', '~> 5.1'

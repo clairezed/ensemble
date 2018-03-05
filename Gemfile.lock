@@ -133,6 +133,7 @@ GEM
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     geocoder (1.4.5)
+    geoip (1.6.3)
     global_phone (1.0.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -319,6 +320,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    tarteaucitron (0.3.2)
+      geoip
     temping (3.10.0)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
@@ -398,6 +401,7 @@ DEPENDENCIES
   rvm-capistrano
   sass-rails (~> 5.0)
   slim (~> 3.0.7)
+  tarteaucitron
   temping
   turbolinks (~> 5)
   twilio-ruby (~> 5.5)
