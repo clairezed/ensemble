@@ -185,9 +185,12 @@ class User < ApplicationRecord
   }
 
   scope :by_nickname, -> (val='', options) {
-    return none if (val.blank? && options[:strict] == true)
-    val.downcase!
-    where(arel_table[:firstname].matches("%#{val}%"))
+    if (val.blank? && options[:strict] == true)
+      none
+    else
+      val.downcase!
+      where(arel_table[:firstname].matches("%#{val}%"))
+    end
   }
 
   scope :by_verification_state, ->(state) {
