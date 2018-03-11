@@ -1,20 +1,27 @@
 = f.hm_form_errors
 
-.form-group.row
-  .form-label-default
-    | Affiché ?
-  .controls-default
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :enabled, true, class: 'form-check-input'
-        | Oui
-    .form-check.form-check-inline
-      label.form-check-label
-        => f.radio_button :enabled, false, class: 'form-check-input'
-        | Non
+/ .form-group
+/   label Affiché ?
+/   .controls-default
+/     .form-check.form-check-inline
+/       label.form-check-label
+/         => f.radio_button :enabled, true, class: 'form-check-input'
+/         | Oui
+/     .form-check.form-check-inline
+/       label.form-check-label
+/         => f.radio_button :enabled, false, class: 'form-check-input'
+/         | Non
 
-= f.hm_text_field :title, {}, {class: "required"}
-= f.hm_text_area :content, {rows: 15}
+.form-group.required
+  = f.label :title, class: ''
+  = f.text_field :title, class: 'form-control'
+
+.form-group
+  = f.label :content, class: ''
+  = f.hidden_field :content, class: 'form-control invisible', data: {is_hidden_field: 'description'}, hidden: true
+  div data-is-wysiwyg="quill"
+    p= wysiwyg_text(f.object.content)
+
 = render partial: "admin/seos/fields_for_form", locals: {f: f}
 .form-group.row
   .form-actions
@@ -28,10 +35,17 @@
   .controls-default
     small: em.text-muted Les champs marqués d'une * sont obligatoires
 
+
 coffee:
-  $ ->
-    $('#basic_page_content').redactor({ 
-      lang: 'fr',
-      buttons: ['formatting', '|', 'bold', 'italic', 'underline', 'deleted', '|', 'unorderedlist', 'orderedlist', 'outdent', 'indent', '|', 'video', 'link', '|', 'fontcolor', 'backcolor', '|', 'alignment'], 
-      minHeight: 500
-    })
+  new QuillWysiwyg('[data-is-wysiwyg="quill"]', 
+    { modules: {
+        toolbar: [
+          ['bold', 'italic', 'underline'],
+          [{ 'header': [1, 2, 3, false] }],
+          ['link', 'blockquote'],
+          [ { list: 'ordered' }, { list: 'bullet' }]
+          ['clean'] 
+        ]
+      }
+    }
+  )

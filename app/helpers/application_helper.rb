@@ -206,7 +206,7 @@ module ApplicationHelper
 
   # On n'autorise que les tag intégrés dans la barre du wysiwyg
   def wysiwyg_text(text)
-    raw sanitize text, tags: %w(strong em a p u ul ol li), attributes: %w(href)
+    raw sanitize text, tags: %w(strong em a p u ul blockquote ol li h1 h2 h3), attributes: %w(href)
   end
 
   def wysiwyg_present?(text)

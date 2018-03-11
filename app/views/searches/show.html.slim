@@ -5,7 +5,7 @@ section.search-show
     h2.section-title = dry_search_params(search_params).present? ? "Ma recherche" : "Prochains événements"
     = link_to new_search_path(search_params), class: "button--main" do
       => icon_search_reverse
-      = dry_search_params(search_params).present? ? "Modifier ma recherche" : "Rechercher"
+      = dry_search_params(search_params).present? ? "Changer ma recherche" : "Rechercher"
     
     .search-params
 

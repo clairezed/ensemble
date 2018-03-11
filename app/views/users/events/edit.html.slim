@@ -3,7 +3,7 @@
 
 section
   .section_inner
-    h2.section-title Modifier l'événement #{@event.title}
+    h2.section-title Changer l'événement #{@event.title}
 
     = form_for(@event, as: :event, \
       url: users_event_path(@event), html: {class: ""}) do |f| 

@@ -8,7 +8,7 @@
       h2.section-title Changer mes paramètres de contact
 
       = form_for @user, as: :user, url: users_parameters_path, html: {class: ""} do |f| 
-        = render partial: "users/parameters/form", locals: {f: f, button_name: "Modifier mon compte"}
+        = render partial: "users/parameters/form", locals: {f: f, button_name: "Changer mes paramètres"}
 
         .form-group
           .form-actions
