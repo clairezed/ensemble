@@ -4,14 +4,14 @@ $rank-progress-bg: $secondary
 $rank-progress-border-radius: 0px
 $rank-progress-box-shadow: none
 $rank-dot-diameter: 16px
+//desktop 
+$rank-progress-font-size-desktop: 1rem
 // $rank-progress-bar-color
 // $rank-progress-bar-bg
 // $rank-progress-bar-transition
 
 .rank-container
   margin-bottom: 1rem
-
-.rank-row
 
 .rank-step
   position: relative
@@ -70,3 +70,11 @@ $rank-dot-diameter: 16px
       &-bar
     .rank-step_dot:after
       background: $primary
+
+
+
+@media (min-width: 768px)
+  .rank-step_title, .rank-step_progress
+    font-size: $rank-progress-font-size-desktop
+  .rank-step_progress
+    margin: 13px 0
