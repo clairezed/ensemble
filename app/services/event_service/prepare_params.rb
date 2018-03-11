@@ -17,8 +17,6 @@ module EventService
   def call
     set_start_at
     set_end_at
-    p "END AT-----------------------------"
-    p params[:end_at]
     return params
   end
 
@@ -34,17 +32,12 @@ module EventService
   end
 
   def set_end_at
-    p "set_end_at"
-    p 
     if params[:end_date].present?
-      p params[:end_date]
-      p params[:end_time]
       end_date_param = Time.zone.parse([ params[:end_date], params[:end_time] ].join(" "))
-      p end_date_param
       params[:end_at] = end_date_param
     end
-          params.delete(:end_date)
-      params.delete(:end_time)
+    params.delete(:end_date)
+    params.delete(:end_time)
   end
 
   end
