@@ -1,5 +1,5 @@
 class @ProfileShow
 
   constructor: () ->
-    console.log "ProfileShow"
+    # console.log "ProfileShow"
     userReporter = new UserReporter()

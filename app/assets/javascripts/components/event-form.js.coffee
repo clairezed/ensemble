@@ -1,7 +1,7 @@
 class @EventForm
 
   constructor: () ->
-    console.log "EventForm"
+    # console.log "EventForm"
     citySelect        = new Select2Ajax()
     start_datepicker  = new DatePicker($('[data-date-picker="start"]'), {minDate: "today"})
     start_timepicker  = new TimePicker($('[data-time-picker="start"]'))

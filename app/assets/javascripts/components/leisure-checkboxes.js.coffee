@@ -25,7 +25,6 @@ class @LeisureCheckboxes
       checkActiveCategory()
 
     $("[data-toggle-up]").on 'click', ->
-      console.log "[data-toggle-up]"
       # hide leisure blocks
       $(this).parents('[data-leisure-row]').removeClass('toggled')
       # remove leisure category toggled class

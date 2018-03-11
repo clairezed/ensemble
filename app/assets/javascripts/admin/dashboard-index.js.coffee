@@ -37,9 +37,9 @@ class @DashboardIndex
         @renderChart()
       )  
       .on('ajax:error', '[data-filter-period]', (event) =>
-        console.log "error"
+        # console.log "error"
         detail = event.detail
-        console.log detail
+        # console.log detail
         xhr = detail[2]
-        console.log xhr
+        # console.log xhr
       )

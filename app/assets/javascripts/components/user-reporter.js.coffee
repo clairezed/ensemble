@@ -13,9 +13,10 @@ class @UserReporter
           $("[data-is-report-modal='content']").html(data.html)
           @$modal.modal('show')
         else
-          console.log data
+          # console.log data
+          flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
       .on "ajax:error", "[data-sms-confirmation-form]", (e, xhr, status, error)  =>
-        console.log e.detail
+        # console.log e.detail
         flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
     
     # Formulaire de creation report, dans la modal
@@ -31,5 +32,5 @@ class @UserReporter
           html = data.html
           $("[data-is-report-modal='content']").html(data.html)
       .on "ajax:error", "[data-report-form]", (e, xhr, status, error)  =>
-        console.log e.detail
+        # console.log e.detail
         flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')

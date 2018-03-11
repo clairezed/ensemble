@@ -24,7 +24,7 @@ class @QuillWysiwyg
     $form = $(@inputSelector).parents('form')
 
     $form.on 'submit', (e) ->
-      console.log "submit form !"
+      # console.log "submit form !"
       # console.log quill.root.innerHTML
       # console.log quill.getText()
       # console.log quill.getContents()
@@ -32,28 +32,7 @@ class @QuillWysiwyg
       $description = $('[data-is-hidden-field="description"]')
       quillContent = quill.root.innerHTML
       $description.val(quill.root.innerHTML)
-      console.log $description.html()
+      # console.log $description.html()
       # e.preventDefault()
       # false
-
-
-    # quill = new Quill('#editor-container',
-    #   modules: toolbar: [
-    #     [
-    #       'bold'
-    #       'italic'
-    #     ]
-    #     [
-    #       'link'
-    #       'blockquote'
-    #       'code-block'
-    #       'image'
-    #     ]
-    #     [
-    #       { list: 'ordered' }
-    #       { list: 'bullet' }
-    #     ]
-    #   ]
-    #   placeholder: 'Compose an epic...'
-    #   theme: 'snow')
 

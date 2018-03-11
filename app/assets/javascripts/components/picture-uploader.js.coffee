@@ -21,15 +21,15 @@ class @PictureUploader
     # Attachement deletion ---------------------------------------
     @options.scope
       .on "ajax:success", "[data-delete-picture]", (e, data, status, xhr) =>
-        console.log "delete success"
+        # console.log "delete success"
         detail = e.detail
         data = detail[0]
-        console.log data 
+        # console.log data 
         @getMediaNode(data['id']).remove()
       .on "ajax:error", "[data-delete-picture]", (e, xhr, status, error)  =>
-        console.log "delete error"
+        # console.log "delete error"
         errors = JSON.parse(xhr.responseText)['errors']
-        console.log errors
+        # console.log errors
         flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
 
   loadMedias: =>
@@ -39,16 +39,16 @@ class @PictureUploader
     if !!url # Si new_record, pas d'ajout de médias
       $.get(url, {}, null, 'json'
       ).done((items) =>
-        console.log(items)
+        # console.log(items)
         for item in items
           @prependNode(
             template: 'download', 
             data: item
           )
       ).fail((error) =>
-        console.log "error"
-        console.log error
-        # flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
+        # console.log "error"
+        # console.log error
+        flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
       )
 
   initFileUpload: =>
@@ -64,7 +64,7 @@ class @PictureUploader
         { name: 'authenticity_token', value: $('meta[name="csrf-token"]').attr('content')}
       ]
       add: (e, data) =>
-        console.log "add"
+        # console.log "add"
         @submitForm(data) if @preValidate(data)
       progress: (e, data) ->
         console.log "progress"
@@ -72,16 +72,16 @@ class @PictureUploader
           progress = parseInt(data.loaded / data.total * 100, 10)
           data.context.find('.bar').css('width', progress + '%')
       done: (e, data) =>
-        console.log "done"
-        console.log data
+        # console.log "done"
+        # console.log data
         $(data.context).remove() # on enleve la vignette de chargement
         data.context = @prependNode(
           template: 'download', 
           data: data.result
         )
       fail: (e, data) =>
-        console.log "fail"
-        console.log data.jqXHR
+        # console.log "fail"
+        # console.log data.jqXHR
         if data.jqXHR.status is 424 # pb de type de média
           @cancelUpload(data.jqXHR.responseText)
         else
@@ -125,8 +125,8 @@ class @PictureUploader
 
 
   submitForm: (data) =>
-    console.log "submitForm"
-    console.log data.files[0]
+    # console.log "submitForm"
+    # console.log data.files[0]
     data.context = @prependNode(
       template: 'upload', 
       data: data.files[0]
@@ -135,7 +135,7 @@ class @PictureUploader
     return false
   
   getFormat: (type) =>
-    console.log type
+    # console.log type
     switch type
       when "image/jpeg", \
         "image/png", \

@@ -44,31 +44,6 @@ class @FileUploader
         # console.log errors
         flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
 
-    # # Attachement edit modal ---------------------------------------
-    # @options.scope
-    #   .on "ajax:success", "[data-edit-attachment]", (e, data, status, xhr) =>
-    #     detail = e.detail
-    #     data = detail[0]
-    #     # console.log data
-    #     @$modalEditContainer.find(@options.selectors.modalContent).html(data)
-    #     @$modalEditContainer.modal('show')
-    #   .on "ajax:error", "[data-delete-attachment]", (e, xhr, status, error)  =>
-    #     # console.log error
-    #     # console.log xhr
-    #     flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
-    
-    # # Attachement update form ---------------------------------------
-    # @options.scope
-    #   .on "ajax:success", "[data-is-form='update-attachment']", (e, data, status, xhr) =>
-    #     console.log data
-    #     currentNode = @getMediaNode(data['id'])
-    #     compiledTemplate = @compileTemplate(data, 'download')
-    #     currentNode.replaceWith(compiledTemplate)
-    #     @$modalEditContainer.modal('hide')
-    #   .on "ajax:error", "[data-is-form='update-attachment']", (e, xhr, status, error)  =>
-    #     # console.log error
-    #     # console.log xhr
-    #     flash("Une erreur s'est produite. Veuillez réessayer ultérieurement", 'danger')
 
   loadMedias: =>
     # console.log "loadMedias"
