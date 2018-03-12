@@ -72,7 +72,7 @@ html lang="#{I18n.locale}"
     nav.main-menu data-is-menu="main"
       .main-menu_header
         .main-menu_title Menu
-        .main-menu_close  data-display-menu='close'
+        .main-menu_close  data-display-menu='close' title="fermer le menu"
           => icon_close
       ul.main-menu_list
         - if sudo_mode_active?
