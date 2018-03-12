@@ -49,7 +49,7 @@ module EventService
     end
 
     def paginate(users)
-      users.page(params[:page]).per(3)
+      users.page(params[:page]).per(4)
     end
 
 
