@@ -31,7 +31,7 @@ module Twilio
     end
 
     def send_confirmation_sms
-      message = "Bienvenue sur ENSEMBLE ! Le code à écrire sur le site pour vérifier votre numéro de téléphone est le suivant : #{user.sms_confirmation_token}"
+      message = "Bienvenue sur ensemble ! Le code à écrire sur le site pour vérifier votre numéro de téléphone est le suivant : #{user.sms_confirmation_token}"
       send_sms(message, user.phone)
     end
 

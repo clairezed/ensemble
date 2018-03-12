@@ -60,11 +60,11 @@ fr:
       send_paranoid_instructions: "Si votre compte existe, vous recevrez dans quelques minutes un email avec les instructions pour le débloquer"
     mailer:
       confirmation_instructions:
-        subject: 'Confirmez votre inscription'
+        subject: 'ensemble - Confirmez votre inscription'
       reset_password_instructions:
-        subject: 'Instructions pour renouveler votre mot de passe'
+        subject: 'ensemble - Changer votre mot de passe'
       unlock_instructions:
-        subject: 'Instructions pour débloquer votre compte'
+        subject: 'ensemble - Débloquer votre compte'
     omniauth_callbacks:
       failure: "Nous ne pouvons vous authentifier depuis %{kind} car \"%{reason}\"."
       success: "Vous êtes bien authentifier via votre compte %{kind}."

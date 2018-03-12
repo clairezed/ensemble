@@ -1,0 +1,10 @@
+Bonjour <%=@user.firstname%>,
+
+<%=user_nickname(@event.user)%> vous invite à son événement <%=@event.title%> prévu le <%=@event.start_at.strftime("%d/%m/%Y")%> à <%=@event.city.name%>.
+
+Pour accepter l'invitation, allez sur <%= edit_users_invitation_url(@invitation, query: 'accept')%>.
+Pour refuser l'invitation, allez sur <%= edit_users_invitation_url(@invitation, query: 'reject')%>.
+Pour voir l'événement, allez sur <%= event_url(@event)%>.
+
+
+Connectez-vous à <%=root_url%> pour participer à d'autres événements.

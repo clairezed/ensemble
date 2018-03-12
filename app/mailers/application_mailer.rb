@@ -6,7 +6,7 @@ class ApplicationMailer < ActionMailer::Base
   # Tous les mails envoyés depuis une classe héritant de celle-ci
   # ont un sujet commençant par le même préfixe
   #
-  SUBJECT_PREFIX = '[Ensemble]'.freeze
+  SUBJECT_PREFIX = 'ensemble - '.freeze
 
 
   # Callbacks ==================================================================

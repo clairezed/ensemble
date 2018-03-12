@@ -1,0 +1,7 @@
+Bonjour <%=@user.firstname%>,
+
+Vous avez participé à <%=@event.title%> le <%=@event.start_at.strftime("%d/%m/%Y")%> à <%=@event.city.name%>.
+
+Votre avis est important. 
+
+Allez sur <%=new_event_testimony_url(@event)%> et racontez-nous votre événement.

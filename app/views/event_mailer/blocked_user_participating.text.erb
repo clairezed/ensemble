@@ -1,0 +1,5 @@
+Bonjour <%=@user.firstname%>,
+
+<%=user_nickname(@event_participation.user)%>, que vous avez bloqué, vient de s'inscrire à un événement auquel vous participez : <%=@event_participation.event.title%> prévu le <%=@event_participation.event.start_at.strftime("%d/%m/%Y")%> à <%=@event_participation.event.city.name%>.
+
+Pour voir le détail de l'événement et décider de maintenir ou non votre participation, connectez-vous à <%=  event_url(@event_participation.event) %>.

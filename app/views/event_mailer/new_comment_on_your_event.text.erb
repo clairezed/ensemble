@@ -1,0 +1,7 @@
+Bonjour <%=@user.firstname%>,
+
+<%=user_nickname(@comment.user)%> a commenté votre événement <%=@comment.event.title%>.
+
+Commentaire : <%=raw @comment.body%>
+
+Pour répondre au commentaire, connectez-vous à <%=event_url(@comment.event)%>.
