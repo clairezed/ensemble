@@ -1,0 +1,44 @@
+.temporary-landing
+  color: $white
+  .countdown
+    margin-bottom: 5rem
+    span
+      font-size: 6rem
+      font-weight: bold
+      text-align: right
+      color: $secondary
+      sup
+        text-align: left  
+        color: rgba(255, 255, 255, 0.6)
+        font-size: 1.4rem
+        top: -2.5rem
+        right: 1rem
+    span:not(:last-child)
+      margin-right: 1rem
+
+  footer
+    padding: 0
+    &::before
+      content: ''
+      display: block
+      background: $secondary
+      height: 2px
+      width: 30%
+      margin: 3px auto
+    .secondary-link
+      a
+        color: $secondary
+        &:hover
+          color: darken($secondary, 10%)
+
+@media (max-width: 768px)
+  .temporary-landing
+    .countdown
+      margin-bottom: 3rem
+      span
+        font-size: 4.8rem
+        margin-bottom: -1.5rem
+        sup
+          font-size: 1rem
+          top: -2.2rem
+          right: .8rem

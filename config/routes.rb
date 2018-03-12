@@ -124,6 +124,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'users/registrations#new'
+  # root to: 'statics#show', filename: 'landing'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

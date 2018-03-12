@@ -1,0 +1,87 @@
+doctype html
+html lang="#{I18n.locale}"
+  head
+    title= @seo_title 
+    meta name="description" content="#{@seo_description}"
+    meta name="keywords" content="#{@seo_keywords}"
+    meta name="author" content="Claire Zuliani"
+    meta http-equiv="content-type" content="text/html;charset=UTF-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    = csrf_meta_tags 
+    = robots_indexation_prevention
+
+    = stylesheet_link_tag 'application', media: 'all' 
+
+    /[if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+    /<![endif]
+    
+    = favicon_link_tag asset_path 'favicon.png'
+
+    = javascript_include_tag "application" 
+    = render_document_ready_scripts
+
+    / Gestion des cookies
+    / script src="/tarteaucitron/tarteaucitron.js" type="text/javascript" 
+    / coffee:
+    /   tarteaucitron.init
+    /     'hashtag': '#tarteaucitron'
+    /     'highPrivacy': false
+    /     'orientation': 'top'
+    /     'adblocker': false
+    /     'showAlertSmall': false
+    /     'cookieslist': true
+    /     'removeCredit': false
+    /   (tarteaucitron.job = tarteaucitron.job || []).push('youtube')
+
+  body.bg-primary.temporary-landing
+    header.site-header role='banner'
+      .container
+        = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 260
+    main
+      .container
+
+        section.hero.pt-5.pb-5
+          h1.display-4.font-weight-bold ensemble.
+          p.lead Le nouveau site internet pour partager nos mondes
+
+
+        - remaining_time = (Time.new(2018, 03, 15, 18, 30) - Time.zone.now).to_i.abs
+
+        section.countdown
+          .counter
+            .d-flex.flex-row.flex-wrap
+              span
+                => remaining_time / 86400
+                sup jours
+              span
+                => remaining_time / 3600 % 24
+                sup heures
+              span
+                => remaining_time / 60 %60
+                sup min.
+              span
+                => remaining_time % 60
+                sup sec.
+
+        section.launching
+          h3 Lancement de l'application
+          p 
+            ' Jeudi 15 mars, 18h30
+            br
+            ' à la Souris Verte, Epinal
+
+    footer
+      .container.pt-3
+        .row
+          .col.text-left
+            .social-links
+              = link_to "https://twitter.com/EnsembleMIRADOR", class: "social-links_item", title: "lien vers le twitter de Ensemble", target: '_blank' do
+                i.fa.fa-twitter
+              = link_to "https://www.facebook.com/partageonsnosmondes", class: "social-links_item", title: "lien vers le facebook de Ensemble", target: '_blank' do
+                i.fa.fa-facebook
+              = link_to "https://www.instagram.com/ensemble.mirador", class: "social-links_item", title: "lien vers l'instagram de Ensemble", target: '_blank' do
+                i.fa.fa-instagram
+          .col.text-right.secondary-link
+            p Un projet de #{link_to "MIRADOR", 'http://www.project-mirador.org/',  target: '_blank'}
