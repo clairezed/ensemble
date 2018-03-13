@@ -13,7 +13,8 @@
               => f.radio_button :affiliation, key, class: "form-check-input"
               => event_affiliation(key)
           
-
+        => f.submit name: "continue", value: "Enregistrer", class: "btn btn-primary mr-2", id: "submit_and_stay"
+    hr 
     .form-group.row
       = f.label :title, class: 'col-sm-3 col-form-label' do
         => icon_text

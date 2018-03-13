@@ -31,10 +31,12 @@ class Admin::EventsController < Admin::BaseController
   def update
     if @event.update_attributes(event_params)
       flash[:notice] = "L'événement a été mis à jour avec succès"
-      redirect_to action: :index
+      redirect_to params[:continue].present? ? admin_event_path(@event) : admin_events_path
+
+      # redirect_to action: :index
     else
       flash[:error] = "Une erreur s'est produite lors de la mise à jour de l'événement"
-      render :edit
+      render :show
     end
   end
 
