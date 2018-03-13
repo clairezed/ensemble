@@ -35,6 +35,20 @@ html lang="#{I18n.locale}"
         'removeCredit': false
       (tarteaucitron.job = tarteaucitron.job || []).push('youtube')
 
+    - if Rails.env.production?
+      javascript:
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//stats.clairezuliani.com/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', '5']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+
   body.main
     nav.nav-top.fixed-top class="#{'bg-sudo-mirador' if sudo_mode_active?}"
       .container

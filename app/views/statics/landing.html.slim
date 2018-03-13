@@ -22,18 +22,22 @@ html lang="#{I18n.locale}"
     = javascript_include_tag "application" 
     = render_document_ready_scripts
 
-    / Gestion des cookies
-    / script src="/tarteaucitron/tarteaucitron.js" type="text/javascript" 
-    / coffee:
-    /   tarteaucitron.init
-    /     'hashtag': '#tarteaucitron'
-    /     'highPrivacy': false
-    /     'orientation': 'top'
-    /     'adblocker': false
-    /     'showAlertSmall': false
-    /     'cookieslist': true
-    /     'removeCredit': false
-    /   (tarteaucitron.job = tarteaucitron.job || []).push('youtube')
+    / <!-- Matomo -->
+    - if Rails.env.production?
+      javascript:
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="//stats.clairezuliani.com/";
+          _paq.push(['setTrackerUrl', u+'piwik.php']);
+          _paq.push(['setSiteId', '5']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+
+
 
   body.bg-primary.temporary-landing
     header.site-header role='banner'
