@@ -1,5 +1,6 @@
 class Users::SmsConfirmationsController < Users::BaseController
   skip_before_action :authenticate_user!
+  layout 'unregistered', only: [:new]
 
   def new
     @user = User.new
