@@ -115,6 +115,10 @@ html, body
 
   @include media-down(md) 
     padding-left: 0
+    &.sidebar-open
+      padding-left: $sidebar-width
+      .header-block-collapse
+        margin-left: $sidebar-width
     // background-color: #ccc
     // left: -$sidebar-width
     // width: calc(100% + #$sidebar-width)
@@ -122,8 +126,8 @@ html, body
   
   &.sidebar-open 
     // Disable content scrolling when sidebar is open
-    @include media-down(md) 
-      left: 0
+    // @include media-down(md) 
+    //   left: 0
       // position: absolute
       // height: 100%
       // overflow: hidden
@@ -491,6 +495,42 @@ html, body
       &.active a
         color: $sidebar-color-text-active
 
+.sidebar-overlay
+  position: absolute
+  display: none
+  left: 200vw
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 5
+  opacity: 0
+  transition: opacity 0.3s ease
+  z-index: 15
+
+  @include media-down(md)
+    display: block
+
+  @include media-down(sm)
+    background-color: fade-out(#000, 0.3)
+
+
+  .sidebar-open &
+    @include media-down(md)
+      left: 0
+      opacity: 1
+
+
+.sidebar-mobile-menu-handle
+  display: none
+  position: absolute
+  top: $header-height-xs
+  background-color: transparent
+  width: 30px
+  bottom: 0
+  z-index: 10
+
+  @include media-down(md)
+    display: block
 
 // Custom ----------------------------------------------
 // barre de gauche
@@ -534,6 +574,7 @@ aside.sidebar
 .header .header-block-collapse
 
   padding-right: 5px
+  transition: left 0.3s ease, margin-left 0.3s ease
 
   @include media-down(sm)
     width: 155px

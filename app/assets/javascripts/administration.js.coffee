@@ -46,3 +46,7 @@ $ ->
     $submenuContainer.toggleClass 'open'
     if $submenuContainer.hasClass 'open' then $(this).next().slideDown 200 else $(this).next().slideUp 200
     return
+
+  $('#sidebar-collapse-btn').on 'click', (event) ->
+    event.preventDefault()
+    $("#app").toggleClass("sidebar-open")

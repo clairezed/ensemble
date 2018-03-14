@@ -1,62 +1,63 @@
 = render layout: 'layout_index' do 
 
-  table.table.table-striped.table-hover.table-sm
-    thead.thead-inverse
-      tr
-        th style="width: 45px"
-        th = hm_sort 'sort_by_created_at', label: 'Date création'
-        th = hm_sort 'sort_by_lastname', label: 'Nom'
-        th = hm_sort 'sort_by_firstname', label: 'Prénom'
-        th Email
-        th Inscr. finalisée ?
-        th = hm_sort 'sort_by_rank', label: 'Grade'
-        th Signal.
-        th = hm_sort 'sort_by_verification_state', label: 'Statut'
-        th = hm_sort 'sort_by_affiliation', label: 'MIR.'
-        th Connexion
-        th 
-    tbody
-      - @users.each do |user| 
+  .table-responsive
+    table.table.table-striped.table-hover.table-sm
+      thead.thead-inverse
         tr
-          td= image_tag user.avatar_url(:thumb), class: 'img-fluid'
-          td= l user.created_at.to_date
-          td= user.lastname
-          td= user.firstname
-          td= user.email
-          td= boolean_badge(user.registration_complete)
-          td= user_rank_title(user.rank)
-          td
-            - if (reports_count = user.received_user_reports.count) > 0
-              = link_to reports_count, admin_user_reports_path({reporting: user.id}), class: 'btn btn-sm btn-outline-primary'
-          td 
-            span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
-          td= boolean_badge(user.mirador?)
-          td.text-center  
-            = link_to sign_as_admin_user_path(user), class: "btn btn-sm btn-secondary", method: :post, title: "Se connecter en tant que cet utilisateur" do 
-              i.fa.fa-sign-in
+          th style="width: 45px"
+          th = hm_sort 'sort_by_created_at', label: 'Date création'
+          th = hm_sort 'sort_by_lastname', label: 'Nom'
+          th = hm_sort 'sort_by_firstname', label: 'Prénom'
+          th Email
+          th Inscr. finalisée ?
+          th = hm_sort 'sort_by_rank', label: 'Grade'
+          th Signal.
+          th = hm_sort 'sort_by_verification_state', label: 'Statut'
+          th = hm_sort 'sort_by_affiliation', label: 'MIR.'
+          th Connexion
+          th 
+      tbody
+        - @users.each do |user| 
+          tr
+            td= image_tag user.avatar_url(:thumb), class: 'img-fluid'
+            td= l user.created_at.to_date
+            td= user.lastname
+            td= user.firstname
+            td= user.email
+            td= boolean_badge(user.registration_complete)
+            td= user_rank_title(user.rank)
+            td
+              - if (reports_count = user.received_user_reports.count) > 0
+                = link_to reports_count, admin_user_reports_path({reporting: user.id}), class: 'btn btn-sm btn-outline-primary'
+            td 
+              span class="badge badge-#{user_verification_state_style(user.verification_state)}"= user_verification_state_title(user.verification_state)
+            td= boolean_badge(user.mirador?)
+            td.text-center  
+              = link_to sign_as_admin_user_path(user), class: "btn btn-sm btn-secondary", method: :post, title: "Se connecter en tant que cet utilisateur" do 
+                i.fa.fa-sign-in
 
-          td.action-btns
-            => link_to admin_user_path(user), 
-                        class: "btn btn-sm btn-light", 
-                        title: "Voir" do
-              i.fa.fa-eye
-            => link_to edit_admin_user_path(user), 
-                        class: "btn btn-sm btn-info", 
-                        title: "Editer" do
-              i.fa.fa-pencil
+            td.action-btns
+              => link_to admin_user_path(user), 
+                          class: "btn btn-sm btn-light", 
+                          title: "Voir" do
+                i.fa.fa-eye
+              => link_to edit_admin_user_path(user), 
+                          class: "btn btn-sm btn-info", 
+                          title: "Editer" do
+                i.fa.fa-pencil
 
-            = link_to admin_user_path(user),
-                      method: :delete, 
-                      data: {confirm: "Confirmer la suppression ?"}, 
-                      title: "Supprimer", 
-                      class: "btn btn-sm btn-danger" do 
+              = link_to admin_user_path(user),
+                        method: :delete, 
+                        data: {confirm: "Confirmer la suppression ?"}, 
+                        title: "Supprimer", 
+                        class: "btn btn-sm btn-danger" do 
 
-                i.fa.fa-trash
-      
-      - if @users.empty?
-        tr
-          td colspan="10"
-            p.text-center: em.text-muted Aucun résultat
+                  i.fa.fa-trash
+        
+        - if @users.empty?
+          tr
+            td colspan="10"
+              p.text-center: em.text-muted Aucun résultat
 
 
   = paginate @users
