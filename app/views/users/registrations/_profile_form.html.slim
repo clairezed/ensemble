@@ -48,7 +48,7 @@
   .input-group
     = f.date_select :birthdate, {\
       order: [:day, :month, :year],\
-      start_year: Date.current.year - 120, end_year: Date.current.year,\
+      start_year: Date.current.year - 100, end_year: Date.current.year,\
       prompt: true\
     }, {class: "form-control"}
     / = f.text_field :birthdate, class: 'form-control', data: {date_picker: 'birthdate'}, placeholder: "jj/mm/aaaa"
