@@ -123,8 +123,8 @@ Rails.application.routes.draw do
     end
   end
 
-  # root to: 'users/registrations#new'
-  root to: 'statics#show', filename: 'landing'
+  root to: 'users/registrations#new'
+  # root to: 'statics#show', filename: 'accueil'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

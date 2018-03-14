@@ -11,9 +11,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :find_user, only: [:new_second_step, :create_second_step, :edit_profile, :update_profile]
 
   def new
-    get_seo_for_static_page('home')
-    set_landing_page_data
-    @user = User.new_with_session({}, session)
+    opening_time = Time.new(2018, 03, 15, 19, 15)
+    if Time.zone.now < opening_time
+      redirect_to '/accueil', layout: false
+    else
+      get_seo_for_static_page('home')
+      set_landing_page_data
+      @user = User.new_with_session({}, session)
+    end
   end
 
 

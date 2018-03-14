@@ -42,7 +42,8 @@ html lang="#{I18n.locale}"
   body.bg-primary.temporary-landing
     header.site-header role='banner'
       .container
-        = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 260
+        = link_to root_path do
+          = image_tag 'logo-ensemble.svg', class:"", alt: 'projet', width: 260
     main
       .container
 
