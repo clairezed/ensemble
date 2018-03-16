@@ -41,6 +41,6 @@
 
 .card
   .card-body
-    small.float-right = I18n.t("results", count: @users.count)
+    small.float-right = I18n.t("results", count: @users.total_count)
     = yield
 
