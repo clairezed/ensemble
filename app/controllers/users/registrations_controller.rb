@@ -158,6 +158,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def find_user
     @user = current_user
+    redirect_to root_path unless @user.present?
   end
 
 end
